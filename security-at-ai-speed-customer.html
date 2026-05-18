@@ -1,8 +1,8 @@
-<!doctype html>
+mpo<!doctype html>
 <html lang="es">
 <head>
 <meta charset="utf-8" />
-<title>Seguridad a la velocidad de la IA — Microsoft Security</title>
+<title>Seguridad al ritmo de la IA — Microsoft Security</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
@@ -156,7 +156,7 @@ const FIVE_CHANGES = [
   { t: "Reconocimiento continuo y adaptativo", d: "Los agentes adversarios escanean su entorno 24/7 y se adaptan a lo que encuentran. Desaparece la noción de «periodo de silencio» que el SOC clásico aprovechaba para reorganizarse, actualizar firmas y desplegar parches." },
   { t: "Vulnerability chaining (encadenamiento de vulnerabilidades) como norma", d: "La unidad de riesgo deja de ser el CVE (Common Vulnerabilities and Exposures — identificador estándar de una vulnerabilidad concreta) individual: pasa a ser la secuencia de varios encadenados que, sumados, abren un camino completo desde el perímetro hasta la exfiltración." },
   { t: "Alcance al estate completo", d: "Cada identidad, endpoint (dispositivo), data store (repositorio de datos), workload (carga de trabajo cloud) y agente entra en perímetro. No hay activo «menor»: en la nueva cinética los agentes adversarios recorren la organización lateralmente con velocidad y persistencia." },
-  { t: "Defensa autónoma como obligación", d: "No se puede contrarrestar velocidad-máquina con velocidad-humana. La defensa misma tiene que ser agéntica: orquestada por modelos que despliegan agentes especializados, mantienen memoria y aprenden de cada incidente." },
+  { t: "Defensa autónoma como obligación", d: "No se puede contrarrestar velocidad de la IA con velocidad humana. La defensa misma tiene que ser agéntica: orquestada por modelos que despliegan agentes especializados, mantienen memoria y aprenden de cada incidente." },
 ];
 
 const PILLAR_DEFEND = {
@@ -299,7 +299,7 @@ const REAL_CASES = [
     name: "Campaña de ciberespionaje multi-agente — Octo Tempest",
     badge: "critical",
     summary: "Grupo crimeware patrocinado por Estado. Usaron un modelo de IA comercial sin modificación. Multi-agente: Vulnerability Finder, Reconnaissance, Lateral Movement y C2 Agent (Command and Control). Comprometieron simultáneamente decenas de organizaciones del Top 500 de cotizadas en EE.UU.",
-    lesson: "Primera campaña agéntica documentada a escala. Kill chain clásico, ejecutado a velocidad-máquina.",
+    lesson: "Primera campaña agéntica documentada a escala. Kill chain clásico, ejecutado a la velocidad de la IA.",
   },
 ];
 
@@ -331,9 +331,9 @@ function App() {
             <div className="flex flex-wrap items-center gap-2 mb-3 relative">
               <Badge>Microsoft Security</Badge>
             </div>
-            <h1 className="serif text-4xl md:text-5xl leading-tight relative">Seguridad a la velocidad de la IA</h1>
+            <h1 className="serif text-4xl md:text-5xl leading-tight relative">Seguridad al ritmo de la IA</h1>
             <p className="text-slate-300 mt-4 text-lg leading-relaxed relative">
-              La defensa empresarial ya no se mide contra atacantes humanos, sino contra <strong>agentes autónomos</strong> que reconocen, explotan y se mueven a la velocidad de una máquina. La respuesta no es resistir más rápido: es <strong>reformular el SOC</strong> con una flota de agentes que defiende a velocidad-máquina, gobernada por un arnés multi-modelo, anclada en el dato del cliente y supervisada por un nuevo rol — el <em>Frontier Security Engineer</em>.
+              La defensa empresarial ya no se mide contra atacantes humanos, sino contra <strong>agentes autónomos</strong> que reconocen, explotan y se mueven a mayor velocidad. La respuesta no es resistir más rápido: es <strong>reformular el SOC</strong> con una flota de agentes que defienden en tiempo real, gobernada por un <i>arnés</i) multi-modelo, anclada en el dato del cliente y supervisada por un nuevo rol — el <em>Frontier Security Engineer</em>.
             </p>
             <blockquote className="mt-5 border-l-2 border-cyan-400 pl-4 text-slate-200 italic relative quote-mark">
               Los ataques liderados por humanos prueban si puedes responder lo bastante rápido. Los ataques liderados por agentes prueban si has dejado algo que se pueda explotar.
@@ -351,7 +351,7 @@ function App() {
         <SectionTitle n="1" title="La idea en una frase" />
         <div className="card p-6">
           <p className="text-lg text-slate-100 leading-relaxed">
-            <strong>La seguridad a la velocidad de la IA</strong> es el principio de que la defensa empresarial tiene que ser <strong>autónoma, continua y orquestada por agentes</strong>, porque ya no compite contra humanos: compite contra agentes adversarios que ejecutan el <Term t="kill chain" d="cadena de ataque completa, desde reconocimiento hasta exfiltración"/> a velocidad de máquina.
+            <strong>La seguridad al ritmo de la IA</strong> es el principio de que la defensa empresarial tiene que ser <strong>autónoma, continua y orquestada por agentes</strong>, porque ya no compite contra humanos: compite contra agentes adversarios que ejecutan el <Term t="kill chain" d="cadena de ataque completa, desde reconocimiento hasta exfiltración"/> a velocidad de máquina.
           </p>
         </div>
       </section>
@@ -719,7 +719,7 @@ function App() {
 
       <footer className="text-slate-500 text-xs mt-12 pt-6 divider">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <div>Seguridad a la velocidad de la IA · Microsoft Security · Adaptado de la keynote de Hayete Gallot, EMEA Security Days, mayo 2026.</div>
+          <div>Seguridad al ritmo de la IA · Microsoft Security · Adaptado de la keynote de Hayete Gallot, EMEA Security Days, mayo 2026.</div>
           <div className="no-print">
             <a href="#" onClick={(e)=>{e.preventDefault();window.print();}}>🖨 Imprimir</a>
           </div>
