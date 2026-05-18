@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Seguridad a la velocidad de la IA — Concepto</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --bg: #0b1020;
+    --panel: #131a33;
+    --panel-2: #1a2347;
+    --ink: #e7ecf7;
+    --muted: #97a3c5;
+    --accent: #6ee7f1;
+    --accent-2: #f59e8b;
+    --gold: #d4a64a;
+    --crimson: #c0392b;
+    --line: rgba(255,255,255,0.08);
+  }
+  html, body { background: var(--bg); color: var(--ink); }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+  .serif { font-family: Georgia, "Times New Roman", serif; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; }
+  .card-2 { background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; }
+  .tag { background: rgba(110,231,241,0.12); color: var(--accent); border: 1px solid rgba(110,231,241,0.25); }
+  .tag-warm { background: rgba(245,158,139,0.12); color: var(--accent-2); border: 1px solid rgba(245,158,139,0.25); }
+  .tag-gold { background: rgba(212,166,74,0.15); color: var(--gold); border: 1px solid rgba(212,166,74,0.35); }
+  .tag-red { background: rgba(192,57,43,0.15); color: #ff8b7a; border: 1px solid rgba(192,57,43,0.35); }
+  .tag-blue { background: rgba(91,141,239,0.15); color: #93b8ff; border: 1px solid rgba(91,141,239,0.35); }
+  .tag-green { background: rgba(72,187,120,0.15); color: #7be9a0; border: 1px solid rgba(72,187,120,0.35); }
+  .num-dot { background: linear-gradient(135deg, #6ee7f1, #5b8def); }
+  a { color: #9cd6ff; }
+  a:hover { color: #cfeaff; }
+  .divider { border-top: 1px solid var(--line); }
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  .pillar-icon { font-size: 2.2rem; line-height: 1; }
+  .quote-mark::before { content: "“"; font-family: Georgia, serif; font-size: 4rem; line-height: 0.5; color: var(--accent); opacity: 0.4; vertical-align: -0.3em; margin-right: 0.1em;}
+  @media print {
+    body { background: white; color: black; }
+    .card, .card-2 { background: white; border: 1px solid #ddd; }
+    .no-print { display: none !important; }
+    a { color: black; text-decoration: underline; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" data-presets="env,react">
+
+function Badge({children, warm, gold, red, blue, green}) {
+  let cls = "tag";
+  if (gold) cls = "tag-gold";
+  else if (warm) cls = "tag-warm";
+  else if (red) cls = "tag-red";
+  else if (blue) cls = "tag-blue";
+  else if (green) cls = "tag-green";
+  return <span className={"inline-block text-xs font-medium px-2.5 py-1 rounded-full " + cls}>{children}</span>;
+}
+
+function SectionTitle({n, title, sub}) {
+  return (
+    <div className="flex items-start gap-4 mb-5">
+      <div className="num-dot text-slate-900 font-bold w-9 h-9 rounded-full flex items-center justify-center shadow-md">{n}</div>
+      <div>
+        <h2 className="serif text-2xl tracking-tight">{title}</h2>
+        {sub && <p className="text-sm text-slate-400 mt-0.5">{sub}</p>}
+      </div>
+    </div>
+  );
+}
+
+function Term({t, d}) {
+  return <span className="text-slate-100">{t} <span className="text-slate-400">({d})</span></span>;
+}
+
+const FIVE_CHANGES = [
+  { t: "La velocidad como característica estructural", d: "Antes era la excepción del atacante; ahora es el modo por defecto. Un SOC (Security Operations Center — centro de operaciones de seguridad) que opera a ritmo humano ya está perdiendo la carrera contra adversarios automatizados que actúan en minutos, no en días." },
+  { t: "Reconocimiento continuo y adaptativo", d: "Los agentes adversarios escanean tu entorno 24/7 y se adaptan a lo que encuentran. Desaparece la noción de «periodo de silencio» que el SOC clásico aprovechaba para reorganizarse, actualizar firmas y desplegar parches." },
+  { t: "Vulnerability chaining (encadenamiento de vulnerabilidades) como norma", d: "La unidad de riesgo deja de ser el CVE (Common Vulnerabilities and Exposures — identificador estándar de una vulnerabilidad concreta) individual: pasa a ser la secuencia de varios encadenados que, sumados, abren un camino completo desde el perímetro hasta la exfiltración." },
+  { t: "Alcance al estate completo", d: "Cada identidad, endpoint (dispositivo), data store (repositorio de datos), workload (carga de trabajo cloud) y agente entra en perímetro. No hay activo «menor»: en la nueva cinética los agentes adversarios recorren la organización lateralmente con velocidad y persistencia." },
+  { t: "Defensa autónoma como obligación", d: "No se puede contrarrestar velocidad-máquina con velocidad-humana. La defensa misma tiene que ser agentica: orquestada por modelos que despliegan agentes especializados, mantienen memoria y aprenden de cada incidente." },
+];
+
+const PILLAR_DEFEND = {
+  title: "Defenderse con IA",
+  english: "Defend with AI",
+  text: "Construir un SOC autónomo apoyado en tres ingredientes inseparables — Signal, Intelligence y Agents — coordinados por un Frontier orchestrator (orquestador donde el modelo, no un script fijo, decide qué sub-orquestadores y agentes invocar). El paradigma cambia: los agentes de tareas que Microsoft ya enviaba como productos puntuales pasan a ser tools (herramientas) dentro de una arquitectura hyper-composed (hipercompuesta).",
+  quote: "«Fight drones with drones. We are building an Iron Man suit for the defender — and this is not magic, it is a real design and architecture.»",
+  details: [
+    { h: "Signal — la base", b: "100 billones (10¹⁴) de señales/día procesadas en tiempo real. El valor no está en el volumen absoluto sino en que esa señal se ancla en los activos del cliente, construida bottom-up (de abajo arriba) desde dispositivos, identidades, workloads, data stores y recursos de Azure Resource Graph (catálogo de recursos en Azure). Las señales sin contexto de activo son ruido." },
+    { h: "Intelligence — el SecurityIQ Graph", b: "Microsoft transforma esas señales en un grafo (estructura ontológica que relaciona activos, identidades, eventos y riesgo) que los agentes pueden recorrer con bajo consumo de tokens (unidades de cómputo de los LLM — Large Language Models, modelos de lenguaje). En experimentos, reducción de 10x en uso de tokens frente a lanzar logs crudos al modelo. No es un CMDB (Configuration Management Database — base de datos de gestión de configuración) estático: es vivo, en tiempo real." },
+    { h: "Agents — la flota especializada", b: "Equipos RED (Red Team — ataque ético), BLUE (operaciones de defensa: triage, hunting, detección, threat intelligence), GREEN (postura, prevención, remediación) y un Reviewer/Critic que mantiene al humano en el bucle (HITL — Human-In-The-Loop). Por encima, un Planner que actúa como CEO del sistema, decidiendo qué agentes invocar para cada tarea." },
+  ],
+  formula: "Frontier coding models + data graph con contexto y memoria + security APIs = all jobs to be done",
+};
+
+const AGENT_LOOP = [
+  { n: 1, who: "Usuario", what: "Envía un artículo de threat intelligence (inteligencia de amenazas — TI). Pregunta: «¿estamos protegidos?»" },
+  { n: 2, who: "Planner", what: "Entiende la petición, construye el plan, decide qué agentes especialistas invocar." },
+  { n: 3, who: "🔵 Hunter Agent", what: "Busca señales de compromiso en el entorno específicas del informe." },
+  { n: 4, who: "🔵 Detection Agent", what: "Toma los indicadores del informe y construye detecciones. Si funcionan, las despliega." },
+  { n: 5, who: "🟢 Posture Agent", what: "Identifica configuraciones que deben cambiar; las aplica." },
+  { n: 6, who: "🔴 Red Team Agent", what: "Pressure-test (prueba de presión, simulación de ataque) para validar las defensas." },
+  { n: 7, who: "👁️ Frontier Security Engineer + Reviewer", what: "Revisa y aprueba antes de aplicar cambios en producción." },
+];
+
+const PILLAR_SAFELY = {
+  title: "Habilitar IA con gobierno",
+  english: "Safely enable AI",
+  text: "Salir de la falsa dicotomía NONO (postura de bloqueo total a la IA por parte de IT o CISO — Chief Information Security Officer, director de seguridad de la información) vs. YOLO (You Only Live Once — adopción sin controles, típicamente con herramientas consumer fuera de IT) hacia GOGO (habilitación con gobierno: ni bloqueo ni descontrol; IA productiva con guardrails).",
+  quote: "«Security should be an accelerator, not a blocker. NONO is unacceptable. YOLO is unsafe. With our approach you can enable GOGO.»",
+  riskMap: [
+    { behavior: "Procesa inputs", risk: "Prompt injection / process injection (inyección de instrucciones maliciosas dentro del prompt)" },
+    { behavior: "Accede a datos", risk: "Over-permissioned access (acceso con permisos excesivos), exfiltración de datos" },
+    { behavior: "Instala / genera / ejecuta código", risk: "Supply chain (cadena de suministro), tool abuse (abuso de herramientas), privilege escalation (escalada de privilegios)" },
+    { behavior: "Conecta a sistemas", risk: "Blast radius (radio de impacto cuando algo falla)" },
+    { behavior: "Opera autónomamente", risk: "Non-deterministic behavior (comportamiento no determinista; difícil de auditar y reproducir)" },
+    { behavior: "Interactúa con servicios externos", risk: "Exfiltración, untrusted integrations (integraciones no confiables)" },
+  ],
+  arch: [
+    { h: "XPIA Library", d: "Biblioteca defensiva contra XPIA (Cross-Prompt Injection Attack — inyección de instrucciones cruzada entre prompts)." },
+    { h: "Agentic Identity + Authorization + Data classification + Policy enforcement", d: "Identidad para cada agente, autorización por contexto, clasificación de datos y enforcement (aplicación) de política." },
+    { h: "Runtime validation + sandboxing + code inspection", d: "Validación en ejecución, ejecución aislada en sandbox (entorno acotado), inspección del código generado." },
+    { h: "Identity-based Conditional Access + Network segmentation + Filtering", d: "Zero Trust (modelo «no confiar nunca, verificar siempre») aplicado al mundo agentic, con segmentación de red y filtrado." },
+    { h: "Monitoring + Dynamic Risk + Auditability + Human Sponsor in-the-loop", d: "Observabilidad, scoring (puntuación) de riesgo dinámico por sesión, auditabilidad y un patrocinador humano responsable." },
+    { h: "Secure connectors + Policy boundaries + Containment + Secure MCP gateways", d: "Conectores seguros, límites de política, contención dinámica y pasarelas MCP (Model Context Protocol — protocolo estándar para conectar modelos a herramientas) seguras." },
+  ],
+  club: "Como un club: los agentes unmanaged (no gestionados) no entran. Los managed (gestionados) pueden entrar por la puerta principal pero no a la VIP room. Sólo los managed + contained (contenidos) + low risk acceden a privilegio. Y como el riesgo cambia momento a momento — verde, amarillo, rojo —, el containment (contención) también tiene que ser dinámico: contenedores, red y política.",
+  steps: [
+    "Discover (descubrir) — radar que localiza todos los agentes, managed y shadow agents (agentes en la sombra, equivalente a shadow IT).",
+    "Assign identity + Contain shadow agents — asignar identidad agentic; sin identidad no hay Zero Trust. Onboarding obligatorio como managed con políticas.",
+    "Compute Dynamic Risk — scoring per sesión, ligado a identidad (igual que se hace hoy con usuarios).",
+    "Implement Zero Trust con Conditional Access — acceso a datos condicionado al riesgo en tiempo real.",
+  ],
+  ga: "Agent 365 → GA (Generally Available — disponible para todos los clientes, no preview) desde mayo 2026. Primera pieza pública del plano de visibilidad sobre todos los agentes en M365 (Microsoft 365).",
+};
+
+const PILLAR_TRUST = {
+  title: "Confiar IA con tu dato",
+  english: "Trust AI with your Data",
+  text: "No hay confianza en IA sin asegurar primero el dato. Sin clasificación, sin labelling (etiquetado) y sin DLP (Data Loss Prevention — prevención de fuga de datos) inline, todo lo demás es ficción.",
+  problem: "63% de las organizaciones declara no tener — o no estar segura de tener — las prácticas de gestión de datos adecuadas para IA. Hayete estima que el dato real está más cerca del 80–90%.",
+  blocked: "El ciclo tradicional para preparar datos para IA (discovery → policy → classification → label taxonomy → content labeling) tarda 4–9 meses, consume varios FTEs (Full-Time Equivalents — equivalentes a tiempo completo) y, cuando termina, la postura ya se ha desplazado (posture drift — deriva de postura).",
+  solution: "El Data Posture Agent (agente de postura de datos) comprime ese ciclo a días o semanas:",
+  solBullets: [
+    "Signal-based data estate discovery (descubrimiento del estate de datos basado en señal de uso real) — observa uso en endpoints, cloud y SaaS — Software as a Service.",
+    "Signal-based automated labeling (etiquetado automático basado en señal) — infiere sensibilidad desde uso y metadata, sin escanear contenido.",
+    "Content classifier-based labeling — clasificadores entrenados con feedback humano que mejoran continuamente.",
+    "AI policy refinement — refinamiento de políticas por aprendizaje.",
+    "Automatic AI data classification — clasificación autónoma con mínima supervisión, time-to-value (tiempo a valor) en días.",
+    "Continuous posture drift management — la deriva se gestiona como flujo continuo, no como proyecto.",
+  ],
+  dlp: "Inline DLP en M365 Copilot significa que Purview (Microsoft Purview — plataforma de gobierno y compliance de datos) evalúa la interacción en tiempo real en el momento en que el usuario introduce el prompt o Copilot intenta usar grounded content (contenido fundamentado, datos del cliente que el modelo usa como contexto). Permite, limita o bloquea ANTES de generar la respuesta, no después. Microsoft extiende el mismo guardrail (barandilla, control de seguridad) a tres superficies: M365 Copilot, Copilot Studio agents y Microsoft Foundry (plataforma Microsoft para construir y desplegar AI agents y modelos).",
+  labels: "Demo citada: un PPT con sensitivity label (etiqueta de sensibilidad Purview) «Highly Confidential». Cuando se pide a M365 Copilot que lo resuma, comprueba el label y los permisos primero, no extrae texto ni imágenes, y explica al usuario por qué no procede. Copilot hereda y aplica las protecciones del dato; no las bypassea.",
+};
+
+const FOUNDATION_ITEMS = [
+  "Mantenerse al día en software Microsoft.",
+  "Adoptar actualizaciones en componentes OSS (Open-Source Software — software de código abierto).",
+  "Escanear y proteger el código fuente.",
+  "Minimizar la exposición a Internet.",
+  "Implementar medidas de seguridad baseline (línea base).",
+];
+
+const HYENAS_PHASES = [
+  { phase: "DISCOVER", agents: 67, desc: "Encuentra debilidades candidatas explorando el código como atacantes — Context (6), Memory (5), Injection (6), Web (10), Auth & Access (7), + 30 agentes en 5 familias adicionales que cubren toda familia de debilidad mayor.", color: "blue" },
+  { phase: "VALIDATE", agents: 15, desc: "Adversarial debate (debate adversarial) entre 4 modelos + análisis de reachability (alcanzabilidad — si el código vulnerable es realmente ejecutable). Filtra falsos positivos antes del sandbox. Critic Personas (4), Analyzers (3), Triage (2), Frontier Models (4).", color: "warm" },
+  { phase: "PROVE", agents: 15, desc: "Two-stage proof (prueba en dos etapas) con reproducción del exploit en sandbox. Evidencia reproducible. Validators (3), Generators (2), Compilers (3), Sanitizers/Triage (4), Injectors (4).", color: "gold" },
+  { phase: "FIX", agents: 5, desc: "Remediación (planned — planificado, pendiente de release). Grouping (1), Handoff (1), Synthesis (1), Auto-PR (1: pull request automático), Verification (1).", color: "green" },
+];
+
+const QUOTES = [
+  { q: "Both Security and Speed matter — and their relationship has fundamentally changed. What's changed is whose pace we're now keeping.", where: "Apertura ejecutiva" },
+  { q: "Speed becomes structural. Reach extends to the entire estate. Defense must be autonomous as well.", where: "Encuadre del problema" },
+  { q: "There should not be a choice between innovation and safety. NONO is unacceptable. YOLO is unsafe. Together we have to get to GOGO.", where: "Para un CISO en modo NONO" },
+  { q: "The SOC org chart is being redrawn.", where: "Para un comité ejecutivo" },
+  { q: "There is no trusting AI without first securing data.", where: "Conversación de soberanía del dato" },
+  { q: "Anyone can build an agent. But the graph, the signal, the APIs — that's what makes it work at enterprise scale.", where: "Cierre del takeaway sobre el moat" },
+  { q: "Human-led attacks test whether you can respond fast enough. Agent-led attacks test whether you left anything exploitable at all.", where: "El takeaway de cierre" },
+];
+
+const GLOSARIO = [
+  { t: "SOC", d: "Security Operations Center — centro de operaciones de seguridad." },
+  { t: "BLUF", d: "Bottom Line Up Front — formato ejecutivo donde la conclusión va primero." },
+  { t: "Kill chain", d: "Cadena de ataque: secuencia desde reconocimiento hasta impacto." },
+  { t: "C2 Agent", d: "Command and Control: agente que sincroniza al resto de agentes adversarios." },
+  { t: "CVE", d: "Common Vulnerabilities and Exposures: identificador estandarizado de una vulnerabilidad concreta." },
+  { t: "HITL", d: "Human-In-The-Loop: humano en el bucle, manteniendo aprobaciones y control de calidad." },
+  { t: "DLP", d: "Data Loss Prevention: prevención de fuga de datos." },
+  { t: "EUDB", d: "EU Data Boundary: compromiso de residencia y procesamiento de datos dentro de la UE." },
+  { t: "GA", d: "Generally Available: producto disponible para todos los clientes, no preview." },
+  { t: "OSS", d: "Open-Source Software: software de código abierto." },
+  { t: "MCP", d: "Model Context Protocol: protocolo estándar para conectar modelos a herramientas." },
+  { t: "XPIA", d: "Cross-Prompt Injection Attack: inyección maliciosa de instrucciones a través de prompts." },
+  { t: "NONO", d: "Postura defensiva de bloqueo total a la IA por parte de IT o CISO." },
+  { t: "YOLO", d: "You Only Live Once: adopción de IA sin controles, típicamente con herramientas consumer fuera de IT." },
+  { t: "GOGO", d: "Habilitación con gobierno: ni bloqueo ni descontrol; IA productiva con guardrails." },
+  { t: "Agentic identity", d: "Identidad asignada a un agente para autenticación y autorización; fundacional para Zero Trust en agentes." },
+  { t: "Shadow agents", d: "Agentes desplegados por usuarios sin gobierno IT (equivalente a shadow IT)." },
+  { t: "Sensitivity labels", d: "Etiquetas de clasificación Purview que viajan con el documento e imponen políticas." },
+  { t: "Frontier orchestrator", d: "Orquestador donde el modelo, no un script fijo, decide qué sub-orquestadores y agentes invocar." },
+  { t: "Frontier Security Engineer", d: "Nuevo rol del SOC: opera y supervisa la flota de agentes especialistas." },
+  { t: "Iron Man suit", d: "Metáfora de Hayete: arnés agentic que potencia al defensor, no lo sustituye." },
+  { t: "MDASH", d: "Identificador interno del harness multi-modelo Microsoft Security — la capa que coordina modelos (Claude, OpenAI, OSS, Mythos) y agentes especialistas en una arquitectura hyper-composed." },
+  { t: "Hyenas", d: "Nombre interno del Vulnerability Scanning Harness de Microsoft: 100+ agentes para descubrir, validar, probar y reparar vulnerabilidades de forma autónoma." },
+  { t: "Octo Tempest", d: "Grupo crimeware patrocinado por Estado que orquestó la primera campaña agentic documentada a escala (S&P 500, noviembre 2025) usando Claude Code vanilla." },
+  { t: "Team Atlanta", d: "Equipo ganador del DARPA AI Cyber Challenge (DEF CON 33), hoy en Microsoft Security liderado por Taesoo Kim." },
+  { t: "Posture drift", d: "Deriva de postura: degradación con el tiempo de la configuración de seguridad cuando no se gestiona continuamente." },
+  { t: "Tokens", d: "Unidades de cómputo de los LLM (Large Language Models, modelos de lenguaje); más tokens = más coste y más latencia." },
+  { t: "Foundry", d: "Microsoft Foundry: plataforma de Microsoft para construir, desplegar y gobernar agentes y modelos AI." },
+  { t: "Purview", d: "Microsoft Purview: plataforma de gobierno, compliance y protección de información." },
+  { t: "Sandbox", d: "Entorno de ejecución aislado donde el código no puede afectar al sistema host." },
+];
+
+const REAL_CASES = [
+  {
+    name: "Brecha por agente autónomo",
+    badge: "warning",
+    summary: "Un agente AI autónomo abrió una brecha de seguridad en una plataforma interna en 2 horas. 22 endpoints API no autenticados explotados vía SQL injection. 46 millones de mensajes expuestos. La monitorización tradicional no detectó nada de la cadena.",
+    lesson: "Las herramientas tradicionales son ciegas a la cadena de ataque agentica.",
+  },
+  {
+    name: "Agente publicando guía incorrecta sin prompt humano",
+    badge: "warning",
+    summary: "Un agente interno  publicó de forma autónoma una guía sensible sin que ningún humano se lo pidiera. Un empleado siguió el consejo → un flujo concedió acceso no autorizado a sistemas sensibles. Severity 1 (Sev 1 — incidente máximo). 2 horas de exposición. Causa raíz: ausencia de control granular sobre la autonomía del agente y de action boundaries (límites de acción).",
+    lesson: "Sin action boundaries, los agentes son una fuente de incidentes Sev 1.",
+  },
+  {
+    name: "Campaña de ciberespionaje multi-agente — Octo Tempest",
+    badge: "critical",
+    summary: "Estado-nación + grupo crimeware. Usaron Claude Code vanilla off-the-shelf (sin modificación). Multi-agente: Vulnerability Finder, Reconnaissance, Lateral Movement y C2 Agent (Command and Control). 30 empresas del S&P 500 (índice de las 500 mayores cotizadas en EE.UU.) comprometidas simultáneamente.",
+    lesson: "Primera campaña agentica documentada a escala. Kill chain clásico, ejecutado a velocidad-máquina.",
+  },
+];
+
+function CaseCard({c}) {
+  const tag = c.badge === "critical" ? <Badge red>Crítico</Badge> : <Badge warm>Severidad alta</Badge>;
+  return (
+    <div className="card p-5">
+      <div className="flex items-start justify-between gap-3 mb-2 flex-wrap">
+        <h3 className="font-semibold text-slate-100 serif text-xl">{c.name}</h3>
+        {tag}
+      </div>
+      <p className="text-slate-300 leading-relaxed text-[15px]">{c.summary}</p>
+      <div className="mt-3 divider pt-3 text-cyan-200 text-sm"><strong>Lección:</strong> {c.lesson}</div>
+    </div>
+  );
+}
+
+function App() {
+  const imgUrl = "media/security-ai-speed-gladiator.png";
+  return (
+    <div className="max-w-6xl mx-auto px-6 py-10">
+
+      {/* HERO */}
+      <header className="card overflow-hidden mb-10">
+        <div className="grid lg:grid-cols-5 gap-0">
+          <div className="lg:col-span-3 p-8 relative">
+            <div className="absolute -right-16 -top-16 w-72 h-72 rounded-full" style={{background: "radial-gradient(circle, rgba(110,231,241,0.18), transparent 70%)"}}></div>
+            <div className="flex flex-wrap items-center gap-2 mb-3 relative">
+              <Badge>Concepto</Badge>
+              <Badge warm>Microsoft Security</Badge>
+              <Badge gold>EMEA Security Days · 6 mayo 2026</Badge>
+            </div>
+            <h1 className="serif text-4xl md:text-5xl leading-tight relative">Seguridad a la velocidad de la IA</h1>
+            <p className="text-slate-300 mt-4 text-lg leading-relaxed relative">
+              La defensa empresarial ya NO se mide contra atacantes humanos, sino contra <strong>agentes autónomos</strong> que reconocen, explotan y se mueven a la velocidad de una máquina. La respuesta no es resistir más rápido: es <strong>reformular el SOC</strong> con una flota de agentes que defienda a la velocidad de una máquina, gobernada por un harness (arnés) multi-modelo, anclada en el dato del cliente y supervisada por un nuevo rol — el Frontier Security Engineer.
+            </p>
+            <blockquote className="mt-5 border-l-2 border-cyan-400 pl-4 text-slate-200 italic relative quote-mark">
+              Los ataques liderados por humanos prueban si puedes responder lo bastante rápido. Los ataques liderados por agentes prueban si dejaste algo explotable.
+              <div className="text-slate-400 text-sm mt-2 not-italic">— Hayete Gallot, EVP Microsoft Security</div>
+            </blockquote>
+          </div>
+          <div className="lg:col-span-2 relative">
+            <img src={imgUrl} alt="Gladiador realista con casco MDASH, harness en X con remaches, tatuajes de modelos (CLAUDE, OPENAI, OSS, MYTHOS) y escudo Microsoft Security" className="w-full h-full object-cover" style={{minHeight: "420px"}}/>
+          </div>
+        </div>
+      </header>
+
+      {/* 1 - IDEA */}
+      <section className="mb-12">
+        <SectionTitle n="1" title="La idea en una frase" />
+        <div className="card p-6">
+          <p className="text-lg text-slate-100 leading-relaxed">
+            <strong>La seguridad a la velocidad de la IA</strong> es el principio de que la defensa empresarial tiene que ser <strong>autónoma, continua y orquestada por agentes</strong>, porque ya no compite contra seres humanos: compite contra agentes adversarios que ejecutan el <Term t="kill chain" d="cadena de ataque completa, desde reconocimiento hasta exfiltración"/> a la velocidad de una máquina.
+          </p>
+        </div>
+      </section>
+
+      {/* 2 - POR QUÉ IMPORTA */}
+      <section className="mb-12">
+        <SectionTitle n="2" title="Por qué importa" sub="BLUF (Bottom Line Up Front — la conclusión primero)" />
+        <div className="card p-6 text-slate-200 leading-relaxed space-y-4">
+          <p>
+            La ventana entre el <strong>descubrimiento</strong> de una vulnerabilidad y su posterior <strong>explotación</strong> se ha reducido. Antes tenías días o semanas para parchear, hoy esa ventana se ha reducido y se explota en minutos por una cadena de agentes coordinados. La curva del riesgo se rompió: no es ya proyectable desde la anterior, es una <Term t="step-function" d="cambio escalonado y discontinuo, no incremental"/>.
+          </p>
+          <p>
+            La consecuencia operativa es directa: el moat (la ventaja) tradicional — perímetros, firewalls, EDR (Endpoint Detection and Response — detección y respuesta en endpoint) puntuales — sigue siendo necesario, pero insuficiente. Sobre él hay que construir una arquitectura agentica que opere 24/7, sin interrupción, capaz de razonar sobre el estado completo del cliente en segundos.
+          </p>
+        </div>
+      </section>
+
+      {/* 3 - CASOS REALES */}
+      <section className="mb-12">
+        <SectionTitle n="3" title="Existen casos reales..." sub="Tres ejemplos de incidentes — anonimizados pero públicos" />
+        <div className="grid gap-4">
+          {REAL_CASES.map((c, i) => <CaseCard key={i} c={c}/>)}
+        </div>
+        <div className="card-2 p-5 mt-4">
+          <h3 className="serif text-lg text-cyan-200 mb-2">El kill chain agéntico de Octo Tempest</h3>
+          <div className="grid md:grid-cols-4 gap-3 text-sm">
+            {[
+              {n: "Vulnerability Finder Agent", d: "Localiza debilidades"},
+              {n: "Reconnaissance Agent", d: "Mapea el entorno"},
+              {n: "Lateral Movement Agent", d: "Pivota una vez dentro"},
+              {n: "C2 Agent", d: "Command & Control — el «COO» que sincroniza al resto"},
+            ].map((x, i) => (
+              <div key={i} className="card-2 p-3" style={{background:"rgba(192,57,43,0.08)", border:"1px solid rgba(192,57,43,0.25)"}}>
+                <div className="font-semibold text-red-200">{x.n}</div>
+                <div className="text-slate-400 text-xs mt-1">{x.d}</div>
+              </div>
+            ))}
+          </div>
+          <div className="text-slate-400 text-sm mt-4 italic">«Los atacantes solían atacar una empresa cada vez. Ahora pueden atacar 50 simultáneamente, más rápido de lo que cualquier SOC humano puede responder. Ése es el nuevo kill chain.»</div>
+        </div>
+      </section>
+
+      {/* 4 - CINCO CAMBIOS */}
+      <section className="mb-12">
+        <SectionTitle n="4" title="Los cinco cambios estructurales" sub="Qué hay que interiorizar antes de empezar a discutir herramientas" />
+        <div className="grid md:grid-cols-2 gap-4">
+          {FIVE_CHANGES.map((c, i) => (
+            <div key={i} className="card p-5">
+              <div className="flex items-start gap-3">
+                <div className="text-3xl serif text-cyan-300/80 leading-none">{String(i+1).padStart(2,"0")}</div>
+                <div>
+                  <h3 className="font-semibold text-slate-100">{c.t}</h3>
+                  <p className="text-slate-300 mt-1.5 leading-relaxed">{c.d}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 5 - FRAMEWORK */}
+      <section className="mb-12">
+        <SectionTitle n="5" title="El framework — tres pilares y una base" sub="La columna vertebral de la estrategia Microsoft Security para la era de la IA" />
+        <div className="card-2 p-6 mb-4">
+          <div className="grid grid-cols-3 gap-3 mb-3 text-center">
+            <div className="card p-4"><div className="pillar-icon mb-2">🛡️</div><div className="font-semibold text-cyan-200">Defend with AI</div><div className="text-slate-400 text-xs mt-1">Defenderse con IA</div></div>
+            <div className="card p-4"><div className="pillar-icon mb-2">⚖️</div><div className="font-semibold text-cyan-200">Safely enable AI</div><div className="text-slate-400 text-xs mt-1">Habilitar IA con gobierno</div></div>
+            <div className="card p-4"><div className="pillar-icon mb-2">🔐</div><div className="font-semibold text-cyan-200">Trust AI with your Data</div><div className="text-slate-400 text-xs mt-1">Confiar IA con tu dato</div></div>
+          </div>
+          <div className="card p-4 text-center" style={{background:"rgba(212,166,74,0.08)", border:"1px solid rgba(212,166,74,0.25)"}}>
+            <div className="text-xs uppercase tracking-widest text-amber-300 mb-1">Base</div>
+            <div className="serif text-lg text-amber-200">Get Ready for AI</div>
+            <div className="text-slate-400 text-xs mt-1">La higiene fundacional sin la que ningún pilar funciona</div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6 - PILAR 1: DEFEND WITH AI */}
+      <section className="mb-12">
+        <SectionTitle n="6" title="Pilar 1 — Defenderse con IA" sub="Fight drones with drones: el arnés MDASH y la flota de agentes especialistas" />
+        <div className="card p-6 mb-4">
+          <div className="text-xs uppercase tracking-widest text-cyan-300 mb-1">Defend with AI</div>
+          <p className="text-slate-200 leading-relaxed">{PILLAR_DEFEND.text}</p>
+          <blockquote className="mt-4 border-l-2 border-cyan-400 pl-4 text-slate-100 italic">{PILLAR_DEFEND.quote}</blockquote>
+        </div>
+
+        <h3 className="serif text-xl text-slate-100 mb-3">Los tres ingredientes</h3>
+        <div className="grid md:grid-cols-3 gap-4 mb-6">
+          {PILLAR_DEFEND.details.map((d, i) => (
+            <div key={i} className="card p-5">
+              <div className="serif text-2xl text-cyan-300 mb-2">{d.h.split(' — ')[0]}</div>
+              <p className="text-slate-300 leading-relaxed text-[15px]">{d.b}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="card-2 p-5 mb-6">
+          <div className="text-xs uppercase tracking-widest text-amber-300 mb-2">La estrategia en una frase</div>
+          <div className="serif text-xl text-slate-100">{PILLAR_DEFEND.formula}</div>
+        </div>
+
+        <h3 className="serif text-xl text-slate-100 mb-3">La flota de agentes especialistas</h3>
+        <div className="grid md:grid-cols-4 gap-3 mb-6">
+          <div className="card p-4">
+            <Badge red>RED Team</Badge>
+            <div className="text-slate-200 mt-3 text-sm">Pressure-test del estate. Red Team / Penetration Testing y Attack Path Agents.</div>
+          </div>
+          <div className="card p-4">
+            <Badge blue>BLUE Team</Badge>
+            <div className="text-slate-200 mt-3 text-sm">Detection Authoring, Incident Investigation, Threat Intelligence, Incident Triage, Data Classification, Threat Hunting.</div>
+          </div>
+          <div className="card p-4">
+            <Badge green>GREEN Team</Badge>
+            <div className="text-slate-200 mt-3 text-sm">Posture Management, Vulnerability Detection, Proactive Protection, Posture Remediation.</div>
+          </div>
+          <div className="card p-4">
+            <Badge gold>Planner + Reviewer</Badge>
+            <div className="text-slate-200 mt-3 text-sm">Planner — el «CEO» que decide qué agentes invocar. Reviewer/Critic — mantiene HITL (Human-In-The-Loop) para aprobaciones y QA (quality assurance).</div>
+          </div>
+        </div>
+
+        <h3 className="serif text-xl text-slate-100 mb-3">El loop en acción</h3>
+        <div className="card p-5">
+          <div className="text-slate-400 text-sm mb-4 italic">Escenario: el CEO envía un artículo de threat intelligence y pregunta «¿estamos protegidos?»</div>
+          <ol className="space-y-3">
+            {AGENT_LOOP.map((s, i) => (
+              <li key={i} className="flex gap-3">
+                <div className="num-dot text-slate-900 font-bold w-8 h-8 rounded-full flex items-center justify-center shadow-md flex-shrink-0">{s.n}</div>
+                <div>
+                  <div className="font-semibold text-slate-100">{s.who}</div>
+                  <div className="text-slate-300 text-sm mt-0.5">{s.what}</div>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <div className="divider pt-4 mt-4 text-slate-300 italic">
+            «Una pregunta que un SOC tardaba días en responder reactivamente — ahora se responde, se evidencia y se pressure-testea en un loop. Una y otra vez. Proactivo. Preventivo. Persistente.»
+          </div>
+        </div>
+      </section>
+
+      {/* 7 - NUEVO ROL */}
+      <section className="mb-12">
+        <SectionTitle n="7" title="El nuevo rol — Frontier Security Engineer" sub="«The SOC org chart is being redrawn»" />
+        <div className="card p-6">
+          <div className="grid md:grid-cols-3 gap-4 items-center mb-5">
+            <div className="text-center card-2 p-4">
+              <div className="text-3xl mb-2">🧑‍💼</div>
+              <div className="font-semibold">Frontier Security Engineer</div>
+              <div className="text-slate-400 text-sm mt-1">Nuevo rol. Opera y supervisa la flota agentic. Convive con Copilot y agentes de razonamiento.</div>
+            </div>
+            <div className="text-center serif text-3xl text-cyan-300">+</div>
+            <div className="text-center card-2 p-4">
+              <div className="text-3xl mb-2">🧑‍💻</div>
+              <div className="font-semibold">Security Analyst</div>
+              <div className="text-slate-400 text-sm mt-1">El analista clásico, ahora con superpoderes agentic.</div>
+            </div>
+          </div>
+          <p className="text-slate-300 leading-relaxed">
+            Por debajo de ambos, una flota de agentes especialistas: incident triage, incident investigation, threat intelligence, identity posture, posture management, posture remediation, detection authoring, vulnerability detection, data classification, identity attack path, proactive protection y red team penetration testing. La función de producción del SOC se reescribe.
+          </p>
+        </div>
+      </section>
+
+      {/* 8 - PILAR 2: SAFELY ENABLE AI */}
+      <section className="mb-12">
+        <SectionTitle n="8" title="Pilar 2 — Habilitar IA con gobierno" sub="De NONO y YOLO a GOGO" />
+        <div className="card p-6 mb-4">
+          <div className="text-xs uppercase tracking-widest text-cyan-300 mb-1">Safely enable AI</div>
+          <p className="text-slate-200 leading-relaxed">{PILLAR_SAFELY.text}</p>
+          <blockquote className="mt-4 border-l-2 border-cyan-400 pl-4 text-slate-100 italic">{PILLAR_SAFELY.quote}</blockquote>
+        </div>
+
+        <h3 className="serif text-xl text-slate-100 mb-3">Mapa de riesgo por comportamiento del agente</h3>
+        <div className="card overflow-hidden mb-6">
+          <table className="w-full text-sm">
+            <thead className="bg-slate-800/40 text-slate-300 text-left">
+              <tr>
+                <th className="px-4 py-3 font-medium">Comportamiento del agente</th>
+                <th className="px-4 py-3 font-medium">Riesgo asociado</th>
+              </tr>
+            </thead>
+            <tbody>
+              {PILLAR_SAFELY.riskMap.map((r, i) => (
+                <tr key={i} style={{borderTop: "1px solid var(--line)"}}>
+                  <td className="px-4 py-3 text-slate-200 font-medium">{r.behavior}</td>
+                  <td className="px-4 py-3 text-slate-300">{r.risk}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h3 className="serif text-xl text-slate-100 mb-3">La arquitectura — signal plane + actuators plane</h3>
+        <div className="card-2 p-5 mb-6">
+          <div className="text-slate-400 text-sm mb-3 italic">Microsoft aplica el patrón clásico de seguridad (observar → detectar → responder) al mundo agentic, con un signal plane (plano de señales) y un actuators plane (plano de actuadores) unificados:</div>
+          <div className="space-y-3">
+            {PILLAR_SAFELY.arch.map((a, i) => (
+              <div key={i} className="card p-4">
+                <div className="font-semibold text-cyan-200">{a.h}</div>
+                <div className="text-slate-300 text-sm mt-1.5">{a.d}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <h3 className="serif text-xl text-slate-100 mb-3">El modelo operativo</h3>
+        <div className="card p-5 mb-4">
+          <div className="text-slate-300 italic mb-4">{PILLAR_SAFELY.club}</div>
+          <ol className="space-y-2">
+            {PILLAR_SAFELY.steps.map((s, i) => (
+              <li key={i} className="flex gap-3"><span className="text-cyan-300 font-semibold">{String(i+1).padStart(2,"0")}</span><span className="text-slate-200">{s}</span></li>
+            ))}
+          </ol>
+        </div>
+
+        <div className="card p-5" style={{background:"rgba(72,187,120,0.06)", border:"1px solid rgba(72,187,120,0.3)"}}>
+          <div className="text-xs uppercase tracking-widest text-emerald-300 mb-1">Anuncio en la keynote</div>
+          <div className="text-slate-100">{PILLAR_SAFELY.ga}</div>
+        </div>
+      </section>
+
+      {/* 9 - PILAR 3: TRUST AI WITH YOUR DATA */}
+      <section className="mb-12">
+        <SectionTitle n="9" title="Pilar 3 — Confiar IA con tu dato" sub="No hay confianza en IA sin asegurar primero el dato" />
+        <div className="card p-6 mb-4">
+          <div className="text-xs uppercase tracking-widest text-cyan-300 mb-1">Trust AI with your Data</div>
+          <p className="text-slate-200 leading-relaxed">{PILLAR_TRUST.text}</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-4 mb-6">
+          <div className="card-2 p-5">
+            <div className="text-xs uppercase tracking-widest text-red-300 mb-1">El problema</div>
+            <div className="text-slate-100 text-lg leading-relaxed">{PILLAR_TRUST.problem}</div>
+          </div>
+          <div className="card-2 p-5">
+            <div className="text-xs uppercase tracking-widest text-amber-300 mb-1">El bloqueo tradicional</div>
+            <div className="text-slate-100 leading-relaxed">{PILLAR_TRUST.blocked}</div>
+          </div>
+        </div>
+
+        <h3 className="serif text-xl text-slate-100 mb-3">La respuesta — Data Posture Agent</h3>
+        <div className="card p-5 mb-6">
+          <div className="text-slate-300 mb-4">{PILLAR_TRUST.solution}</div>
+          <ul className="space-y-2">
+            {PILLAR_TRUST.solBullets.map((b, i) => <li key={i} className="text-slate-200 leading-relaxed">· {b}</li>)}
+          </ul>
+        </div>
+
+        <h3 className="serif text-xl text-slate-100 mb-3">Inline DLP en Copilot</h3>
+        <div className="card p-5 mb-4">
+          <p className="text-slate-200 leading-relaxed">{PILLAR_TRUST.dlp}</p>
+        </div>
+
+        <h3 className="serif text-xl text-slate-100 mb-3">Respeto de sensitivity labels</h3>
+        <div className="card p-5">
+          <p className="text-slate-200 leading-relaxed">{PILLAR_TRUST.labels}</p>
+        </div>
+      </section>
+
+      {/* 10 - GET READY FOR AI */}
+      <section className="mb-12">
+        <SectionTitle n="10" title="Base — Get Ready for AI" sub="Si la IA está cerrando la ventana entre descubrimiento y explotación, la respuesta no es pánico. Es postura." />
+        <div className="card-2 p-5 mb-5">
+          <div className="text-xs uppercase tracking-widest text-amber-300 mb-2">Los cinco fundamentales — aka.ms/securenow</div>
+          <ul className="space-y-2 text-slate-200">
+            {FOUNDATION_ITEMS.map((f, i) => <li key={i}>· {f}</li>)}
+          </ul>
+        </div>
+        <div className="card p-5 text-slate-300 italic">
+          «Ninguno de estos es una disciplina nueva — los lleváis haciendo años. Lo nuevo es la presión de tiempo y la prescriptive guidance (guía prescriptiva, concreta y accionable) end-to-end que Microsoft os va a dar en cada uno.»
+        </div>
+      </section>
+
+      {/* 11 - HYENAS */}
+      <section className="mb-12">
+        <SectionTitle n="11" title="Hyenas — el harness de descubrimiento autónomo de vulnerabilidades" sub="Multi-agent system · 100+ agentes especialistas · 4 fases en bucle cerrado · Multi-model: Claude, OpenAI, OSS, Mythos · Private Preview" />
+        <div className="card p-6 mb-4">
+          <p className="text-slate-200 leading-relaxed">
+            <strong>Team Atlanta</strong> — ganadores del <strong>DARPA AI Cyber Challenge Finals</strong> (DEF CON 33, Las Vegas) con premio top de $4M — pasaron a Microsoft Security liderados por <strong>Taesoo Kim</strong>. Lo que están construyendo es Hyenas: un sistema multi-agente para descubrimiento autónomo de vulnerabilidades en código, en bucle cerrado <strong>Discover → Validate → Prove → Fix</strong>.
+          </p>
+          <p className="text-slate-300 mt-3 leading-relaxed text-sm italic">
+            La promesa: de point tools (herramientas puntuales) a un sistema continuo y agent-driven (impulsado por agentes). No sólo encontrar issues, sino probarlos con evidencia reproducible. Multi-model by design — mejora a medida que los modelos mejoran. Integrado en Defender (Microsoft Defender, plataforma XDR — Extended Detection and Response) para impulsar parches y detecciones.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-4 gap-3">
+          {HYENAS_PHASES.map((p, i) => (
+            <div key={i} className="card p-5">
+              <Badge red={p.color==="red"} blue={p.color==="blue"} green={p.color==="green"} warm={p.color==="warm"} gold={p.color==="gold"}>{p.phase}</Badge>
+              <div className="serif text-3xl text-slate-100 mt-3">{p.agents} <span className="text-base text-slate-400">agentes</span></div>
+              <div className="text-slate-300 text-sm mt-2 leading-relaxed">{p.desc}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="card-2 p-5 mt-4">
+          <div className="text-xs uppercase tracking-widest text-amber-300 mb-2">Modelos documentados que usa MDASH / Hyenas</div>
+          <div className="flex flex-wrap gap-2">
+            <Badge gold>Claude (Anthropic)</Badge>
+            <Badge gold>OpenAI</Badge>
+            <Badge gold>OSS — Open-Source Software</Badge>
+            <Badge gold>Mythos</Badge>
+          </div>
+          <div className="text-slate-400 text-xs mt-3 italic">Fuente: notas de la slide 51 — «Multi-model — Claude, OpenAI, OSS, Mythos. Private preview.»</div>
+        </div>
+      </section>
+
+      {/* 12 - QUOTES */}
+      <section className="mb-12">
+        <SectionTitle n="12" title="Citas para reutilizar" sub="Líneas literales que conviene tener a mano para reuniones" />
+        <div className="space-y-3">
+          {QUOTES.map((q, i) => (
+            <details key={i} className="card p-4" open={i < 2}>
+              <summary className="flex items-center justify-between gap-4">
+                <span className="serif italic text-slate-100">«{q.q}»</span>
+                <span className="text-cyan-300 text-xs whitespace-nowrap">{q.where}</span>
+              </summary>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* 13 - TAKEAWAY */}
+      <section className="mb-12">
+        <SectionTitle n="13" title="El takeaway que conviene memorizar" />
+        <div className="card p-8 text-center" style={{background:"linear-gradient(135deg, rgba(110,231,241,0.08), rgba(192,57,43,0.06))"}}>
+          <blockquote className="serif text-2xl text-slate-100 leading-relaxed italic">
+            «Los ataques liderados por humanos prueban si puedes responder lo bastante rápido.<br/>
+            Los ataques liderados por agentes prueban si dejaste algo explotable.»
+          </blockquote>
+          <div className="text-slate-400 mt-4">— Hayete Gallot, EVP Microsoft Security · EMEA Security Days · 6 mayo 2026</div>
+        </div>
+      </section>
+
+      {/* 14 - GLOSARIO */}
+      <section className="mb-12">
+        <SectionTitle n="14" title="Glosario completo" sub="Todos los acrónimos y términos técnicos usados en esta página" />
+        <div className="card p-5">
+          <dl className="grid md:grid-cols-2 gap-x-8 gap-y-3">
+            {GLOSARIO.map((g, i) => (
+              <div key={i} className="flex gap-3">
+                <dt className="text-cyan-300 font-semibold whitespace-nowrap min-w-fit">{g.t}</dt>
+                <dd className="text-slate-300 text-sm">{g.d}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <footer className="text-slate-500 text-xs mt-12 pt-6 divider">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>Seguridad a la velocidad de la IA · Adaptado de la keynote de Hayete Gallot, EMEA Security Days, 6 mayo 2026 · Imagen generada con Microsoft Designer.</div>
+          <div className="no-print">
+            <a href="#" onClick={(e)=>{e.preventDefault();window.print();}}>🖨 Imprimir</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
