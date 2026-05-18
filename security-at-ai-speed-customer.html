@@ -181,7 +181,7 @@ const AGENT_LOOP = [
 ];
 
 const PILLAR_SAFELY = {
-  text: "Salir de la falsa dicotomía NONO (postura de bloqueo total a la IA por parte de IT o CISO — Chief Information Security Officer, director de seguridad de la información) frente a YOLO (You Only Live Once — adopción sin controles, típicamente con herramientas consumer fuera de IT) hacia GOGO (habilitación con gobierno: ni bloqueo ni descontrol; IA productiva con guardrails).",
+  text: "Salir de la falsa dicotomía NONO (postura de bloqueo total a la IA por parte de IT o CISO — Chief Information Security Officer) frente a YOLO (You Only Live Once — adopción sin controles, típicamente con herramientas consumer fuera de IT) hacia GOGO (habilitación con gobierno: ni bloqueo ni descontrol; IA productiva con guardrails).",
   quote: "«La seguridad debe ser un acelerador, no un bloqueador. NONO es inaceptable. YOLO no es seguro. Con nuestro enfoque, su organización puede ir a GOGO.»",
   riskMap: [
     { behavior: "Procesa inputs", risk: "Prompt injection / process injection (inyección de instrucciones maliciosas dentro del prompt)" },
@@ -192,21 +192,21 @@ const PILLAR_SAFELY = {
     { behavior: "Interactúa con servicios externos", risk: "Exfiltración, untrusted integrations (integraciones no confiables)" },
   ],
   arch: [
-    { h: "XPIA Library", d: "Biblioteca defensiva contra XPIA (Cross-Prompt Injection Attack — inyección de instrucciones cruzada entre prompts)." },
+    { h: "XPIA Library", d: "Biblioteca defensiva contra XPIA (Cross-Prompt Injection Attack)." },
     { h: "Identidad agéntica + Authorization + Data classification + Policy enforcement", d: "Identidad para cada agente, autorización por contexto, clasificación de datos y enforcement (aplicación) de política." },
     { h: "Runtime validation + sandboxing + code inspection", d: "Validación en ejecución, ejecución aislada en sandbox (entorno acotado), inspección del código generado." },
-    { h: "Identity-based Conditional Access + Network segmentation + Filtering", d: "Zero Trust (modelo «no confiar nunca, verificar siempre») aplicado al mundo agentic, con segmentación de red y filtrado." },
-    { h: "Monitoring + Dynamic Risk + Auditability + Human Sponsor in-the-loop", d: "Observabilidad, scoring (puntuación) de riesgo dinámico por sesión, auditabilidad y un patrocinador humano responsable." },
+    { h: "Identity-based Conditional Access + Network segmentation + Filtering", d: "Zero Trust (modelo de «cero confianza, verificación continua») aplicado al mundo agentico, con segmentación de red y filtrado." },
+    { h: "Monitoring + Dynamic Risk + Auditability + Human Sponsor in-the-loop", d: "Observabilidad, scoring de riesgo dinámico por sesión, auditabilidad y un patrocinador humano responsable." },
     { h: "Secure connectors + Policy boundaries + Containment + Secure MCP gateways", d: "Conectores seguros, límites de política, contención dinámica y pasarelas MCP (Model Context Protocol — protocolo estándar para conectar modelos a herramientas) seguras." },
   ],
-  club: "Como un club: los agentes unmanaged (no gestionados) no entran. Los managed (gestionados) pueden entrar por la puerta principal pero no a la VIP room. Sólo los managed + contained (contenidos) + low risk acceden a privilegio. Y como el riesgo cambia momento a momento — verde, amarillo, rojo —, el containment (contención) también tiene que ser dinámico: contenedores, red y política.",
+  club: "Como un club: los agentes no gestionados no entran. Los gestionados pueden entrar por la puerta principal pero no a la VIP room. Sólo los gestioandos + contenidos + bajo riesgo acceden. Y como el riesgo cambia momento a momento — verde, amarillo, rojo —, la contención también tiene que ser dinámica: contenedores, red y política.",
   steps: [
-    "Discover (descubrir) — radar que localiza todos los agentes, managed y shadow agents (agentes en la sombra, equivalente a shadow IT).",
-    "Assign identity + Contain shadow agents — asignar identidad agentic; sin identidad no hay Zero Trust. Onboarding obligatorio como managed con políticas.",
-    "Compute Dynamic Risk — scoring por sesión, ligado a la identidad (igual que se hace hoy con usuarios).",
-    "Implement Zero Trust con Conditional Access — acceso a datos condicionado al riesgo en tiempo real.",
+    "Descubrir — radar que localiza todos los agentes, gestioandos y agentes en la sombra (shadow agents, equivalente a shadow IT).",
+    "Asignar identidad + Contener agentes shadow — asignar identidad agéntica; sin identidad no hay Zero Trust. Onboarding obligatorio como gestionados con políticas.",
+    "Calcula el riesgo de forma dinámica — scoring por sesión, ligado a la identidad (igual que se hace hoy con usuarios).",
+    "Implementar Zero Trust con Acceso Condicional — acceso a datos condicionado al riesgo en tiempo real.",
   ],
-  ga: "Agent 365 → GA (Generally Available — disponible para todos los clientes, no preview) desde mayo 2026. Primera pieza pública del plano de visibilidad sobre todos los agentes en Microsoft 365.",
+  ga: "Ya disponible de forma general Agent 365, para todos los clientes, no preview desde mayo 2026. Primera pieza pública del plano de visibilidad sobre todos los agentes en Microsoft 365.",
 };
 
 const PILLAR_TRUST = {
