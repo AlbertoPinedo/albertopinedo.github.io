@@ -228,17 +228,17 @@ const PILLAR_TRUST = {
 
 const FOUNDATION_ITEMS = [
   "Mantenerse al día en software Microsoft.",
-  "Adoptar actualizaciones en componentes OSS (Open-Source Software — software de código abierto).",
+  "Adoptar actualizaciones en componentes OSS (Open-Source Software).",
   "Escanear y proteger el código fuente.",
   "Minimizar la exposición a Internet.",
-  "Implementar medidas de seguridad baseline (línea base).",
+  "Implementar medidas de seguridad base.",
 ];
 
 const HARNESS_PHASES = [
-  { phase: "DISCOVER", agents: 67, desc: "Encuentra debilidades candidatas explorando el código como atacantes — Context (6), Memory (5), Injection (6), Web (10), Auth & Access (7), y 30 agentes más en cinco familias adicionales que cubren toda familia de debilidad mayor.", color: "blue" },
-  { phase: "VALIDATE", agents: 15, desc: "Adversarial debate (debate adversarial) entre 4 modelos + análisis de reachability (alcanzabilidad — si el código vulnerable es realmente ejecutable). Filtra falsos positivos antes del sandbox. Critic Personas (4), Analyzers (3), Triage (2), Frontier Models (4).", color: "warm" },
-  { phase: "PROVE", agents: 15, desc: "Two-stage proof (prueba en dos etapas) con reproducción del exploit en sandbox. Evidencia reproducible. Validators (3), Generators (2), Compilers (3), Sanitizers/Triage (4), Injectors (4).", color: "gold" },
-  { phase: "FIX", agents: 5, desc: "Remediación (en plan de roadmap). Grouping (1), Handoff (1), Synthesis (1), Auto-PR (1: pull request automático), Verification (1).", color: "green" },
+  { phase: "DESCUBRIR", agents: 67, desc: "Encuentra debilidades candidatas explorando el código como atacantes — Context (6), Memory (5), Injection (6), Web (10), Auth & Access (7), y 30 agentes más en cinco familias adicionales que cubren toda familia de debilidad mayor.", color: "blue" },
+  { phase: "VALIDAR", agents: 15, desc: "debate adversariO entre 4 modelos + análisis de alcance — si el código vulnerable es realmente ejecutable. Filtra falsos positivos antes del sandbox. Critic Personas (4), Analyzers (3), Triage (2), Frontier Models (4).", color: "warm" },
+  { phase: "PROBAR", agents: 15, desc: "Prueba en dos etapas con reproducción del exploit en sandbox. Evidencia reproducible. Validators (3), Generators (2), Compilers (3), Sanitizers/Triage (4), Injectors (4).", color: "gold" },
+  { phase: "REPARAR", agents: 5, desc: "Remediación (introduciendolo en el roadmap). Grouping (1), Handoff (1), Synthesis (1), Auto-PR (1: pull request automático), Verification (1).", color: "green" },
 ];
 
 const QUOTES = [
