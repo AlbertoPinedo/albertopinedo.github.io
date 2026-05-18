@@ -186,7 +186,7 @@ const PILLAR_DEFEND = {
   quote: "«Cualquiera puede construir un agente. Pero el grafo, la señal y las APIs son lo que permite escalar a nivel empresarial. Sin ellos, el agente es sólo un juguete; con ellos, es un sistema de defensa autónomo.»",
   details: [
     { h: "Señales — la base", b: "100 billones (10¹⁴) de señales/día procesadas en tiempo real. El valor no está en el volumen absoluto sino en que esa señal se ancla en los activos del cliente, construida de abajo arriba desde dispositivos, identidades, workloads, data stores y recursos de Azure Resource Graph (catálogo de recursos en Azure). Las señales sin contexto son ruido." },
-    { h: "Inteligencia — el SecurityIQ Graph", b: "Microsoft transforma esas señales en un grafo (estructura ontológica que relaciona activos, identidades, eventos y riesgo) que los agentes pueden recorrer con bajo consumo de tokens. Con una reducción de x10 en uso de tokens frente a lanzar logs crudos al modelo. No es un CMDB (Configuration Management Database — base de datos de gestión de configuración) estático: es vivo, en tiempo real." },
+    { h: "Inteligencia — el SecurityIQ Graph", b: "Microsoft transforma esas señales en un grafo (estructura ontológica que relaciona activos, identidades, eventos y riesgo) que los agentes pueden recorrer con bajo consumo de tokens. Con una reducción de x10 en uso de tokens frente a lanzar logs crudos al modelo. No es una CMDB (Configuration Management Database) estática: está vivo, en tiempo real." },
     { h: "Agentes — el equipo especializado", b: "Equipos RED (Red Team — ataque ético), BLUE (operaciones de defensa: triage, hunting, detección, threat intelligence), GREEN (postura, prevención, remediación) y un Reviewer/Critic que mantiene al humano en el bucle (HITL — Human-In-The-Loop). Por encima, un Planner que actúa como coordinador del sistema, decidiendo qué agentes invocar para cada tarea." },
   ],
   formula: "Frontier coding models + data graph con contexto y memoria + security APIs = all jobs to be done",
@@ -325,7 +325,7 @@ function TabDefensa() {
           <div>
             <div className="text-xs uppercase tracking-widest text-cyan-300 mb-1">Pilar 1</div>
             <h2 className="serif text-3xl text-cyan-100">Defenderse con IA</h2>
-            <p className="text-sm text-slate-400 mt-1">Frente a los drones, drones: el arnés MDASH y el equipo de agentes especialistas</p>
+            <p className="text-sm text-slate-400 mt-1">Frente a los agentes adversarios, la defensa debe ser autónoma, continua y orquestada por agentes. MDASH.</p>
           </div>
         </div>
       </div>
@@ -648,7 +648,7 @@ function App() {
       <Collapsible n="6" title="Vulnerability Scanning Harness — descubrimiento autónomo de vulnerabilidades" sub="Sistema multi-agente · 100+ agentes especialistas · 4 fases en bucle cerrado · Multi-modelo · Private Preview">
         <div className="card p-6 mb-4">
           <p className="text-slate-200 leading-relaxed">
-            <strong>Team Atlanta</strong> — ganadores del <strong>DARPA AI Cyber Challenge Finals</strong> (DEF CON 33) con premio top de 4 M USD — pasaron a Microsoft Security liderados por <strong>Taesoo Kim</strong>. Lo que están construyendo es un sistema multi-agente para descubrimiento autónomo de vulnerabilidades en código, en bucle cerrado <strong>Descubrir → Validar → Probar → Corregir</strong>.
+            <strong>Team Atlanta</strong> — ganadores del <strong>DARPA AI Cyber Challenge Finals</strong> (DEF CON 33) con premio top de $4M — pasaron a Microsoft Security liderados por <strong>Taesoo Kim</strong>. Lo que están construyendo es un sistema multi-agente para descubrimiento autónomo de vulnerabilidades en código, en bucle cerrado <strong>Descubrir → Validar → Probar → Corregir</strong>.
           </p>
           <p className="text-slate-300 mt-3 leading-relaxed text-sm italic">
             La promesa: pasar de point tools a un sistema continuo y agent-driven. No sólo encontrar issues, sino probarlos con evidencia reproducible. Multi-model by design. Integrado en Microsoft Defender para impulsar parches y detecciones.
