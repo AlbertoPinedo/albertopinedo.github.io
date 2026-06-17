@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Copilot Credits explicado: Microsoft 365 Copilot y Copilot Cowork</title>
+<style>
+:root{
+  --ms-blue:#0078D4; --ms-blue-dark:#005A9E; --ms-blue-soft:#eff6fc;
+  --ms-red:#F25022; --ms-green:#7FBA00; --ms-green-dark:#107C10; --ms-yellow:#FFB900; --ms-cyan:#00A4EF;
+  --text:#242424; --muted:#616161; --soft:#797775;
+  --bg:#faf9f8; --surface:#ffffff; --surface-2:#f3f2f1; --border:#edebe9; --border-strong:#c8c6c4;
+  --shadow:0 1.6px 3.6px rgba(0,0,0,.10),0 .3px .9px rgba(0,0,0,.08);
+  --shadow-lg:0 6.4px 14.4px rgba(0,0,0,.10),0 1.2px 3.6px rgba(0,0,0,.08);
+  --radius:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI","Segoe UI Web",Aptos,Calibri,-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px}
+a{color:var(--ms-blue);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Hero */
+header.hero{background:linear-gradient(135deg,#f3f9fd 0%,#eef6fc 60%,#fbf7ef 100%);border-bottom:1px solid var(--border);padding:54px 0 46px;position:relative;overflow:hidden}
+.logo{display:inline-grid;grid-template-columns:14px 14px;grid-gap:3px;margin-bottom:18px}
+.logo i{width:14px;height:14px;display:block}
+.logo .r{background:var(--ms-red)} .logo .g{background:var(--ms-green)} .logo .b{background:var(--ms-cyan)} .logo .y{background:var(--ms-yellow)}
+.hero h1{font-size:2.3rem;font-weight:700;letter-spacing:-.5px;line-height:1.15;max-width:760px}
+.hero .tagline{font-size:1.16rem;color:var(--muted);margin-top:14px;max-width:680px}
+.hero .chips{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+.chip{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:6px 15px;font-size:.85rem;font-weight:600;color:var(--ms-blue-dark);box-shadow:var(--shadow)}
+
+/* Section */
+section{padding:42px 0}
+section:nth-child(even){background:var(--surface)}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--ms-blue);margin-bottom:8px}
+h2{font-size:1.7rem;font-weight:700;letter-spacing:-.3px;margin-bottom:6px}
+h2 .accent{color:var(--ms-blue)}
+.sub{color:var(--muted);font-size:1.04rem;margin-bottom:24px;max-width:760px}
+h3{font-size:1.15rem;font-weight:600;margin:0 0 8px}
+p{margin:0 0 12px}
+.lead-in{font-size:1.05rem}
+
+/* Cards */
+.cards{display:grid;gap:18px}
+.cards.two{grid-template-columns:1fr 1fr}
+.cards.three{grid-template-columns:repeat(3,1fr)}
+.cards.four{grid-template-columns:repeat(2,1fr)}
+@media(max-width:760px){.cards.two,.cards.three,.cards.four{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+section:nth-child(even) .card{background:var(--bg)}
+.card .ico{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px;color:#fff}
+.bg-blue{background:var(--ms-blue)} .bg-green{background:var(--ms-green-dark)} .bg-cyan{background:var(--ms-cyan)} .bg-red{background:var(--ms-red)} .bg-yellow{background:#d39e00}
+.card p{color:var(--muted);font-size:.96rem;margin-bottom:0}
+
+/* Analogy box */
+.analogy{background:var(--ms-blue-soft);border:1px solid #cfe4f6;border-left:4px solid var(--ms-blue);border-radius:var(--radius);padding:18px 20px;margin:22px 0}
+.analogy strong{color:var(--ms-blue-dark)}
+.callout{background:#fff8e6;border:1px solid #f7e3a8;border-left:4px solid var(--ms-yellow);border-radius:var(--radius);padding:16px 20px;margin:18px 0;font-size:.96rem}
+.callout.green{background:#f1f8ec;border-color:#cce4bd;border-left-color:var(--ms-green-dark)}
+
+/* Compare table */
+table{width:100%;border-collapse:collapse;background:var(--surface);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);font-size:.95rem}
+th,td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--border)}
+thead th{background:var(--ms-blue);color:#fff;font-weight:600;font-size:.9rem}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:nth-child(even){background:var(--surface-2)}
+td.yes{color:var(--ms-green-dark);font-weight:600}
+td.no{color:var(--ms-red);font-weight:600}
+.tcheck{font-weight:700}
+
+/* Steps / buckets */
+.buckets{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+@media(max-width:760px){.buckets{grid-template-columns:1fr 1fr}}
+.bucket{border:1px solid var(--border);border-radius:var(--radius);padding:16px;background:var(--surface);text-align:center}
+.bucket .b-ico{font-size:1.6rem}
+.bucket h4{font-size:1rem;margin:6px 0 4px;color:var(--ms-blue-dark)}
+.bucket p{font-size:.85rem;color:var(--muted)}
+
+/* Scenario cards */
+.scen{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:760px){.scen{grid-template-columns:1fr}}
+.scen .s{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+.scen .s .head{padding:12px 16px;color:#fff;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.scen .s.light .head{background:var(--ms-green-dark)}
+.scen .s.medium .head{background:var(--ms-blue)}
+.scen .s.heavy .head{background:var(--ms-red)}
+.scen .s .body{padding:16px}
+.scen .s .body .credits{font-size:1.5rem;font-weight:700;margin-bottom:6px}
+.scen .s .body .ex{font-size:.9rem;color:var(--muted)}
+
+/* Pricing */
+.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.price-grid{grid-template-columns:1fr}}
+.price-card{border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow);overflow:hidden}
+.price-card .pc-head{padding:16px 20px;border-bottom:1px solid var(--border)}
+.price-card .pc-head h3{margin:0}
+.price-card .pc-head .pc-tag{font-size:.82rem;color:var(--muted)}
+.price-card .pc-body{padding:18px 20px}
+.price-card ul{margin:0;padding-left:20px;color:var(--muted);font-size:.94rem}
+.price-card li{margin:6px 0}
+.bignum{font-size:2rem;font-weight:700;color:var(--ms-blue);letter-spacing:-.5px}
+
+/* Calculator */
+.calc{background:var(--surface);border:1px solid var(--border-strong);border-radius:12px;box-shadow:var(--shadow-lg);overflow:hidden}
+.calc .calc-head{background:linear-gradient(135deg,var(--ms-blue),var(--ms-blue-dark));color:#fff;padding:18px 22px}
+.calc .calc-head h3{color:#fff;margin:0;font-size:1.2rem}
+.calc .calc-head p{margin:4px 0 0;opacity:.9;font-size:.9rem}
+.calc .calc-body{padding:20px 22px}
+.calc table{box-shadow:none;border:1px solid var(--border)}
+.calc input[type=number]{width:74px;padding:6px 8px;border:1px solid var(--border-strong);border-radius:6px;font-size:.95rem;font-family:inherit;text-align:right}
+.calc input[type=number]:focus{outline:2px solid var(--ms-blue);border-color:var(--ms-blue)}
+.calc th{font-size:.82rem}
+.assump{background:var(--surface-2);border-radius:var(--radius);padding:14px 16px;margin-top:16px;font-size:.9rem}
+.assump summary{cursor:pointer;font-weight:600;color:var(--ms-blue-dark)}
+.assump table{margin-top:12px}
+.results{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+@media(max-width:680px){.results{grid-template-columns:1fr}}
+.result{background:var(--ms-blue-soft);border:1px solid #cfe4f6;border-radius:var(--radius);padding:16px 18px;text-align:center}
+.result .rl{font-size:.8rem;text-transform:uppercase;letter-spacing:.6px;color:var(--ms-blue-dark);font-weight:700}
+.result .rv{font-size:1.8rem;font-weight:700;color:var(--text);margin-top:4px;letter-spacing:-.5px}
+.result .rx{font-size:.82rem;color:var(--muted);margin-top:2px}
+
+/* FAQ */
+.faq details{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin:10px 0;overflow:hidden;box-shadow:var(--shadow)}
+.faq summary{cursor:pointer;padding:15px 20px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:1.02rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";color:var(--ms-blue);font-size:1.4rem;font-weight:400}
+.faq details[open] summary:after{content:"\2013"}
+.faq .a{padding:0 20px 16px;color:var(--muted)}
+
+/* Glossary */
+.gloss{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:680px){.gloss{grid-template-columns:1fr}}
+.gloss .g{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px}
+.gloss .g b{color:var(--ms-blue-dark)}
+.gloss .g span{display:block;font-size:.9rem;color:var(--muted);margin-top:3px}
+
+footer{background:#201f1e;color:#c8c6c4;padding:34px 0;font-size:.88rem}
+footer a{color:#6cb8f0}
+footer .src{margin-top:10px;font-size:.82rem;line-height:1.8}
+.disc{font-size:.8rem;color:var(--soft);font-style:italic;margin-top:10px}
+.step-num{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--ms-blue);color:#fff;align-items:center;justify-content:center;font-size:.85rem;font-weight:700;margin-right:8px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="logo"><i class="r"></i><i class="g"></i><i class="b"></i><i class="y"></i></div>
+    <h1>Microsoft 365 Copilot y Copilot Cowork: la guía sencilla de los <span style="color:var(--ms-blue)">Copilot Credits</span></h1>
+    <p class="tagline">Si nunca has usado estas herramientas, empieza aquí. Te explicamos qué son, qué incluye tu licencia, qué cosas se pagan por uso y cuánto cuestan — con ejemplos y una calculadora.</p>
+    <div class="chips">
+      <span class="chip">Explicado paso a paso</span>
+      <span class="chip">Datos oficiales · junio 2026</span>
+      <span class="chip">Con calculadora incluida</span>
+    </div>
+  </div>
+</header>
+
+<!-- 1. Qué es cada cosa -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Lo básico primero</span>
+    <h2>¿Qué es cada cosa?</h2>
+    <p class="sub">Tres conceptos que conviene no mezclar. Piénsalos como un asistente, un trabajador y la moneda con la que se paga el trabajo extra.</p>
+    <div class="cards three">
+      <div class="card">
+        <div class="ico bg-blue">🤝</div>
+        <h3>Microsoft 365 Copilot</h3>
+        <p>Tu <strong>asistente de IA</strong> dentro de Word, Excel, PowerPoint, Outlook y Teams. Le pides cosas y te ayuda a redactar, resumir, analizar o crear. Se paga con una <strong>licencia fija por usuario y mes</strong>.</p>
+      </div>
+      <div class="card">
+        <div class="ico bg-green">⚙️</div>
+        <h3>Copilot Cowork</h3>
+        <p>Un <strong>compañero de trabajo digital</strong>. No solo responde: <strong>hace el trabajo</strong> por ti de principio a fin — envía correos, agenda reuniones, crea documentos, publica en Teams — en varios pasos y de forma autónoma. Se paga <strong>por uso</strong>.</p>
+      </div>
+      <div class="card">
+        <div class="ico bg-yellow">🪙</div>
+        <h3>Copilot Credits</h3>
+        <p>La <strong>moneda común</strong> para pagar lo que se consume por uso. Cuanto más complejo es lo que pides, más créditos cuesta. <strong>1 crédito = 0,01&nbsp;$</strong> (es decir, 100 créditos = 1&nbsp;$).</p>
+      </div>
+    </div>
+    <div class="analogy">
+      <strong>Una analogía sencilla.</strong> La <strong>licencia de Microsoft 365 Copilot</strong> es como una tarifa plana de móvil: pagas un fijo al mes y usas el asistente todo lo que quieras. <strong>Copilot Cowork</strong> es como contratar a alguien para tareas concretas: pagas según el trabajo que realice, y esas tareas se pagan en <strong>Copilot Credits</strong>.
+    </div>
+  </div>
+</section>
+
+<!-- 2. Qué son los credits -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">La moneda</span>
+    <h2>¿Qué son exactamente los <span class="accent">Copilot Credits</span>?</h2>
+    <p class="sub">Una única moneda para todas las experiencias de IA de Microsoft que se pagan por uso. Así de simple.</p>
+    <div class="cards four">
+      <div class="card">
+        <div class="ico bg-blue">💲</div>
+        <h3>Precio fijo y claro</h3>
+        <p>Cada crédito cuesta <strong>0,01&nbsp;$</strong>. Si una tarea consume 500 créditos, son <strong>5&nbsp;$</strong>. Sin sorpresas en la conversión.</p>
+      </div>
+      <div class="card">
+        <div class="ico bg-cyan">🏦</div>
+        <h3>Bolsa común de la empresa</h3>
+        <p>Los créditos se agrupan <strong>a nivel de toda la organización</strong> (el "tenant"). Se reparten entre los distintos usos y servicios desde un único sitio.</p>
+      </div>
+      <div class="card">
+        <div class="ico bg-green">📊</div>
+        <h3>Coste según complejidad</h3>
+        <p>Una respuesta sencilla gasta pocos créditos; una tarea larga de varios pasos, muchos. <strong>Pagas en proporción al trabajo</strong> realizado.</p>
+      </div>
+      <div class="card">
+        <div class="ico bg-yellow">🎛️</div>
+        <h3>Control total</h3>
+        <p>Se gestionan desde el <strong>Centro de administración de Microsoft 365</strong>: presupuestos, alertas, límites máximos y visibilidad de quién y en qué gasta.</p>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>¿Dónde se usan?</strong> Los Copilot Credits son la moneda común de varias experiencias: <strong>Copilot Cowork</strong>, las <strong>Work IQ APIs</strong>, <strong>Microsoft Copilot Studio</strong>, los <strong>agentes de Dynamics 365</strong> y las cargas de <strong>Power Platform</strong>. Una sola bolsa de créditos sirve para todo.
+    </div>
+  </div>
+</section>
+
+<!-- 3. Incluido vs por uso -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Lo más importante de entender</span>
+    <h2>¿Qué está <span style="color:var(--ms-green-dark)">incluido</span> en mi licencia y qué se <span style="color:var(--ms-red)">paga por uso</span>?</h2>
+    <p class="sub">Tu licencia de Microsoft 365 Copilot ya incluye muchísimo sin gastar créditos. Los créditos solo entran en juego cuando usas capacidades agénticas avanzadas como Cowork.</p>
+    <table>
+      <thead>
+        <tr><th>Capacidad</th><th>¿Incluido en la licencia M365 Copilot?</th><th>¿Consume Copilot Credits?</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Copilot Chat (preguntar, crear, analizar con lenguaje natural)</td><td class="yes">✔ Sí, incluido</td><td>No</td></tr>
+        <tr><td>Copilot en Word, Excel, PowerPoint, OneNote, Outlook y Teams</td><td class="yes">✔ Sí, incluido</td><td>No</td></tr>
+        <tr><td>Agentes integrados: Researcher, Analyst, Facilitator</td><td class="yes">✔ Sí, incluido</td><td>No</td></tr>
+        <tr><td>Grounding de Work IQ (correos, calendario, archivos, personas) dentro de Copilot</td><td class="yes">✔ Sí, incluido</td><td>No</td></tr>
+        <tr><td><strong>Copilot Cowork</strong> (trabajo autónomo de varios pasos)</td><td class="no">Requiere la licencia como requisito previo</td><td class="tcheck" style="color:var(--ms-red)">Sí, por uso</td></tr>
+        <tr><td><strong>Work IQ APIs</strong> (usadas por agentes y soluciones a medida)</td><td class="no">No incluidas</td><td class="tcheck" style="color:var(--ms-red)">Sí, por uso</td></tr>
+        <tr><td>Agentes de <strong>Copilot Studio</strong> / <strong>Dynamics 365</strong> / <strong>Power Platform</strong></td><td class="no">Según el producto</td><td class="tcheck" style="color:var(--ms-red)">Sí, por uso</td></tr>
+      </tbody>
+    </table>
+    <div class="callout green">
+      <strong>Idea clave:</strong> la licencia de <strong>Microsoft 365 Copilot es el punto de entrada</strong>. Cowork necesita esa licencia para funcionar, pero <strong>no incluye créditos</strong>: el trabajo que Cowork ejecuta se factura aparte, según lo que haga.
+    </div>
+  </div>
+</section>
+
+<!-- 4. Cómo Cowork usa credits -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">El motor del coste</span>
+    <h2>¿Cómo gasta créditos <span class="accent">Copilot Cowork</span>?</h2>
+    <p class="sub">Cowork ejecuta tareas complejas de varios pasos. Su consumo depende de cuatro factores que se combinan en cada tarea.</p>
+    <div class="buckets">
+      <div class="bucket"><div class="b-ico">🧠</div><h4>Models (Modelos)</h4><p>El modelo de IA elegido según la calidad, velocidad y coste que pide la tarea.</p></div>
+      <div class="bucket"><div class="b-ico">⏱️</div><h4>Runtime (Ejecución)</h4><p>La orquestación en la nube que mantiene los agentes trabajando, incluso en tareas largas.</p></div>
+      <div class="bucket"><div class="b-ico">🔎</div><h4>Context (Contexto)</h4><p>Entender a las personas, roles y patrones de trabajo a partir de correos, archivos y reuniones.</p></div>
+      <div class="bucket"><div class="b-ico">🛠️</div><h4>Tools (Herramientas)</h4><p>Las acciones que realiza: enviar correos, agendar reuniones, actualizar documentos…</p></div>
+    </div>
+
+    <h3 style="margin-top:32px">Ejemplos reales: tareas ligeras, medias y pesadas</h3>
+    <p class="sub" style="margin-bottom:16px">Estas cifras son orientativas (por tarea) y varían según la complejidad. Sirven para hacerse una idea.</p>
+    <div class="scen">
+      <div class="s light">
+        <div class="head"><span>🟢 Ligera</span><span>70–200 créditos</span></div>
+        <div class="body">
+          <div class="credits" style="color:var(--ms-green-dark)">≈ 0,70&nbsp;$ – 2&nbsp;$</div>
+          <p class="ex">"Crea cada lunes un resumen semanal para mi equipo con mis prioridades y las reuniones clave de mi calendario. Guárdalo como borrador."</p>
+        </div>
+      </div>
+      <div class="s medium">
+        <div class="head"><span>🔵 Media</span><span>400–600 créditos</span></div>
+        <div class="body">
+          <div class="credits" style="color:var(--ms-blue)">≈ 4&nbsp;$ – 6&nbsp;$</div>
+          <p class="ex">"Prepárame la reunión con el cliente: reúne correos, citas de calendario, datos del CRM y contexto en un documento de briefing con un resumen de uso y tendencias."</p>
+        </div>
+      </div>
+      <div class="s heavy">
+        <div class="head"><span>🔴 Pesada</span><span>&gt; 1.500 créditos</span></div>
+        <div class="body">
+          <div class="credits" style="color:var(--ms-red)">&gt; 15&nbsp;$</div>
+          <p class="ex">"Analiza 6 meses de datos de uso de producto para entender patrones, clasifica los prompts y produce un análisis listo para dirección."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Calculadora -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Tu turno</span>
+    <h2>Calculadora: ¿cuánto podría gastar mi organización?</h2>
+    <p class="sub">Basada en el modelo del <a href="https://aka.ms/CustomerCoworkEstimator" target="_blank" rel="noopener"><em>Customer Cowork Estimator</em></a> oficial de Microsoft. Indica cuántos usuarios tendrás por perfil; los valores por defecto vienen del uso real de clientes del programa Frontier (a 27/05/2026) y puedes cambiarlos.</p>
+
+    <div class="calc">
+      <div class="calc-head">
+        <h3>Estimador de Copilot Credits para Cowork</h3>
+        <p>Paso 1: usuarios por perfil · Paso 2: prompts al mes · Paso 3: créditos por prompt · Resultado abajo</p>
+      </div>
+      <div class="calc-body">
+        <table>
+          <thead>
+            <tr>
+              <th><span class="step-num">1·2</span>Perfil de usuario</th>
+              <th>Nº usuarios</th>
+              <th title="Contexto reducido, modelo ligero, 0-1 herramientas">Prompts ligeros/mes</th>
+              <th title="Contexto rico, modelo capaz, varias herramientas">Prompts medios/mes</th>
+              <th title="Contexto amplio, modelo de alta calidad, muchas herramientas">Prompts pesados/mes</th>
+            </tr>
+          </thead>
+          <tbody id="calcRows"></tbody>
+        </table>
+
+        <details class="assump">
+          <summary><span class="step-num">3</span>Créditos consumidos por prompt (avanzado · editable)</summary>
+          <p style="margin:10px 0 0;color:var(--muted)">Valores por defecto del estimador oficial (asumen el modelo Anthropic Opus 4.8). Ajústalos a tu realidad si la conoces.</p>
+          <table>
+            <thead><tr><th>Tipo de prompt</th><th>Créditos por prompt</th></tr></thead>
+            <tbody>
+              <tr><td>🟢 Ligero</td><td><input type="number" id="cpl" value="125" min="0" oninput="recalc()"></td></tr>
+              <tr><td>🔵 Medio</td><td><input type="number" id="cpm" value="500" min="0" oninput="recalc()"></td></tr>
+              <tr><td>🔴 Pesado</td><td><input type="number" id="cph" value="1200" min="0" oninput="recalc()"></td></tr>
+            </tbody>
+          </table>
+        </details>
+
+        <div class="results">
+          <div class="result"><div class="rl">Créditos / mes</div><div class="rv" id="rCredits">—</div><div class="rx">consumo estimado total</div></div>
+          <div class="result"><div class="rl">Presupuesto / mes</div><div class="rv" id="rBudget">—</div><div class="rx">a 0,01&nbsp;$ por crédito (precio de lista)</div></div>
+          <div class="result"><div class="rl">Coste medio / usuario</div><div class="rv" id="rPerUser">—</div><div class="rx">al mes</div></div>
+        </div>
+        <p class="disc">Estimación orientativa para planificación presupuestaria. Los valores reales variarán según los flujos de trabajo y patrones de uso de tu organización. No constituye una oferta ni un compromiso de precio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Cómo se compra -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Las dos formas de pagar</span>
+    <h2>¿Cómo se compran los Copilot Credits?</h2>
+    <p class="sub">Dos modalidades, según prefieras pagar solo lo que uses o comprar por adelantado con descuento.</p>
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="pc-head">
+          <h3>💳 Pago por uso (Pay-as-you-go)</h3>
+          <span class="pc-tag">Sin compromiso inicial · se factura a mes vencido</span>
+        </div>
+        <div class="pc-body">
+          <div class="bignum">0,01&nbsp;$ <span style="font-size:.9rem;color:var(--muted);font-weight:400">/ crédito</span></div>
+          <ul>
+            <li>Pagas solo los créditos que realmente consumas.</li>
+            <li>Sin pago anticipado: ideal para empezar y escalar con flexibilidad.</li>
+            <li>Se factura al final de cada mes según el uso.</li>
+            <li>Se configura en el Power Platform admin center.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="pc-head">
+          <h3>📦 Plan de pre-compra (P3)</h3>
+          <span class="pc-tag">Pago por adelantado · 1 año · con descuento por volumen</span>
+        </div>
+        <div class="pc-body">
+          <div class="bignum">hasta −20% <span style="font-size:.9rem;color:var(--muted);font-weight:400">según volumen</span></div>
+          <ul>
+            <li>Compras una bolsa anual de créditos por adelantado.</li>
+            <li>El consumo descuenta de esa bolsa automáticamente.</li>
+            <li>Si te quedas corto, compras más o pasas a pago por uso.</li>
+            <li>Los créditos no usados caducan al final del año.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:28px">Niveles de descuento del Plan de pre-compra (P3)</h3>
+    <table style="margin-top:10px">
+      <thead><tr><th>Nivel</th><th>Copilot Credits (anuales)</th><th>Descuento</th><th>Equivalente aprox. en $ (precio lista)</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>300.000</td><td>5%</td><td>3.000&nbsp;$</td></tr>
+        <tr><td>2</td><td>1.500.000</td><td>6%</td><td>15.000&nbsp;$</td></tr>
+        <tr><td>3</td><td>3.000.000</td><td>7%</td><td>30.000&nbsp;$</td></tr>
+        <tr><td>4</td><td>15.000.000</td><td>8%</td><td>150.000&nbsp;$</td></tr>
+        <tr><td>5</td><td>30.000.000</td><td>10%</td><td>300.000&nbsp;$</td></tr>
+        <tr><td>6</td><td>75.000.000</td><td>12%</td><td>750.000&nbsp;$</td></tr>
+        <tr><td>7</td><td>150.000.000</td><td>14%</td><td>1.500.000&nbsp;$</td></tr>
+        <tr><td>8</td><td>225.000.000</td><td>17%</td><td>2.250.000&nbsp;$</td></tr>
+        <tr><td>9</td><td>300.000.000</td><td>20%</td><td>3.000.000&nbsp;$</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      Ambas modalidades (pago por uso y P3) <strong>descuentan del compromiso de consumo de Azure (MACC)</strong> si tu organización lo tiene. Se puede comprar a través de <strong>partners (CSP)</strong>, de <strong>Microsoft Sales Online</strong> o directamente en <strong>Microsoft Online</strong>.
+    </div>
+  </div>
+</section>
+
+<!-- 7. Work IQ APIs breve -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Para quien construye agentes</span>
+    <h2>Un apunte sobre las <span class="accent">Work IQ APIs</span></h2>
+    <p class="sub">No necesitas esto para empezar, pero conviene saberlo: es la capa de "inteligencia del trabajo" que pueden usar agentes y soluciones a medida.</p>
+    <div class="cards two">
+      <div class="card">
+        <div class="ico bg-cyan">🔌</div>
+        <h3>Cómo se paga</h3>
+        <p>Dos partes: una <strong>variable</strong> para consultas (grounding, recuperación y razonamiento) y una <strong>fija de 0,1 crédito por llamada</strong> a la API de herramientas (Tools).</p>
+      </div>
+      <div class="card">
+        <div class="ico bg-green">⚡</div>
+        <h3>Por qué importa</h3>
+        <p>Al mover más procesamiento al runtime de Work IQ, los tokens necesarios para contexto y herramientas se reducen <strong>hasta un 80%</strong>, abaratando el consumo de créditos en agentes.</p>
+      </div>
+    </div>
+    <div class="callout green">
+      <strong>Importante:</strong> Microsoft 365 Copilot está construido de forma nativa sobre Work IQ. Las experiencias incluidas en tu licencia (chats, Word/Excel/PowerPoint, agentes como Researcher o Analyst) <strong>no tienen cargos adicionales</strong>. Los créditos por Work IQ solo aplican al usar las APIs desde agentes o soluciones propias.
+    </div>
+  </div>
+</section>
+
+<!-- 8. FAQ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Dudas frecuentes</span>
+    <h2>Preguntas rápidas</h2>
+    <div class="faq" style="margin-top:18px">
+      <details open><summary>Entonces, ¿necesito comprar créditos para usar Microsoft 365 Copilot?</summary><div class="a">No. Las experiencias incluidas en la licencia (Copilot Chat, Copilot en las apps de Office, agentes integrados) funcionan con tu suscripción sin gastar créditos. Los créditos solo se usan al activar capacidades de pago por uso como Copilot Cowork.</div></details>
+      <details><summary>¿Cuánto cuesta un crédito?</summary><div class="a">0,01&nbsp;$ por crédito en precio de lista. 100 créditos = 1&nbsp;$. Con el plan de pre-compra (P3) puedes obtener descuentos del 5% al 20% según el volumen anual.</div></details>
+      <details><summary>¿Puedo controlar el gasto para no llevarme sorpresas?</summary><div class="a">Sí. Desde el Centro de administración de Microsoft 365 puedes fijar presupuestos, alertas, umbrales y límites máximos (hard caps), además de ver el consumo por usuario, grupo, servicio o agente.</div></details>
+      <details><summary>¿Los créditos son por usuario o para toda la empresa?</summary><div class="a">Se agrupan a nivel de organización (tenant). Es una bolsa común que se reparte entre todos los usos y servicios, y se administra de forma centralizada.</div></details>
+      <details><summary>¿Qué pasa con los créditos del plan P3 que no use?</summary><div class="a">Caducan al final del término anual. Por eso conviene dimensionar bien la compra; la calculadora de arriba ayuda a estimarlo.</div></details>
+      <details><summary>¿Cowork está incluido en mi licencia de Copilot?</summary><div class="a">No. La licencia de Microsoft 365 Copilot es un requisito previo para usar Cowork, pero no incluye entitlements de Cowork: su trabajo se factura por uso en créditos.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Glosario -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow">Glosario exprés</span>
+    <h2>Términos en una línea</h2>
+    <div class="gloss" style="margin-top:18px">
+      <div class="g"><b>Copilot Credits</b><span>Moneda común para pagar por uso las experiencias de IA de Microsoft. 1 crédito = 0,01&nbsp;$.</span></div>
+      <div class="g"><b>Tenant</b><span>La organización en su conjunto dentro de Microsoft 365. Los créditos se agrupan aquí.</span></div>
+      <div class="g"><b>Pay-as-you-go</b><span>Pago por uso: pagas a mes vencido solo lo consumido, sin compromiso inicial.</span></div>
+      <div class="g"><b>P3 (Pre-Purchase Plan)</b><span>Plan de pre-compra anual de créditos con descuento por volumen. Caduca al año.</span></div>
+      <div class="g"><b>MACC</b><span>Microsoft Azure Consumption Commitment: compromiso de consumo Azure. Los créditos descuentan de él.</span></div>
+      <div class="g"><b>Work IQ</b><span>Capa de inteligencia del trabajo (correos, calendario, archivos, personas) que da contexto a la IA.</span></div>
+      <div class="g"><b>Grounding</b><span>"Anclar" las respuestas en tus datos reales (correos, archivos, reuniones) para que sean relevantes.</span></div>
+      <div class="g"><b>Agente</b><span>Una IA que no solo responde, sino que ejecuta tareas y acciones por ti (como hace Cowork).</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo"><i class="r"></i><i class="g"></i><i class="b"></i><i class="y"></i></div>
+    <p>Guía divulgativa elaborada a partir de documentación oficial de Microsoft (junio 2026). Todos los precios en USD y sujetos a cambios. Este material es informativo y no sustituye a los Términos de Producto de Microsoft ni constituye una oferta.</p>
+    <div class="src">
+      <strong>Fuentes (consulta los originales):</strong><br>
+      · <a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/usage-based-billing-overview-copilot-credits" target="_blank" rel="noopener">Usage-Based Billing and Cost Management for Copilot Credits</a> — Microsoft Learn (15/06/2026)<br>
+      · <a href="https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/bade/documents/products-and-services/en-us/ai/Microsoft-Copilot-Credits-Guide-June-16-2026-PUB.pdf" target="_blank" rel="noopener">Microsoft Copilot Credits Guide — junio 2026</a> (PDF oficial)<br>
+      · <a href="https://aka.ms/CustomerCoworkEstimator" target="_blank" rel="noopener">Customer Cowork Estimator</a> — adoption.microsoft.com (datos Frontier a 27/05/2026, modelo Anthropic Opus 4.8)
+    </div>
+  </div>
+</footer>
+
+<script>
+// Datos por defecto del Customer Cowork Estimator (Frontier, 27/05/2026)
+const PERSONAS=[
+  {name:"Trabajadores del conocimiento (corporativos)", users:0, l:22, m:11, h:5},
+  {name:"Trabajadores de cara al cliente",              users:0, l:17, m:13, h:5},
+  {name:"Perfiles técnicos",                            users:0, l:12, m:9,  h:14},
+  {name:"Managers y alta dirección",                    users:0, l:13, m:6,  h:3}
+];
+
+function fmtInt(n){return Math.round(n).toLocaleString("es-ES");}
+function fmtUSD(n){return n.toLocaleString("es-ES",{style:"currency",currency:"USD",maximumFractionDigits:0});}
+
+function buildRows(){
+  const tb=document.getElementById("calcRows");
+  tb.innerHTML=PERSONAS.map((p,i)=>`<tr>
+    <td>${p.name}</td>
+    <td><input type="number" min="0" value="${p.users}" data-i="${i}" data-k="users" oninput="recalc()"></td>
+    <td><input type="number" min="0" value="${p.l}" data-i="${i}" data-k="l" oninput="recalc()"></td>
+    <td><input type="number" min="0" value="${p.m}" data-i="${i}" data-k="m" oninput="recalc()"></td>
+    <td><input type="number" min="0" value="${p.h}" data-i="${i}" data-k="h" oninput="recalc()"></td>
+  </tr>`).join("");
+}
+
+function recalc(){
+  document.querySelectorAll("#calcRows input").forEach(inp=>{
+    PERSONAS[+inp.dataset.i][inp.dataset.k]=Math.max(0,parseFloat(inp.value)||0);
+  });
+  const cpl=Math.max(0,parseFloat(document.getElementById("cpl").value)||0);
+  const cpm=Math.max(0,parseFloat(document.getElementById("cpm").value)||0);
+  const cph=Math.max(0,parseFloat(document.getElementById("cph").value)||0);
+  let totalCredits=0, totalUsers=0;
+  PERSONAS.forEach(p=>{
+    const perUser=p.l*cpl + p.m*cpm + p.h*cph;
+    totalCredits += p.users*perUser;
+    totalUsers += p.users;
+  });
+  const budget=totalCredits*0.01;
+  document.getElementById("rCredits").textContent = totalCredits>0?fmtInt(totalCredits):"—";
+  document.getElementById("rBudget").textContent = totalCredits>0?fmtUSD(budget):"—";
+  document.getElementById("rPerUser").textContent = totalUsers>0?fmtUSD(budget/totalUsers):"—";
+}
+
+buildRows();
+recalc();
+</script>
+</body>
+</html>
