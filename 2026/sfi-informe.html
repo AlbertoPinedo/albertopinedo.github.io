@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SFI · Informe de cronología — Secure Future Initiative</title>
+<style>
+  :root{
+    --bg:#f4f7fe; --bg2:#eef2fb; --panel:#ffffff; --line:#dbe3f4; --line2:#c7d3ec;
+    --text:#12203c; --muted:#5b6885; --soft:#7d89a6;
+    --blue:#1a63d6; --blue2:#4f9dff; --cyan:#0a8aa0; --teal:#0f9d8a; --violet:#6b4bd6; --amber:#c07a10; --green:#1c8a52; --red:#c23b3b;
+    --c1:#1a63d6; --c2:#6b4bd6; --c3:#0a8aa0; --c4:#c07a10; --c5:#1c8a52; --c6:#b0338f; --c7:#c62d42;
+    --shadow:0 10px 30px rgba(26,99,214,.10);
+  }
+  /* ===== Protección anti-copia (disuasoria) ===== */
+  html,body{
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;
+    -webkit-touch-callout:none;
+  }
+  button,a{ -webkit-user-select:none; user-select:none; }
+  img{ -webkit-user-drag:none; user-drag:none; pointer-events:none; }
+  html[data-theme="dark"]{
+    --bg:#0a0f1f; --bg2:#0c1224; --panel:#121a30; --line:#26304f; --line2:#38466e;
+    --text:#e7ecff; --muted:#9aa4c6; --soft:#7f8bad;
+    --blue:#5aa0ff; --blue2:#8cc0ff; --cyan:#5ad0e2; --teal:#57d6bf; --violet:#b69cff; --amber:#f0c060; --green:#7ee2a8; --red:#f08a8a;
+    --c1:#5aa0ff; --c2:#b69cff; --c3:#5ad0e2; --c4:#f0c060; --c5:#7ee2a8; --c6:#e79ad8; --c7:#f2879b;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);
+    font-family:-apple-system,Segoe UI,system-ui,sans-serif;line-height:1.6;min-height:100vh;transition:background .25s,color .25s;}
+  .wrap{max-width:1120px;margin:0 auto;padding:34px 26px 90px;}
+  header.hero{text-align:center;padding:14px 0 6px;}
+  .kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);font-weight:700;}
+  h1{font-family:Georgia,serif;font-size:2.5rem;line-height:1.1;margin:8px 0 6px;}
+  .sub{color:var(--muted);font-size:1.08rem;max-width:720px;margin:0 auto;}
+  .gen{color:var(--soft);font-size:12px;margin-top:8px;}
+  .warn{max-width:760px;margin:16px auto 0;background:rgba(194,59,59,.07);border:1px solid var(--red);border-radius:10px;padding:9px 14px;font-size:.82rem;color:var(--text);}
+  .warn strong{color:var(--red);}
+  h2.sec{font-family:Georgia,serif;font-size:1.55rem;margin:46px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--line);scroll-margin-top:16px;}
+  h3{font-size:1.05rem;color:var(--cyan);margin:20px 0 8px;}
+  p{margin:0 0 12px;} ul,ol{margin:0 0 12px;padding-left:20px;} li{margin:4px 0;}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);margin:14px 0;}
+  abbr{text-decoration:underline dotted;text-underline-offset:3px;cursor:help;}
+  code{background:var(--bg2);padding:1px 6px;border-radius:5px;font-size:.85em;}
+  table{width:100%;border-collapse:collapse;font-size:.88rem;margin:8px 0;}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;}
+  th{color:var(--cyan);font-size:10px;text-transform:uppercase;letter-spacing:.05em;}
+  tbody tr:hover{background:var(--bg2);}
+  .chip{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:999px;border:1px solid var(--line2);color:var(--blue);background:rgba(26,99,214,.06);}
+  .note{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:11px 15px;font-size:.88rem;color:var(--muted);margin:12px 0;}
+  .controls{position:fixed;top:14px;right:16px;z-index:60;display:flex;gap:8px;}
+  .ctrl{min-width:40px;height:40px;padding:0 12px;border-radius:22px;background:var(--panel);border:1px solid var(--line2);color:var(--text);font-size:13px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;box-shadow:var(--shadow);transition:transform .2s,border-color .2s;}
+  .ctrl:hover{transform:translateY(-1px);border-color:var(--blue);}
+
+  /* ===== TIMELINE ===== */
+  .tl-wrap{position:relative;margin:30px 0 10px;padding:10px 0;}
+  .tl-legend{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:26px;}
+  .tl-legend span{font-size:11px;color:var(--muted);display:inline-flex;align-items:center;gap:5px;}
+  .tl-legend i{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  .timeline{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:0;padding:215px 0;}
+  .spine{position:absolute;left:0;right:0;top:50%;height:6px;transform:translateY(-50%);
+    background:linear-gradient(90deg,var(--c1),var(--c2),var(--c3),var(--c4),var(--c5),var(--c6));border-radius:6px;box-shadow:0 0 20px rgba(26,99,214,.25);}
+  .node{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .dot{position:relative;z-index:3;width:26px;height:26px;border-radius:50%;background:var(--panel);border:4px solid var(--nc);box-shadow:0 0 0 6px rgba(26,99,214,.10), var(--shadow);transition:transform .25s;}
+  .dot::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid var(--nc);opacity:.35;animation:pulse 2.6s infinite;}
+  @keyframes pulse{0%{transform:scale(1);opacity:.35;}70%{transform:scale(1.9);opacity:0;}100%{opacity:0;}}
+  .node:hover .dot{transform:scale(1.18);}
+  .yr{position:absolute;z-index:3;font-family:Georgia,serif;font-weight:700;font-size:13px;color:var(--nc);background:var(--panel);border:1px solid var(--line2);border-radius:8px;padding:2px 9px;box-shadow:var(--shadow);}
+  .node:nth-child(odd) .yr{top:calc(50% + 22px);}
+  .node:nth-child(even) .yr{bottom:calc(50% + 22px);}
+  .tlcard{position:absolute;width:88%;max-width:200px;max-height:180px;overflow:auto;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--nc);border-radius:12px;padding:11px 13px;box-shadow:var(--shadow);}
+  .node:nth-child(odd) .tlcard{bottom:calc(50% + 52px);}
+  .node:nth-child(even) .tlcard{top:calc(50% + 52px);}
+  .tlcard .t{font-weight:700;font-size:12.5px;color:var(--nc);margin-bottom:4px;line-height:1.25;}
+  .tlcard ul{margin:0;padding-left:15px;} .tlcard li{font-size:11px;color:var(--text);margin:2px 0;line-height:1.35;}
+  .tlcard .metric{margin-top:6px;font-family:Georgia,serif;font-size:15px;font-weight:700;color:var(--nc);}
+  .tlcard .metric small{font-weight:400;font-size:10px;color:var(--muted);display:block;}
+  .n1{--nc:var(--c1);} .n2{--nc:var(--c2);} .n3{--nc:var(--c3);} .n4{--nc:var(--c4);} .n5{--nc:var(--c5);} .n6{--nc:var(--c6);}
+  @media (max-width:820px){
+    .timeline{grid-template-columns:1fr;gap:0;padding:0;}
+    .spine{left:19px;right:auto;top:0;bottom:0;width:6px;height:auto;background:linear-gradient(180deg,var(--c1),var(--c2),var(--c3),var(--c4),var(--c5),var(--c6));}
+    .node{flex-direction:row;align-items:flex-start;justify-content:flex-start;padding:14px 0 14px 44px;min-height:auto;}
+    .dot{position:absolute;left:6px;top:16px;}
+    .yr{position:static!important;margin:0 0 6px;align-self:flex-start;}
+    .tlcard{position:static!important;width:100%;max-width:none;margin-top:6px;}
+    .node:hover .dot{transform:none;}
+  }
+  .footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);font-size:.78rem;color:var(--soft);}
+  [data-only]{}
+</style>
+</head>
+<body>
+<div class="controls">
+  <button class="ctrl" id="lang">ES</button>
+  <button class="ctrl" id="theme">🌙</button>
+</div>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="kicker">Microsoft Security</div>
+    <h1><span data-es="Secure Future Initiative" data-en="Secure Future Initiative"></span></h1>
+    <p class="sub"><span data-es="Informe de cronología detallada de la mayor iniciativa de ingeniería de ciberseguridad de la historia digital. Cada concepto, explicado." data-en="A detailed chronology of the largest cybersecurity engineering effort in digital history. Every concept, explained."></span></p>
+    <div class="gen">2 jul 2026 · Neuro</div>
+    <div class="warn"><strong data-es="Nota" data-en="Note">Nota</strong>: <span data-es="basado en informes públicos de progreso de Microsoft (blogs de Charlie Bell). Cifras: destacados reportados, no comparables auditados." data-en="based on Microsoft's public progress reports (Charlie Bell blogs). Figures: reported highlights, not audited comparables."></span></div>
+  </header>
+
+  <!-- ============ BLUF ============ -->
+  <h2 class="sec" id="bluf">BLUF</h2>
+  <div class="card">
+    <p><span data-es="El " data-en="The "></span><strong>SFI</strong> (<abbr title="Secure Future Initiative">Secure Future Initiative</abbr>, <span data-es="«Iniciativa para un Futuro Seguro») es la mayor iniciativa de ingeniería de ciberseguridad de la historia digital: " data-en="'Secure Future Initiative') is the largest cybersecurity engineering effort in digital history: "></span><strong>~34.000–35.000 <abbr title="Full-Time Equivalent: horas convertidas a personas a jornada completa">FTE</abbr></strong><span data-es=". Nace en noviembre de 2023, se estructura en seis pilares en mayo de 2024 y rinde cuentas en cuatro informes públicos (sep-2024, abr-2025, nov-2025 y jul-2026) firmados por Charlie Bell (EVP de Microsoft Security). Su arco: de declarar escala → a ejecución medible → a modelo operativo permanente con la IA integrada en la defensa. El último informe, de julio-2026, reencuadra el SFI como «Zero Trust extendido a la IA», concreta las cifras y adelanta el calendario post-cuántico." data-en=". Launched November 2023, structured into six pillars in May 2024, reported publicly across four progress reports (Sep-2024, Apr-2025, Nov-2025 and Jul-2026) by Charlie Bell (EVP, Microsoft Security). Its arc: from declaring scale → to measurable execution → to a permanent operating model with AI embedded in the defense. The latest report, July-2026, reframes SFI as 'Zero Trust extended to AI', hardens the figures and brings the post-quantum timeline forward."></span></p>
+  </div>
+
+  <!-- ============ TIMELINE ============ -->
+  <h2 class="sec" id="cronograma"><span data-es="Cronograma de hitos" data-en="Milestone timeline"></span></h2>
+  <div class="tl-legend">
+    <span><i style="background:var(--c1)"></i><span data-es="Lanzamiento" data-en="Launch"></span></span>
+    <span><i style="background:var(--c2)"></i><span data-es="Estructura" data-en="Structure"></span></span>
+    <span><i style="background:var(--c3)"></i><span data-es="Informe 1" data-en="Report 1"></span></span>
+    <span><i style="background:var(--c4)"></i><span data-es="Informe 2" data-en="Report 2"></span></span>
+    <span><i style="background:var(--c5)"></i><span data-es="Informe 3" data-en="Report 3"></span></span>
+    <span><i style="background:var(--c6)"></i><span data-es="Jul 2026 (informe 4)" data-en="Jul 2026 (report 4)"></span></span>
+  </div>
+  <div class="tl-wrap">
+    <div class="timeline">
+      <div class="spine"></div>
+
+      <div class="node n1">
+        <div class="dot"></div><div class="yr">Nov 2023</div>
+        <div class="tlcard">
+          <div class="t"><span data-es="Anuncio del SFI" data-en="SFI announced"></span></div>
+          <ul>
+            <li data-es="Nace el programa de ingeniería de seguridad, el mayor de la historia digital." data-en="The security engineering program is born — the largest in digital history."></li>
+            <li data-es="Respuesta a incidentes de alto perfil (Storm-0558) y a un panorama de amenazas más agresivo." data-en="A response to high-profile incidents (Storm-0558) and a harsher threat landscape."></li>
+            <li data-es="Premisa fundacional: «la seguridad por encima de todo», antes que funciones nuevas." data-en="Founding premise: 'security above all else', ahead of new features."></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="node n2">
+        <div class="dot"></div><div class="yr">May 2024</div>
+        <div class="tlcard">
+          <div class="t"><span data-es="Seis pilares + gobernanza" data-en="Six pillars + governance"></span></div>
+          <ul>
+            <li data-es="Doctrina «seguridad por encima de todo»." data-en="'Security above all else' doctrine."></li>
+            <li data-es="Consejo de Gobernanza y Deputy CISOs." data-en="Governance Council and Deputy CISOs."></li>
+            <li data-es="Retribución del liderazgo ligada a seguridad." data-en="Leadership pay tied to security."></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="node n3">
+        <div class="dot"></div><div class="yr">Sep 2024</div>
+        <div class="tlcard">
+          <div class="t"><span data-es="Informe 1 · Línea de base" data-en="Report 1 · Baseline"></span></div>
+          <ul>
+            <li data-es="Claves de firma a HSM con rotación automática." data-en="Signing keys to HSM with auto-rotation."></li>
+            <li data-es="5,75 M de tenants inactivos eliminados." data-en="5.75M inactive tenants removed."></li>
+            <li data-es="CVEs de nube publicados por transparencia." data-en="Cloud CVEs published for transparency."></li>
+          </ul>
+          <div class="metric">34.000<small data-es="ingenieros (FTE)" data-en="engineers (FTE)"></small></div>
+        </div>
+      </div>
+
+      <div class="node n4">
+        <div class="dot"></div><div class="yr">Abr 2025</div>
+        <div class="tlcard">
+          <div class="t"><span data-es="Informe 2 · Ejecución medible" data-en="Report 2 · Measurable execution"></span></div>
+          <ul>
+            <li data-es="Firma MSA a confidential VMs (mitiga Storm-0558)." data-en="MSA signing to confidential VMs (mitigates Storm-0558)."></li>
+            <li data-es="99,2 % de pipelines con inventario completo." data-en="99.2% of pipelines fully inventoried."></li>
+            <li data-es="180 vulnerabilidades halladas (Zero Day Quest)." data-en="180 vulnerabilities found (Zero Day Quest)."></li>
+          </ul>
+          <div class="metric">4.000 M$<small data-es="fraude frustrado" data-en="fraud thwarted"></small></div>
+        </div>
+      </div>
+
+      <div class="node n5">
+        <div class="dot"></div><div class="yr">Nov 2025</div>
+        <div class="tlcard">
+          <div class="t"><span data-es="Informe 3 · Maduro y AI-first" data-en="Report 3 · Mature & AI-first"></span></div>
+          <ul>
+            <li data-es="Rol AI Administrator; Sentinel AI-first (MCP)." data-en="AI Administrator role; AI-first Sentinel (MCP)."></li>
+            <li data-es="European Security Program (ESP) con gobiernos." data-en="European Security Program (ESP) with governments."></li>
+            <li data-es="99,5 % de secretos vivos en código remediados." data-en="99.5% of live secrets in code remediated."></li>
+          </ul>
+          <div class="metric">99,6 %<small data-es="MFA anti-phishing" data-en="phishing-resistant MFA"></small></div>
+        </div>
+      </div>
+
+      <div class="node n6">
+        <div class="dot"></div><div class="yr">Jul 2026</div>
+        <div class="tlcard">
+          <div class="t"><span data-es="Informe 4 · Zero Trust extendido a la IA" data-en="Report 4 · Zero Trust extended to AI"></span></div>
+          <ul>
+            <li data-es="Cifras concretas: 228.000 invitados, 3.700+ certs, 732.000+ acceso público retirado." data-en="Concrete figures: 228,000 guests, 3,700+ certs, 732,000+ public access removed."></li>
+            <li data-es="MDASH en el SDLC; aceleración post-cuántica (2029)." data-en="MDASH in the SDLC; post-quantum acceleration (2029)."></li>
+          </ul>
+          <div class="metric">99,97 %<small data-es="MFA anti-phishing" data-en="phishing-resistant MFA"></small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ POR INFORME ============ -->
+  <h2 class="sec" id="informes"><span data-es="Detalle por informe" data-en="Detail by report"></span></h2>
+
+  <div class="card">
+    <h3><span class="chip" style="color:var(--c3);border-color:var(--c3)">Sep 2024</span> <span data-es="Línea de base" data-en="Baseline"></span></h3>
+    <p><strong data-es="Cultura y gobernanza:" data-en="Culture & governance:"></strong> <span data-es="34.000 ingenieros; seguridad en la evaluación de desempeño; Security Skilling Academy (academia interna de formación)." data-en="34,000 engineers; security in performance reviews; Security Skilling Academy (internal training)."></span></p>
+    <ul>
+      <li><strong data-es="Identidades:" data-en="Identities:"></strong> <span data-es="claves de firma de token de " data-en="token signing keys for "></span><abbr title="Servicio de identidad en la nube de Microsoft (antes Azure AD)">Entra ID</abbr> <span data-es="y " data-en="and "></span><abbr title="Microsoft Account: la cuenta personal Microsoft">MSA</abbr> <span data-es="a " data-en="to "></span><abbr title="Hardware Security Module: dispositivo físico blindado que custodia claves y no permite extraerlas">Azure Managed HSM</abbr> <span data-es="con rotación automática; SDKs de identidad validan >73 % de tokens; credenciales resistentes a phishing." data-en="with auto-rotation; identity SDKs validate >73% of tokens; phishing-resistant credentials."></span></li>
+      <li><strong>Tenants:</strong> <span data-es="730.000 apps y 5,75 M de tenants inactivos eliminados (reduce la superficie de ataque)." data-en="730,000 apps and 5.75M inactive tenants removed (reduces attack surface)."></span></li>
+      <li><strong data-es="Redes:" data-en="Networks:"></strong> <span data-es=">99 % de activos físicos en inventario central; aislamiento contra el movimiento lateral." data-en=">99% of physical assets centrally inventoried; isolation against lateral movement."></span></li>
+      <li><strong data-es="Ingeniería:" data-en="Engineering:"></strong> <span data-es="85 % de pipelines de build con plantillas gobernadas; " data-en="85% of build pipelines on governed templates; "></span><abbr title="Personal Access Token: credencial de acceso de desarrollador">PAT</abbr> <span data-es="a 7 días; " data-en="to 7 days; "></span><abbr title="Secure Shell: protocolo de acceso remoto">SSH</abbr> <span data-es="deshabilitado en repos internos." data-en="disabled on internal repos."></span></li>
+      <li><strong data-es="Respuesta:" data-en="Response:"></strong> <span data-es="publicación de " data-en="publishing "></span><abbr title="Common Vulnerabilities and Exposures: identificador público de una vulnerabilidad">CVEs</abbr> <span data-es="de nube por transparencia; oficina CSMO hacia el cliente." data-en="of cloud issues for transparency; customer-facing CSMO."></span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="chip" style="color:var(--c4);border-color:var(--c4)">Abr 2025</span> <span data-es="Ejecución medible (2.º informe)" data-en="Measurable execution (2nd report)"></span></h3>
+    <ul>
+      <li><strong data-es="Cultura:" data-en="Culture:"></strong> <span data-es="99 % completaron los cursos base; 50.000 en la Academy; Secure by Design UX Toolkit a 22.000 empleados." data-en="99% completed foundational courses; 50,000 in the Academy; Secure by Design UX Toolkit to 22,000 employees."></span></li>
+      <li><strong data-es="Identidades:" data-en="Identities:"></strong> <span data-es="firma de MSA a " data-en="MSA signing to "></span><abbr title="Confidential VMs: máquinas virtuales que cifran los datos incluso mientras se procesan en memoria">Azure confidential VMs</abbr> <span data-es="— mitiga el vector del ataque Storm-0558 (2023, clave de firma robada); 92 % de cuentas con " data-en="— mitigates the Storm-0558 attack vector (2023, stolen signing key); 92% of accounts with "></span><abbr title="Multi-Factor Authentication: exigir dos o más pruebas de identidad">MFA</abbr> <span data-es="anti-phishing." data-en="phishing-resistant MFA."></span></li>
+      <li><strong>Tenants:</strong> <span data-es="88 % de recursos a " data-en="88% of resources to "></span><abbr title="Azure Resource Manager: capa unificada de gestión y permisos de Azure">ARM</abbr>; <span data-es="6,3 M de tenants eliminados." data-en="6.3M tenants removed."></span></li>
+      <li><strong data-es="Ingeniería:" data-en="Engineering:"></strong> <span data-es="99,2 % de pipelines con inventario; MFA en el 81 % de ramas de código de producción." data-en="99.2% of pipelines inventoried; MFA on 81% of production code branches."></span></li>
+      <li><strong data-es="Monitorización y respuesta:" data-en="Monitoring & response:"></strong> <span data-es="+200 detecciones contra " data-en="+200 detections against "></span><abbr title="Tactics, Techniques and Procedures: el 'modus operandi' catalogado de los atacantes">TTPs</abbr>; <span data-es="180 vulnerabilidades por Zero Day Quest; 4.000 M$ de fraude frustrado." data-en="180 vulnerabilities via Zero Day Quest; $4B fraud thwarted."></span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="chip" style="color:var(--c5);border-color:var(--c5)">Nov 2025</span> <span data-es="Modelo maduro y AI-first" data-en="Mature & AI-first"></span></h3>
+    <ul>
+      <li><strong data-es="Gobernanza:" data-en="Governance:"></strong> <span data-es="+3 Deputy CISOs (regulación europea, operaciones, partners); lanzamiento del " data-en="+3 Deputy CISOs (European regulation, operations, partners); launch of the "></span><strong>European Security Program (ESP)</strong> <span data-es="con gobiernos europeos." data-en="with European governments."></span></li>
+      <li><strong data-es="Seguro por diseño/defecto/operación:" data-en="Secure by design/default/operations:"></strong> <span data-es="Azure con " data-en="Azure with "></span><abbr title="Valores seguros de fábrica: activos sin que el cliente tenga que hacer nada">secure defaults</abbr>; <span data-es="M365 con rol AI Administrator y gobernanza del ciclo de vida de agentes; Windows/Surface con " data-en="M365 with AI Administrator role and agent lifecycle governance; Windows/Surface with "></span><abbr title="Passkeys: sustituto de la contraseña por criptografía+biometría, resistente a phishing">passkeys</abbr> <span data-es="y firmware " data-en="and "></span><abbr title="Memory-safe: código que evita errores de manejo de memoria, origen de muchas vulnerabilidades">memory-safe</abbr>.</li>
+      <li><strong>Microsoft Security:</strong> <abbr title="Data Security Posture Management: gestión de la postura de seguridad del dato, aplicada a IA">DSPM</abbr> <span data-es="para IA; " data-en="for AI; "></span><abbr title="SIEM: plataforma que agrega señales de seguridad y detecta amenazas">Sentinel</abbr> <span data-es="evolucionado a AI-first con data lake, graph y " data-en="evolved to AI-first with data lake, graph and "></span><abbr title="Model Context Protocol: protocolo abierto que permite a los modelos de IA usar herramientas y datos">MCP</abbr>.</li>
+      <li><strong data-es="Ingeniería:" data-en="Engineering:"></strong> <span data-es="99,6 % MFA anti-phishing; 99,5 % de secretos vivos (credenciales filtradas en el código) remediados; 17 M$ en divulgación responsable. 35.000 ingenieros." data-en="99.6% phishing-resistant MFA; 99.5% of live secrets (credentials leaked in code) remediated; $17M in responsible disclosure. 35,000 engineers."></span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="chip" style="color:var(--c6);border-color:var(--c6)">Jul 2026</span> <span data-es="Informe 4 · Zero Trust extendido a la IA" data-en="Report 4 · Zero Trust extended to AI"></span></h3>
+    <p><strong data-es="Nuevo encuadre:" data-en="New framing:"></strong> <span data-es="el último informe presenta el SFI como «la implementación de Zero Trust de Microsoft, ahora extendida a la IA» y se reporta por tres temas — cimientos seguros, defensa proactiva y preparación para el futuro — cada uno con un apartado «qué puedes hacer tú». Confirma el relato, concreta las cifras y adelanta el calendario post-cuántico." data-en="the latest report frames SFI as 'Microsoft's implementation of Zero Trust, now extended to AI' and is reported across three themes — secure foundations, proactive defense and future-ready security — each with a 'what you can do' section. It confirms the narrative, hardens the figures and brings the post-quantum timeline forward."></span></p>
+    <ul>
+      <li><strong data-es="Gobernanza:" data-en="Governance:"></strong> <span data-es="el CISO global absorbe Microsoft Research; MSTIC + GHOST se fusionan en " data-en="the global CISO absorbs Microsoft Research; MSTIC + GHOST merge into "></span><abbr title="Unidad consolidada de inteligencia y caza de amenazas; con el Red Team forma el 'Tip of Spear'">Spear</abbr>; <abbr title="AeGIS SFI Command Center: sistema de registro único de propiedad, riesgo y cumplimiento">AeGIS</abbr> <span data-es="como sistema de registro único; " data-en="as single system of record; "></span><abbr title="Trusted Tech Alliance: 16 empresas, Conferencia de Seguridad de Múnich, feb-2026">Trusted Tech Alliance</abbr> <span data-es="y empuje en la OCDE." data-en="and an OECD push."></span></li>
+      <li><strong data-es="Cimientos seguros:" data-en="Secure Foundations:"></strong> <span data-es="99,97 % MFA anti-phishing; 100 % de claves con cifrado confidencial (63 % además en hardware blindado); detección de tokens falsificados; 228.000 invitados sin responsable eliminados; 3.700+ certificados de producción revocados; 732.000+ recursos con acceso público retirado (aislamiento escalando a +1 M); 29.000+ cuentas privilegiadas en " data-en="99.97% phishing-resistant MFA; 100% of keys with confidential encryption (63% also in shielded hardware); forged-token detection; 228,000 sponsor-less guests eliminated; 3,700+ production certs revoked; 732,000+ resources with public access removed (isolation scaling to +1M); 29,000+ privileged accounts under "></span><abbr title="Just-In-Time / Privileged Identity Management: acceso privilegiado solo cuando hace falta, por tiempo limitado y con doble llave">JIT/PIM</abbr><span data-es="; 98,7 % de aislamiento de credenciales entre fronteras; 1,4 M de apps sin uso retiradas." data-en="; 98.7% cross-boundary credential isolation; 1.4M unused apps decommissioned."></span></li>
+      <li><strong data-es="Defensa proactiva:" data-en="Proactive Defense:"></strong> <abbr title="Microsoft Security multi-model agentic scanning harness: sistema multi-modelo y multi-agente de escaneo de seguridad">MDASH</abbr> <span data-es="integrado en el ciclo de desarrollo (SDLC), con validación por prueba antes de publicar; un sistema multi-agente confirma >90 % de sus hallazgos como problemas reales, con doble vía de remediación (control inmediato + arreglo arquitectónico); bloqueo al subir código (13 %→47 %); >550.000 vulns OSS remediadas; ~3 M/mes de parcheo automático; 350+ detecciones; disrupción de atacantes (Lumma ~2.300 dominios, RedVDS, Winter SHIELD con el FBI)." data-en="embedded in the SDLC, proof-validated before release; a multi-agent system confirms >90% of findings as genuine issues, with dual-track remediation (immediate control + architectural fix); code-time blocking (13%→47%); >550,000 OSS vulns remediated; ~3M/month automated patching; 350+ detections; attacker disruption (Lumma ~2,300 domains, RedVDS, Winter SHIELD with the FBI)."></span></li>
+      <li><strong data-es="La curva del atacante:" data-en="The attacker curve:"></strong> <span data-es="cada endurecimiento cambia la táctica del adversario, no la elimina: de robar contraseñas a abusar de flujos legítimos (consentimiento OAuth, device code, intercepción AITM, robo de token, abuso de service principals). Efecto compuesto del SFI: menos caminos viables para el atacante." data-en="each hardening shifts the adversary's tactic rather than ending it: from stealing passwords to abusing legitimate flows (OAuth consent, device code, AITM interception, token theft, service-principal abuse). SFI's compounding effect: fewer viable paths for the attacker."></span></li>
+      <li><strong data-es="Preparación para el futuro:" data-en="Future-Ready Security:"></strong> <span data-es="aceleración post-cuántica: la " data-en="post-quantum acceleration: "></span><abbr title="Post-Quantum Cryptography: criptografía resistente a un ordenador cuántico">PQC</abbr> <span data-es="entra en ejecución con dueños e hitos; Windows ya envía capacidades PQC tempranas (Schannel, nuevas APIs); el reto es la cripto-agilidad coordinada (ML-KEM, ML-DSA ya existen). Azure Integrated HSM liberado como código abierto (auditable); nuevos objetivos AR4 (contención/expulsión) y AR5 (parcheo como control base). Objetivo de transición: 2029." data-en="PQC moves into execution with owners and milestones; Windows already ships early PQC capabilities (Schannel, new APIs); the challenge is coordinated crypto-agility (ML-KEM, ML-DSA already exist). Azure Integrated HSM open-sourced (auditable); new AR4 (containment/eviction) and AR5 (patching as baseline) objectives. Transition target: 2029."></span></li>
+      <li><strong data-es="Estado de objetivos:" data-en="Objective status:"></strong> <span data-es="3 alcanzaron su meta, 3 casi completos, 12 con avance significativo. 212+ ítems de seguridad de IA cerrados (95 % en plazo)." data-en="3 reached target, 3 near completion, 12 with significant progress. 212+ AI-security items closed (95% on SLA)."></span></li>
+    </ul>
+    <div class="note"><span data-es="Fuente: SFI Report Julio 2026 (último informe de progreso publicado)." data-en="Source: SFI Report July 2026 (latest published progress report)."></span></div>
+  </div>
+  <h2 class="sec" id="indicadores"><span data-es="Indicadores maestros (con significado)" data-en="Master indicators (with meaning)"></span></h2>
+  <div class="card" style="overflow-x:auto">
+    <table>
+      <thead><tr>
+        <th data-es="Indicador" data-en="Indicator"></th><th>Sep 24</th><th>Abr 25</th><th>Nov 25</th><th>Jul 26</th><th data-es="Qué significa (en llano)" data-en="What it means (plain)"></th>
+      </tr></thead>
+      <tbody>
+        <tr><td data-es="Ingenieros (FTE)" data-en="Engineers (FTE)"></td><td>34.000</td><td>34.000</td><td>35.000</td><td><strong>35.000</strong></td><td data-es="Cuántas personas a jornada completa trabajan en la iniciativa." data-en="How many full-time people work on the initiative."></td></tr>
+        <tr><td data-es="MFA anti-phishing" data-en="Phishing-resistant MFA"></td><td>prod.</td><td>92 %</td><td>99,6 %</td><td><strong>99,97 %</strong></td><td data-es="% de accesos con factores que no se pueden robar por engaño (llave física, huella). Ya cubre Mac y se amplía a Linux." data-en="% of sign-ins with factors that can't be stolen by deception (security key, biometrics). Now covers Mac, expanding to Linux."></td></tr>
+        <tr><td data-es="Claves protegidas incluso «en uso»" data-en="Keys protected even 'in use'"></td><td>HSM</td><td>MSA</td><td data-es="en migr." data-en="migrating"></td><td><strong>100 %</strong></td><td data-es="Las claves que firman los «pases de acceso» van cifradas hasta cuando se usan en memoria, no solo guardadas (antes 93 %)." data-en="The keys that sign access 'passes' are encrypted even while in use in memory, not just at rest (was 93%)."></td></tr>
+        <tr><td data-es="Claves en hardware blindado (HSM+KeyGuard)" data-en="Keys in shielded hardware (HSM+KeyGuard)"></td><td>—</td><td>—</td><td>—</td><td><strong>63 %</strong></td><td data-es="% de esas claves que además viven en un chip físico a prueba de manipulación, aislado del sistema." data-en="% of those keys that also live in a tamper-proof physical chip, isolated from the system."></td></tr>
+        <tr><td data-es="Tráfico de identidad por el componente único (MISE)" data-en="Identity traffic via the single component (MISE)"></td><td>73 %</td><td>90 %</td><td>—</td><td><strong>92,96 %</strong></td><td data-es="Al iniciar sesión, la app recibe un «pase» que confirma tu identidad. Antes cada app lo comprobaba con su propio código; ahora un único componente central blindado lo hace igual para todas. Mide qué % del tráfico ya pasa por él en vez de por los métodos antiguos." data-en="On sign-in, the app gets a 'pass' confirming your identity. Each app used to check it with its own code; now a single hardened central component does it the same way for all. It measures what % of traffic already goes through it rather than legacy methods."></td></tr>
+        <tr><td data-es="Invitados sin responsable asignado" data-en="Sponsor-less guest accounts"></td><td>—</td><td>—</td><td>—</td><td><strong data-es="228.000 elim." data-en="228,000 elim.">228.000 elim.</strong></td><td data-es="Cuentas externas sin nadie que responda por ellas: un riesgo. Se reportan 228.000 ya eliminadas." data-en="External accounts with nobody accountable for them — a risk. 228,000 reported eliminated."></td></tr>
+        <tr><td data-es="Certificados expuestos revocados (apps críticas)" data-en="Exposed certs revoked (critical apps)"></td><td>—</td><td>—</td><td>—</td><td><strong>3.700+</strong></td><td data-es="Un certificado filtrado permite hacerse pasar por un sistema; se anulan 3.700+ certificados de producción expuestos." data-en="A leaked certificate lets an attacker impersonate a system; 3,700+ exposed production certs are revoked."></td></tr>
+        <tr><td data-es="Aislamiento de red / acceso público retirado" data-en="Network isolation / public access removed"></td><td data-es="base" data-en="base"></td><td>NSP</td><td>—</td><td><strong>732.000+</strong> <span data-es="púb. · +1 M" data-en="pub. · +1M"></span></td><td data-es="Recursos separados en compartimentos para que un atacante no salte de uno a otro: 732.000+ con acceso público retirado y aislamiento escalando a +1 M." data-en="Resources split into compartments so an attacker can't jump between them: 732,000+ with public access removed and isolation scaling to +1M."></td></tr>
+        <tr><td data-es="Repos críticos con acceso centralizado" data-en="Critical repos with centralized access"></td><td>—</td><td>—</td><td>—</td><td><strong>48 %</strong></td><td data-es="% del código fuente sensible con acceso controlado desde un punto único (>13.000 repos)." data-en="% of sensitive source code with access controlled from a single point (>13,000 repos)."></td></tr>
+        <tr><td data-es="Pipelines con plantillas gobernadas" data-en="Pipelines on governed templates"></td><td>85 %</td><td>99,2 %</td><td>—</td><td><strong>93 %/90 %</strong> ⚠</td><td data-es="Cadenas de montaje del software con plantillas seguras aprobadas. La aparente bajada frente al 99,2 % es por medir un conjunto más amplio, no una regresión." data-en="Software build pipelines on approved secure templates. The apparent drop from 99.2% is a wider measurement scope, not a regression."></td></tr>
+        <tr><td data-es="Bloqueo al subir código (corrección)" data-en="Code-time blocking (fix rate)"></td><td>—</td><td>—</td><td>—</td><td><strong>13 %→47 %</strong></td><td data-es="Al subir código con un fallo se avisa y se frena ahí mismo; la corrección en el acto sube del 13 % al 47 %." data-en="Insecure code is flagged and stopped as it's pushed; on-the-spot fixing rises from 13% to 47%."></td></tr>
+        <tr><td data-es="Secretos vivos remediados" data-en="Live secrets remediated"></td><td>—</td><td>—</td><td>99,5 %</td><td>—</td><td data-es="% de credenciales válidas filtradas en el código detectadas y anuladas (reportado en nov-2025)." data-en="% of valid credentials leaked in code detected and revoked (reported Nov-2025)."></td></tr>
+        <tr><td data-es="Activos críticos inventariados" data-en="Critical assets inventoried"></td><td>&gt;99 %</td><td>97 %</td><td data-es="red compl." data-en="full net"></td><td><strong>&gt;99 %</strong></td><td data-es="% de sistemas importantes localizados y vigilados desde un punto único." data-en="% of important systems located and monitored from a single point."></td></tr>
+        <tr><td data-es="Servicios con logs en formato estándar" data-en="Services emitting standard logs"></td><td data-es="estándar" data-en="standard"></td><td>—</td><td>—</td><td><strong>&gt;81 %</strong></td><td data-es="% de servicios que dejan un rastro homogéneo, imprescindible para investigar un incidente." data-en="% of services that leave a uniform trail, essential to investigate an incident."></td></tr>
+        <tr><td data-es="Detecciones nuevas" data-en="New detections"></td><td>—</td><td>+200</td><td>+50</td><td><strong>350+</strong></td><td data-es="Reglas nuevas que detectan ataques por su comportamiento anómalo, no por una firma conocida. Julio: 350+ desplegadas." data-en="New rules that spot attacks by anomalous behavior, not by a known signature. July: 350+ deployed."></td></tr>
+        <tr><td data-es="Vulns OSS críticas corregidas" data-en="Critical OSS vulns fixed"></td><td>—</td><td>—</td><td>—</td><td><strong>550.000+</strong></td><td data-es="Fallos graves en componentes de terceros (código abierto reutilizado) remediados." data-en="Serious flaws in third-party components (reused open source) remediated."></td></tr>
+        <tr><td data-es="Parcheo automático de contenedores" data-en="Automated container patching"></td><td>—</td><td>—</td><td>—</td><td><strong>~3 M/mes</strong></td><td data-es="Actualizaciones de seguridad aplicadas automáticamente a ~3 millones de «cajas» de software al mes." data-en="Security updates applied automatically to ~3 million software 'boxes' per month."></td></tr>
+        <tr><td data-es="Ítems de seguridad de IA cerrados" data-en="AI-security items closed"></td><td>—</td><td>—</td><td>—</td><td><strong>212+</strong></td><td data-es="Tareas de seguridad propias de la IA completadas, con 95 % de cumplimiento de plazo." data-en="AI-specific security tasks completed, with 95% SLA attainment."></td></tr>
+        <tr><td data-es="Dominios de atacantes incautados" data-en="Attacker domains seized"></td><td>—</td><td>—</td><td>—</td><td><strong>~2.300</strong></td><td data-es="Direcciones de una red criminal retiradas por vía legal-técnica (operación Lumma Stealer)." data-en="Addresses of a criminal network taken down by legal-technical means (Lumma Stealer operation)."></td></tr>
+        <tr><td data-es="Fraude frustrado" data-en="Fraud thwarted"></td><td>—</td><td>4.000 M$</td><td>—</td><td>—</td><td data-es="Valor de los intentos de fraude bloqueados (reportado en abr-2025)." data-en="Value of fraud attempts blocked (reported Apr-2025)."></td></tr>
+        <tr><td data-es="Formación completada" data-en="Training completed"></td><td>Academy</td><td>99 %</td><td>95 % (IA)</td><td><strong>&gt;99 %</strong> · 4,55/5</td><td data-es="% de plantilla formada y cuánto siente que su papel en la seguridad importa (4,55/5)." data-en="% of staff trained and how strongly they feel their security role matters (4.55/5)."></td></tr>
+        <tr><td data-es="Cuentas privilegiadas en JIT/PIM" data-en="Privileged accounts under JIT/PIM"></td><td>—</td><td>—</td><td>—</td><td><strong>29.000+</strong> 🆕</td><td data-es="Cuentas de administrador que solo obtienen permiso cuando lo necesitan y por tiempo limitado (con doble llave para emergencias), en vez de poder permanente." data-en="Admin accounts that get permission only when needed and time-bound (with dual-key emergency access), instead of standing power."></td></tr>
+        <tr><td data-es="Aislamiento de credenciales entre fronteras" data-en="Cross-boundary credential isolation"></td><td>—</td><td>—</td><td>—</td><td><strong>98,7 %</strong> 🆕</td><td data-es="% en que una credencial robada en un tenant/entorno ya no sirve en otro: corta el salto lateral." data-en="% where a credential stolen in one tenant/environment no longer works in another: it cuts lateral movement."></td></tr>
+        <tr><td data-es="Aplicaciones sin uso retiradas" data-en="Unused apps decommissioned"></td><td>—</td><td>—</td><td data-es="1,2 M" data-en="1.2M">1,2 M</td><td><strong>1,4 M</strong> 🆕</td><td data-es="Aplicaciones registradas que ya nadie usa y se dan de baja (desde 1,2 M en nov-2025). Cada app viva es una posible puerta." data-en="Registered apps nobody uses anymore, decommissioned (from 1.2M in Nov-2025). Each live app is a potential door."></td></tr>
+        <tr><td data-es="Aislamiento de red en construcción (build)" data-en="Build-time network isolation"></td><td>—</td><td>—</td><td>—</td><td><strong>83 %</strong> 🆕</td><td data-es="% de pipelines cuyo entorno de compilación no puede descargar paquetes de fuentes no aprobadas, tratando el build como frontera de producción." data-en="% of pipelines whose build environment can't download packages from unapproved sources, treating the build as a production boundary."></td></tr>
+        <tr><td data-es="Hallazgos de IA confirmados como reales" data-en="AI findings confirmed genuine"></td><td>—</td><td>—</td><td>—</td><td><strong>&gt;90 %</strong> 🆕</td><td data-es="De todo lo que marca el sistema multi-agente, más del 90 % resulta ser un problema de seguridad genuino (poco ruido)." data-en="Of everything the multi-agent system flags, over 90% turns out to be a genuine security issue (low noise)."></td></tr>
+        <tr><td data-es="Objetivos (de 28)" data-en="Objectives (of 28)"></td><td data-es="6 pilares" data-en="6 pillars"></td><td data-es="5 casi / 11 avance" data-en="5 near / 11 progress"></td><td data-es="progreso" data-en="progress"></td><td><strong>3 / 3 / 12</strong></td><td data-es="Grado de completitud del plan: 3 objetivos en meta, 3 casi completos y 12 con avance significativo." data-en="Plan completeness: 3 objectives met, 3 near completion and 12 with significant progress."></td></tr>
+      </tbody>
+    </table>
+    <div class="note"><span data-es="La columna «Jul 2026» recoge el último informe de progreso publicado. «—» sin dato reportado ese periodo · 🆕 métrica nueva. Cifras = destacados reportados, no comparables auditados. Línea de tendencia, no comparación exacta." data-en="The 'Jul 2026' column reflects the latest published progress report. '—' no data reported that period · 🆕 new metric. Figures = reported highlights, not audited comparables. A trend line, not an exact comparison."></span></div>
+  </div>
+
+  <div class="footer">
+    <span data-es="Fuentes: informes de progreso del SFI (sep-2024, abr-2025, nov-2025, jul-2026) y blogs de Charlie Bell, Microsoft Security. Uso interno." data-en="Sources: SFI progress reports (Sep-2024, Apr-2025, Nov-2025, Jul-2026) and Charlie Bell's Microsoft Security blogs. Internal use."></span> · 2026 · Neuro
+  </div>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement, bt=document.getElementById('theme'), bl=document.getElementById('lang');
+  function applyTheme(t){ root.setAttribute('data-theme',t); bt.textContent = t==='light'?'🌙':'☀️'; }
+  var st=null; try{ st=localStorage.getItem('sfi-theme'); }catch(e){}
+  applyTheme(st||'light');
+  bt.addEventListener('click',function(){ var n=root.getAttribute('data-theme')==='light'?'dark':'light'; applyTheme(n); try{localStorage.setItem('sfi-theme',n);}catch(e){} });
+  function applyLang(l){
+    root.setAttribute('lang',l); bl.textContent=l.toUpperCase();
+    document.querySelectorAll('[data-es],[data-en]').forEach(function(el){ var v=el.getAttribute('data-'+l); if(v!==null) el.textContent=v; });
+  }
+  var sl=null; try{ sl=localStorage.getItem('sfi-lang'); }catch(e){}
+  applyLang(sl||'es');
+  bl.addEventListener('click',function(){ var n=root.getAttribute('lang')==='es'?'en':'es'; applyLang(n); try{localStorage.setItem('sfi-lang',n);}catch(e){} });
+
+  /* ===== Protección de contenido (disuasoria) ===== */
+  var block=function(e){ e.preventDefault(); e.stopPropagation(); return false; };
+  ['copy','cut','contextmenu','selectstart','dragstart'].forEach(function(ev){
+    document.addEventListener(ev, block, {capture:true});
+  });
+  document.addEventListener('keydown', function(e){
+    var k=(e.key||'').toLowerCase();
+    // Ctrl/Cmd + C, X, A, S, U, P  y  F12 (herramientas de desarrollo)
+    if((e.ctrlKey||e.metaKey) && ['c','x','a','s','u','p'].indexOf(k)!==-1){ return block(e); }
+    if(k==='f12'){ return block(e); }
+    // Ctrl/Cmd + Shift + I/J/C (consola/inspector)
+    if((e.ctrlKey||e.metaKey) && e.shiftKey && ['i','j','c'].indexOf(k)!==-1){ return block(e); }
+  }, {capture:true});
+})();
+</script>
+</body>
+</html>
