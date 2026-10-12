@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Sobre provenance, inteligencia artificial y el riesgo de exigir a los creadores que demuestren que su trabajo es humano." />
+	<title>Provenance, IA y creatividad: ¿quién debe demostrar que es humano?</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--bg: #f7f8fa;
+			--surface: #ffffff;
+			--text: #18212f;
+			--muted: #657184;
+			--border: #e2e7ee;
+			--accent: #176b87;
+			--accent-soft: #e8f3f6;
+		}
+
+		* { box-sizing: border-box; }
+
+		html { scroll-behavior: smooth; }
+
+		body {
+			margin: 0;
+			background: var(--bg);
+			color: var(--text);
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+			font-size: 1.08rem;
+			line-height: 1.8;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		.back-home {
+			position: fixed;
+			top: 16px;
+			left: 16px;
+			z-index: 2;
+			padding: 8px 14px;
+			border: 1px solid rgba(24, 33, 47, .1);
+			border-radius: 999px;
+			background: rgba(255, 255, 255, .9);
+			color: var(--text);
+			font-size: .88rem;
+			font-weight: 650;
+			text-decoration: none;
+			box-shadow: 0 4px 14px rgba(24, 33, 47, .08);
+			backdrop-filter: blur(8px);
+		}
+
+		.back-home:hover { color: var(--accent); }
+
+		.page {
+			width: min(100% - 40px, 780px);
+			margin: 0 auto;
+			padding: 94px 0 80px;
+		}
+
+		.article-header {
+			margin-bottom: 42px;
+			padding-bottom: 30px;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.article-image {
+			display: block;
+			width: 100%;
+			height: auto;
+			margin-bottom: 32px;
+			border-radius: 12px;
+		}
+
+		.eyebrow {
+			margin: 0 0 14px;
+			color: var(--accent);
+			font-size: .78rem;
+			font-weight: 750;
+			letter-spacing: .13em;
+			text-transform: uppercase;
+		}
+
+		h1 {
+			max-width: 740px;
+			margin: 0;
+			font-family: Georgia, "Times New Roman", serif;
+			font-size: clamp(2.35rem, 7vw, 4.2rem);
+			font-weight: 500;
+			letter-spacing: -.045em;
+			line-height: 1.08;
+		}
+
+		.dek {
+			max-width: 650px;
+			margin: 22px 0 0;
+			color: var(--muted);
+			font-size: 1.22rem;
+			line-height: 1.6;
+		}
+
+		article p { margin: 0 0 1.35em; }
+
+		article p:first-child::first-letter {
+			float: left;
+			margin: .05em .12em 0 0;
+			color: var(--accent);
+			font-family: Georgia, "Times New Roman", serif;
+			font-size: 3.8em;
+			line-height: .8;
+		}
+
+		a { color: var(--accent); }
+		a:hover { text-decoration-thickness: 2px; }
+
+		@media (max-width: 600px) {
+			body { font-size: 1rem; }
+			.page { width: min(100% - 32px, 780px); padding-top: 88px; }
+			.article-header { margin-bottom: 30px; }
+			.dek { font-size: 1.1rem; }
+		}
+
+		@media print {
+			body { background: #fff; color: #000; font-size: 11pt; }
+			.page { width: 100%; padding: 0; }
+			.back-home { display: none; }
+			a { color: inherit; }
+		}
+	</style>
+</head>
+<body>
+	<a class="back-home" href="../index.html" aria-label="Volver al inicio">← Inicio</a>
+	<main class="page">
+		<header class="article-header">
+			<img class="article-image" src="../media/Provenance.png" alt="Escena sobre la procedencia de contenidos creados con IA y la colaboración entre una persona y un sistema de inteligencia artificial" />
+			<p class="eyebrow">Inteligencia artificial · Creación</p>
+			<h1>Provenance, IA y creatividad: ¿quién debe demostrar que es humano?</h1>
+			<p class="dek">Conocer el origen de un contenido puede ayudar a combatir la manipulación. Pero no debería convertir la creatividad humana en algo que haya que certificar.</p>
+		</header>
+
+		<article>
+			<p>Estamos entrando en una etapa curiosa. Llevamos años preocupados por distinguir la información verdadera de la falsa; hemos creado observatorios, institutos y hasta empresas que se dedican a decirnos lo que es verdadero y lo que es falso (con sus correspondientes sesgos, claro). Ayer hablaba de los Advanced Persistent Manipulators, redes de «bots» que buscan manipular a la sociedad a través de narrativas que o bien aprovechan los ataques cibernéticos o bien simplemente buscan cambiar percepciones y/o opiniones.</p>
+
+			<p>Lo que es una realidad es que con la IA generativa nos hemos empezado a hacer otras preguntas. ¿Quién ha creado este contenido? ¿Cómo se ha hecho? ¿Qué parte corresponde a una persona y cuál a un sistema o modelo de IA?</p>
+
+			<p>El artículo 50 del RIA (Reglamento de IA) trata justo este tema: la transparencia de los sistemas de IA. De ahí viene el creciente interés por el concepto de <em>provenance</em>, que podríamos entender como la capacidad de conocer y verificar el origen y la historia de un contenido digital. Las buenas noticias son que hemos avanzado.</p>
+
+			<p>Tecnologías como C2PA permiten incorporar credenciales digitales firmadas criptográficamente para acreditar la procedencia de imágenes, vídeos, audios y otros contenidos, además de registrar las modificaciones realizadas durante su creación y edición. En paralelo, soluciones como SynthID y textGrain introducen marcas de agua invisibles directamente en el contenido, incluso en los textos, donde pueden alterar sutilmente los patrones estadísticos con los que la IA selecciona las palabras. Empresas como Microsoft, OpenAI y Anthropic están desarrollando e incorporando distintos mecanismos de trazabilidad y verificación para dar cumplimiento a las exigencias del artículo 50.2 del RIA para aquellos modelos que estaban en el mercado antes del 2 de agosto de 2026.</p>
+
+			<p>Pero ninguna de estas tecnologías es infalible. Las credenciales pueden desaparecer cuando un archivo se transforma o se comparte, y las marcas de agua pueden perder eficacia cuando el contenido se modifica. Además, hay una diferencia importante que conviene no olvidar: poder verificar de dónde viene un contenido no significa necesariamente saber quién es su verdadero autor (atribución).</p>
+
+			<p>Además de todo esto, hay otra serie de preguntas incómodas. Imagina que un escritor o un creador de contenido utiliza IA para ordenar unas ideas, corregir un texto o explorar distintas formas de expresar algo que lleva días intentando explicar. ¿Deja de ser el autor? ¿Y un fotógrafo que utiliza herramientas generativas para eliminar un reflejo? ¿Debería recibir el mismo tratamiento que alguien que genera una fotografía completamente artificial?</p>
+
+			<p>La frontera entre creación humana y creación asistida es bastante menos clara de lo que nos gustaría. Hace ya tiempo hablé de esto, de la «creartificilidad» o incluso del «arteficial». Y aquí es donde creo que aparece uno de los problemas que menos estamos discutiendo. Durante siglos hemos considerado la creación como una actividad humana que podía apoyarse en herramientas. Ahora parece que hemos dado la vuelta a la lógica histórica y empezamos a exigir a las personas que demuestren que su trabajo es realmente suyo.</p>
+
+			<p>Esto puede tener consecuencias importantes para escritores, periodistas, ilustradores, músicos y, en general, cualquiera que viva de crear contenidos. No me preocupa únicamente que una obra humana sea identificada erróneamente como generada por IA; me preocupa que terminemos construyendo un sistema en el que la ausencia de una certificación se interprete como motivo de sospecha. ¿Sospecha de qué? ¿De usar una herramienta?</p>
+
+			<p>No creo que debamos renunciar al <em>provenance</em>. Al contrario, puede convertirse en una herramienta importante para proteger la autoría, facilitar la atribución y combatir la manipulación informativa.</p>
+
+			<p>Pero tampoco deberíamos confundir una firma digital con una garantía de verdad, ni una falta de marca de agua con una prueba definitiva de que el creador lo ha realizado sin ayuda de herramientas. Quizá el objetivo no debería ser clasificar todo lo que vemos entre humano y artificial. Deberíamos aspirar a entender cómo se ha creado, qué intervención ha tenido la IA y quién asume la responsabilidad sobre el resultado.</p>
+
+			<p>Porque, si no tenemos cuidado, podemos acabar en una situación bastante absurda, que quienes llevan toda la vida escribiendo, fotografiando o creando tengan que demostrar constantemente que sus obras han sido creadas por ellos, aunque hayan utilizado una herramienta de apoyo.</p>
+		</article>
+	</main>
+</body>
+</html>
