@@ -111,6 +111,43 @@
 		a { color: var(--accent); }
 		a:hover { text-decoration-thickness: 2px; }
 
+		.provider-comparison { margin: 32px 0; }
+
+		.provider-comparison figcaption {
+			margin-bottom: 12px;
+			font-weight: 700;
+		}
+
+		.table-scroll {
+			overflow-x: auto;
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			background: var(--surface);
+		}
+
+		.table-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+		.provider-table {
+			width: 100%;
+			min-width: 1000px;
+			border-collapse: collapse;
+			font-size: .9rem;
+			line-height: 1.6;
+		}
+
+		.provider-table th,
+		.provider-table td {
+			padding: 16px;
+			border-bottom: 1px solid var(--border);
+			text-align: left;
+			vertical-align: top;
+		}
+
+		.provider-table thead th { background: var(--accent-soft); }
+		.provider-table tbody th { width: 140px; }
+		.provider-table td { width: 22%; }
+		.provider-table tbody tr:last-child > * { border-bottom: 0; }
+
 		@media (max-width: 600px) {
 			body { font-size: 1rem; }
 			.page { width: min(100% - 32px, 780px); padding-top: 88px; }
@@ -123,6 +160,9 @@
 			.page { width: 100%; padding: 0; }
 			.back-home { display: none; }
 			a { color: inherit; }
+			.table-scroll { overflow: visible; }
+			.provider-table { min-width: 0; font-size: 8pt; }
+			.provider-table th, .provider-table td { padding: 6px; }
 		}
 	</style>
 </head>
@@ -144,6 +184,46 @@
 			<p>El artículo 50 del RIA (Reglamento de IA) trata justo este tema: la transparencia de los sistemas de IA. De ahí viene el creciente interés por el concepto de <em>provenance</em>, que podríamos entender como la capacidad de conocer y verificar el origen y la historia de un contenido digital. Las buenas noticias son que hemos avanzado.</p>
 
 			<p>Tecnologías como C2PA permiten incorporar credenciales digitales firmadas criptográficamente para acreditar la procedencia de imágenes, vídeos, audios y otros contenidos, además de registrar las modificaciones realizadas durante su creación y edición. En paralelo, soluciones como SynthID y textGrain introducen marcas de agua invisibles directamente en el contenido, incluso en los textos, donde pueden alterar sutilmente los patrones estadísticos con los que la IA selecciona las palabras. Empresas como Microsoft, OpenAI y Anthropic están desarrollando e incorporando distintos mecanismos de trazabilidad y verificación para dar cumplimiento a las exigencias del artículo 50.2 del RIA para aquellos modelos que estaban en el mercado antes del 2 de agosto de 2026.</p>
+
+			<!--<figure class="provider-comparison">
+				<figcaption id="provider-comparison-title">Mecanismos de procedencia por proveedor y tipo de contenido</figcaption>
+				<div class="table-scroll" role="region" aria-labelledby="provider-comparison-title" tabindex="0">
+					<table class="provider-table" aria-labelledby="provider-comparison-title">
+						<thead>
+							<tr>
+								<th scope="col">Proveedor</th>
+								<th scope="col">Imagen</th>
+								<th scope="col">Vídeo</th>
+								<th scope="col">Audio</th>
+								<th scope="col">Texto</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="row">Anthropic / Claude</th>
+								<td><strong>C2PA</strong> en archivos compatibles creados o procesados por Claude.</td>
+								<td><strong>C2PA</strong> en determinados archivos exportados por Claude.</td>
+								<td><strong>C2PA</strong> en determinados archivos exportados por Claude.</td>
+								<td><strong>Marca de agua estadística</strong>, basada en una variante de <strong>SynthID-Text</strong>.</td>
+							</tr>
+							<tr>
+								<th scope="row">OpenAI</th>
+								<td><strong>C2PA + SynthID</strong> invisible en imágenes compatibles de ChatGPT, Codex y API.</td>
+								<td><strong>C2PA</strong> en vídeos de Sora. Servicio ya retirado.</td>
+								<td><strong>SynthID</strong> invisible e inaudible en audio compatible.</td>
+								<td><strong>textGrain</strong>, marca de agua estadística. Despliegue progresivo en la UE desde octubre de 2026.</td>
+							</tr>
+							<tr>
+								<th scope="row">Microsoft</th>
+								<td><strong>C2PA y marcas invisibles</strong> en modelos compatibles de Foundry; metadatos y marcas visibles opcionales en Microsoft 365.</td>
+								<td><strong>C2PA, detección de marcas compatibles y marcas visibles</strong>: detección de credenciales y marcas compatibles; marcas visibles configurables en Clipchamp y otras experiencias compatibles.</td>
+								<td><strong>C2PA y marcas de agua inaudibles de Microsoft</strong>: mecanismos de procedencia en las configuraciones compatibles de MAI-Voice, Azure OpenAI GPT Audio y Azure AI Speech. Microsoft no publica un nombre comercial del algoritmo de marcado. <a href="https://learn.microsoft.com/azure/foundry/responsible-ai/content-safety/provenance-disclosure">Documentación</a>.</td>
+								<td><strong>Interwoven text watermarking</strong> (marca de agua entrelazada con segunda clave): tecnología documentada para determinados modelos Claude de Anthropic en Foundry. En modelos propios de Microsoft y otros modelos de terceros, la documentación consultada no identifica una tecnología de marcado de texto disponible; no debe asumirse que todos usan la misma. <a href="https://learn.microsoft.com/azure/foundry/foundry-models/concepts/claude-models">Claude en Foundry</a>.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</figure>-->
 
 			<p>Pero ninguna de estas tecnologías es infalible. Las credenciales pueden desaparecer cuando un archivo se transforma o se comparte, y las marcas de agua pueden perder eficacia cuando el contenido es modificado por un usuario u otra herramienta que no use IA. Además, hay una diferencia importante que conviene no olvidar en todo esto, poder verificar de dónde viene un contenido no significa necesariamente saber quién es su verdadero autor (atribución).</p>
 
