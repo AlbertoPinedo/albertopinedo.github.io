@@ -103,7 +103,7 @@
 </style>
 </head>
 <body>
-<a href="../index.html" class="back-home" aria-label="Volver al inicio" style="position:fixed;top:14px;left:16px;z-index:9999;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:rgba(0,0,0,.6);color:#fff;font-family:-apple-system,Segoe UI,sans-serif;font-size:14px;font-weight:600;text-decoration:none;border-radius:20px;backdrop-filter:blur(6px);box-shadow:0 2px 8px rgba(0,0,0,.2)">← Inicio</a>
+<a href="../../index.html" class="back-home" aria-label="Volver al inicio" style="position:fixed;top:14px;left:16px;z-index:9999;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;background:rgba(0,0,0,.6);color:#fff;font-family:-apple-system,Segoe UI,sans-serif;font-size:14px;font-weight:600;text-decoration:none;border-radius:20px;backdrop-filter:blur(6px);box-shadow:0 2px 8px rgba(0,0,0,.2)">← Inicio</a>
 <div id="root"></div>
 
 <script type="text/babel" data-presets="env" data-plugins="transform-react-jsx">
@@ -523,7 +523,7 @@ function TabBase() {
 
 function App() {
   const [tab, setTab] = React.useState('defensa');
-  const imgUrl = "06/media/security-ai-speed-gladiator-v2.png";
+  const imgUrl = "media/security-ai-speed-gladiator-v2.png";
 
   const tabs = [
     { id: 'defensa', icon: '🛡️', label: 'Defenderse con IA', border: 'border-cyan-400' },
@@ -536,7 +536,7 @@ function App() {
     <div className="max-w-6xl mx-auto px-6 py-10">
       <ThemeToggle/>
 
-      <p className="mb-6 no-print"><a href="../index.html" className="text-cyan-300 hover:text-cyan-200 font-medium">← Volver al inicio</a></p>
+      <p className="mb-6 no-print"><a href="../../index.html" className="text-cyan-300 hover:text-cyan-200 font-medium">← Volver al inicio</a></p>
 
       {/* HERO */}
       <header className="card overflow-hidden mb-10">

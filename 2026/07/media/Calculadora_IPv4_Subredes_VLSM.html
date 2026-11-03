@@ -5,45 +5,121 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#123354">
 <title>Laboratorio IPv4 — Máscaras y subredes VLSM</title>
+<script>
+(() => {
+  const param = new URLSearchParams(window.location.search).get("scoutTheme");
+  const theme =
+    param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  document.documentElement.setAttribute("data-theme", theme);
+})();
+</script>
+<style>
+:root {
+  color-scheme: light;
+  --cp-bg: #f7f4ef;
+  --cp-bg-elevated: #fcfbf8;
+  --cp-surface: #ffffff;
+  --cp-surface-soft: #f5f5f5;
+  --cp-border: #dedede;
+  --cp-border-strong: #919191;
+  --cp-text: #242424;
+  --cp-text-muted: #5c5c5c;
+  --cp-text-soft: #6f6f6f;
+  --cp-accent: #b11f4b;
+  --cp-accent-hover: #9a1a41;
+  --cp-accent-soft: rgba(177, 31, 75, 0.08);
+  --cp-accent-fg: #ffffff;
+  --cp-success: #16a34a;
+  --cp-danger: #dc2626;
+  --cp-warning: #f59e0b;
+  --cp-link: #0078d4;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+  --cp-overlay: rgba(255, 255, 255, 0.8);
+  --cp-panel: rgba(255, 255, 255, 0.86);
+  --cp-panel-strong: rgba(255, 255, 255, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.55);
+  --cp-highlight: rgba(177, 31, 75, 0.12);
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --cp-bg: #3d3b3a;
+  --cp-bg-elevated: #343231;
+  --cp-surface: #292929;
+  --cp-surface-soft: #2e2e2e;
+  --cp-border: #474747;
+  --cp-border-strong: #5f5f5f;
+  --cp-text: #dedede;
+  --cp-text-muted: #919191;
+  --cp-text-soft: #b0b0b0;
+  --cp-accent: #fd8ea1;
+  --cp-accent-hover: #fb7b91;
+  --cp-accent-soft: rgba(253, 142, 161, 0.14);
+  --cp-accent-fg: #1a1a1a;
+  --cp-success: #4ade80;
+  --cp-danger: #f87171;
+  --cp-warning: #fbbf24;
+  --cp-link: #4da6ff;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+  --cp-overlay: rgba(41, 41, 41, 0.88);
+  --cp-panel: rgba(41, 41, 41, 0.72);
+  --cp-panel-strong: rgba(41, 41, 41, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.04);
+  --cp-highlight: rgba(253, 142, 161, 0.12);
+}
+.page-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px;font-family:"Segoe UI",Aptos,Calibri,-apple-system,BlinkMacSystemFont,sans-serif}
+.back-home,.langbar button{background:var(--cp-surface);color:var(--cp-text);border:1px solid var(--cp-border);border-radius:.625rem;padding:8px 12px;text-decoration:none;font-weight:600}
+.langbar{display:flex;gap:4px}
+.langbar button.active{background:var(--cp-accent);color:var(--cp-accent-fg);border-color:var(--cp-accent)}
+.page-nav a:focus-visible,.langbar button:focus-visible{outline:3px solid var(--cp-accent);outline-offset:2px}
+</style>
 <style>
 :root {--bg:#f3f7fc;--paper:#fff;--ink:#12263d;--muted:#51647c;--line:#dce6f0;--blue:#1674ca;--light:#e8f3ff;--teal:#138c78;--orange:#e3a548;--red:#b94146;--shadow:0 12px 35px rgba(18,49,82,.08)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(25px,4vw,39px);line-height:1.13;margin-bottom:13px;letter-spacing:-.035em}h2{font-size:21px;letter-spacing:-.02em;margin-bottom:12px}h3{font-size:16px;margin-bottom:9px}.wrap{max-width:1130px;padding:0 20px;margin:0 auto}header{background:linear-gradient(117deg,#112e4e,#1766a4);color:#fff;padding:36px 0 30px}header p{max-width:690px;color:#dfedfb;margin:0}.eyebrow{font-size:12px;letter-spacing:.11em;text-transform:uppercase;font-weight:800;color:#9ddcf7;margin-bottom:13px}.hero{display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px}.heroicon{font-size:80px;opacity:.9}@media(max-width:550px){.heroicon{display:none}}.content{padding-top:24px;padding-bottom:50px}.intro{padding:19px 22px;border-radius:15px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);margin-bottom:20px}.intro p{margin:0}.tabs{display:flex;gap:8px;margin-bottom:15px;flex-wrap:wrap}.tab{border:1px solid #ccd9e7;border-radius:11px;padding:11px 18px;background:#fff;color:var(--ink);font-weight:740}.tab.active{background:#155b99;border-color:#155b99;color:#fff}.pane{display:none}.pane.active{display:block}.card{background:var(--paper);padding:22px;border-radius:15px;border:1px solid var(--line);box-shadow:var(--shadow);margin-bottom:16px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.label{display:block;font-size:13px;font-weight:760;margin-bottom:6px}.help{font-size:12px;color:var(--muted)}input[type=text],input[type=number],select{width:100%;padding:11px 12px;border:1px solid #c6d4e3;background:#fff;border-radius:8px;color:var(--ink);outline-offset:3px}input[type=range]{width:100%;accent-color:#126bac}input:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid #73bcef;outline-offset:2px}.line{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.btn{background:#fff;border:1px solid #c2d6e9;color:#13466d;padding:8px 12px;border-radius:8px;font-size:13px;font-weight:760}.btn:hover{background:#edf6ff}.btn.main{background:#166bad;color:#fff;border-color:#166bad}.btn.on{background:#dbedff;border-color:#5d9dd1}.stepnote{border-left:4px solid var(--blue);padding:12px 15px;background:#f0f7ff;border-radius:0 9px 9px 0;font-size:14px}.warn{background:#fff2ee;border-left-color:var(--red);color:#742e2e}.success{background:#e8f7f1;border-left-color:var(--teal)}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.metric{background:#f1f6fc;padding:13px;border-radius:11px;min-width:0}.metric .value{font-size:clamp(17px,2vw,23px);font-weight:800;overflow-wrap:anywhere;line-height:1.25;margin:4px 0}.metric .name{font-size:12px;color:#58718a;font-weight:700}.bitbar{display:grid;grid-template-columns:repeat(32,minmax(0,1fr));gap:2px}.bit{border-radius:3px;height:36px;display:flex;justify-content:center;align-items:center;color:white;font-weight:800;font-size:11px}.bit.net{background:#2377b5}.bit.host{background:#e2a23f;color:#2b2316}.legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;font-size:12px;color:var(--muted)}.dot{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px}.formula{padding:16px;background:#edf5ff;border-radius:10px;font-weight:740;line-height:2}.tablewrap{overflow-x:auto}.tablewrap table{border-collapse:collapse;width:100%;font-size:13px}.tablewrap th{text-align:left;white-space:nowrap;background:#eaf1f8;padding:10px 9px;color:#29435e}.tablewrap td{padding:11px 9px;border-bottom:1px solid #e1eaf2;vertical-align:middle}.tablewrap tbody tr:last-child td{border-bottom:0}.tablewrap td input,.tablewrap td select{min-width:65px;padding:8px;font-size:13px}.tablewrap td .name-input{min-width:120px}.muted{color:var(--muted)}.badge{display:inline-block;border-radius:40px;background:#e9f4ff;color:#175c92;padding:5px 10px;font-size:12px;font-weight:760}.stack{display:flex;flex-direction:column;gap:14px}.split{display:grid;grid-template-columns:1.1fr .9fr;gap:15px}.barwrap{height:48px;background:#edf2f8;border-radius:10px;position:relative;overflow:hidden;border:1px solid #d7e4f0}.baritem{position:absolute;top:0;bottom:0;border-right:1px solid white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:790;color:white;min-width:0;overflow:hidden;white-space:nowrap}.reason{padding:11px 13px;background:#f3f7fb;border-radius:10px}.reason strong{color:#163f63}.reasons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.counter{font-weight:800;color:#1a679d}.small{font-size:12px}.foot{font-size:12px;color:#6e7e90;margin-top:17px}.hidden{display:none!important}.secttitle{font-weight:790;font-size:15px;margin:5px 0 10px}.kpi{display:flex;gap:7px;flex-wrap:wrap}.kpi span{border:1px solid #d6e3ee;padding:6px 10px;border-radius:50px;font-size:12px;font-weight:750}.swatch{width:10px;height:10px;border-radius:2px;display:inline-block;margin-right:5px}.twocol-labels{display:flex;justify-content:space-between;margin-bottom:7px;gap:10px}.binary-table{font-size:13px;overflow-x:auto}.binary-table div{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.04em;white-space:nowrap}.stepgraph{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.stepgraph span{background:#ddebfa;border-radius:7px;padding:9px 12px;font-size:12px;font-weight:800}.stepgraph .arrow{background:transparent;padding:0;color:#43789d}.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}@media(max-width:800px){.grid,.split,.reasons{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.card{padding:15px}.tablewrap table{font-size:12px}}@media(max-width:490px){.wrap{padding:0 12px}.metrics{grid-template-columns:1fr}.bit{font-size:8px;height:25px}header{padding:27px 0}.card{padding:13px}h1{font-size:26px}.tab{flex:1;padding:10px 7px;font-size:12px}}
 </style>
 </head>
 <body>
-<header><div class="wrap hero"><div><div class="eyebrow">Laboratorio de redes · IPv4</div><h1>Máscaras y subredes,<br>paso a paso</h1><p>Aprende qué significa /27, calcula red y broadcast y diseña las VLAN de tu empresa. Todo funciona sin conexión a Internet.</p></div><div class="heroicon" aria-hidden="true">🖧</div></div></header>
+<nav class="wrap page-nav" aria-label="Navegación" data-i18n-aria="navigation">
+<a class="back-home" href="../../../index.html" data-i18n="back">← Volver al índice</a>
+<div class="langbar" id="langbar" role="group" aria-label="Idioma" data-i18n-aria="language">
+<button type="button" data-lang="es" lang="es" aria-label="Español" aria-pressed="true" class="active">ES</button>
+<button type="button" data-lang="ca" lang="ca" aria-label="Català" aria-pressed="false">CA</button>
+<button type="button" data-lang="gl" lang="gl" aria-label="Galego" aria-pressed="false">GL</button>
+<button type="button" data-lang="eu" lang="eu" aria-label="Euskara" aria-pressed="false">EU</button>
+</div>
+</nav>
+<header><div class="wrap hero"><div><div class="eyebrow" data-i18n="eyebrow">Laboratorio de redes · IPv4</div><h1 data-i18n="heading">Máscaras y subredes,<br>paso a paso</h1><p data-i18n="subtitle">Aprende qué significa /27, calcula red y broadcast y diseña las VLAN de tu empresa. Todo funciona sin conexión a Internet.</p></div><div class="heroicon" aria-hidden="true">🖧</div></div></header>
 <main class="wrap content">
-<div class="intro"><strong>La idea:</strong> una IP tiene <strong>32 bits</strong>. El prefijo indica cuántos son de <strong>red</strong>; los que quedan sirven para las <strong>direcciones de dispositivos</strong>. En una subred habitual se reservan dos direcciones: red y broadcast. <strong>Hosts utilizables = 2<sup>32 − prefijo</sup> − 2</strong>.</div>
-<div class="tabs" role="tablist" aria-label="Seleccionar calculadora">
-<button class="tab active" id="tab-basic" type="button" role="tab" aria-selected="true" aria-controls="pane-basic">1 · Entender la máscara</button>
-<button class="tab" id="tab-plan" type="button" role="tab" aria-selected="false" aria-controls="pane-plan">2 · Diseñar las subredes</button>
+<div class="intro" data-i18n="intro"><strong>La idea:</strong> una IP tiene <strong>32 bits</strong>. El prefijo indica cuántos son de <strong>red</strong>; los que quedan sirven para las <strong>direcciones de dispositivos</strong>. En una subred habitual se reservan dos direcciones: red y broadcast. <strong>Hosts utilizables = 2<sup>32 − prefijo</sup> − 2</strong>.</div>
+<div class="tabs" role="tablist" aria-label="Seleccionar calculadora" data-i18n-aria="calculator">
+<button class="tab active" id="tab-basic" type="button" role="tab" aria-selected="true" aria-controls="pane-basic" data-i18n="basicTab">1 · Entender la máscara</button>
+<button class="tab" id="tab-plan" type="button" role="tab" aria-selected="false" aria-controls="pane-plan" data-i18n="planTab">2 · Diseñar las subredes</button>
 </div>
 <section id="pane-basic" class="pane active" role="tabpanel" aria-labelledby="tab-basic">
-<div class="card"><h2>Prueba una IP y cambia el prefijo</h2>
-<div class="grid"><div><label class="label" for="ip-address">Dirección IPv4</label><input id="ip-address" type="text" value="192.168.10.13" inputmode="decimal" spellcheck="false"/><p class="help" style="margin:6px 0 0">Ejemplo: 192.168.10.13</p></div><div><div class="twocol-labels"><label class="label" for="ip-prefix">Prefijo de subred</label><strong id="prefix-output">/27</strong></div><input id="ip-prefix" type="range" min="16" max="30" step="1" value="27"/><div class="twocol-labels help"><span>/16 · redes grandes</span><span>/30 · redes pequeñas</span></div></div></div>
-<div class="line" style="margin:14px 0 18px"><button class="btn" type="button" data-example="27">Probar /27</button><button class="btn" type="button" data-example="28">Probar /28</button><button class="btn" type="button" data-example="29">Probar /29</button></div>
-<h3>Así se ve la máscara en binario</h3><div class="bitbar" id="mask-bits" aria-label="Los 32 bits de la máscara"></div><div class="legend"><span><i class="dot" style="background:#2377b5"></i>1 = bit de red</span><span><i class="dot" style="background:#e2a23f"></i>0 = bit de host</span></div><div class="binary-table" id="mask-binary" style="margin:11px 0 0"></div>
+<div class="card"><h2 data-i18n="tryIP">Prueba una IP y cambia el prefijo</h2>
+<div class="grid"><div><label class="label" for="ip-address" data-i18n="ipv4">Dirección IPv4</label><input id="ip-address" type="text" value="192.168.10.13" inputmode="decimal" spellcheck="false"/><p class="help" style="margin:6px 0 0" data-i18n="example">Ejemplo: 192.168.10.13</p></div><div><div class="twocol-labels"><label class="label" for="ip-prefix" data-i18n="subnetPrefix">Prefijo de subred</label><strong id="prefix-output">/27</strong></div><input id="ip-prefix" type="range" min="16" max="30" step="1" value="27"/><div class="twocol-labels help"><span data-i18n="largeNetworks">/16 · redes grandes</span><span data-i18n="smallNetworks">/30 · redes pequeñas</span></div></div></div>
+<div class="line" style="margin:14px 0 18px"><button class="btn" type="button" data-example="27" data-i18n="try27">Probar /27</button><button class="btn" type="button" data-example="28" data-i18n="try28">Probar /28</button><button class="btn" type="button" data-example="29" data-i18n="try29">Probar /29</button></div>
+<h3 data-i18n="binaryHeading">Así se ve la máscara en binario</h3><div class="bitbar" id="mask-bits" aria-label="Los 32 bits de la máscara" data-i18n-aria="maskBits"></div><div class="legend"><span><i class="dot" style="background:#2377b5"></i><span data-i18n="networkBit">1 = bit de red</span></span><span><i class="dot" style="background:#e2a23f"></i><span data-i18n="hostBit">0 = bit de host</span></span></div><div class="binary-table" id="mask-binary" style="margin:11px 0 0"></div>
 </div>
 <div id="basic-error" class="stepnote warn hidden" role="alert"></div>
-<div class="card"><h2>Resultados</h2><div class="metrics"><div class="metric"><div class="name">Máscara decimal</div><div id="out-mask" class="value">—</div></div><div class="metric"><div class="name">Dirección de red</div><div id="out-network" class="value">—</div></div><div class="metric"><div class="name">Broadcast</div><div id="out-broadcast" class="value">—</div></div><div class="metric"><div class="name">Primer host</div><div id="out-first" class="value">—</div></div><div class="metric"><div class="name">Último host</div><div id="out-last" class="value">—</div></div><div class="metric"><div class="name">Hosts utilizables</div><div id="out-hosts" class="value">—</div></div></div><div class="formula" id="out-formula" style="margin-top:14px"></div><div class="stepnote" id="out-explanation" style="margin-top:12px"></div></div>
-<div class="card"><h2>¿Por qué se forma así la máscara?</h2><p>En el último octeto, los bits encendidos tienen estos valores:</p><div class="stepgraph"><span>128</span><span>64</span><span>32</span><span>16</span><span>8</span><span>4</span><span>2</span><span>1</span></div><p class="help" style="margin:13px 0 0">Ejemplo: /27 tiene 27 unos en la máscara y quedan cinco ceros. En el último octeto hay <strong>11100000</strong>: 128 + 64 + 32 = <strong>224</strong>. Así obtenemos <strong>255.255.255.224</strong>.</p></div>
+<div class="card"><h2 data-i18n="results">Resultados</h2><div class="metrics"><div class="metric"><div class="name" data-i18n="decimalMask">Máscara decimal</div><div id="out-mask" class="value">—</div></div><div class="metric"><div class="name" data-i18n="networkAddress">Dirección de red</div><div id="out-network" class="value">—</div></div><div class="metric"><div class="name">Broadcast</div><div id="out-broadcast" class="value">—</div></div><div class="metric"><div class="name" data-i18n="firstHost">Primer host</div><div id="out-first" class="value">—</div></div><div class="metric"><div class="name" data-i18n="lastHost">Último host</div><div id="out-last" class="value">—</div></div><div class="metric"><div class="name" data-i18n="usableHosts">Hosts utilizables</div><div id="out-hosts" class="value">—</div></div></div><div class="formula" id="out-formula" style="margin-top:14px"></div><div class="stepnote" id="out-explanation" style="margin-top:12px"></div></div>
+<div class="card"><h2 data-i18n="whyMask">¿Por qué se forma así la máscara?</h2><p data-i18n="octetValues">En el último octeto, los bits encendidos tienen estos valores:</p><div class="stepgraph"><span>128</span><span>64</span><span>32</span><span>16</span><span>8</span><span>4</span><span>2</span><span>1</span></div><p class="help" style="margin:13px 0 0" data-i18n="binaryExample">Ejemplo: /27 tiene 27 unos en la máscara y quedan cinco ceros. En el último octeto hay <strong>11100000</strong>: 128 + 64 + 32 = <strong>224</strong>. Así obtenemos <strong>255.255.255.224</strong>.</p></div>
 </section>
 <section id="pane-plan" class="pane" role="tabpanel" aria-labelledby="tab-plan">
-<div class="card"><h2>Diseña las subredes de una empresa</h2><p class="muted small">El ejemplo empieza con las cinco VLAN de tu proyecto, pero puedes modificar todas las cantidades, añadir grupos y probar otras máscaras.</p>
-<div class="grid"><div><label class="label" for="base-network">Red principal</label><input type="text" id="base-network" value="192.168.10.0" spellcheck="false"/></div><div><label class="label" for="base-prefix">Prefijo de red principal</label><select id="base-prefix"><option value="22">/22 · 1024 direcciones</option><option value="23">/23 · 512 direcciones</option><option value="24" selected>/24 · 256 direcciones</option><option value="25">/25 · 128 direcciones</option><option value="26">/26 · 64 direcciones</option></select></div></div>
-<p class="help" style="margin:12px 0">Cuenta <strong>interfaces que necesitan IP</strong>, no solo personas. Añade 1 para la puerta de enlace si se necesita, y decide cuántas IP libres quieres garantizar.</p>
-<div class="line"><button type="button" class="btn on" id="btn-fixed">Conservar máscaras del proyecto</button><button type="button" class="btn" id="btn-min">Calcular máscaras mínimas (VLSM)</button></div>
-<div class="tablewrap" style="margin:14px 0"><table><thead><tr><th>Grupo</th><th>VLAN</th><th>Interfaces IP</th><th>Gateway</th><th>Reserva de IP</th><th>Prefijo</th><th></th></tr></thead><tbody id="group-rows"></tbody></table></div>
-<div class="line"><button type="button" class="btn main" id="btn-add">+ Añadir departamento</button><button type="button" class="btn" id="btn-reset">Restablecer empresa</button></div>
+<div class="card"><h2 data-i18n="design">Diseña las subredes de una empresa</h2><p class="muted small" data-i18n="designHelp">El ejemplo empieza con las cinco VLAN de tu proyecto, pero puedes modificar todas las cantidades, añadir grupos y probar otras máscaras.</p>
+<div class="grid"><div><label class="label" for="base-network" data-i18n="baseNetwork">Red principal</label><input type="text" id="base-network" value="192.168.10.0" spellcheck="false"/></div><div><label class="label" for="base-prefix" data-i18n="basePrefix">Prefijo de red principal</label><select id="base-prefix"><option value="22" data-i18n="block22">/22 · 1024 direcciones</option><option value="23" data-i18n="block23">/23 · 512 direcciones</option><option value="24" selected data-i18n="block24">/24 · 256 direcciones</option><option value="25" data-i18n="block25">/25 · 128 direcciones</option><option value="26" data-i18n="block26">/26 · 64 direcciones</option></select></div></div>
+<p class="help" style="margin:12px 0" data-i18n="countHelp">Cuenta <strong>interfaces que necesitan IP</strong>, no solo personas. Añade 1 para la puerta de enlace si se necesita, y decide cuántas IP libres quieres garantizar.</p>
+<div class="line"><button type="button" class="btn on" id="btn-fixed" data-i18n="fixed">Conservar máscaras del proyecto</button><button type="button" class="btn" id="btn-min" data-i18n="auto">Calcular máscaras mínimas (VLSM)</button></div>
+<div class="tablewrap" style="margin:14px 0"><table><thead><tr><th data-i18n="group">Grupo</th><th>VLAN</th><th data-i18n="interfaces">Interfaces IP</th><th>Gateway</th><th data-i18n="reserve">Reserva de IP</th><th data-i18n="prefix">Prefijo</th><th></th></tr></thead><tbody id="group-rows"></tbody></table></div>
+<div class="line"><button type="button" class="btn main" id="btn-add" data-i18n="add">+ Añadir departamento</button><button type="button" class="btn" id="btn-reset" data-i18n="reset">Restablecer empresa</button></div>
 </div>
 <div id="plan-alert" class="stepnote warn hidden" role="alert"></div>
-<div class="card"><h2>Resultado de la distribución</h2><div class="kpi" id="summary-kpis"></div><div class="barwrap" id="allocation-graphic" style="margin-top:13px" role="img" aria-label="Distribución de direcciones del bloque IPv4"></div><div class="legend" id="allocation-legend"></div>
-<div class="tablewrap" style="margin-top:16px"><table><thead><tr><th>Grupo</th><th>Red / prefijo</th><th>Máscara</th><th>Hosts útiles</th><th>Primer host</th><th>Último host</th><th>Broadcast</th><th>IP libres</th></tr></thead><tbody id="result-rows"></tbody></table></div>
-<div class="line" style="margin-top:13px"><button class="btn" type="button" id="copy-table">Copiar tabla</button><button class="btn" type="button" id="export-csv">Descargar CSV</button><span id="export-state" class="help" aria-live="polite"></span></div>
+<div class="card"><h2 data-i18n="allocation">Resultado de la distribución</h2><div class="kpi" id="summary-kpis"></div><div class="barwrap" id="allocation-graphic" style="margin-top:13px" role="img" aria-label="Distribución de direcciones del bloque IPv4" data-i18n-aria="allocationAria"></div><div class="legend" id="allocation-legend"></div>
+<div class="tablewrap" style="margin-top:16px"><table><thead><tr><th data-i18n="group">Grupo</th><th data-i18n="networkPrefix">Red / prefijo</th><th data-i18n="mask">Máscara</th><th data-i18n="usefulHosts">Hosts útiles</th><th data-i18n="firstHost">Primer host</th><th data-i18n="lastHost">Último host</th><th>Broadcast</th><th data-i18n="freeIPs">IP libres</th></tr></thead><tbody id="result-rows"></tbody></table></div>
+<div class="line" style="margin-top:13px"><button class="btn" type="button" id="copy-table" data-i18n="copy">Copiar tabla</button><button class="btn" type="button" id="export-csv" data-i18n="download">Descargar CSV</button><span id="export-state" class="help" aria-live="polite"></span></div>
 </div>
-<div class="card"><h2>Explicación del cálculo para cada departamento</h2><div id="reasons" class="reasons"></div><div class="stepnote" style="margin-top:15px"><strong>¡Importante!</strong> Una IP libre es espacio de reserva, <strong>no un dispositivo comprado</strong>. Un portátil puede tener IP por Wi-Fi e IP por Ethernet. El gateway utiliza una dirección por VLAN; un dock USB-C no siempre necesita una IP propia. El cálculo es de direccionamiento, no configura por sí solo el firewall ni las VLAN.</div></div>
+<div class="card"><h2 data-i18n="reasons">Explicación del cálculo para cada departamento</h2><div id="reasons" class="reasons"></div><div class="stepnote" style="margin-top:15px" data-i18n="important"><strong>¡Importante!</strong> Una IP libre es espacio de reserva, <strong>no un dispositivo comprado</strong>. Un portátil puede tener IP por Wi-Fi e IP por Ethernet. El gateway utiliza una dirección por VLAN; un dock USB-C no siempre necesita una IP propia. El cálculo es de direccionamiento, no configura por sí solo el firewall ni las VLAN.</div></div>
 </section>
-<div class="foot">Laboratorio educativo sin conexión a Internet. Diseñado para IPv4 convencional con subredes /30 a /16. Para enlaces /31 y hosts /32 se utilizan otras reglas. El resultado debe contrastarse con el inventario real y las necesidades de expansión.</div>
+<div class="foot" data-i18n="footer">Laboratorio educativo sin conexión a Internet. Diseñado para IPv4 convencional con subredes /30 a /16. Para enlaces /31 y hosts /32 se utilizan otras reglas. El resultado debe contrastarse con el inventario real y las necesidades de expansión.</div>
 </main>
 <script>
 (()=>{'use strict';
