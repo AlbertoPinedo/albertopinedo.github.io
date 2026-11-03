@@ -1,0 +1,35 @@
+{
+  "23-06-12-Microsoft ya tiene en fase de pruebas su herramienta de filtrado de contenidos de IA.html": {
+    "es": { "title": "", "b1": "", "b2": "" },
+    "ca": {
+      "title": "Microsoft ja té en fase de proves la seva eina de filtratge de continguts d'IA",
+      "b1": "Microsoft ja té en fase de proves la seva eina de filtratge de continguts per a serveis cognitius, incloent aquells d'IA Generativa que proporciona #Azure #OpenAI. Aquesta eina disposa de quatre categories de continguts nocius (violència, odi, sexual i autolesions), en quatre nivells de gravetat respectivament (segur, baix, mitjà i alt).",
+      "b2": "Mentre altres escriuen papers, marcs models, fan promeses o anuncien compromisos, nosaltres creem eines per ajudar a resoldre els requisits que imposa l'AI Act i que tots hem de complir."
+    },
+    "gl": {
+      "title": "Microsoft xa ten en fase de probas a súa ferramenta de filtrado de contidos de IA",
+      "b1": "Microsoft xa ten en fase de probas a súa ferramenta de filtrado de contidos para servizos cognitivos, incluíndo aqueles de IA Xenerativa que proporciona #Azure #OpenAI. Esta ferramenta dispón de catro categorías de contidos nocivos (violencia, odio, sexual e autolesións), en catro niveis de gravidade respectivamente (seguro, baixo, medio e alto).",
+      "b2": "Mentres outros escriben papers, marcos modelos, fan promesas ou anuncian compromisos, nós creamos ferramentas para axudar a resolver os requisitos que impón o AI Act e que todos debemos cumprir."
+    },
+    "eu": {
+      "title": "Microsoft-ek jada proba-fasean du bere IA edukiak iragazteko tresna",
+      "b1": "Microsoft-ek jada proba-fasean du zerbitzu kognitiboetarako edukiak iragazteko bere tresna, #Azure #OpenAI-k eskaintzen dituen IA Sortzaileko zerbitzuak barne. Tresna honek eduki kaltegarrien lau kategoria ditu (indarkeria, gorrotoa, sexuala eta auto-lesioak), larritasun-maila lautan hurrenez hurren (segurua, baxua, ertaina eta altua).",
+      "b2": "Beste batzuek paper-ak, eredu-markoak idazten, promesak egiten edo konpromisoak iragartzen dituzten bitartean, guk tresnak sortzen ditugu AI Act-ek ezartzen dituen eta denok bete behar ditugun baldintzak ebazten laguntzeko."
+    }
+  },
+  "23-06-19-Anuncios de Azure Quantum.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Anuncis d'Azure Quantum",
+      "b1": "Des de Microsoft estem a punt de fer nous anuncis en relació amb Azure Quantum. Us deixo aquí aquesta entrevista que m'han fet a Computerworld España on parlo dels projectes en marxa, i n'aprofito per recordar-vos que no us podeu perdre el que anunciarem el dia 21 -&gt; <a href=\"https://lnkd.in/e7zuZHJn\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/e7zuZHJn</a>"
+    },
+    "gl": {
+      "title": "Anuncios de Azure Quantum",
+      "b1": "Desde Microsoft estamos a punto de facer novos anuncios en relación a Azure Quantum. Déixovos aquí esta entrevista que me fixeron en Computerworld España onde falo dos proxectos en marcha, e aproveito para lembrarvos que non vos podedes perder o que anunciaremos o día 21 -&gt; <a href=\"https://lnkd.in/e7zuZHJn\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/e7zuZHJn</a>"
+    },
+    "eu": {
+      "title": "Azure Quantum-en iragarpenak",
+      "b1": "Microsoft-etik Azure Quantum-i buruzko iragarpen berriak egitear gaude. Hemen uzten dizuet Computerworld España-n egin didaten elkarrizketa hau, non abian dauden proiektuez hitz egiten dudan, eta aprobetxatzen dut gogorarazteko ezin duzuela galdu 21ean iragarriko duguna -&gt; <a href=\"https://lnkd.in/e7zuZHJn\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/e7zuZHJn</a>"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "23-12-11-Microsoft actualiza Copilot introduciendo GPT-4 Turbo.html": {
+    "es": { "title": "", "b1": "", "b2": "" },
+    "ca": {
+      "title": "Microsoft actualitza Copilot introduint GPT-4 Turbo",
+      "b1": "Microsoft actualitza Copilot introduint GPT-4 Turbo, una versió millorada de DALL-E 3 i un intèrpret de codi",
+      "b2": "Microsoft ha actualitzat #Copilot introduint el nou model d'OpenAI, GPT-4 Turbo, millorant les capacitats i funcions per crear imatges amb DALL-E 3 i desenvolupant un intèrpret de codi per a programadors."
+    },
+    "gl": {
+      "title": "Microsoft actualiza Copilot introducindo GPT-4 Turbo",
+      "b1": "Microsoft actualiza Copilot introducindo GPT-4 Turbo, unha versión mellorada de DALL-E 3 e un intérprete de código",
+      "b2": "Microsoft actualizou #Copilot introducindo o novo modelo de OpenAI, GPT-4 Turbo, mellorando as capacidades e funcións para crear imaxes con DALL-E 3 e desenvolvendo un intérprete de código para programadores."
+    },
+    "eu": {
+      "title": "Microsoft-ek Copilot eguneratzen du GPT-4 Turbo sartuz",
+      "b1": "Microsoft-ek Copilot eguneratzen du GPT-4 Turbo sartuz, DALL-E 3-ren bertsio hobetu bat eta kode-interprete bat",
+      "b2": "Microsoft-ek #Copilot eguneratu du OpenAI-ren eredu berria sartuz, GPT-4 Turbo, DALL-E 3-rekin irudiak sortzeko gaitasunak eta funtzioak hobetuz eta programatzaileentzat kode-interprete bat garatuz."
+    }
+  },
+  "23-12-27-𝗡𝗢 es un anuncio de marketing, 𝗡𝗢 es una promesa, es REAL.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "<strong>NO</strong> és un anunci de màrqueting, <strong>NO</strong> és una promesa, és REAL",
+      "b1": "<strong>NO</strong> és un anunci de màrqueting, <strong>NO</strong> és una promesa, <strong>NO</strong> és un paper per motivar els desenvolupadors i el mercat... <strong>ÉS REAL</strong>, <strong>ÉS GRATIS</strong> i <strong>fa servir GPT-4</strong>. Descarrega Microsoft #Copilot per a Android."
+    },
+    "gl": {
+      "title": "<strong>NON</strong> é un anuncio de marketing, <strong>NON</strong> é unha promesa, é REAL",
+      "b1": "<strong>NON</strong> é un anuncio de marketing, <strong>NON</strong> é unha promesa, <strong>NON</strong> é un paper para motivar aos desenvolvedores e ao mercado... <strong>É REAL</strong>, <strong>É GRATIS</strong> e <strong>usa GPT-4</strong>. Descarga Microsoft #Copilot para Android."
+    },
+    "eu": {
+      "title": "<strong>EZ</strong> da marketin-iragarki bat, <strong>EZ</strong> da promesa bat, ERREALA da",
+      "b1": "<strong>EZ</strong> da marketin-iragarki bat, <strong>EZ</strong> da promesa bat, <strong>EZ</strong> da garatzaileak eta merkatua motibatzeko paper bat... <strong>ERREALA DA</strong>, <strong>DOAKOA DA</strong> eta <strong>GPT-4 erabiltzen du</strong>. Deskargatu Microsoft #Copilot Android-erako."
+    }
+  }
+}

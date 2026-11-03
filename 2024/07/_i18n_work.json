@@ -1,0 +1,62 @@
+{
+  "24-07-03-Desde Microsoft seguimos invirtiendo en ciberseguridad.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Des de Microsoft seguim invertint en ciberseguretat",
+      "b1": "Des de Microsoft seguim invertint en ciberseguretat actualitzant <strong>TOTES</strong> les nostres guies per adaptar les referències a l'Esquema Nacional de Seguretat. Aquestes últimes 7 guies s'uneixen a les ja actualitzades i publicades durant aquests últims mesos per CCN-CERT Centro Criptológico Nacional"
+    },
+    "gl": {
+      "title": "Desde Microsoft seguimos investindo en ciberseguridade",
+      "b1": "Desde Microsoft seguimos investindo en ciberseguridade actualizando <strong>TODAS</strong> as nosas guías para adaptar as referencias ao Esquema Nacional de Seguridade. Estas últimas 7 guías únense ás xa actualizadas e publicadas durante estes últimos meses por CCN-CERT Centro Criptológico Nacional"
+    },
+    "eu": {
+      "title": "Microsoft-etik zibersegurtasunean inbertitzen jarraitzen dugu",
+      "b1": "Microsoft-etik zibersegurtasunean inbertitzen jarraitzen dugu gure gida <strong>GUZTIAK</strong> eguneratuz erreferentziak Segurtasun Eskema Nazionalera egokitzeko. Azken 7 gida hauek azken hilabete hauetan CCN-CERT Centro Criptológico Nacional-ek eguneratu eta argitaratutakoei batzen zaizkie"
+    }
+  },
+  "24-07-16-Ya está disponible la guía de configuración segura para los servicios de IA de Microsoft.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Ja està disponible la guia de configuració segura per als serveis d'IA de Microsoft",
+      "b1": "Ja està disponible la guia de configuració segura per als serveis d'#IA de Microsoft a #Azure d'aplicabilitat per a: - Azure OpenAI: Realitza tasques de processament del llenguatge natural.  - Azure AI Anomaly Detector: Identifica possibles problemes en una fase primerenca. - Azure AI Search: Afegeix funcionalitat de cerca basada en IA a aplicacions web i mòbils.  - Azure AI Bot Service: Crea bots i els connecta a diferents canals.  - Azure AI Content Safety: Detecta contingut no desitjat.  - Azure AI Custom Vision: Personalitza el reconeixement d'imatges per adaptar-lo a la teva empresa.  - Azure AI Document Intellige: Converteix documents en solucions intel·ligents controlades per dades.  - Face: Detecta i identifica persones i emocions en imatges.  - Azure AI Immersive Reader: Ajuda els usuaris a llegir i comprendre el text.  - Azure AI Language: Crea aplicacions amb funcionalitats de reconeixement del llenguatge natural líders del sector.  - Azure AI Translator: Utilitza la traducció assistida per IA per a més de 100 llengües i dialectes.  - Video Indexer: Extreu informació útil de vídeos.  - Azure AI Vision: Proporciona capacitats de visió per computadora. - Azure AI Speech: Ofereix capacitats de veu per a aplicacions habilitades per a veu. - Azure AI Audio &amp; Video (Video Indexer): Ofereix característiques de veu excepcionals per a aplicacions habilitades per a veu, així com la capacitat d'extreure informació rellevant de vídeos emmagatzemats.  - Azure AI Personalizer: Permet que les aplicacions prenguin decisions més intel·ligents a gran escala mitjançant l'aprenentatge per reforç.  - Azure AI Metrics Advisor: Permet supervisar dades de sèries temporals i detectar anomalies."
+    },
+    "gl": {
+      "title": "Xa está dispoñible a guía de configuración segura para os servizos de IA de Microsoft",
+      "b1": "Xa está dispoñible a guía de configuración segura para os servizos de #IA de Microsoft en #Azure de aplicabilidade para: - Azure OpenAI: Realiza tarefas de procesamento da linguaxe natural.  - Azure AI Anomaly Detector: Identifica posibles problemas nunha fase temperá. - Azure AI Search: Engade funcionalidade de busca baseada en IA a aplicacións web e móbiles.  - Azure AI Bot Service: Crea bots e conéctaos a diferentes canles.  - Azure AI Content Safety: Detecta contido non desexado.  - Azure AI Custom Vision: Personaliza o recoñecemento de imaxes para adaptalo á túa empresa.  - Azure AI Document Intellige: Converte documentos en solucións intelixentes controladas por datos.  - Face: Detecta e identifica persoas e emocións en imaxes.  - Azure AI Immersive Reader: Axuda aos usuarios a ler e comprender o texto.  - Azure AI Language: Crea aplicacións con funcionalidades de recoñecemento da linguaxe natural líderes do sector.  - Azure AI Translator: Utiliza a tradución asistida por IA para máis de 100 linguas e dialectos.  - Video Indexer: Extrae información útil de vídeos.  - Azure AI Vision: Proporciona capacidades de visión por computador. - Azure AI Speech: Ofrece capacidades de voz para aplicacións habilitadas para voz. - Azure AI Audio &amp; Video (Video Indexer): Ofrece características de voz excepcionais para aplicacións habilitadas para voz, así como a capacidade de extraer información relevante de vídeos almacenados.  - Azure AI Personalizer: Permite que as aplicacións tomen decisións máis intelixentes a gran escala mediante a aprendizaxe por reforzo.  - Azure AI Metrics Advisor: Permite supervisar datos de series temporais e detectar anomalías."
+    },
+    "eu": {
+      "title": "Jada eskuragarri dago Microsoft-en IA zerbitzuetarako konfigurazio seguruko gida",
+      "b1": "Jada eskuragarri dago Microsoft-en #Azure-ko #IA zerbitzuetarako konfigurazio seguruko gida, honako hauetarako aplikagarria: - Azure OpenAI: Hizkuntza naturalaren prozesamendu-zereginak egiten ditu.  - Azure AI Anomaly Detector: Balizko arazoak fase goiztiarrean identifikatzen ditu. - Azure AI Search: IAn oinarritutako bilaketa-funtzionaltasuna gehitzen die web eta mugikorretarako aplikazioei.  - Azure AI Bot Service: Bot-ak sortzen ditu eta hainbat kanaletara konektatzen ditu.  - Azure AI Content Safety: Nahi ez den edukia detektatzen du.  - Azure AI Custom Vision: Irudien ezagutza pertsonalizatzen du zure enpresara egokitzeko.  - Azure AI Document Intellige: Dokumentuak datuek kontrolatutako irtenbide adimendun bihurtzen ditu.  - Face: Irudietan pertsonak eta emozioak detektatu eta identifikatzen ditu.  - Azure AI Immersive Reader: Erabiltzaileei testua irakurtzen eta ulertzen laguntzen die.  - Azure AI Language: Sektoreko hizkuntza naturalaren ezagutza-funtzionaltasun liderrekin aplikazioak sortzen ditu.  - Azure AI Translator: IAk lagundutako itzulpena erabiltzen du 100 hizkuntza eta dialekto baino gehiagotarako.  - Video Indexer: Bideoetatik informazio erabilgarria ateratzen du.  - Azure AI Vision: Konputagailu bidezko ikusmen-gaitasunak eskaintzen ditu. - Azure AI Speech: Ahots-gaitasunak eskaintzen ditu ahotsa gaitutako aplikazioetarako. - Azure AI Audio &amp; Video (Video Indexer): Ahots-ezaugarri bikainak eskaintzen ditu ahotsa gaitutako aplikazioetarako, baita gordetako bideoetatik informazio garrantzitsua ateratzeko gaitasuna ere.  - Azure AI Personalizer: Aplikazioek erabaki adimendunagoak hartzeko aukera ematen du eskala handian, errefortzu bidezko ikaskuntzaren bidez.  - Azure AI Metrics Advisor: Denbora-serieko datuak gainbegiratzeko eta anomaliak detektatzeko aukera ematen du."
+    }
+  },
+  "24-07-22-Como seguimiento al problema con el agente Crowdstrike.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Com a seguiment del problema amb l'agent CrowdStrike",
+      "b1": "Com a seguiment del problema amb l'agent #CrowdStrike #Falcon que va afectar els clients i servidors de Windows, Microsoft ha llançat una eina de recuperació actualitzada amb dues opcions de reparació per ajudar els administradors de TI a accelerar el procés de reparació. L'eina de recuperació de Microsoft està disponible al Centre de descàrrega de Microsoft: <a href=\"https://lnkd.in/ekiFbHZN\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/ekiFbHZN</a>. En aquesta publicació incloem els passos de recuperació detallats per a clients, servidors i sistemes operatius de Windows allotjats a Hyper-V."
+    },
+    "gl": {
+      "title": "Como seguimento ao problema co axente CrowdStrike",
+      "b1": "Como seguimento ao problema co axente #CrowdStrike #Falcon que afectou aos clientes e servidores de Windows, Microsoft lanzou unha ferramenta de recuperación actualizada con dúas opcións de reparación para axudar aos administradores de TI a acelerar o proceso de reparación. A ferramenta de recuperación de Microsoft está dispoñible no Centro de descarga de Microsoft: <a href=\"https://lnkd.in/ekiFbHZN\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/ekiFbHZN</a>. Nesta publicación incluímos os pasos de recuperación detallados para clientes, servidores e sistemas operativos de Windows aloxados en Hyper-V."
+    },
+    "eu": {
+      "title": "CrowdStrike agentearekin izandako arazoaren jarraipen gisa",
+      "b1": "Windows-eko bezero eta zerbitzariei eragin zien #CrowdStrike #Falcon agentearekin izandako arazoaren jarraipen gisa, Microsoftek berreskuratze-tresna eguneratu bat kaleratu du bi konponketa-aukerarekin, IT administratzaileei konponketa-prozesua bizkortzen laguntzeko. Microsoft-en berreskuratze-tresna Microsoft-en Deskarga Zentroan dago eskuragarri: <a href=\"https://lnkd.in/ekiFbHZN\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/ekiFbHZN</a>. Argitalpen honetan Hyper-V-n ostatatutako Windows-eko bezero, zerbitzari eta sistema eragileetarako berreskuratze-urrats xehatuak sartzen ditugu."
+    }
+  },
+  "24-07-22-Microsoft Cloud for Sovereignty incorpora la Azure Policy de ENS.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Microsoft Cloud for Sovereignty incorpora l'Azure Policy d'ENS",
+      "b1": "Hem incorporat a la nostra solució de Microsoft <strong>Cloud for Sovereignty</strong> l'Azure Policy per a l'<strong>Esquema Nacional de Seguretat</strong>. Un pas més en la nostra estratègia per proporcionar mecanismes de control per a les càrregues de treball a Azure dels nostres clients."
+    },
+    "gl": {
+      "title": "Microsoft Cloud for Sovereignty incorpora a Azure Policy de ENS",
+      "b1": "Incorporamos á nosa solución de Microsoft <strong>Cloud for Sovereignty</strong> a Azure Policy para o <strong>Esquema Nacional de Seguridade</strong>. Un paso máis na nosa estratexia para proporcionar mecanismos de control para as cargas de traballo en Azure dos nosos clientes."
+    },
+    "eu": {
+      "title": "Microsoft Cloud for Sovereignty-k ENSen Azure Policy txertatzen du",
+      "b1": "Gure Microsoft <strong>Cloud for Sovereignty</strong> irtenbidean <strong>Segurtasun Eskema Nazionalerako</strong> Azure Policy txertatu dugu. Urrats bat gehiago gure estrategian, gure bezeroen Azure-ko lan-kargentzako kontrol-mekanismoak emateko."
+    }
+  }
+}

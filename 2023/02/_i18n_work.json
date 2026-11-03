@@ -1,0 +1,134 @@
+{
+  "23-02-10-Bing en Català.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Bing en Català",
+      "b1": "Bon cap de setmana, dilluns faré un nou anunci, però aquesta vegada serà de seguretat."
+    },
+    "gl": {
+      "title": "Bing en Catalán",
+      "b1": "Bo fin de semana, o luns farei un novo anuncio, pero esta vez será de seguridade."
+    },
+    "eu": {
+      "title": "Bing Katalanez",
+      "b1": "Asteburu on, astelehenean iragarpen berri bat egingo dut, baina oraingoan segurtasunari buruzkoa izango da."
+    }
+  },
+  "23-02-10-Ha sido la primera pregunta que le he hecho a.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Ha estat la primera pregunta que li he fet a",
+      "b1": "Ha estat la primera pregunta que li he fet al #NewBing de Microsoft"
+    },
+    "gl": {
+      "title": "Foi a primeira pregunta que lle fixen a",
+      "b1": "Foi a primeira pregunta que lle fixen ao #NewBing de Microsoft"
+    },
+    "eu": {
+      "title": "Egin diodan lehen galdera izan da",
+      "b1": "Microsoft-en #NewBing-i egin diodan lehen galdera izan da"
+    }
+  },
+  "23-02-13-Microsoft introduce en catálogo CPSTIC Microsoft Sentinel.html": {
+    "es": { "title": "", "b1": "", "b2": "" },
+    "ca": {
+      "title": "Microsoft introdueix al catàleg CPSTIC Microsoft Sentinel",
+      "b1": "Microsoft té el plaer d'anunciar la certificació de <strong>Microsoft Sentinel</strong> <a href=\"https://lnkd.in/dWAHnbwM\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/dWAHnbwM</a> com a producte qualificat i que compleix els requisits de seguretat exigits per al maneig d'informació sensible a l'ENS, en la categoria ALTA. L'avaluació ha estat realitzada per Brightsight (Madrid Lab) i serà inclòs en la propera actualització del catàleg de seguretat STIC-105 del CCN-CERT Centro Criptológico Nacional.",
+      "b2": "Un pas més però no l'últim en els nostres compromisos amb la ciberseguretat i el compliment."
+    },
+    "gl": {
+      "title": "Microsoft introduce no catálogo CPSTIC Microsoft Sentinel",
+      "b1": "Microsoft ten o pracer de anunciar a certificación de <strong>Microsoft Sentinel</strong> <a href=\"https://lnkd.in/dWAHnbwM\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/dWAHnbwM</a> como produto cualificado e que cumpre os requisitos de seguridade esixidos para o manexo de información sensible no ENS, na categoría ALTA. A avaliación foi realizada por Brightsight (Madrid Lab) e será incluído na próxima actualización do catálogo de seguridade STIC-105 do CCN-CERT Centro Criptológico Nacional.",
+      "b2": "Un paso máis pero non o último nos nosos compromisos coa ciberseguridade e o cumprimento."
+    },
+    "eu": {
+      "title": "Microsoft-ek CPSTIC katalogoan Microsoft Sentinel sartzen du",
+      "b1": "Microsoft-ek <strong>Microsoft Sentinel</strong>-en ziurtagiria iragartzeko plazera du <a href=\"https://lnkd.in/dWAHnbwM\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/dWAHnbwM</a> produktu kualifikatu gisa eta ENSen informazio sentikorra kudeatzeko eskatutako segurtasun-baldintzak betetzen dituena, KATEGORIA ALTUAN. Ebaluazioa Brightsight-ek (Madrid Lab) egin du eta CCN-CERT Centro Criptológico Nacional-en STIC-105 segurtasun-katalogoaren hurrengo eguneraketan sartuko da.",
+      "b2": "Urrats bat gehiago baina ez azkena zibersegurtasunarekiko eta betetzearekiko gure konpromisoetan."
+    }
+  },
+  "23-02-20-El Gobierno de España y Microsoft repatrían datos de educación.html": {
+    "es": { "title": "", "b1": "", "b2": "", "b4": "", "b5": "" },
+    "ca": {
+      "title": "El Govern d'Espanya i Microsoft repatrien dades d'educació",
+      "b1": "El Govern d'Espanya i Microsoft col·laboren per repatriar les dades d'educació digital de menors proporcionades durant la pandèmia",
+      "b2": "Microsoft és el primer proveïdor de serveis al núvol que confirma al govern espanyol que aquestes dades ja resideixen a la #Unió #Europea i es compromet a oferir la possibilitat de tornar-les al territori nacional un cop posi en marxa la seva regió cloud a Espanya en els propers mesos.",
+      "b4": "El projecte ha estat anomenat “Operació Guernica” per la rellevància de la devolució a Espanya de les dades proporcionades pels estudiants que van utilitzar diferents tecnologies durant el confinament.",
+      "b5": "La iniciativa, liderada pel Ministeri d'Afers Econòmics i Transformació Digital, a través de la Secretaria d'Estat de Digitalització i Intel·ligència Artificial, suposa una fita a nivell europeu en relació amb la sobirania de les dades i l'autonomia estratègica."
+    },
+    "gl": {
+      "title": "O Goberno de España e Microsoft repatrían datos de educación",
+      "b1": "O Goberno de España e Microsoft colaboran para repatriar os datos de educación dixital de menores proporcionados durante a pandemia",
+      "b2": "Microsoft é o primeiro provedor de servizos na nube que confirma ao goberno español que estes datos xa residen na #Unión #Europea e comprométese a ofrecer a posibilidade de devolvelos ao territorio nacional unha vez poña en marcha a súa rexión cloud en España nos próximos meses.",
+      "b4": "O proxecto foi denominado “Operación Guernica” pola relevancia da devolución a España dos datos proporcionados polos estudantes que usaron distintas tecnoloxías durante o confinamento.",
+      "b5": "A iniciativa, liderada polo Ministerio de Asuntos Económicos e Transformación Dixital, a través da Secretaría de Estado de Dixitalización e Intelixencia Artificial, supón un fito a nivel europeo en relación á soberanía dos datos e á autonomía estratéxica."
+    },
+    "eu": {
+      "title": "Espainiako Gobernuak eta Microsoft-ek hezkuntza-datuak errepatriatzen dituzte",
+      "b1": "Espainiako Gobernuak eta Microsoft-ek elkarlanean dihardute pandemian zehar emandako adingabeen hezkuntza digitaleko datuak errepatriatzeko",
+      "b2": "Microsoft datu hauek jada #Europar #Batasunean dauden espainiar gobernuari berresten dion hodei-zerbitzuen lehen hornitzailea da eta datozen hilabeteetan Espainian bere cloud eskualdea abian jartzen duenean lurralde nazionalera itzultzeko aukera eskaintzeko konpromisoa hartzen du.",
+      "b4": "Proiektuari “Guernica Operazioa” deitu zaio, konfinamenduan zehar hainbat teknologia erabili zituzten ikasleek emandako datuak Espainiara itzultzearen garrantziagatik.",
+      "b5": "Ekimena, Ekonomia Gaietarako eta Eraldaketa Digitalerako Ministerioak gidatua, Digitalizazio eta Adimen Artifizialeko Estatu Idazkaritzaren bidez, mugarri bat da Europa mailan datuen subiranotasunari eta autonomia estrategikoari dagokienez."
+    }
+  },
+  "23-02-21-Únete a la competición y viaja a Punta Cana. .html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Uneix-te a la competició i viatja a Punta Cana.",
+      "b1": "Uneix-te a la competició i viatja a Punta Cana.  Del 19 al 21 d'abril, un ciber escut únic per a Iberoamèrica."
+    },
+    "gl": {
+      "title": "Únete á competición e viaxa a Punta Cana.",
+      "b1": "Únete á competición e viaxa a Punta Cana.  Do 19 ao 21 de abril, un ciber escudo único para Iberoamérica."
+    },
+    "eu": {
+      "title": "Batu zaitez lehiaketara eta bidaiatu Punta Canara.",
+      "b1": "Batu zaitez lehiaketara eta bidaiatu Punta Canara.  Apirilaren 19tik 21era, Iberoamerikarako ziber-ezkutu paregabe bat."
+    }
+  },
+  "23-02-23-Daremos muchos detalles, no te lo puedes perder.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Donarem molts detalls, no t'ho pots perdre",
+      "b1": "Donarem molts detalls, no t'ho pots perdre."
+    },
+    "gl": {
+      "title": "Daremos moitos detalles, non o podes perder",
+      "b1": "Daremos moitos detalles, non o podes perder."
+    },
+    "eu": {
+      "title": "Xehetasun asko emango ditugu, ezin duzu galdu",
+      "b1": "Xehetasun asko emango ditugu, ezin duzu galdu."
+    }
+  },
+  "23-02-27-Otro paso más, y no será el último, en acredi.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Un altre pas més, i no serà l'últim, en acredi",
+      "b1": "Un altre pas més, i no serà l'últim, en acreditar els nostres productes de seguretat per al maneig d'informació sensible."
+    },
+    "gl": {
+      "title": "Outro paso máis, e non será o último, en acredi",
+      "b1": "Outro paso máis, e non será o último, en acreditar os nosos produtos de seguridade para o manexo de información sensible."
+    },
+    "eu": {
+      "title": "Beste urrats bat gehiago, eta ez da azkena izango, akredita",
+      "b1": "Beste urrats bat gehiago, eta ez da azkena izango, gure segurtasun-produktuak informazio sentikorra kudeatzeko akreditatzen."
+    }
+  },
+  "23-02-28-El seu pati i galería gòtica i el saló Sant Jordi.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "El seu pati i galería gòtica i el saló Sant Jordi",
+      "b1": "El seu pati i galería gòtica i el saló Sant Jordi. Un any mes un escenari privilegiat després de dos dies parlant de la visió de Microsoft en #IA i #CiberSeguretat en el MWC a Barcelona."
+    },
+    "gl": {
+      "title": "O seu patio e galería gótica e o salón Sant Jordi",
+      "b1": "O seu patio e galería gótica e o salón Sant Jordi. Un ano máis un escenario privilexiado tras dous días falando da visión de Microsoft en #IA e #CiberSeguridade no MWC en Barcelona."
+    },
+    "eu": {
+      "title": "Bere patioa eta galeria gotikoa eta Sant Jordi aretoa",
+      "b1": "Bere patioa eta galeria gotikoa eta Sant Jordi aretoa. Urtebete gehiago agertoki pribilegiatu bat, Bartzelonako MWCn Microsoft-en #IA eta #Zibersegurtasunari buruzko ikuspegiaz bi egunez hitz egin ondoren."
+    }
+  }
+}

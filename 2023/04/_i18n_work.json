@@ -1,0 +1,38 @@
+{
+  "23-04-21-Ferrovial despliega la IA.html": {
+    "es": { "title": "", "b1": "", "b2": "", "b3": "" },
+    "ca": {
+      "title": "Ferrovial desplega la IA",
+      "b1": "[ENGLISH at the end]",
+      "b2": "Ferrovial es converteix en la primera empresa d'infraestructures a nivell global a posar al servei dels seus empleats una eina d'intel·ligència artificial generativa que facilitarà les tasques del seu dia a dia, guanyant eficiència i competitivitat.",
+      "b3": "Aquest assistent virtual, basat en Microsoft #AzureOpenAI Services, té, a més, com a punt diferenciador la #privacitat, ja que ha estat dissenyat per treballar en un entorn #segur per a les dades i la informació, és a dir, garanteix que la informació que es tractarà és interna i, per tant, #confidencial."
+    },
+    "gl": {
+      "title": "Ferrovial desprega a IA",
+      "b1": "[ENGLISH at the end]",
+      "b2": "Ferrovial convértese na primeira empresa de infraestruturas a nivel global en poñer ao servizo dos seus empregados unha ferramenta de intelixencia artificial xenerativa que facilitará as labores no seu día a día, gañando eficiencia e competitividade.",
+      "b3": "Este asistente virtual, baseado en Microsoft #AzureOpenAI Services, ten, ademais, como punto diferenciador a #privacidade, posto que foi deseñado para traballar nun contorno #seguro para os datos e a información, é dicir, garante que a información que se vai tratar é interna e, por tanto, #confidencial."
+    },
+    "eu": {
+      "title": "Ferrovial-ek IA zabaltzen du",
+      "b1": "[ENGLISH at the end]",
+      "b2": "Ferrovial mundu mailan bere langileen zerbitzura adimen artifizial sortzaileko tresna bat jartzen duen lehen azpiegitura-enpresa bihurtzen da, eguneroko lanak erraztuko dituena, eraginkortasuna eta lehiakortasuna irabaziz.",
+      "b3": "Laguntzaile birtual honek, Microsoft #AzureOpenAI Services-en oinarritua, gainera, bereizgarri gisa #pribatutasuna du, datu eta informaziorako ingurune #seguru batean lan egiteko diseinatua izan baita, hau da, tratatuko den informazioa barnekoa eta, beraz, #konfidentziala dela bermatzen du."
+    }
+  },
+  "23-04-23-Hoy es un gran día en Cataluña, Sant Jordi..html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Avui és un gran dia a Catalunya, Sant Jordi.",
+      "b1": "Avui és un gran dia a Catalunya, Sant Jordi. Dia per passejar amb la família, comprar llibres i regalar roses. Dia per escollir els següents llibres que seran l'aliment de la nostra ment, que ens permetran viure aventures, assolir més coneixements i deixar volar la nostra imaginació. Sense ennuegar-se, si us plau 😉"
+    },
+    "gl": {
+      "title": "Hoxe é un gran día en Cataluña, Sant Jordi.",
+      "b1": "Hoxe é un gran día en Cataluña, Sant Jordi. Día para pasear coa familia, comprar libros e agasallar rosas. Día para escoller os seguintes libros que serán o alimento da nosa mente, que nos permitirán vivir aventuras, alcanzar máis coñecementos e deixar voar a nosa imaxinación. Sen atragantarse, por favor 😉"
+    },
+    "eu": {
+      "title": "Gaur egun handi bat da Katalunian, Sant Jordi.",
+      "b1": "Gaur egun handi bat da Katalunian, Sant Jordi. Familiarekin paseatzeko, liburuak erosteko eta arrosak oparitzeko eguna. Gure adimenaren elikagai izango diren hurrengo liburuak aukeratzeko eguna, abenturak bizitzen, ezagutza gehiago lortzen eta gure imajinazioari hegan egiten utziko digutenak. Ito gabe, mesedez 😉"
+    }
+  }
+}

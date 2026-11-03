@@ -1,0 +1,146 @@
+{
+  "24-12-03-Microsoft introduce en catálogo CPSTIC nuevos servicios Cloud.html": {
+    "es": { "title": "", "b1": "", "b2": "", "b3": "" },
+    "ca": {
+      "title": "Microsoft introdueix al catàleg CPSTIC nous serveis Cloud",
+      "b1": "Avui des de Microsoft us anunciem la incorporació d'<strong>Azure Key Vault Managed HSM</strong>, <strong>Microsoft Purview DLP i Microsoft Purview Communications Compliance</strong> al Catàleg de Productes i Serveis de Seguretat de les Tecnologies de la Informació i la Comunicació #CPSTIC del CCN-CERT Centro Criptológico Nacional.",
+      "b2": "Aquestes incorporacions s'uneixen a Microsoft Sentinel, Microsoft Defender for EndPoint, Microsoft Defender for Identity i Microsoft Defender for Office 365 que ja eren al catàleg.",
+      "b3": "Durant els propers mesos s'aniran incorporant més serveis cloud de Microsoft a aquest catàleg <a href=\"https://lnkd.in/eEZ4ZPzS\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/eEZ4ZPzS</a>"
+    },
+    "gl": {
+      "title": "Microsoft introduce no catálogo CPSTIC novos servizos Cloud",
+      "b1": "Hoxe desde Microsoft anunciámosvos a incorporación de <strong>Azure Key Vault Managed HSM</strong>, <strong>Microsoft Purview DLP e Microsoft Purview Communications Compliance</strong> ao Catálogo de Produtos e Servizos de Seguridade das Tecnoloxías da Información e a Comunicación #CPSTIC do CCN-CERT Centro Criptológico Nacional.",
+      "b2": "Estas incorporacións únense a Microsoft Sentinel, Microsoft Defender for EndPoint, Microsoft Defender for Identity e Microsoft Defender for Office 365 que xa estaban no catálogo.",
+      "b3": "Durante os próximos meses iranse incorporando máis servizos cloud de Microsoft a dito catálogo <a href=\"https://lnkd.in/eEZ4ZPzS\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/eEZ4ZPzS</a>"
+    },
+    "eu": {
+      "title": "Microsoft-ek CPSTIC katalogoan Cloud zerbitzu berriak sartzen ditu",
+      "b1": "Gaur Microsoft-etik <strong>Azure Key Vault Managed HSM</strong>, <strong>Microsoft Purview DLP eta Microsoft Purview Communications Compliance</strong> CCN-CERT Centro Criptológico Nacional-en Informazioaren eta Komunikazioaren Teknologien Segurtasun Produktu eta Zerbitzuen #CPSTIC Katalogoan gehitu direla iragartzen dizuegu.",
+      "b2": "Gehikuntza hauek jada katalogoan zeuden Microsoft Sentinel, Microsoft Defender for EndPoint, Microsoft Defender for Identity eta Microsoft Defender for Office 365-i batzen zaizkie.",
+      "b3": "Datozen hilabeteetan Microsoft-en cloud zerbitzu gehiago joango dira katalogo horretan sartzen <a href=\"https://lnkd.in/eEZ4ZPzS\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/eEZ4ZPzS</a>"
+    }
+  },
+  "24-12-19-Píldora de final de semana.html": {
+    "es": { "title": "", "b1": "", "b2": "", "b3": "" },
+    "ca": {
+      "title": "Càpsula de cap de setmana",
+      "b1": "Càpsula de cap de setmana. Durant l'Ignite Microsoft va anunciar <strong>Azure Local</strong>, una solució que permet ampliar #Azure a infraestructures que són propietat del client. Té dos sabors, connectat i desconnectat:",
+      "b2": "1️⃣ El servei <strong>connectat</strong> permet estendre Azure a una infraestructura propietat del client i tenir el control des d'Azure.  - Més informació: <a href=\"https://lnkd.in/err7WisP\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/err7WisP</a> - Vídeo demostració: <a href=\"https://lnkd.in/ejK6FcUB\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/ejK6FcUB</a>",
+      "b3": "2️⃣ El servei <strong>desconnectat</strong> permet la implementació i administració d'instàncies locals d'#Azure sense connexió al núvol públic d'Azure, des del primer dia i sense necessitat de tornar-se a connectar mai (ni tan sols per a actualitzacions).  - Més informació: <a href=\"https://lnkd.in/eubU5vKV\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/eubU5vKV</a> - Vídeo demostració: <a href=\"https://lnkd.in/eTXrzh9F\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/eTXrzh9F</a>"
+    },
+    "gl": {
+      "title": "Cápsula de fin de semana",
+      "b1": "Cápsula de fin de semana. Durante o Ignite Microsoft anunciou <strong>Azure Local</strong>, unha solución que permite ampliar #Azure a infraestruturas que son propiedade do cliente. Ten dous sabores, conectado e desconectado:",
+      "b2": "1️⃣ O servizo <strong>conectado</strong> permite estender Azure a unha infraestrutura propiedade do cliente e ter o control desde Azure.  - Máis información: <a href=\"https://lnkd.in/err7WisP\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/err7WisP</a> - Vídeo demostración: <a href=\"https://lnkd.in/ejK6FcUB\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/ejK6FcUB</a>",
+      "b3": "2️⃣ O servizo <strong>desconectado</strong> permite a implementación e administración de instancias locais de #Azure sen conexión á nube pública de Azure, desde o día un e sen necesidade de volver conectarse nunca (nin sequera para actualizacións).  - Máis información: <a href=\"https://lnkd.in/eubU5vKV\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/eubU5vKV</a> - Vídeo demostración: <a href=\"https://lnkd.in/eTXrzh9F\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/eTXrzh9F</a>"
+    },
+    "eu": {
+      "title": "Asteburuko kapsula",
+      "b1": "Asteburuko kapsula. Ignite-an Microsoft-ek <strong>Azure Local</strong> iragarri zuen, bezeroaren jabetzakoak diren azpiegituretara #Azure zabaltzeko aukera ematen duen irtenbidea. Bi zapore ditu, konektatua eta deskonektatua:",
+      "b2": "1️⃣ Zerbitzu <strong>konektatuak</strong> Azure bezeroaren jabetzako azpiegitura batera zabaltzeko eta kontrola Azuretik izateko aukera ematen du.  - Informazio gehiago: <a href=\"https://lnkd.in/err7WisP\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/err7WisP</a> - Demostrazio-bideoa: <a href=\"https://lnkd.in/ejK6FcUB\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/ejK6FcUB</a>",
+      "b3": "2️⃣ Zerbitzu <strong>deskonektatuak</strong> #Azure-ren tokiko instantziak Azure-ren hodei publikora konektatu gabe inplementatu eta kudeatzeko aukera ematen du, lehen egunetik eta inoiz berriro konektatu beharrik gabe (ezta eguneraketetarako ere).  - Informazio gehiago: <a href=\"https://lnkd.in/eubU5vKV\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/eubU5vKV</a> - Demostrazio-bideoa: <a href=\"https://lnkd.in/eTXrzh9F\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/eTXrzh9F</a>"
+    }
+  },
+  "24-12-20-Hoy el equipo de OpenAI presenta nuevo modelo o3.html": {
+    "es": { "title": "", "b1": "", "b2": "", "b3": "" },
+    "ca": {
+      "title": "Avui l'equip d'OpenAI presenta el nou model o3",
+      "b1": "Avui l'equip d'#OpenAI ha hagut de pensar, &quot;veig&quot; la teva aposta i la pujo... 😏",
+      "b2": "o3 millora en: - codi 71,7% (+20 punts respecte a o1) - matemàtiques 96,7% (+13,4 punts respecte a o1) - coneixements PhD 87,7% (gairebé +10 punts respecte a o1) - i un sorprenent 87,5% al test #ARCAGI <a href=\"https://lnkd.in/e25-ja7G\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/e25-ja7G</a>",
+      "b3": "Més informació: <a href=\"https://lnkd.in/e5hiw9XG\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/e5hiw9XG</a>"
+    },
+    "gl": {
+      "title": "Hoxe o equipo de OpenAI presenta o novo modelo o3",
+      "b1": "Hoxe o equipo de #OpenAI debeu pensar, &quot;vexo&quot; a túa aposta e súboa... 😏",
+      "b2": "o3 mellora en: - código 71,7% (+20 puntos fronte a o1) - matemáticas 96,7% (+13,4 puntos fronte a o1) - coñecementos PhD 87,7% (case +10 puntos fronte a o1) - e un sorprendente 87,5% no test #ARCAGI <a href=\"https://lnkd.in/e25-ja7G\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/e25-ja7G</a>",
+      "b3": "Máis información: <a href=\"https://lnkd.in/e5hiw9XG\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/e5hiw9XG</a>"
+    },
+    "eu": {
+      "title": "Gaur OpenAI taldeak o3 eredu berria aurkezten du",
+      "b1": "Gaur #OpenAI taldeak pentsatu behar izan du, zure apustua &quot;ikusi&quot; eta igotzen dut... 😏",
+      "b2": "o3-k honako hauetan hobetzen du: - kodea %71,7 (+20 puntu o1-ren aldean) - matematika %96,7 (+13,4 puntu o1-ren aldean) - PhD ezagutzak %87,7 (ia +10 puntu o1-ren aldean) - eta harrigarria den %87,5 #ARCAGI testean <a href=\"https://lnkd.in/e25-ja7G\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/e25-ja7G</a>",
+      "b3": "Informazio gehiago: <a href=\"https://lnkd.in/e5hiw9XG\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/e5hiw9XG</a>"
+    }
+  },
+  "24-12-26-El Quantum Computing es ya una pieza fundamental de los avances ciéntificos.html": {
+    "es": { "title": "", "b1": "", "b2": "" },
+    "ca": {
+      "title": "El Quantum Computing ja és una peça fonamental dels avenços científics",
+      "b1": "El #QuantumComputing ja és una peça fonamental dels avenços científics i tecnològics actuals.",
+      "b2": "És una tecnologia amb un gran potencial i des de Microsoft estem accelerant el descobriment científic amb eines com Azure Quantum Elements <a href=\"https://lnkd.in/esCUm5e9\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/esCUm5e9</a>"
+    },
+    "gl": {
+      "title": "O Quantum Computing xa é unha peza fundamental dos avances científicos",
+      "b1": "O #QuantumComputing xa é unha peza fundamental dos avances científicos e tecnolóxicos actuais.",
+      "b2": "É unha tecnoloxía cun gran potencial e desde Microsoft estamos acelerando o descubrimento científico con ferramentas como Azure Quantum Elements <a href=\"https://lnkd.in/esCUm5e9\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/esCUm5e9</a>"
+    },
+    "eu": {
+      "title": "Quantum Computing-a jada aurrerapen zientifikoen funtsezko pieza da",
+      "b1": "#QuantumComputing-a jada gaur egungo aurrerapen zientifiko eta teknologikoen funtsezko pieza da.",
+      "b2": "Potentzial handiko teknologia da eta Microsoft-etik aurkikuntza zientifikoa bizkortzen ari gara Azure Quantum Elements bezalako tresnekin <a href=\"https://lnkd.in/esCUm5e9\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/esCUm5e9</a>"
+    }
+  },
+  "24-12-28-🌍La especificación Intensidad de Carbono del Software se convierte en norma ISO.html": {
+    "es": { "title": "", "b1": "", "b3": "", "b4": "" },
+    "ca": {
+      "title": "🌍L'especificació Intensitat de Carboni del Programari es converteix en norma ISO",
+      "b1": "🌍 L'especificació <strong>Intensitat de Carboni del Programari</strong> (<strong>SCI</strong>) de Green Software Foundation de la qual Microsoft és soci fundador i part del comitè executiu, va assolir aquest any l'estatus d'<strong>estàndard ISO</strong>/<strong>IEC 21031</strong>:<strong>2024</strong>🌿",
+      "b3": "L'especificació d'Intensitat de Carboni del Programari (SCI) ha estat reconeguda com un estàndard ISO, marcant una fita important en la sostenibilitat del programari. 🚀 🔹 <strong>Metodologia de Càlcul</strong>: L'especificació SCI descriu com calcular la intensitat de carboni d'una aplicació de programari (<strong>incloent aplicacions i models d'IA</strong>), ajudant els desenvolupadors a prendre decisions informades per reduir les emissions de carboni. 📊 🔹 <strong>Intensitat del Carboni de l'Electricitat</strong>: La intensitat de carboni varia segons el lloc i el moment en què es consumeix l'electricitat, proporcionant informació crucial per al disseny i desplegament d'aplicacions. ⚡ 🔹 <strong>Enfocament en la Reducció d'Emissions</strong>: L'especificació se centra en l'eliminació d'emissions a través de l'eficiència energètica i del maquinari, i solucions de carbon-aware, sense dependre de compensacions de carboni. 🌱 🔹 <strong>Aplicabilitat Universal</strong>: És possible calcular una puntuació SCI per a qualsevol aplicació de programari, des de grans sistemes al núvol fins a petites biblioteques de codi obert. 🌐 🔹 <strong>Acció Col·lectiva</strong>: Els professionals del programari tenen un paper crucial en la reducció de la puntuació SCI durant el disseny, desenvolupament i lliurament d'aplicacions. 👩‍💻👨‍💻",
+      "b4": "Amb l'especificació SCI, Microsoft i els seus socis Accenture i NTT DATA entre d'altres, lideren el camí cap a un futur més sostenible en el desenvolupament de programari. 💚"
+    },
+    "gl": {
+      "title": "🌍A especificación Intensidade de Carbono do Software convértese en norma ISO",
+      "b1": "🌍 A especificación <strong>Intensidade de Carbono do Software</strong> (<strong>SCI</strong>) de Green Software Foundation da que Microsoft é socio fundador e parte do comité executivo, alcanzou este ano o estatus de <strong>estándar ISO</strong>/<strong>IEC 21031</strong>:<strong>2024</strong>🌿",
+      "b3": "A especificación de Intensidade de Carbono do Software (SCI) foi recoñecida como un estándar ISO, marcando un fito importante na sustentabilidade do software. 🚀 🔹 <strong>Metodoloxía de Cálculo</strong>: A especificación SCI describe como calcular a intensidade de carbono dunha aplicación de software (<strong>incluíndo aplicacións e modelos de IA</strong>), axudando aos desenvolvedores a tomar decisións informadas para reducir as emisións de carbono. 📊 🔹 <strong>Intensidade do Carbono da Electricidade</strong>: A intensidade de carbono varía segundo o lugar e o momento en que se consome a electricidade, proporcionando información crucial para o deseño e despregamento de aplicacións. ⚡ 🔹 <strong>Enfoque na Redución de Emisións</strong>: A especificación céntrase na eliminación de emisións a través da eficiencia enerxética e do hardware, e solucións de carbon-aware, sen depender de compensacións de carbono. 🌱 🔹 <strong>Aplicabilidade Universal</strong>: É posible calcular unha puntuación SCI para calquera aplicación de software, desde grandes sistemas na nube ata pequenas bibliotecas de código aberto. 🌐 🔹 <strong>Acción Colectiva</strong>: Os profesionais do software teñen un papel crucial na redución da puntuación SCI durante o deseño, desenvolvemento e entrega de aplicacións. 👩‍💻👨‍💻",
+      "b4": "Coa especificación SCI, Microsoft e os seus socios Accenture e NTT DATA entre outros, lideran o camiño cara a un futuro máis sustentable no desenvolvemento de software. 💚"
+    },
+    "eu": {
+      "title": "🌍Softwarearen Karbono Intentsitatearen espezifikazioa ISO arau bihurtzen da",
+      "b1": "🌍 Green Software Foundation-en <strong>Softwarearen Karbono Intentsitatea</strong> (<strong>SCI</strong>) espezifikazioak, zeinaren sortzaile-bazkide eta batzorde exekutiboko kide baita Microsoft, aurten <strong>ISO</strong>/<strong>IEC 21031</strong>:<strong>2024</strong> estandar estatusa lortu du🌿",
+      "b3": "Softwarearen Karbono Intentsitatearen (SCI) espezifikazioa ISO estandar gisa aitortua izan da, softwarearen iraunkortasunean mugarri garrantzitsu bat markatuz. 🚀 🔹 <strong>Kalkulu Metodologia</strong>: SCI espezifikazioak software-aplikazio baten (<strong>IA aplikazio eta ereduak barne</strong>) karbono-intentsitatea nola kalkulatu deskribatzen du, garatzaileei karbono-isuriak murrizteko erabaki informatuak hartzen lagunduz. 📊 🔹 <strong>Elektrizitatearen Karbono Intentsitatea</strong>: Karbono-intentsitatea elektrizitatea kontsumitzen den leku eta unearen arabera aldatzen da, aplikazioak diseinatzeko eta zabaltzeko funtsezko informazioa emanez. ⚡ 🔹 <strong>Isuriak Murrizteko Ikuspegia</strong>: Espezifikazioa isuriak ezabatzean oinarritzen da energia- eta hardware-eraginkortasunaren bidez, eta carbon-aware irtenbideen bidez, karbono-konpentsazioen mende egon gabe. 🌱 🔹 <strong>Aplikagarritasun Unibertsala</strong>: SCI puntuazioa edozein software-aplikaziorako kalkula daiteke, hodeiko sistema handietatik kode irekiko liburutegi txikietaraino. 🌐 🔹 <strong>Ekintza Kolektiboa</strong>: Software-profesionalek funtsezko papera dute SCI puntuazioa murrizteko aplikazioen diseinu, garapen eta entregan zehar. 👩‍💻👨‍💻",
+      "b4": "SCI espezifikazioarekin, Microsoft-ek eta bere bazkideek, besteak beste Accenture eta NTT DATA, software-garapenean etorkizun iraunkorrago baterako bidea gidatzen dute. 💚"
+    }
+  },
+  "24-12-29-Microsoft incorpora dos nuevos servicios al Catálogo CPSTIC.html": {
+    "es": { "title": "", "b1": "", "b2": "", "b3": "" },
+    "ca": {
+      "title": "Microsoft incorpora dos nous serveis al Catàleg CPSTIC",
+      "b1": "Microsoft incorpora dos nous serveis al Catàleg de Productes i Serveis de Seguretat de les Tecnologies de la Informació i la Comunicació #CPSTIC del CCN-CERT Centro Criptológico Nacional: <strong>Microsoft Purview Information Protection i Microsoft Defender for Cloud Apps</strong> (<strong>CASB</strong>).",
+      "b2": "Aquestes incorporacions s'uneixen a Azure Key Vault Managed HSM, Microsoft Purview DLP, Microsoft Purview Communications Compliance, Microsoft Sentinel, Microsoft Defender for EndPoint, Microsoft Defender for Identity i Microsoft Defender for Office 365 que ja eren al catàleg.",
+      "b3": "Durant els propers mesos anirem incorporant més serveis cloud de Microsoft a aquest catàleg <a href=\"https://lnkd.in/eEZ4ZPzS\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/eEZ4ZPzS</a>"
+    },
+    "gl": {
+      "title": "Microsoft incorpora dous novos servizos ao Catálogo CPSTIC",
+      "b1": "Microsoft incorpora dous novos servizos ao Catálogo de Produtos e Servizos de Seguridade das Tecnoloxías da Información e a Comunicación #CPSTIC do CCN-CERT Centro Criptológico Nacional: <strong>Microsoft Purview Information Protection e Microsoft Defender for Cloud Apps</strong> (<strong>CASB</strong>).",
+      "b2": "Estas incorporacións únense a Azure Key Vault Managed HSM, Microsoft Purview DLP, Microsoft Purview Communications Compliance, Microsoft Sentinel, Microsoft Defender for EndPoint, Microsoft Defender for Identity e Microsoft Defender for Office 365 que xa estaban no catálogo.",
+      "b3": "Durante os próximos meses iremos incorporando máis servizos cloud de Microsoft a dito catálogo <a href=\"https://lnkd.in/eEZ4ZPzS\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/eEZ4ZPzS</a>"
+    },
+    "eu": {
+      "title": "Microsoft-ek bi zerbitzu berri gehitzen ditu CPSTIC Katalogora",
+      "b1": "Microsoft-ek bi zerbitzu berri gehitzen ditu CCN-CERT Centro Criptológico Nacional-en Informazioaren eta Komunikazioaren Teknologien Segurtasun Produktu eta Zerbitzuen #CPSTIC Katalogora: <strong>Microsoft Purview Information Protection eta Microsoft Defender for Cloud Apps</strong> (<strong>CASB</strong>).",
+      "b2": "Gehikuntza hauek jada katalogoan zeuden Azure Key Vault Managed HSM, Microsoft Purview DLP, Microsoft Purview Communications Compliance, Microsoft Sentinel, Microsoft Defender for EndPoint, Microsoft Defender for Identity eta Microsoft Defender for Office 365-i batzen zaizkie.",
+      "b3": "Datozen hilabeteetan Microsoft-en cloud zerbitzu gehiago joango gara katalogo horretan sartzen <a href=\"https://lnkd.in/eEZ4ZPzS\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/eEZ4ZPzS</a>"
+    }
+  },
+  "24-12-31-🚀 Microsoft presentó hace unos días MarS.html": {
+    "es": { "title": "", "b1": "", "b2": "", "b3": "" },
+    "ca": {
+      "title": "🚀 Microsoft va presentar fa uns dies MarS",
+      "b1": "🚀 Microsoft va presentar fa uns dies #MarS, un motor de simulació de mercats financers impulsat per models d'IA generativa.",
+      "b2": "MarS és una plataforma que utilitza models d'IA generativa per simular mercats financers amb capacitats de: generació de dades sintètiques, avaluació d'estratègies d'inversió i gestió de riscos en entorns controlats.",
+      "b3": "Punts clau:  •\tSimulació avançada: MarS crea escenaris de mercat, permetent als professionals financers provar i optimitzar les seves pròpies estratègies en un entorn segur i controlat.  •\tModels generatius: La plataforma es basa en models d'intel·ligència artificial capaços de replicar comportaments complexos del mercat.  •\tAplicacions pràctiques: Des de la formació d'analistes fins a la simulació d'estratègies, MarS ofereix múltiples usos per a institucions financeres i acadèmiques."
+    },
+    "gl": {
+      "title": "🚀 Microsoft presentou hai uns días MarS",
+      "b1": "🚀 Microsoft presentou hai uns días #MarS, un motor de simulación de mercados financeiros impulsado por modelos de IA xenerativa.",
+      "b2": "MarS é unha plataforma que utiliza modelos de IA xenerativa para simular mercados financeiros con capacidades de: xeración de datos sintéticos, avaliación de estratexias de investimento e xestión de riscos en contornos controlados.",
+      "b3": "Puntos clave:  •\tSimulación avanzada: MarS crea escenarios de mercado, permitindo aos profesionais financeiros probar e optimizar as súas propias estratexias nun contorno seguro e controlado.  •\tModelos xenerativos: A plataforma baséase en modelos de intelixencia artificial capaces de replicar comportamentos complexos do mercado.  •\tAplicacións prácticas: Desde a formación de analistas ata a simulación de estratexias, MarS ofrece múltiples usos para institucións financeiras e académicas."
+    },
+    "eu": {
+      "title": "🚀 Microsoft-ek duela egun batzuk MarS aurkeztu zuen",
+      "b1": "🚀 Microsoft-ek duela egun batzuk #MarS aurkeztu zuen, IA sortzaileko ereduek bultzatutako finantza-merkatuen simulazio-motor bat.",
+      "b2": "MarS IA sortzaileko ereduak erabiltzen dituen plataforma bat da finantza-merkatuak simulatzeko honako gaitasun hauekin: datu sintetikoen sorkuntza, inbertsio-estrategien ebaluazioa eta arriskuen kudeaketa ingurune kontrolatuetan.",
+      "b3": "Funtsezko puntuak:  •\tSimulazio aurreratua: MarS-ek merkatu-agertokiak sortzen ditu, finantza-profesionalei beren estrategiak ingurune seguru eta kontrolatu batean probatzeko eta optimizatzeko aukera emanez.  •\tEredu sortzaileak: Plataforma merkatuaren jokabide konplexuak erreplikatzeko gai diren adimen artifizialeko ereduetan oinarritzen da.  •\tAplikazio praktikoak: Analisten prestakuntzatik estrategien simulaziora, MarS-ek erabilera anitz eskaintzen ditu finantza- eta akademia-erakundeentzat."
+    }
+  }
+}

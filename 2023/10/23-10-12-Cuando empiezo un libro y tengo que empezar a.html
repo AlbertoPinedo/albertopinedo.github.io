@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cuando empiezo un libro y tengo que empezar a | Technologia cum Fide</title>
+<meta name="description" content="*23-10-12*"/>
+<style>
+:root{
+  --ms-blue:#0078D4; --ms-blue-dark:#005A9E; --ms-blue-soft:#eaf3fb;
+  --ms-red:#F25022; --ms-green:#7FBA00; --ms-green-dark:#107C10; --ms-yellow:#FFB900; --ms-cyan:#00A4EF;
+  --bg:#ffffff; --surface:#f7f9fb; --surface-2:#eef2f6; --text:#1b1a19; --muted:#605e5c;
+  --border:#e3e6ea; --border-strong:#c8ccd1; --radius:8px;
+  --shadow:0 1px 3px rgba(0,0,0,.07); --shadow-lg:0 6px 22px rgba(0,0,0,.10);
+}
+html[data-theme="dark"]{
+  --bg:#1b1a19; --surface:#242322; --surface-2:#2d2c2b; --text:#f3f2f1; --muted:#c8c6c4;
+  --border:#3b3a39; --border-strong:#4a4948; --ms-blue-soft:#1d2b38;
+  --shadow:0 1px 3px rgba(0,0,0,.4); --shadow-lg:0 6px 22px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+a{color:var(--ms-blue-dark)}
+header.hero{background:linear-gradient(135deg,#f3f9fd 0%,#eef6fc 60%,#fbf7ef 100%);border-bottom:1px solid var(--border);padding:42px 0 34px;position:relative;overflow:hidden}
+html[data-theme="dark"] header.hero{background:linear-gradient(135deg,#1f2a33 0%,#1d2630 60%,#26221a 100%)}
+.logo{display:flex;width:34px;height:34px;flex-wrap:wrap;gap:3px;margin-bottom:18px}
+.logo i{width:14px;height:14px;display:block;border-radius:2px}
+.logo .r{background:var(--ms-red)} .logo .g{background:var(--ms-green)} .logo .b{background:var(--ms-cyan)} .logo .y{background:var(--ms-yellow)}
+.hero h1{font-size:clamp(1.5rem,4vw,2.2rem);margin:0 0 12px;letter-spacing:-.5px;line-height:1.2}
+.hero .meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;color:var(--muted);font-size:.9rem}
+.hero .date-chip{background:var(--ms-blue);color:#fff;padding:4px 12px;border-radius:14px;font-weight:600;font-size:.82rem}
+.topbar{position:absolute;top:16px;right:22px;display:flex;gap:8px;align-items:center;z-index:5}
+.langbar{display:flex;gap:3px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3px;box-shadow:var(--shadow)}
+.langbar button{border:0;background:transparent;color:var(--muted);font-family:inherit;font-size:.8rem;font-weight:600;padding:5px 10px;border-radius:16px;cursor:pointer;transition:all .15s}
+.langbar button:hover{color:var(--ms-blue-dark)}
+.langbar button.active{background:var(--ms-blue);color:#fff}
+.theme-toggle{border:1px solid var(--border);background:var(--surface);border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1rem;box-shadow:var(--shadow);line-height:1}
+.ai-notice{display:none;background:#fff8e6;border-bottom:1px solid #f7e3a8;color:#6b5a16;font-size:.86rem;padding:10px 0}
+html[data-theme="dark"] .ai-notice{background:#2e2913;border-color:#5a4f1e;color:#e6d28a}
+.ai-notice.show{display:block}
+.ai-notice .wrap{display:flex;gap:10px;align-items:flex-start}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:600;text-decoration:none;margin-bottom:14px}
+article{padding:40px 0 20px}
+article p{margin:0 0 18px;font-size:1.05rem}
+article ul{margin:0 0 18px;padding-left:22px}
+article li{margin:0 0 8px;font-size:1.05rem}
+article strong{font-weight:700}
+figure{margin:24px 0}
+figure img,figure video{width:100%;border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);display:block}
+figure.media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:560px){figure.media-grid{grid-template-columns:1fr}}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 6px}
+.tag{background:var(--ms-blue-soft);color:var(--ms-blue-dark);border:1px solid var(--border);border-radius:14px;padding:4px 12px;font-size:.82rem;font-weight:600}
+footer{border-top:1px solid var(--border);margin-top:30px;padding:26px 0 50px;color:var(--muted);font-size:.86rem}
+footer .wrap p{margin:.3rem 0}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="topbar">
+    <div class="langbar" id="langbar">
+      <button data-lang="es" class="active">ES</button>
+      <button data-lang="ca">CA</button>
+      <button data-lang="gl">GL</button>
+      <button data-lang="eu">EU</button>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
+  </div>
+  <div class="wrap">
+    <a href="../../index.html" class="back" data-i18n="back">← Volver al inicio</a>
+    <div class="logo"><i class="r"></i><i class="g"></i><i class="b"></i><i class="y"></i></div>
+    <h1 data-i18n="title">Cuando empiezo un libro y tengo que empezar a</h1>
+    <div class="meta"><span class="date-chip">12 de octubre de 2023</span></div>
+  </div>
+</header>
+<div class="ai-notice" id="aiNotice">
+  <div class="wrap"><span>🌐</span><span data-i18n="ai_notice">Esta traducción ha sido generada con inteligencia artificial. Puede contener errores o matices imprecisos; agradecemos tu comprensión. El contenido de referencia oficial es el español.</span></div>
+</div>
+<article>
+  <div class="wrap">
+    <p data-i18n="b0">*23-10-12*</p>
+    <p data-i18n="b1">Cuando empiezo un libro y tengo que empezar a poner marcas en las páginas es que tiene algo. Espero que el siguiente que tengo, “La ola que viene” de Suleyman no defraude.</p>
+    <p data-i18n="b2">![Image](<a href="https://media.licdn.com/dms/image/v2/D4E22AQFhsfcXT5QV3g/feedshare-shrink_800/feedshare-shrink_800/0/1697106637304?e=1740009600&amp;v=beta&amp;t=ar_8af9wyLkC56TTJ8gHpIVNplivIaDbE47hVQFMYWY" target="_blank" rel="noopener">https://media.licdn.com/dms/image/v2/D4E22AQFhsfcXT5QV3g/feedshare-shrink_800/feedshare-shrink_800/0/1697106637304?e=1740009600&amp;v=beta&amp;t=ar_8af9wyLkC56TTJ8gHpIVNplivIaDbE47hVQFMYWY</a>)</p>
+  </div>
+</article>
+<footer>
+  <div class="wrap">
+    <p data-i18n="foot">Technologia cum Fide · Bitácora de Alberto Pinedo. Publicación original: 12 de octubre de 2023.</p>
+  </div>
+</footer>
+<script>
+const I18N = {"ca": {"title": "Quan començo un llibre i he de començar a", "back": "← Torna a l'inici", "ai_notice": "Aquesta traducció s'ha generat amb intel·ligència artificial. Pot contenir errors o matisos imprecisos; agraïm la teva comprensió. El contingut de referència oficial és el castellà.", "b1": "Quan començo un llibre i he de començar a posar marques a les pàgines és que té alguna cosa. Espero que el següent que tinc, “La ola que viene” de Suleyman no decebi."}, "gl": {"title": "Cando empezo un libro e teño que empezar a", "back": "← Volver ao inicio", "ai_notice": "Esta tradución foi xerada con intelixencia artificial. Pode conter erros ou matices imprecisos; agradecemos a túa comprensión. O contido de referencia oficial é o castelán.", "b1": "Cando empezo un libro e teño que empezar a poñer marcas nas páxinas é que ten algo. Espero que o seguinte que teño, “La ola que viene” de Suleyman non defraude."}, "eu": {"title": "Liburu bat hasten dudanean eta hasi behar dudanean", "back": "← Itzuli hasierara", "ai_notice": "Itzulpen hau adimen artifizialaren bidez sortu da. Akatsak edo ñabardura okerrak izan ditzake; eskertzen dizugu zure ulermena. Erreferentziazko eduki ofiziala gaztelaniazkoa da.", "b1": "Liburu bat hasten dudanean eta orrialdeetan markak jartzen hasi behar dudanean, zerbait duela esan nahi du. Espero dut dudan hurrengoak, Suleyman-en “La ola que viene”, ez nauela huts egingo."}};
+const ES_BASE = {};
+function captureES(){document.querySelectorAll('[data-i18n]').forEach(el=>{ES_BASE[el.getAttribute('data-i18n')]=el.innerHTML;});}
+const LOCALES = {es:'es',ca:'ca-ES',gl:'gl-ES',eu:'eu-ES'};
+function setLang(lang){
+  const dict = lang==='es' ? null : I18N[lang];
+  document.documentElement.lang = LOCALES[lang]||'es';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    if(!dict){ el.innerHTML = ES_BASE[k]; }
+    else if(dict[k]!==undefined){ el.innerHTML = dict[k]; }
+    else { el.innerHTML = ES_BASE[k]; }
+  });
+  document.getElementById('aiNotice').classList.toggle('show', lang!=='es');
+  document.querySelectorAll('#langbar button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+}
+document.querySelectorAll('#langbar button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+// Tema
+const themeToggle = document.getElementById('themeToggle');
+function updateThemeButton(){themeToggle.textContent = document.documentElement.getAttribute('data-theme')==='dark' ? '☀️' : '🌙';}
+(function(){const saved=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',saved);})();
+themeToggle.addEventListener('click',()=>{
+  const cur=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',cur);localStorage.setItem('theme',cur);updateThemeButton();
+});
+captureES();updateThemeButton();
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Microsoft Sentinel - Security Copilot y UEBA | Technologia cum Fide</title>
+<meta name="description" content="💡Según el reciente Informe de Defensa Digital de Microsoft 2024, el 80% de las violaciones de seguridad están relacionadas con el robo de credenciales o la"/>
+<style>
+:root{
+  --ms-blue:#0078D4; --ms-blue-dark:#005A9E; --ms-blue-soft:#eaf3fb;
+  --ms-red:#F25022; --ms-green:#7FBA00; --ms-green-dark:#107C10; --ms-yellow:#FFB900; --ms-cyan:#00A4EF;
+  --bg:#ffffff; --surface:#f7f9fb; --surface-2:#eef2f6; --text:#1b1a19; --muted:#605e5c;
+  --border:#e3e6ea; --border-strong:#c8ccd1; --radius:8px;
+  --shadow:0 1px 3px rgba(0,0,0,.07); --shadow-lg:0 6px 22px rgba(0,0,0,.10);
+}
+html[data-theme="dark"]{
+  --bg:#1b1a19; --surface:#242322; --surface-2:#2d2c2b; --text:#f3f2f1; --muted:#c8c6c4;
+  --border:#3b3a39; --border-strong:#4a4948; --ms-blue-soft:#1d2b38;
+  --shadow:0 1px 3px rgba(0,0,0,.4); --shadow-lg:0 6px 22px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+a{color:var(--ms-blue-dark)}
+header.hero{background:linear-gradient(135deg,#f3f9fd 0%,#eef6fc 60%,#fbf7ef 100%);border-bottom:1px solid var(--border);padding:42px 0 34px;position:relative;overflow:hidden}
+html[data-theme="dark"] header.hero{background:linear-gradient(135deg,#1f2a33 0%,#1d2630 60%,#26221a 100%)}
+.logo{display:flex;width:34px;height:34px;flex-wrap:wrap;gap:3px;margin-bottom:18px}
+.logo i{width:14px;height:14px;display:block;border-radius:2px}
+.logo .r{background:var(--ms-red)} .logo .g{background:var(--ms-green)} .logo .b{background:var(--ms-cyan)} .logo .y{background:var(--ms-yellow)}
+.hero h1{font-size:clamp(1.5rem,4vw,2.2rem);margin:0 0 12px;letter-spacing:-.5px;line-height:1.2}
+.hero .meta{display:flex;gap:10px;flex-wrap:wrap;align-items:center;color:var(--muted);font-size:.9rem}
+.hero .date-chip{background:var(--ms-blue);color:#fff;padding:4px 12px;border-radius:14px;font-weight:600;font-size:.82rem}
+.topbar{position:absolute;top:16px;right:22px;display:flex;gap:8px;align-items:center;z-index:5}
+.langbar{display:flex;gap:3px;background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3px;box-shadow:var(--shadow)}
+.langbar button{border:0;background:transparent;color:var(--muted);font-family:inherit;font-size:.8rem;font-weight:600;padding:5px 10px;border-radius:16px;cursor:pointer;transition:all .15s}
+.langbar button:hover{color:var(--ms-blue-dark)}
+.langbar button.active{background:var(--ms-blue);color:#fff}
+.theme-toggle{border:1px solid var(--border);background:var(--surface);border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:1rem;box-shadow:var(--shadow);line-height:1}
+.ai-notice{display:none;background:#fff8e6;border-bottom:1px solid #f7e3a8;color:#6b5a16;font-size:.86rem;padding:10px 0}
+html[data-theme="dark"] .ai-notice{background:#2e2913;border-color:#5a4f1e;color:#e6d28a}
+.ai-notice.show{display:block}
+.ai-notice .wrap{display:flex;gap:10px;align-items:flex-start}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:.88rem;font-weight:600;text-decoration:none;margin-bottom:14px}
+article{padding:40px 0 20px}
+article p{margin:0 0 18px;font-size:1.05rem}
+article ul{margin:0 0 18px;padding-left:22px}
+article li{margin:0 0 8px;font-size:1.05rem}
+article strong{font-weight:700}
+figure{margin:24px 0}
+figure img,figure video{width:100%;border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);display:block}
+figure.media-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:560px){figure.media-grid{grid-template-columns:1fr}}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 6px}
+.tag{background:var(--ms-blue-soft);color:var(--ms-blue-dark);border:1px solid var(--border);border-radius:14px;padding:4px 12px;font-size:.82rem;font-weight:600}
+footer{border-top:1px solid var(--border);margin-top:30px;padding:26px 0 50px;color:var(--muted);font-size:.86rem}
+footer .wrap p{margin:.3rem 0}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="topbar">
+    <div class="langbar" id="langbar">
+      <button data-lang="es" class="active">ES</button>
+      <button data-lang="ca">CA</button>
+      <button data-lang="gl">GL</button>
+      <button data-lang="eu">EU</button>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
+  </div>
+  <div class="wrap">
+    <a href="../../index.html" class="back" data-i18n="back">← Volver al inicio</a>
+    <div class="logo"><i class="r"></i><i class="g"></i><i class="b"></i><i class="y"></i></div>
+    <h1 data-i18n="title">Microsoft Sentinel - Security Copilot y UEBA</h1>
+    <div class="meta"><span class="date-chip">21 de enero de 2025</span></div>
+  </div>
+</header>
+<div class="ai-notice" id="aiNotice">
+  <div class="wrap"><span>🌐</span><span data-i18n="ai_notice">Esta traducción ha sido generada con inteligencia artificial. Puede contener errores o matices imprecisos; agradecemos tu comprensión. El contenido de referencia oficial es el español.</span></div>
+</div>
+<article>
+  <div class="wrap">
+    <p data-i18n="b0">💡Según el reciente Informe de Defensa Digital de Microsoft 2024, el 80% de las violaciones de seguridad están relacionadas con el robo de credenciales o la explotación de identidades.  </p>
+    <p data-i18n="b1">🚀Microsoft Sentinel permite detectar comportamientos anómalos de usuarios a través de las funcionalidades de User and Entity Behavior Analytics (UEBA). Y Security Copilot, impulsado por IA generativa, actúa como un copiloto para los equipos de seguridad, proporcionando:   1️⃣ Resúmenes detallados de incidentes: Conectando alertas para formar una narrativa clara de los eventos.   2️⃣ Priorización inteligente: Uso de IA para identificar rápidamente las amenazas más críticas.   3️⃣ Asistencia en tiempo real: Recomendaciones accionables basadas en datos de Microsoft Threat Intelligence.  </p>
+    <p data-i18n="b2">🔍Con esta integración, Security Copilot puede identificar patrones anómalos en cuentas con privilegios elevados, como:   • Inicios de sesión desde ubicaciones imposibles.   • Escalaciones de privilegios no autorizadas.   • Comportamientos inusuales en sistemas críticos.  </p>
+    <p data-i18n="b3">Al detectar estos comportamientos, Microsoft Sentinel activa playbooks automáticos, para el aislamiento de usuarios sospechosos o la revocación de accesos en tiempo real, acelerando la respuesta y minimizando el impacto.  </p>
+    <p data-i18n="b4">⚙️ La clave está en la colaboración hombre-máquina: Security Copilot reduce la carga de trabajo manual, mientras que Sentinel actúa como el cerebro analítico, permitiendo que los equipos de seguridad se centren en la estrategia en lugar de en tareas repetitivas.  </p>
+    <p data-i18n="b5">🌐 Con amenazas que evolucionan constantemente, esta combinación no solo protege datos, sino que también fortalece la resiliencia de las organizaciones frente a ataques de identidad.  </p>
+    <p data-i18n="b6">¿Cómo está tu organización afrontando las amenazas basadas en identidad?  </p>
+    <p data-i18n="b7">Más información: [<a href="https://lnkd.in/eBrJT6CF](https://lnkd.in/eBrJT6CF" target="_blank" rel="noopener">https://lnkd.in/eBrJT6CF](https://lnkd.in/eBrJT6CF</a>)</p>
+    <div class="tags"><span class="tag">#Ciberseguridad</span><span class="tag">#MicrosoftSentinel</span><span class="tag">#SecurityCopilot</span><span class="tag">#Cloud</span><span class="tag">#IAenSeguridad</span><span class="tag">#SIEM</span><span class="tag">#UEBA</span></div>
+    <p data-i18n="b8">![IImage](<a href="https://media.licdn.com/dms/image/v2/D4E22AQEXnXXLZGzoqA/feedshare-shrink_800/B4EZSFe4MBGcAg-/0/1737406255130?e=1740614400&amp;v=beta&amp;t=gHAGef7hQ678S6UF4gVp3iVR5PmbAjas4P8_G1pCp-w" target="_blank" rel="noopener">https://media.licdn.com/dms/image/v2/D4E22AQEXnXXLZGzoqA/feedshare-shrink_800/B4EZSFe4MBGcAg-/0/1737406255130?e=1740614400&amp;v=beta&amp;t=gHAGef7hQ678S6UF4gVp3iVR5PmbAjas4P8_G1pCp-w</a>) ![Image](<a href="https://media.licdn.com/dms/image/v2/D4E22AQHlUnkLZXPvIw/feedshare-shrink_800/B4EZSFe4MEGwAg-/0/1737406253968?e=1740614400&amp;v=beta&amp;t=6dXwy_iqdtWfZPkL2D0BBYggZrxSUpQBqBWSx3rRJf0" target="_blank" rel="noopener">https://media.licdn.com/dms/image/v2/D4E22AQHlUnkLZXPvIw/feedshare-shrink_800/B4EZSFe4MEGwAg-/0/1737406253968?e=1740614400&amp;v=beta&amp;t=6dXwy_iqdtWfZPkL2D0BBYggZrxSUpQBqBWSx3rRJf0</a>) ![Image](<a href="https://media.licdn.com/dms/image/v2/D4E22AQGtSDF8HdEYIQ/feedshare-shrink_800/B4EZSFe4MCGYAg-/0/1737406256917?e=1740614400&amp;v=beta&amp;t=cehlD9t7DWATtj7lyG3foOhiQXg1-jW-7q8pjHvBDvk" target="_blank" rel="noopener">https://media.licdn.com/dms/image/v2/D4E22AQGtSDF8HdEYIQ/feedshare-shrink_800/B4EZSFe4MCGYAg-/0/1737406256917?e=1740614400&amp;v=beta&amp;t=cehlD9t7DWATtj7lyG3foOhiQXg1-jW-7q8pjHvBDvk</a>) ![Image](<a href="https://media.licdn.com/dms/image/v2/D4E22AQGvwA7RI1gZ8Q/feedshare-shrink_800/B4EZSFe4MMHMAg-/0/1737406255517?e=1740614400&amp;v=beta&amp;t=_AcxwK52YHGquEartiztzFOvg5sjPTS-KJz_5qrCkSs" target="_blank" rel="noopener">https://media.licdn.com/dms/image/v2/D4E22AQGvwA7RI1gZ8Q/feedshare-shrink_800/B4EZSFe4MMHMAg-/0/1737406255517?e=1740614400&amp;v=beta&amp;t=_AcxwK52YHGquEartiztzFOvg5sjPTS-KJz_5qrCkSs</a>)</p>
+  </div>
+</article>
+<footer>
+  <div class="wrap">
+    <p data-i18n="foot">Technologia cum Fide · Bitácora de Alberto Pinedo. Publicación original: 21 de enero de 2025.</p>
+  </div>
+</footer>
+<script>
+const I18N = {"ca": {"title": "Microsoft Sentinel - Security Copilot i UEBA", "back": "← Torna a l'inici", "ai_notice": "Aquesta traducció s'ha generat amb intel·ligència artificial. Pot contenir errors o matisos imprecisos; agraïm la teva comprensió. El contingut de referència oficial és el castellà.", "b0": "💡Segons el recent Informe de Defensa Digital de Microsoft 2024, el 80% de les violacions de seguretat estan relacionades amb el robatori de credencials o l'explotació d'identitats.", "b1": "🚀Microsoft Sentinel permet detectar comportaments anòmals d'usuaris a través de les funcionalitats de User and Entity Behavior Analytics (UEBA). I Security Copilot, impulsat per IA generativa, actua com a copilot per als equips de seguretat, proporcionant:   1️⃣ Resums detallats d'incidents: Connectant alertes per formar una narrativa clara dels esdeveniments.   2️⃣ Priorització intel·ligent: Ús d'IA per identificar ràpidament les amenaces més crítiques.   3️⃣ Assistència en temps real: Recomanacions accionables basades en dades de Microsoft Threat Intelligence.", "b2": "🔍Amb aquesta integració, Security Copilot pot identificar patrons anòmals en comptes amb privilegis elevats, com:   • Inicis de sessió des d'ubicacions impossibles.   • Escalades de privilegis no autoritzades.   • Comportaments inusuals en sistemes crítics.", "b3": "En detectar aquests comportaments, Microsoft Sentinel activa playbooks automàtics, per a l'aïllament d'usuaris sospitosos o la revocació d'accessos en temps real, accelerant la resposta i minimitzant l'impacte.", "b4": "⚙️ La clau està en la col·laboració home-màquina: Security Copilot redueix la càrrega de treball manual, mentre que Sentinel actua com el cervell analític, permetent que els equips de seguretat se centrin en l'estratègia en lloc de en tasques repetitives.", "b5": "🌐 Amb amenaces que evolucionen constantment, aquesta combinació no només protegeix dades, sinó que també enforteix la resiliència de les organitzacions davant d'atacs d'identitat.", "b6": "Com està la teva organització afrontant les amenaces basades en identitat?"}, "gl": {"title": "Microsoft Sentinel - Security Copilot e UEBA", "back": "← Volver ao inicio", "ai_notice": "Esta tradución foi xerada con intelixencia artificial. Pode conter erros ou matices imprecisos; agradecemos a túa comprensión. O contido de referencia oficial é o castelán.", "b0": "💡Segundo o recente Informe de Defensa Dixital de Microsoft 2024, o 80% das violacións de seguridade están relacionadas co roubo de credenciais ou a explotación de identidades.", "b1": "🚀Microsoft Sentinel permite detectar comportamentos anómalos de usuarios a través das funcionalidades de User and Entity Behavior Analytics (UEBA). E Security Copilot, impulsado por IA xenerativa, actúa como un copilot para os equipos de seguridade, proporcionando:   1️⃣ Resumos detallados de incidentes: Conectando alertas para formar unha narrativa clara dos eventos.   2️⃣ Priorización intelixente: Uso de IA para identificar rapidamente as ameazas máis críticas.   3️⃣ Asistencia en tempo real: Recomendacións accionables baseadas en datos de Microsoft Threat Intelligence.", "b2": "🔍Con esta integración, Security Copilot pode identificar patróns anómalos en contas con privilexios elevados, como:   • Inicios de sesión desde localizacións imposibles.   • Escaladas de privilexios non autorizadas.   • Comportamentos inusuais en sistemas críticos.", "b3": "Ao detectar estes comportamentos, Microsoft Sentinel activa playbooks automáticos, para o illamento de usuarios sospeitosos ou a revogación de accesos en tempo real, acelerando a resposta e minimizando o impacto.", "b4": "⚙️ A clave está na colaboración home-máquina: Security Copilot reduce a carga de traballo manual, mentres que Sentinel actúa como o cerebro analítico, permitindo que os equipos de seguridade se centren na estratexia en lugar de en tarefas repetitivas.", "b5": "🌐 Con ameazas que evolucionan constantemente, esta combinación non só protexe datos, senón que tamén fortalece a resiliencia das organizacións fronte a ataques de identidade.", "b6": "Como está a túa organización afrontando as ameazas baseadas en identidade?"}, "eu": {"title": "Microsoft Sentinel - Security Copilot eta UEBA", "back": "← Itzuli hasierara", "ai_notice": "Itzulpen hau adimen artifizialaren bidez sortu da. Akatsak edo ñabardura okerrak izan ditzake; eskertzen dizugu zure ulermena. Erreferentziazko eduki ofiziala gaztelaniazkoa da.", "b0": "💡Microsoft-en 2024ko Defentsa Digitaleko Txosten berriaren arabera, segurtasun-urraketen %80 kredentzialak lapurtzearekin edo identitateak ustiatzearekin lotuta daude.", "b1": "🚀Microsoft Sentinel-ek erabiltzaileen jokabide anomaloak detektatzeko aukera ematen du User and Entity Behavior Analytics (UEBA) funtzionalitateen bidez. Eta Security Copilot-ek, IA sortzaileak bultzatua, segurtasun-taldeentzako kopilotu gisa jarduten du, hau eskainiz:   1️⃣ Gertakarien laburpen xehatuak: Alertak konektatuz gertaeren narratiba argia osatzeko.   2️⃣ Lehenespen adimenduna: IA erabiltzea mehatxu kritikoenak azkar identifikatzeko.   3️⃣ Denbora errealeko laguntza: Microsoft Threat Intelligence-ren datuetan oinarritutako gomendio ekintzagarriak.", "b2": "🔍Integrazio honekin, Security Copilot-ek patroi anomaloak identifika ditzake pribilegio handiko kontuetan, hala nola:   • Saioa kokapen ezinezkoetatik hastea.   • Baimendu gabeko pribilegio-igoerak.   • Sistema kritikoetan ohiz kanpoko jokabideak.", "b3": "Jokabide hauek detektatzean, Microsoft Sentinel-ek playbook automatikoak aktibatzen ditu, erabiltzaile susmagarriak isolatzeko edo sarbideak denbora errealean errebokatzeko, erantzuna bizkortuz eta eragina minimizatuz.", "b4": "⚙️ Gakoa gizaki-makina lankidetzan dago: Security Copilot-ek eskuzko lan-karga murrizten du, eta Sentinel-ek garun analitiko gisa jarduten du, segurtasun-taldeei estrategian zentratzeko aukera emanez, zeregin errepikakorretan beharrean.", "b5": "🌐 Etengabe bilakatzen diren mehatxuekin, konbinazio honek datuak babesteaz gain, erakundeen erresilientzia ere indartzen du identitate-erasoen aurrean.", "b6": "Nola ari da zure erakundea identitatean oinarritutako mehatxuei aurre egiten?"}};
+const ES_BASE = {};
+function captureES(){document.querySelectorAll('[data-i18n]').forEach(el=>{ES_BASE[el.getAttribute('data-i18n')]=el.innerHTML;});}
+const LOCALES = {es:'es',ca:'ca-ES',gl:'gl-ES',eu:'eu-ES'};
+function setLang(lang){
+  const dict = lang==='es' ? null : I18N[lang];
+  document.documentElement.lang = LOCALES[lang]||'es';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    if(!dict){ el.innerHTML = ES_BASE[k]; }
+    else if(dict[k]!==undefined){ el.innerHTML = dict[k]; }
+    else { el.innerHTML = ES_BASE[k]; }
+  });
+  document.getElementById('aiNotice').classList.toggle('show', lang!=='es');
+  document.querySelectorAll('#langbar button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+}
+document.querySelectorAll('#langbar button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+// Tema
+const themeToggle = document.getElementById('themeToggle');
+function updateThemeButton(){themeToggle.textContent = document.documentElement.getAttribute('data-theme')==='dark' ? '☀️' : '🌙';}
+(function(){const saved=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',saved);})();
+themeToggle.addEventListener('click',()=>{
+  const cur=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',cur);localStorage.setItem('theme',cur);updateThemeButton();
+});
+captureES();updateThemeButton();
+</script>
+</body>
+</html>

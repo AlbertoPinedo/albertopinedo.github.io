@@ -1,0 +1,44 @@
+{
+  "22-07-14-Empezamos la presentación de la GuíaIndesIA.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Comencem la presentació de la GuíaIndesIA",
+      "b1": "Comencem la presentació de la #GuíaIndesIA, amb la presència d'Alberto Palomo, PhD"
+    },
+    "gl": {
+      "title": "Empezamos a presentación da GuíaIndesIA",
+      "b1": "Empezamos a presentación da #GuíaIndesIA, coa presenza de Alberto Palomo, PhD"
+    },
+    "eu": {
+      "title": "GuíaIndesIA-ren aurkezpena hasten dugu",
+      "b1": "GuíaIndesIA-ren aurkezpena hasten dugu, Alberto Palomo, PhD-ren presentziarekin"
+    }
+  },
+  "22-07-15-Un gran día, profundizando en casos de uso de IA.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Un gran dia, aprofundint en casos d'ús d'IA",
+      "b1": "Un gran dia, aprofundint en casos d'ús i l'aplicació de la #IA i les #Dades al sector industrial. Incorporant tot el teixit industrial Espanyol per posicionar el nostre país com a referent global."
+    },
+    "gl": {
+      "title": "Un gran día, afondando en casos de uso de IA",
+      "b1": "Un gran día, afondando en casos de uso e a aplicación da #IA e os #Datos no sector industrial. Incorporando a todo o tecido industrial Español para posicionar ao noso país como referente global."
+    },
+    "eu": {
+      "title": "Egun bikaina, IA erabilera-kasuetan sakontzen",
+      "b1": "Egun bikaina, #IA eta #Datuen erabilera-kasuetan eta aplikazioan sakontzen sektore industrialean. Espainiako ehun industrial osoa txertatuz gure herrialdea erreferente global gisa kokatzeko."
+    }
+  },
+  "22-07-19-Presentación de Microsoft Cloud for Sovereignty.html": {
+    "es": { "title": "" },
+    "ca": {
+      "title": "Presentació de Microsoft Cloud for Sovereignty"
+    },
+    "gl": {
+      "title": "Presentación de Microsoft Cloud for Sovereignty"
+    },
+    "eu": {
+      "title": "Microsoft Cloud for Sovereignty-ren aurkezpena"
+    }
+  }
+}

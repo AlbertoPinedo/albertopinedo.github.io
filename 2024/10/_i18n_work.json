@@ -1,0 +1,56 @@
+{
+  "24-10-02-Què puc dir!, m'encanta, simple i efectiu, i .html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Què puc dir!, m&#x27;encanta, simple i efectiu, i",
+      "b1": "Què puc dir!, m&#x27;encanta, simple i efectiu, i si vull puc compartir-ho amb un company/a perquè afegeixi informació que sigui rellevant per a cada reunió en aquesta pàgina. I, per descomptat, en Català."
+    },
+    "gl": {
+      "title": "Que podo dicir!, encántame, simple e efectivo, e",
+      "b1": "Que podo dicir!, encántame, simple e efectivo, e se quero podo compartilo cun compañeiro/a para que engada información que sexa relevante para cada reunión nesta páxina. E, por suposto, en Catalán."
+    },
+    "eu": {
+      "title": "Zer esan dezaket!, maite dut, sinplea eta eraginkorra, eta",
+      "b1": "Zer esan dezaket!, maite dut, sinplea eta eraginkorra, eta nahi badut lankide batekin parteka dezaket, bilera bakoitzerako garrantzitsua den informazioa orri honetan gehi dezan. Eta, jakina, Katalanez."
+    }
+  },
+  "24-10-23-Azure NetApp Files bajo ENS.html": {
+    "es": { "title": "", "b1": "", "b2": "", "b3": "" },
+    "ca": {
+      "title": "Azure NetApp Files sota ENS",
+      "b1": "[ESP] 🚀 <strong>Gran Notícia</strong>! 🚀 Ens complau anunciar que <strong>Azure NetApp Files</strong> ha obtingut la <strong>Certificació ENS de categoria ALTA</strong>! 🎉 L'acreditació sota l'Esquema Nacional de Seguretat (ENS) subratlla el nostre compromís amb la seguretat i el compliment de normatives per als nostres clients.",
+      "b2": "Amb aquesta certificació, Azure NetApp Files garanteix una protecció robusta de dades, complint amb els estrictes requisits de seguretat necessaris per gestionar informació sensible i crítica. Aquesta fita reafirma la nostra dedicació a oferir solucions al núvol segures, fiables i d'alt rendiment i que a més ja està disponible a la nostra nova regió cloud d'Espanya Central.",
+      "b3": "Un agraïment especial a l'equip de Microsoft i NetApp per l'excel·lent treball i col·laboració que han fet possible aquesta fita. Junts, seguim establint nous estàndards en seguretat al núvol i innovació."
+    },
+    "gl": {
+      "title": "Azure NetApp Files baixo ENS",
+      "b1": "[ESP] 🚀 <strong>Gran Nova</strong>! 🚀 Compracenos anunciar que <strong>Azure NetApp Files</strong> obtivo a <strong>Certificación ENS de categoría ALTA</strong>! 🎉 A acreditación baixo o Esquema Nacional de Seguridade (ENS) subliña o noso compromiso coa seguridade e o cumprimento de normativas para os nosos clientes.",
+      "b2": "Con esta certificación, Azure NetApp Files garante unha protección robusta de datos, cumprindo cos estritos requisitos de seguridade necesarios para xestionar información sensible e crítica. Este fito reafirma a nosa dedicación a ofrecer solucións na nube seguras, fiables e de alto rendemento e que ademais xa está dispoñible na nosa nova rexión cloud de España Central.",
+      "b3": "Un agradecemento especial ao equipo de Microsoft e NetApp polo excelente traballo e colaboración que fixeron posible este logro. Xuntos, seguimos establecendo novos estándares en seguridade na nube e innovación."
+    },
+    "eu": {
+      "title": "Azure NetApp Files ENSen pean",
+      "b1": "[ESP] 🚀 <strong>Berri Handia</strong>! 🚀 Poztasunez iragartzen dugu <strong>Azure NetApp Files</strong>-ek <strong>KATEGORIA ALTUKO ENS Ziurtagiria</strong> lortu duela! 🎉 Segurtasun Eskema Nazionalaren (ENS) araberako akreditazioak gure bezeroentzako segurtasun eta arautegien betetzearekiko konpromisoa azpimarratzen du.",
+      "b2": "Ziurtagiri honekin, Azure NetApp Files-ek datuen babes sendoa bermatzen du, informazio sentikorra eta kritikoa kudeatzeko beharrezkoak diren segurtasun-baldintza zorrotzak betez. Mugarri honek hodeiko irtenbide seguru, fidagarri eta errendimendu handikoak eskaintzeko gure dedikazioa berresten du, eta gainera jada eskuragarri dago Espainia Erdialdeko gure hodei-eskualde berrian.",
+      "b3": "Esker bereziak Microsoft eta NetApp taldeari, lorpen hau posible egin duten lan eta lankidetza bikainagatik. Elkarrekin, hodeiko segurtasunean eta berrikuntzan estandar berriak ezartzen jarraitzen dugu."
+    }
+  },
+  "24-10-24-Microsoft ha sido reconocido como líder en el Gartner 2024 para 𝗦𝗲𝗿𝘃𝗶𝗰𝗶𝗼𝘀 𝗘𝘀𝘁𝗿𝗮𝘁é𝗴𝗶𝗰𝗼𝘀 𝗱𝗲 𝗣𝗹𝗮𝘁𝗮𝗳𝗼𝗿𝗺𝗮 𝗲𝗻 𝗹𝗮 𝗡𝘂𝗯𝗲..html": {
+    "es": { "title": "", "b1": "", "b2": "" },
+    "ca": {
+      "title": "Microsoft ha estat reconegut com a líder al Gartner 2024 per a <strong>Serveis Estratègics de Plataforma al Núvol</strong>.",
+      "b1": "Microsoft ha estat reconegut com a líder al quadrant de Gartner 2024 per a <strong>Serveis Estratègics de Plataforma al Núvol</strong>.",
+      "b2": "Aquest reconeixement destaca la visió integral de Microsoft i la seva capacitat per oferir una plataforma completa amb serveis d'#IA i #núvol líders a la indústria."
+    },
+    "gl": {
+      "title": "Microsoft foi recoñecido como líder no Gartner 2024 para <strong>Servizos Estratéxicos de Plataforma na Nube</strong>.",
+      "b1": "Microsoft foi recoñecido como líder no cuadrante de Gartner 2024 para <strong>Servizos Estratéxicos de Plataforma na Nube</strong>.",
+      "b2": "Este recoñecemento destaca a visión integral de Microsoft e a súa capacidade para ofrecer unha plataforma completa con servizos de #IA e #nube líderes na industria."
+    },
+    "eu": {
+      "title": "Microsoft 2024ko Gartner-en lider gisa aitortua izan da <strong>Hodeiko Plataforma Zerbitzu Estrategikoetan</strong>.",
+      "b1": "Microsoft 2024ko Gartner-en koadrantean lider gisa aitortua izan da <strong>Hodeiko Plataforma Zerbitzu Estrategikoetan</strong>.",
+      "b2": "Aitortza honek Microsoft-en ikuspegi integrala eta industriako #IA eta #hodei zerbitzu liderrekin plataforma osoa eskaintzeko gaitasuna nabarmentzen ditu."
+    }
+  }
+}

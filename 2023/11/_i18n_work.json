@@ -1,0 +1,167 @@
+{
+  "23-11-02-Quieres conocer todo lo que Copilot puede hacer por ti.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Vols conèixer tot el que Copilot pot fer per tu",
+      "b1": "Vols conèixer tot el que Copilot per a Microsoft 365 pot aportar a la teva organització? Acompanya'ns el proper 23 de novembre al nostre esdeveniment presencial i dona un impuls sense precedents a la productivitat, la col·laboració i la comunicació. Aforament limitat. Registra't ara: <a href=\"https://lnkd.in/dDMTMkae\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/dDMTMkae</a> #MicrosoftEspaña #Microsoft365 #Copilot #AI"
+    },
+    "gl": {
+      "title": "Queres coñecer todo o que Copilot pode facer por ti",
+      "b1": "Queres coñecer todo o que Copilot para Microsoft 365 pode aportar á túa organización? Acompáñanos o vindeiro 23 de novembro no noso evento presencial e dá un impulso sen precedentes á produtividade, a colaboración e a comunicación. Aforo limitado. Rexístrate agora: <a href=\"https://lnkd.in/dDMTMkae\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/dDMTMkae</a> #MicrosoftEspaña #Microsoft365 #Copilot #AI"
+    },
+    "eu": {
+      "title": "Copilot-ek zugatik egin dezakeen guztia ezagutu nahi duzu",
+      "b1": "Microsoft 365-erako Copilot-ek zure erakundeari ekar diezaiokeen guztia ezagutu nahi duzu? Lagun iezaguzu datorren azaroaren 23an gure aurrez aurreko ekitaldian eta eman aurrekaririk gabeko bultzada produktibitateari, lankidetzari eta komunikazioari. Edukiera mugatua. Erregistratu orain: <a href=\"https://lnkd.in/dDMTMkae\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/dDMTMkae</a> #MicrosoftEspaña #Microsoft365 #Copilot #AI"
+    }
+  },
+  "23-11-13-Cuánto “alucinan” los diferentes modelos de IA.html": {
+    "es": { "title": "", "b1": "", "b2": "" },
+    "ca": {
+      "title": "Quant “al·lucinen” els diferents models d'IA",
+      "b1": "Quant “al·lucinen” els diferents models de llenguatge? Segons Vectara, els de #Google són els que tenen el percentatge més alt d'al·lucinacions. Els models que menys al·lucinacions tenen, els d'#OpenAI.",
+      "b2": "Font al primer comentari."
+    },
+    "gl": {
+      "title": "Canto “alucinan” os diferentes modelos de IA",
+      "b1": "Canto “alucinan” os diferentes modelos de linguaxe? Segundo Vectara, os de #Google son os que maior porcentaxe de alucinacións teñen. Os modelos que menos alucinacións teñen, os de #OpenAI.",
+      "b2": "Fonte no primeiro comentario."
+    },
+    "eu": {
+      "title": "Zenbat “haluzinatzen” duten IA eredu desberdinek",
+      "b1": "Zenbat “haluzinatzen” dute hizkuntza-eredu desberdinek? Vectara-ren arabera, #Google-renek dute haluzinazio-portzentaje altuena. Haluzinazio gutxien dituzten ereduak, #OpenAI-renak.",
+      "b2": "Iturria lehen iruzkinean."
+    }
+  },
+  "23-11-14-Evento APD.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Esdeveniment APD",
+      "b1": "Ha estat un autèntic plaer compartir avui sessió amb Carlos Gil Valls"
+    },
+    "gl": {
+      "title": "Evento APD",
+      "b1": "Foi un auténtico pracer compartir hoxe sesión con Carlos Gil Valls"
+    },
+    "eu": {
+      "title": "APD ekitaldia",
+      "b1": "Benetako plazera izan da gaur Carlos Gil Valls-ekin saioa partekatzea"
+    }
+  },
+  "23-11-14-Think Tank WAIQuers.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Think Tank WAIQuers",
+      "b1": "Feia temps que no gaudia tant. Gràcies a tots els #WAIQers i a la Fundación PONS, espero haver aportat el meu granet de sorra. M'apunto al següent!"
+    },
+    "gl": {
+      "title": "Think Tank WAIQuers",
+      "b1": "Hai tempo que non gozaba tanto. Grazas a todos os #WAIQers e á Fundación PONS, espero ter aportado o meu gran de area. Apúntome ao seguinte!"
+    },
+    "eu": {
+      "title": "Think Tank WAIQuers",
+      "b1": "Aspaldian ez nuen hainbeste gozatu. Eskerrik asko #WAIQers guztiei eta PONS Fundazioari, espero dut nire ekarpena egin izana. Hurrengora apuntatzen naiz!"
+    }
+  },
+  "23-11-16-Evento Bamberg Health.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Esdeveniment Bamberg Health",
+      "b1": "Vull agrair a Bamberg Health, a Inetum i a la resta de ponents de la taula rodona, l'oportunitat d'explicar la visió de Microsoft sobre l'ús del cloud al sector de la salut."
+    },
+    "gl": {
+      "title": "Evento Bamberg Health",
+      "b1": "Agradecer a Bamberg Health, a Inetum e ao resto de relatores da mesa redonda, a oportunidade de explicar a visión de Microsoft sobre o uso do cloud no sector da saúde."
+    },
+    "eu": {
+      "title": "Bamberg Health ekitaldia",
+      "b1": "Eskerrak eman nahi dizkiet Bamberg Health-i, Inetum-i eta mahai-inguruko gainerako hizlariei, Microsoft-en ikuspegia osasun-sektorean cloud-aren erabilerari buruz azaltzeko aukeragatik."
+    }
+  },
+  "23-11-17-Azure en la lista Top500 de superordenadores.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Azure a la llista Top500 de superordinadors",
+      "b1": "Azure a la llista Top500 de superordinadors del món; Microsoft Azure és el superordinador més potent del núvol públic, i el tercer, en termes globals. Més informació: <a href=\"https://lnkd.in/eGnJAbmT\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/eGnJAbmT</a>"
+    },
+    "gl": {
+      "title": "Azure na lista Top500 de superordenadores",
+      "b1": "Azure na lista Top500 de superordenadores do mundo; Microsoft Azure é o superordenador máis potente da nube pública, e o terceiro, en termos globais. Máis información: <a href=\"https://lnkd.in/eGnJAbmT\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/eGnJAbmT</a>"
+    },
+    "eu": {
+      "title": "Azure superordenagailuen Top500 zerrendan",
+      "b1": "Azure munduko superordenagailuen Top500 zerrendan; Microsoft Azure hodei publikoko superordenagailu indartsuena da, eta hirugarrena, termino globaletan. Informazio gehiago: <a href=\"https://lnkd.in/eGnJAbmT\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/eGnJAbmT</a>"
+    }
+  },
+  "23-11-22-Claude 2.1 (200K) vs GPT-4-Turbo (128K) .html": {
+    "es": { "title": "", "b1": "", "b2": "", "b3": "" },
+    "ca": {
+      "title": "Claude 2.1 (200K) vs GPT-4-Turbo (128K)",
+      "b1": "Claude 2.1 (200K) vs GPT-4-Turbo (128K)",
+      "b2": "Impressiona com manté la precisió el model GPT-4-Turbo d'OpenAI comparat amb Claude 2.1 d'Anthropic",
+      "b3": "Crèdits per a Gregory Kamradt OpenAI OpenAI Anthropic Anthropic"
+    },
+    "gl": {
+      "title": "Claude 2.1 (200K) vs GPT-4-Turbo (128K)",
+      "b1": "Claude 2.1 (200K) vs GPT-4-Turbo (128K)",
+      "b2": "Impresiona como mantén a precisión o modelo GPT-4-Turbo de OpenAI comparado con Claude 2.1 de Anthropic",
+      "b3": "Créditos para Gregory Kamradt OpenAI OpenAI Anthropic Anthropic"
+    },
+    "eu": {
+      "title": "Claude 2.1 (200K) vs GPT-4-Turbo (128K)",
+      "b1": "Claude 2.1 (200K) vs GPT-4-Turbo (128K)",
+      "b2": "Harrigarria da nola mantentzen duen zehaztasuna OpenAI-ren GPT-4-Turbo ereduak Anthropic-en Claude 2.1-ekin alderatuta",
+      "b3": "Kredituak Gregory Kamradt-entzat OpenAI OpenAI Anthropic Anthropic"
+    }
+  },
+  "23-11-22-Cómo proteger tu identidad y acceso.html": {
+    "es": { "title": "", "b1": "", "b2": "" },
+    "ca": {
+      "title": "Com protegir la teva identitat i accés",
+      "b1": "Com protegir la teva identitat i accés en un entorn multi-cloud amb Microsoft Entra? Descobreix les 5 claus que et sorprendran!",
+      "b2": "Us comparteixo l'entrevista que la Revista SIC-Ediciones Coda m'ha fet al respecte."
+    },
+    "gl": {
+      "title": "Como protexer a túa identidade e acceso",
+      "b1": "Como protexer a túa identidade e acceso nun contorno multi-cloud con Microsoft Entra? Descobre as 5 claves que te sorprenderán!",
+      "b2": "Compártovos a entrevista que a Revista SIC-Ediciones Coda me fixo ao respecto."
+    },
+    "eu": {
+      "title": "Nola babestu zure identitatea eta sarbidea",
+      "b1": "Nola babestu zure identitatea eta sarbidea multi-cloud ingurune batean Microsoft Entra-rekin? Ezagutu harrituko zaituzten 5 gakoak!",
+      "b2": "SIC-Ediciones Coda Aldizkariak honi buruz egin didan elkarrizketa partekatzen dizuet."
+    }
+  },
+  "23-11-22-Una edición más Microsoft estará en las Jornadas del CCN-CERT.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Una edició més Microsoft serà a les Jornades del CCN-CERT",
+      "b1": "Una edició més Microsoft serà a les Jornades STIC del CCN-CERT Centro Criptológico Nacional. Passa't a veure'ns per l'estand 18 i no et perdis la ponència que faré, el dimarts 28 a les 15h35 a la sala 25. T'esperem! <a href=\"https://lnkd.in/dz3HVTac\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/dz3HVTac</a> #MicrosoftEspaña #Seguridad #XVIIJornadasCCNCERT"
+    },
+    "gl": {
+      "title": "Unha edición máis Microsoft estará nas Xornadas do CCN-CERT",
+      "b1": "Unha edición máis Microsoft estará nas Xornadas STIC do CCN-CERT Centro Criptolóxico Nacional. Pásate a vernos polo stand 18 e non perdas a relatorio que darei, o martes 28 ás 15h35 na sala 25. Esperámoste! <a href=\"https://lnkd.in/dz3HVTac\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/dz3HVTac</a> #MicrosoftEspaña #Seguridad #XVIIJornadasCCNCERT"
+    },
+    "eu": {
+      "title": "Edizio bat gehiagoz Microsoft CCN-CERT-en Jardunaldietan egongo da",
+      "b1": "Edizio bat gehiagoz Microsoft CCN-CERT Centro Criptológico Nacional-en STIC Jardunaldietan egongo da. Pasa zaitez gu ikustera 18. standetik eta ez galdu emango dudan hitzaldia, asteartea 28an 15h35ean 25. gelan. Zain zaitugu! <a href=\"https://lnkd.in/dz3HVTac\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/dz3HVTac</a> #MicrosoftEspaña #Seguridad #XVIIJornadasCCNCERT"
+    }
+  },
+  "23-11-28-Una año más agradecer la oportunidad de participar en las jornadas del CCN-CERT.html": {
+    "es": { "title": "", "b1": "", "b2": "" },
+    "ca": {
+      "title": "Un any més agrair l'oportunitat de participar a les jornades del CCN-CERT",
+      "b1": "Un any més agrair l'oportunitat de poder explicar com afrontem l'autonomia estratègica gràcies als nostres serveis cloud a Espanya.",
+      "b2": "Noves regions Microsoft, Security #Copilot, controls de seguretat i eines de compliment."
+    },
+    "gl": {
+      "title": "Un ano máis agradecer a oportunidade de participar nas xornadas do CCN-CERT",
+      "b1": "Un ano máis agradecer a oportunidade de poder contar como afrontamos a autonomía estratéxica grazas aos nosos servizos cloud en España.",
+      "b2": "Novas rexións Microsoft, Security #Copilot, controis de seguridade e ferramentas de cumprimento."
+    },
+    "eu": {
+      "title": "Beste urte batez CCN-CERT-en jardunaldietan parte hartzeko aukera eskertzea",
+      "b1": "Beste urte batez eskertu nahi dut Espainian gure cloud zerbitzuei esker autonomia estrategikoa nola lantzen dugun kontatzeko aukera.",
+      "b2": "Microsoft eskualde berriak, Security #Copilot, segurtasun-kontrolak eta betetze-tresnak."
+    }
+  }
+}

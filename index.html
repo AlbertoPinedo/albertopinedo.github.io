@@ -3,8 +3,8 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Technologia cum Fide | Blog</title>
-	<meta name="description" content="Blog profesional sobre IA, seguridad y productividad." />
+	<title>Technologia cum Fide | Bitácora</title>
+	<meta name="description" content="Bitácora profesional sobre IA, seguridad y productividad." />
 	<style>
 		:root {
 			--bg: #ffffff;
@@ -181,6 +181,156 @@
 			gap: 20px;
 		}
 
+		.archive-section {
+			margin-top: 60px;
+		}
+
+		.archive-year {
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			margin-bottom: 14px;
+			background: var(--surface);
+			overflow: hidden;
+		}
+
+		.archive-year[open] {
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+		}
+
+		.archive-year-summary {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 12px;
+			padding: 16px 20px;
+			cursor: pointer;
+			list-style: none;
+			user-select: none;
+		}
+
+		.archive-year-summary::-webkit-details-marker {
+			display: none;
+		}
+
+		.archive-year-summary::before {
+			content: "▸";
+			color: var(--text-muted);
+			font-size: 0.9rem;
+			transition: transform 0.2s;
+			order: -1;
+		}
+
+		.archive-year[open] > .archive-year-summary::before {
+			transform: rotate(90deg);
+		}
+
+		.archive-year-summary:hover {
+			background: var(--bg-secondary);
+		}
+
+		.archive-year-label {
+			font-size: 1.5rem;
+			font-weight: 800;
+			letter-spacing: -0.5px;
+			margin-right: auto;
+		}
+
+		.archive-year-count {
+			font-size: 0.85rem;
+			color: var(--text-muted);
+			font-weight: 600;
+		}
+
+		.archive-year-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+			gap: 18px;
+			padding: 4px 20px 22px;
+			border-top: 1px solid var(--border);
+		}
+
+		.archive-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+			gap: 16px;
+			flex-wrap: wrap;
+			margin-bottom: 24px;
+		}
+
+		.archive-intro {
+			margin: 0;
+			color: var(--text-muted);
+			max-width: 60ch;
+		}
+
+		.archive-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			gap: 20px;
+		}
+
+		.archive-month {
+			background: var(--surface);
+			border: 1px solid var(--border);
+			border-radius: 8px;
+			padding: 18px;
+		}
+
+		.archive-month-head {
+			display: flex;
+			justify-content: space-between;
+			align-items: baseline;
+			gap: 12px;
+			margin-bottom: 16px;
+			padding-bottom: 10px;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.archive-month-head h3 {
+			margin: 0;
+			font-size: 1.05rem;
+		}
+
+		.archive-month-head span {
+			font-size: 0.85rem;
+			color: var(--text-muted);
+		}
+
+		.archive-list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.archive-link {
+			display: grid;
+			grid-template-columns: 86px 1fr;
+			gap: 12px;
+			padding: 9px 0;
+			border-bottom: 1px dashed var(--border);
+		}
+
+		.archive-list li:last-child .archive-link {
+			border-bottom: none;
+			padding-bottom: 0;
+		}
+
+		.archive-date {
+			font-size: 0.85rem;
+			color: var(--text-muted);
+			font-variant-numeric: tabular-nums;
+		}
+
+		.archive-title {
+			font-size: 0.94rem;
+			line-height: 1.4;
+		}
+
+		.archive-link:hover .archive-title {
+			color: var(--accent);
+		}
+
 		.post-grid-item {
 			background: var(--surface);
 			border: 1px solid var(--border);
@@ -253,6 +403,11 @@
 			.recent-posts {
 				grid-template-columns: 1fr;
 			}
+
+			.archive-link {
+				grid-template-columns: 1fr;
+				gap: 4px;
+			}
 		}
 	</style>
 </head>
@@ -266,11 +421,11 @@
 
 	<main>
 		<div class="container">
-			<h2 class="section-title">Recent blog posts</h2>
+			<h2 class="section-title">Artículos recientes</h2>
 			<div class="recent-posts">
 				<article class="post-card">
 					<a href="2026/copilot-cowork-creditos-guia.html">
-						<div class="post-image"><img src="media/copilot_credits_flat_design.png" alt="Copilot Cowork y Créditos"></div>
+						<div class="post-image"><img src="2026/06/media/copilot_credits_flat_design.png" alt="Copilot Cowork y Créditos"></div>
 						<div class="post-content">
 							<div class="post-meta">Alberto Pinedo • 19 junio 2026</div>
 							<h3 class="post-title">Copilot Cowork y Créditos de Copilot</h3>
@@ -287,7 +442,7 @@
 
 				<article class="post-card">
 					<a href="2026/security-at-ai-speed-customer.html">
-						<div class="post-image"><img src="media/security_ai_speed_flat_design.png" alt="Seguridad al ritmo de la IA"></div>
+						<div class="post-image"><img src="2026/06/media/security_ai_speed_flat_design.png" alt="Seguridad al ritmo de la IA"></div>
 						<div class="post-content">
 							<div class="post-meta">Alberto Pinedo • 19 junio 2026</div>
 							<h3 class="post-title">Seguridad al ritmo de la IA</h3>
@@ -303,11 +458,11 @@
 				</article>
 			</div>
 
-			<h2 class="section-title">All blog posts</h2>
+			<h2 class="section-title">Publicaciones 2026</h2>
 			<div class="all-posts">
 				<article class="post-grid-item">
 					<a href="2026/copilot-cowork-creditos-guia.html">
-						<div class="post-grid-image"><img src="media/copilot_credits_flat_design.png" alt="Copilot Cowork y Créditos"></div>
+						<div class="post-grid-image"><img src="2026/06/media/copilot_credits_flat_design.png" alt="Copilot Cowork y Créditos"></div>
 						<div class="post-grid-content">
 							<div class="post-meta">19 junio 2026</div>
 							<h3 class="post-grid-title">Copilot Cowork y Créditos de Copilot</h3>
@@ -321,7 +476,7 @@
 
 				<article class="post-grid-item">
 					<a href="2026/security-at-ai-speed-customer.html">
-						<div class="post-grid-image"><img src="media/security_ai_speed_flat_design.png" alt="Seguridad al ritmo de la IA"></div>
+						<div class="post-grid-image"><img src="2026/06/media/security_ai_speed_flat_design.png" alt="Seguridad al ritmo de la IA"></div>
 						<div class="post-grid-content">
 							<div class="post-meta">19 junio 2026</div>
 							<h3 class="post-grid-title">Seguridad al ritmo de la IA</h3>
@@ -333,6 +488,384 @@
 					</a>
 				</article>
 			</div>
+
+			<section class="archive-section" aria-labelledby="archivo-historico">
+				<div class="archive-header">
+					<h2 class="section-title" id="archivo-historico">Archivo</h2>
+					<p class="archive-intro">Histórico completo de publicaciones por año. Pulsa cada año para desplegar sus meses.</p>
+				</div>
+				<details class="archive-year">
+					<summary class="archive-year-summary"><span class="archive-year-label">2025</span><span class="archive-year-count">60 entradas</span></summary>
+					<div class="archive-year-grid">
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Abril 2025</h3><span>9 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2025/04/25-04-17%2003%20y%2004-mini%20ya%20disponibles%20en%20Azure%20OpenAI%20Service.html"><span class="archive-date">17 Abr</span><span class="archive-title">03 y 04-mini ya disponibles en Azure OpenAI Service</span></a></li>
+								<li><a class="archive-link" href="2025/04/25-04-16%20CUA%20ya%20disponible%20en%20Copilot%20Studio.html"><span class="archive-date">16 Abr</span><span class="archive-title">CUA ya disponible en Copilot Studio</span></a></li>
+								<li><a class="archive-link" href="2025/04/25-04-15%20GPT%204.1,%204.1-mini%20y%204.1-nano%20ya%20disponibles%20en%20Azure%20OpenAI%20Service.html"><span class="archive-date">15 Abr</span><span class="archive-title">GPT 4.1, 4.1-mini y 4.1-nano ya disponibles en Azure OpenAI Service</span></a></li>
+								<li><a class="archive-link" href="2025/04/25-04-10%20Copilot%20confidencial.html"><span class="archive-date">10 Abr</span><span class="archive-title">Copilot confidencial</span></a></li>
+								<li><a class="archive-link" href="2025/04/25-04-09%20Llama%204%20ya%20disponible%20en%20Azure%20AI%20Foundry%20y%20Azure%20Databricks.html"><span class="archive-date">09 Abr</span><span class="archive-title">Llama 4 ya disponible en Azure AI Foundry y Azure Databricks</span></a></li>
+								<li><a class="archive-link" href="2025/04/25-04-07%20AENOR%20presentaci%C3%B3n%20Think%20Tank.html"><span class="archive-date">07 Abr</span><span class="archive-title">AENOR presentación Think Tank</span></a></li>
+								<li><a class="archive-link" href="2025/04/25-04-07%20SPF,%20DMARC%20y%20DKIM%20obligatorios.html"><span class="archive-date">07 Abr</span><span class="archive-title">SPF, DMARC y DKIM obligatorios</span></a></li>
+								<li><a class="archive-link" href="2025/04/25-04-03%20SDK%20de%20MCP%20ya%20disponible%20para%20.NET.html"><span class="archive-date">03 Abr</span><span class="archive-title">SDK de MCP ya disponible para .NET</span></a></li>
+								<li><a class="archive-link" href="2025/04/25-04-01%20Microsoft%20ayuda%20en%20el%20terremoto%20de%20Mandalay.html"><span class="archive-date">01 Abr</span><span class="archive-title">Microsoft ayuda en el terremoto de Mandalay</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Marzo 2025</h3><span>7 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2025/03/25-03-30%20Presentaci%C3%B3n%20whitepaper%20La%20confianza%20y%20los%20valores%20en%20la%20era%20digital%20el%20reto%20de%20la%20tecnologIA.html"><span class="archive-date">30 Mar</span><span class="archive-title">Presentación whitepaper La confianza y los valores en la era digital el reto de la tecnologIA</span></a></li>
+								<li><a class="archive-link" href="2025/03/25-03-29%20Nueva%20actualizaci%C3%B3n%20de%20AI%20Toolkit%20para%20VS%20Code.html"><span class="archive-date">29 Mar</span><span class="archive-title">Nueva actualización de AI Toolkit para VS Code</span></a></li>
+								<li><a class="archive-link" href="2025/03/25-03-27%20AI%20Tour%20de%20Microsoft.html"><span class="archive-date">27 Mar</span><span class="archive-title">AI Tour de Microsoft</span></a></li>
+								<li><a class="archive-link" href="2025/03/25-03-22%20Evento%20Softeng%20MAX%202025.html"><span class="archive-date">22 Mar</span><span class="archive-title">Evento Softeng MAX 2025</span></a></li>
+								<li><a class="archive-link" href="2025/03/25-03-21Microsoft%20Copilot%20Chat%20y%20Microsoft%20365%20Copilot%20obtienen%20la%20ISO42001.html"><span class="archive-date">21 Mar</span><span class="archive-title">Microsoft Copilot Chat y Microsoft 365 Copilot obtienen la ISO42001</span></a></li>
+								<li><a class="archive-link" href="2025/03/25-03-20%20Model%20Context%20Protocol%20en%20Copilot%20Studio.html"><span class="archive-date">20 Mar</span><span class="archive-title">Model Context Protocol en Copilot Studio</span></a></li>
+								<li><a class="archive-link" href="2025/03/25-03-03%20Phi4%20el%20modelo%20%C3%A1ureo.html"><span class="archive-date">03 Mar</span><span class="archive-title">Phi4 el modelo áureo</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Febrero 2025</h3><span>9 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2025/02/25-02-24-Seguridad%20en%20sistemas%20multi-agente%20Microsoft.html"><span class="archive-date">24 Feb</span><span class="archive-title">Seguridad en sistemas multi-agente Microsoft</span></a></li>
+								<li><a class="archive-link" href="2025/02/25-02-23-La%20IA,%20el%20nuevo%20pincel%20surrealista.html"><span class="archive-date">23 Feb</span><span class="archive-title">La IA, el nuevo pincel surrealista</span></a></li>
+								<li><a class="archive-link" href="2025/02/25-02-13-Entender%20y%20mitigar%20los%20riesgos%20y%20limitaciones%20al%20usar%20agentes.html"><span class="archive-date">13 Feb</span><span class="archive-title">Entender y mitigar los riesgos y limitaciones al usar agentes</span></a></li>
+								<li><a class="archive-link" href="2025/02/25-02-10%20MAIAS-Microsoft%20AI%20Agent%20Service.html"><span class="archive-date">10 Feb</span><span class="archive-title">MAIAS-Microsoft AI Agent Service</span></a></li>
+								<li><a class="archive-link" href="2025/02/25-02-07-C%C3%B3mo%20preparar%20el%20despliegue%20de%20Microsoft%20365%20Copilot%20con%20Purview.html"><span class="archive-date">07 Feb</span><span class="archive-title">Cómo preparar el despliegue de Microsoft 365 Copilot con Purview</span></a></li>
+								<li><a class="archive-link" href="2025/02/25-02-05-Mapeo%20DORA%20con%20servicios%20Cloud%20de%20Microsoft.html"><span class="archive-date">05 Feb</span><span class="archive-title">Mapeo DORA con servicios Cloud de Microsoft</span></a></li>
+								<li><a class="archive-link" href="2025/02/25-02-04-Long%20Term%20Memory.html"><span class="archive-date">04 Feb</span><span class="archive-title">Long Term Memory</span></a></li>
+								<li><a class="archive-link" href="2025/02/25-02-03-Seguimos%20con%20las%20mini%20demos%20de%20Microsoft%20Copilot%20Studio.html"><span class="archive-date">03 Feb</span><span class="archive-title">Seguimos con las mini demos de Microsoft Copilot Studio</span></a></li>
+								<li><a class="archive-link" href="2025/02/25-02-02-Copilot%20Studio%20%2B%20Azure.html"><span class="archive-date">02 Feb</span><span class="archive-title">Copilot Studio + Azure</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Enero 2025</h3><span>35 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2025/01/25-01-28-Mapeo%20NIS2%20con%20servicios%20Cloud%20de%20seguridad%20Microsoft.html"><span class="archive-date">28 Ene</span><span class="archive-title">Mapeo NIS2 con servicios Cloud de seguridad Microsoft</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-27-Pereza%20Metacognitiva.html"><span class="archive-date">27 Ene</span><span class="archive-title">Pereza Metacognitiva</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-26-TDR%20IA%20y%20otras%20historias%20de%20Daniel.html"><span class="archive-date">26 Ene</span><span class="archive-title">TDR IA y otras historias de Daniel</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-25%20-%20IA%20y%20Educaci%C3%B3n.html"><span class="archive-date">25 Ene</span><span class="archive-title">IA y Educación</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-24%20-%20Coldplay%20y%20Microsoft.html"><span class="archive-date">24 Ene</span><span class="archive-title">Coldplay y Microsoft</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-23-Entrevista%20Satya%20Nadella%20-%20Stargate.html"><span class="archive-date">23 Ene</span><span class="archive-title">Entrevista Satya Nadella - Stargate</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-22%20-%20EU%20AI%20Act%20mapeo%20Microsoft.html"><span class="archive-date">22 Ene</span><span class="archive-title">EU AI Act mapeo Microsoft</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-22-Statement%20Microsoft%20OpenAI%20-%20Stargate.html"><span class="archive-date">22 Ene</span><span class="archive-title">Statement Microsoft OpenAI - Stargate</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-21-Microsoft%20Sentinel%20-%20Security%20Copilot%20y%20UEBA.html"><span class="archive-date">21 Ene</span><span class="archive-title">Microsoft Sentinel - Security Copilot y UEBA</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-20-Microsoft%20recibe%20el%20premio%20de%20Proveedor%20de%20Servicios%20Cloud%20del%20a%C3%B1o%20de%20manos%20de%20CCN-CERT.html"><span class="archive-date">20 Ene</span><span class="archive-title">Microsoft recibe el premio de Proveedor de Servicios Cloud del año de manos de CCN-CERT</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-19-TikTok,%20baneado%20por%20el%20gobierno%20de%20EEUU.html"><span class="archive-date">19 Ene</span><span class="archive-title">TikTok, baneado por el gobierno de EEUU</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-18-o3-mini%20ha%20acabado%20la%20fase%20de%20pruebas.html"><span class="archive-date">18 Ene</span><span class="archive-title">o3-mini ha acabado la fase de pruebas</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-18-%F0%9F%9A%80%20Revolucionando%20el%20Descubrimiento%20de%20Materiales%20con%20IA.html"><span class="archive-date">18 Ene</span><span class="archive-title">🚀 Revolucionando el Descubrimiento de Materiales con IA</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-17-%C2%A1Copilot%20para%20todos%21.html"><span class="archive-date">17 Ene</span><span class="archive-title">¡Copilot para todos!</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-17-%F0%9F%8C%8D%F0%9F%A4%96%20Microsoft%20impulsa%20la%20sostenibilidad%20con%20IA.html"><span class="archive-date">17 Ene</span><span class="archive-title">🌍🤖 Microsoft impulsa la sostenibilidad con IA</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-16-%E2%9C%B4%EF%B8%8F%20%C2%BFC%C3%B3mo%20innovamos%20en%20Microsoft%20mientras%20cumplimos%20el%20EU%20AI%20Act.html"><span class="archive-date">16 Ene</span><span class="archive-title">✴️ ¿Cómo innovamos en Microsoft mientras cumplimos el EU AI Act</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-15-Hoy%20anunciamos%20olaboraci%C3%B3n%20entre%20la%20UNESCO%20y%20Microsoft.html"><span class="archive-date">15 Ene</span><span class="archive-title">Hoy anunciamos olaboración entre la UNESCO y Microsoft</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-14-%F0%9F%9A%80%20Nuevo%20paper%20en%20seguridad%20de%20IA%20Generativa%20de%20Microsoft.html"><span class="archive-date">14 Ene</span><span class="archive-title">🚀 Nuevo paper en seguridad de IA Generativa de Microsoft</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-14%F0%9F%9A%80%C2%A1Gran%20noticia%21%20Ya%20tenemos%20aprobado%20el%20anteproyecto%20de%20la%20trasposici%C3%B3n%20de%20la%20Directiva%20NIS2.html"><span class="archive-date">14 Ene</span><span class="archive-title">🚀¡Gran noticia! Ya tenemos aprobado el anteproyecto de la trasposición de la Directiva NIS2</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-13-Seguimos%20con%20las%20mini%20demos%20de%20Microsoft%20Copilot%20Studio.html"><span class="archive-date">13 Ene</span><span class="archive-title">Seguimos con las mini demos de Microsoft Copilot Studio</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-13-%F0%9F%9A%80%20%F0%9D%97%A3%F0%9D%97%BF%F0%9D%97%B2%F0%9D%98%80%F0%9D%97%B2%F0%9D%97%BB%F0%9D%98%81%F0%9D%97%AE%F0%9D%97%BA%F0%9D%97%BC%F0%9D%98%80%20%F0%9D%97%96%F0%9D%97%BC%F0%9D%97%BF%F0%9D%97%B2%F0%9D%97%94%F0%9D%97%9C%20%E2%80%93%20%F0%9D%97%A3%F0%9D%97%B9%F0%9D%97%AE%F0%9D%98%81%F0%9D%97%B3%F0%9D%97%BC%F0%9D%97%BF%F0%9D%97%BA%20%F0%9D%97%AE%F0%9D%97%BB%F0%9D%97%B1%20%F0%9D%97%A7%F0%9D%97%BC%F0%9D%97%BC%F0%9D%97%B9%F0%9D%98%80%20%F0%9F%9A%80.html"><span class="archive-date">13 Ene</span><span class="archive-title">🚀 Presentamos CoreAI – Platform and Tools 🚀</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-12-Hemos%20conseguido%20avances%20en%20la%20IA%20incre%C3%ADbles.html"><span class="archive-date">12 Ene</span><span class="archive-title">Hemos conseguido avances en la IA increíbles</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-11-%F0%9F%9A%80%20S%C3%A9%20que%20es%20S%C3%A1bado,%20pero%20esta%20semana%20Microsof.html"><span class="archive-date">11 Ene</span><span class="archive-title">🚀 Sé que es Sábado, pero esta semana Microsof</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-10-%F0%9F%9A%80%20La%20IA%20redefinir%C3%A1%20nuestra%20vida%20en%202025%20%F0%9F%8C%8D.html"><span class="archive-date">10 Ene</span><span class="archive-title">🚀 La IA redefinirá nuestra vida en 2025 🌍</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-09-Continuamos%20con%20las%20mini%20demos%20de%20Microsoft%20Copilot%20Studio.html"><span class="archive-date">09 Ene</span><span class="archive-title">Continuamos con las mini demos de Microsoft Copilot Studio</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-09-Es%20real,%20e%20impresiona%20%F0%9F%A7%A0%20.%2012.000%20d%C3%B3lares.%2048.html"><span class="archive-date">09 Ene</span><span class="archive-title">Es real, e impresiona 🧠 . 12.000 dólares. 48</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-08-Prompt%20para%20la%20vuelta%20de%20vacaciones,.html"><span class="archive-date">08 Ene</span><span class="archive-title">Prompt para la vuelta de vacaciones,</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-07-Entrevista%20a%20Eric%20Horvitz.html"><span class="archive-date">07 Ene</span><span class="archive-title">Entrevista a Eric Horvitz</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-07-Presentaci%C3%B3n%20NVIDIA%20GB10.html"><span class="archive-date">07 Ene</span><span class="archive-title">Presentación NVIDIA GB10</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-06-Hoy%20traigo%20una%20reflexi%C3%B3n%20sobre%20Google.html"><span class="archive-date">06 Ene</span><span class="archive-title">Hoy traigo una reflexión sobre Google</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-05-Entrevista%20a%20Sam%20Altman.html"><span class="archive-date">05 Ene</span><span class="archive-title">Entrevista a Sam Altman</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-04-Como%20crear%20un%20agente%20con%20Copilot%20Studio.html"><span class="archive-date">04 Ene</span><span class="archive-title">Como crear un agente con Copilot Studio</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-03-Roadmap%20Copilot%20Studio.html"><span class="archive-date">03 Ene</span><span class="archive-title">Roadmap Copilot Studio</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-02-Hoy%20os%20traigo%20un%20post%20reivindicativo.html"><span class="archive-date">02 Ene</span><span class="archive-title">Hoy os traigo un post reivindicativo</span></a></li>
+								<li><a class="archive-link" href="2025/01/25-01-01-A%C3%B1o%20Quantum%20Computing.html"><span class="archive-date">01 Ene</span><span class="archive-title">Año Quantum Computing</span></a></li>
+							</ul>
+						</section>
+					</div>
+				</details>
+				<details class="archive-year">
+					<summary class="archive-year-summary"><span class="archive-year-label">2024</span><span class="archive-year-count">51 entradas</span></summary>
+					<div class="archive-year-grid">
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Diciembre 2024</h3><span>9 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2024/12/24-12-31-%F0%9F%9A%80%20Microsoft%20present%C3%B3%20hace%20unos%20d%C3%ADas%20MarS.html"><span class="archive-date">31 Dic</span><span class="archive-title">🚀 Microsoft presentó hace unos días MarS</span></a></li>
+								<li><a class="archive-link" href="2024/12/24-12-29-Microsoft%20incorpora%20dos%20nuevos%20servicios%20al%20Cat%C3%A1logo%20CPSTIC.html"><span class="archive-date">29 Dic</span><span class="archive-title">Microsoft incorpora dos nuevos servicios al Catálogo CPSTIC</span></a></li>
+								<li><a class="archive-link" href="2024/12/24-12-28-%F0%9F%8C%8DLa%20especificaci%C3%B3n%20Intensidad%20de%20Carbono%20del%20Software%20se%20convierte%20en%20norma%20ISO.html"><span class="archive-date">28 Dic</span><span class="archive-title">🌍La especificación Intensidad de Carbono del Software se convierte en norma ISO</span></a></li>
+								<li><a class="archive-link" href="2024/12/24-12-26-El%20Quantum%20Computing%20es%20ya%20una%20pieza%20fundamental%20de%20los%20avances%20ci%C3%A9ntificos.html"><span class="archive-date">26 Dic</span><span class="archive-title">El Quantum Computing es ya una pieza fundamental de los avances ciéntificos</span></a></li>
+								<li><a class="archive-link" href="2024/12/24-12-21-Superpower%20Securing%20Spain%E2%80%99s%20digital%20transfor.html"><span class="archive-date">21 Dic</span><span class="archive-title">Superpower Securing Spain’s digital transfor</span></a></li>
+								<li><a class="archive-link" href="2024/12/24-12-20-Hoy%20el%20equipo%20de%20OpenAI%20presenta%20nuevo%20modelo%20o3.html"><span class="archive-date">20 Dic</span><span class="archive-title">Hoy el equipo de OpenAI presenta nuevo modelo o3</span></a></li>
+								<li><a class="archive-link" href="2024/12/24-12-19-P%C3%ADldora%20de%20final%20de%20semana.html"><span class="archive-date">19 Dic</span><span class="archive-title">Píldora de final de semana</span></a></li>
+								<li><a class="archive-link" href="2024/12/24-12-13-Today%20we%20are%20introducing%20Phi-4,%20our%2014B%20parameters%20model.html"><span class="archive-date">13 Dic</span><span class="archive-title">Today we are introducing Phi-4, our 14B parameters model</span></a></li>
+								<li><a class="archive-link" href="2024/12/24-12-03-Microsoft%20introduce%20en%20cat%C3%A1logo%20CPSTIC%20nuevos%20servicios%20Cloud.html"><span class="archive-date">03 Dic</span><span class="archive-title">Microsoft introduce en catálogo CPSTIC nuevos servicios Cloud</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Noviembre 2024</h3><span>9 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2024/11/24-11-19-Today%20I%20bring%20you%20great%20news%20and%20a%20very%20nice%20surprise%20about%20NIS2%20and%20ENS.html"><span class="archive-date">19 Nov</span><span class="archive-title">Today I bring you great news and a very nice surprise about NIS2 and ENS</span></a></li>
+								<li><a class="archive-link" href="2024/11/24-11-19-%C2%A1%C2%A1%C2%A1NO%20TE%20LO%20PUEDES%20PERDER%21%21%21.html"><span class="archive-date">19 Nov</span><span class="archive-title">¡¡¡NO TE LO PUEDES PERDER!!!</span></a></li>
+								<li><a class="archive-link" href="2024/11/24-11-19-%F0%9F%93%85%20Hay%20una%20sesi%C3%B3n%20que%20no%20me%20voy%20a%20perder%20del%20sobre%20IA%20y%20Computaci%C3%B3n%20Cu%C3%A1ntica.html"><span class="archive-date">19 Nov</span><span class="archive-title">📅 Hay una sesión que no me voy a perder del sobre IA y Computación Cuántica</span></a></li>
+								<li><a class="archive-link" href="2024/11/24-11-15-Ya%20est%C3%A1%20disponible%20la%20entrevista%20en%20Monos%20Estoc%C3%A1sticos.html"><span class="archive-date">15 Nov</span><span class="archive-title">Ya está disponible la entrevista en Monos Estocásticos</span></a></li>
+								<li><a class="archive-link" href="2024/11/24-11-12-Ma%C3%B1ana%20participar%C3%A9%20en%20el%20foro%20%27La%20nueva%20realidad%20tras%20la%20IA.html"><span class="archive-date">12 Nov</span><span class="archive-title">Mañana participaré en el foro &#x27;La nueva realidad tras la IA</span></a></li>
+								<li><a class="archive-link" href="2024/11/24-11-12-Microsoft%20ha%20publicado%20una%20nueva%20librer%C3%ADa%20TinyTroup%20para%20simular%20personas%20(agentes).html"><span class="archive-date">12 Nov</span><span class="archive-title">Microsoft ha publicado una nueva librería TinyTroup para simular personas (agentes)</span></a></li>
+								<li><a class="archive-link" href="2024/11/24-11-07-Microsoft%20reafirma%20su%20liderazgo%20en%20%F0%9D%97%9C%F0%9D%97%BB%F0%9D%97%B3%F0%9D%97%BF%F0%9D%97%AE%F0%9D%97%B2%F0%9D%98%80%F0%9D%98%81%F0%9D%97%BF%F0%9D%98%82ctura%20Distribuida.html"><span class="archive-date">07 Nov</span><span class="archive-title">Microsoft reafirma su liderazgo en Infraestructura Distribuida</span></a></li>
+								<li><a class="archive-link" href="2024/11/24-11-06-Ayer%20particip%C3%A9%20en%20el%20%23CopilotTour%20de%20Microsof.html"><span class="archive-date">06 Nov</span><span class="archive-title">Ayer participé en el #CopilotTour de Microsof</span></a></li>
+								<li><a class="archive-link" href="2024/11/24-11-06-Ayer%20particip%C3%A9%20en%20el.html"><span class="archive-date">06 Nov</span><span class="archive-title">Ayer participé en el</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Octubre 2024</h3><span>3 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2024/10/24-10-24-Microsoft%20ha%20sido%20reconocido%20como%20l%C3%ADder%20en%20el%20Gartner%202024%20para%20%F0%9D%97%A6%F0%9D%97%B2%F0%9D%97%BF%F0%9D%98%83%F0%9D%97%B6%F0%9D%97%B0%F0%9D%97%B6%F0%9D%97%BC%F0%9D%98%80%20%F0%9D%97%98%F0%9D%98%80%F0%9D%98%81%F0%9D%97%BF%F0%9D%97%AE%F0%9D%98%81%C3%A9%F0%9D%97%B4%F0%9D%97%B6%F0%9D%97%B0%F0%9D%97%BC%F0%9D%98%80%20%F0%9D%97%B1%F0%9D%97%B2%20%F0%9D%97%A3%F0%9D%97%B9%F0%9D%97%AE%F0%9D%98%81%F0%9D%97%AE%F0%9D%97%B3%F0%9D%97%BC%F0%9D%97%BF%F0%9D%97%BA%F0%9D%97%AE%20%F0%9D%97%B2%F0%9D%97%BB%20%F0%9D%97%B9%F0%9D%97%AE%20%F0%9D%97%A1%F0%9D%98%82%F0%9D%97%AF%F0%9D%97%B2..html"><span class="archive-date">24 Oct</span><span class="archive-title">Microsoft ha sido reconocido como líder en el Gartner 2024 para Servicios Estratégicos de Plataforma en la Nube.</span></a></li>
+								<li><a class="archive-link" href="2024/10/24-10-23-Azure%20NetApp%20Files%20bajo%20ENS.html"><span class="archive-date">23 Oct</span><span class="archive-title">Azure NetApp Files bajo ENS</span></a></li>
+								<li><a class="archive-link" href="2024/10/24-10-02-Qu%C3%A8%20puc%20dir%21,%20m%27encanta,%20simple%20i%20efectiu,%20i%20.html"><span class="archive-date">02 Oct</span><span class="archive-title">Què puc dir!, m&#x27;encanta, simple i efectiu, i</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Septiembre 2024</h3><span>1 entrada</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2024/09/24-09-13-Microsoft%20is%20%23XDR%20Leader.%20Period..html"><span class="archive-date">13 Sep</span><span class="archive-title">Microsoft is #XDR Leader. Period.</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Julio 2024</h3><span>4 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2024/07/24-07-22-Como%20seguimiento%20al%20problema%20con%20el%20agente%20Crowdstrike.html"><span class="archive-date">22 Jul</span><span class="archive-title">Como seguimiento al problema con el agente Crowdstrike</span></a></li>
+								<li><a class="archive-link" href="2024/07/24-07-22-Microsoft%20Cloud%20for%20Sovereignty%20incorpora%20la%20Azure%20Policy%20de%20ENS.html"><span class="archive-date">22 Jul</span><span class="archive-title">Microsoft Cloud for Sovereignty incorpora la Azure Policy de ENS</span></a></li>
+								<li><a class="archive-link" href="2024/07/24-07-16-Ya%20est%C3%A1%20disponible%20la%20gu%C3%ADa%20de%20configuraci%C3%B3n%20segura%20para%20los%20servicios%20de%20IA%20de%20Microsoft.html"><span class="archive-date">16 Jul</span><span class="archive-title">Ya está disponible la guía de configuración segura para los servicios de IA de Microsoft</span></a></li>
+								<li><a class="archive-link" href="2024/07/24-07-03-Desde%20Microsoft%20seguimos%20invirtiendo%20en%20ciberseguridad.html"><span class="archive-date">03 Jul</span><span class="archive-title">Desde Microsoft seguimos invirtiendo en ciberseguridad</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Junio 2024</h3><span>4 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2024/06/24-06-12-Disponibilidad%20del%20perfil%20de%20cumplimiento%20para%20D32%20de%20OTAN.html"><span class="archive-date">12 Jun</span><span class="archive-title">Disponibilidad del perfil de cumplimiento para D32 de OTAN</span></a></li>
+								<li><a class="archive-link" href="2024/06/24-06-11-Hoy%20desde%20Microsoft%20hemos%20anunciado%20la%20disponibilidad%20de%20la%20nueva%20regi%C3%B3n%20Cloud%20en%20Espa%C3%B1a.html"><span class="archive-date">11 Jun</span><span class="archive-title">Hoy desde Microsoft hemos anunciado la disponibilidad de la nueva región Cloud en España</span></a></li>
+								<li><a class="archive-link" href="2024/06/24-06-07-%F0%9D%97%A0%F0%9D%97%B6%F0%9D%97%B0%F0%9D%97%BF%F0%9D%97%BC%F0%9D%98%80%F0%9D%97%BC%F0%9D%97%B3%F0%9D%98%81%20%F0%9D%97%96%F0%9D%97%BC%F0%9D%97%BD%F0%9D%97%B6%F0%9D%97%B9%F0%9D%97%BC%F0%9D%98%81%20%F0%9D%97%B3%F0%9D%97%BC%F0%9D%97%BF%20%F0%9D%97%A6%F0%9D%97%B2%F0%9D%97%B0%F0%9D%98%82%F0%9D%97%BF%F0%9D%97%B6%F0%9D%98%81%F0%9D%98%86%20obtiene%20la%20ISO%2027001,%2027017%20y%20la%20ISO%2027018.html"><span class="archive-date">07 Jun</span><span class="archive-title">Microsoft Copilot for Security obtiene la ISO 27001, 27017 y la ISO 27018</span></a></li>
+								<li><a class="archive-link" href="2024/06/24-06-03-Microsoft%20posa%20a%20disposici%C3%B3,%20dins%20del%20cat%C3%A0leg%20de%20Azure,%20AINA.html"><span class="archive-date">03 Jun</span><span class="archive-title">Microsoft posa a disposició, dins del catàleg de Azure, AINA</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Mayo 2024</h3><span>7 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2024/05/24-05-21-Hoy%20es%20el%20d%C3%ADa%E2%80%A6%20Microsoft%20Build%20.html"><span class="archive-date">21 May</span><span class="archive-title">Hoy es el día… Microsoft Build</span></a></li>
+								<li><a class="archive-link" href="2024/05/24-05-16-C%C3%B3mo%20usar%20Large%20Language%20Models%20con%20RAG%20en%20MCfS.html"><span class="archive-date">16 May</span><span class="archive-title">Cómo usar Large Language Models con RAG en MCfS</span></a></li>
+								<li><a class="archive-link" href="2024/05/24-05-14-Soporte%20al%20catal%C3%A1n.html"><span class="archive-date">14 May</span><span class="archive-title">Soporte al catalán</span></a></li>
+								<li><a class="archive-link" href="2024/05/24-05-13-Como%20parte%20del%20plan%20de%20inversiones%20en%20Ciberseguridad.html"><span class="archive-date">13 May</span><span class="archive-title">Como parte del plan de inversiones en Ciberseguridad</span></a></li>
+								<li><a class="archive-link" href="2024/05/24-05-13-Microsoft%20anuncia%20el%20lanzamiento%20de%20GPT-4o.html"><span class="archive-date">13 May</span><span class="archive-title">Microsoft anuncia el lanzamiento de GPT-4o</span></a></li>
+								<li><a class="archive-link" href="2024/05/24-05-10-Disponible%20perfil%20de%20cumplimiento%20EU%20AI%20Act%20en%20Purview.html"><span class="archive-date">10 May</span><span class="archive-title">Disponible perfil de cumplimiento EU AI Act en Purview</span></a></li>
+								<li><a class="archive-link" href="2024/05/24-05-09-Evento%20AMETIC.html"><span class="archive-date">09 May</span><span class="archive-title">Evento AMETIC</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Abril 2024</h3><span>6 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2024/04/24-04-26-Renovamos%20nuestros%20certificados%20de%20conformidad%20ENS.html"><span class="archive-date">26 Abr</span><span class="archive-title">Renovamos nuestros certificados de conformidad ENS</span></a></li>
+								<li><a class="archive-link" href="2024/04/24-04-22-Publicados%20los%20procedimientos%20de%20empleo%20seguro%20para%20Sentinel%20MDfE,%20y%20MDfO.html"><span class="archive-date">22 Abr</span><span class="archive-title">Publicados los procedimientos de empleo seguro para Sentinel MDfE, y MDfO</span></a></li>
+								<li><a class="archive-link" href="2024/04/24-04-18-Hoy%20Microsoft%20ha%20anunciado%20VASA,%20un%20modelo%20de%20IA%20para%20v%C3%ADdeo.html"><span class="archive-date">18 Abr</span><span class="archive-title">Hoy Microsoft ha anunciado VASA, un modelo de IA para vídeo</span></a></li>
+								<li><a class="archive-link" href="2024/04/24-04-10-Los%20productos%20de%20Microsoft,%20%F0%9D%97%94%F0%9D%98%87%F0%9D%98%82%F0%9D%97%BF%F0%9D%97%B2%20%F0%9D%97%A6%F0%9D%98%81%F0%9D%97%AE%F0%9D%97%B0%F0%9D%97%B8%20%F0%9D%97%9B%F0%9D%97%96%F0%9D%97%9C%F0%9D%98%83%F0%9D%9F%AE.html"><span class="archive-date">10 Abr</span><span class="archive-title">Los productos de Microsoft, Azure Stack HCIv2</span></a></li>
+								<li><a class="archive-link" href="2024/04/24-04-03-Mas%20novedades%20de%20Azure%20Quantum.html"><span class="archive-date">03 Abr</span><span class="archive-title">Mas novedades de Azure Quantum</span></a></li>
+								<li><a class="archive-link" href="2024/04/24-04-02-El%2028%20de%20marzo%20de%202024%20se%20identific%C3%B3%20una%20vulnerabilidad%20en%20XZ%20Utils.html"><span class="archive-date">02 Abr</span><span class="archive-title">El 28 de marzo de 2024 se identificó una vulnerabilidad en XZ Utils</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Marzo 2024</h3><span>1 entrada</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2024/03/24-03-07-Microsoft%20anuncia%20la%20finalizaci%C3%B3n%20de%20la%20segunda%20fase%20de%20nuestra%20iniciativa%20de%20EU%20Data%20Boundary.html"><span class="archive-date">07 Mar</span><span class="archive-title">Microsoft anuncia la finalización de la segunda fase de nuestra iniciativa de EU Data Boundary</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Febrero 2024</h3><span>3 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2024/02/24-02-23-Microsoft%20anunci%C3%B3%20ayer%20PyRIT.html"><span class="archive-date">23 Feb</span><span class="archive-title">Microsoft anunció ayer PyRIT</span></a></li>
+								<li><a class="archive-link" href="2024/02/24-02-20-Cierre%20del%20Microsoft%20AI%20%26%20Innovation%20Summit.html"><span class="archive-date">20 Feb</span><span class="archive-title">Cierre del Microsoft AI &amp; Innovation Summit</span></a></li>
+								<li><a class="archive-link" href="2024/02/24-02-19-Gran%20acuerdo%20firmado%20hoy%20entre%20el%20Gobierno%20de%20Espa%C3%B1a%20y%20Microsoft.html"><span class="archive-date">19 Feb</span><span class="archive-title">Gran acuerdo firmado hoy entre el Gobierno de España y Microsoft</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Enero 2024</h3><span>4 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2024/01/24-01-24-Sabes%20cu%C3%A1l%20es%20EL%20EVENTO%20DE%20IA%20en%20Espa%C3%B1a%20.html"><span class="archive-date">24 Ene</span><span class="archive-title">Sabes cuál es EL EVENTO DE IA en España</span></a></li>
+								<li><a class="archive-link" href="2024/01/24-01-23-Evento%20APD.html"><span class="archive-date">23 Ene</span><span class="archive-title">Evento APD</span></a></li>
+								<li><a class="archive-link" href="2024/01/24-01-21-Evento%20Tour%20del%20Talento%20-%20Fundaci%C3%B3n%20Princesa%20de%20Girona.html"><span class="archive-date">21 Ene</span><span class="archive-title">Evento Tour del Talento - Fundación Princesa de Girona</span></a></li>
+								<li><a class="archive-link" href="2024/01/24-01-08-El%20Proyecto%20%23Sophia%20de%20Microsoft%20es%20un%20canvas.html"><span class="archive-date">08 Ene</span><span class="archive-title">El Proyecto #Sophia de Microsoft es un canvas</span></a></li>
+							</ul>
+						</section>
+					</div>
+				</details>
+				<details class="archive-year">
+					<summary class="archive-year-summary"><span class="archive-year-label">2023</span><span class="archive-year-count">61 entradas</span></summary>
+					<div class="archive-year-grid">
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Diciembre 2023</h3><span>2 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2023/12/23-12-27-%F0%9D%97%A1%F0%9D%97%A2%20es%20un%20anuncio%20de%20marketing,%20%F0%9D%97%A1%F0%9D%97%A2%20es%20una%20promesa,%20es%20REAL.html"><span class="archive-date">27 Dic</span><span class="archive-title">NO es un anuncio de marketing, NO es una promesa, es REAL</span></a></li>
+								<li><a class="archive-link" href="2023/12/23-12-11-Microsoft%20actualiza%20Copilot%20introduciendo%20GPT-4%20Turbo.html"><span class="archive-date">11 Dic</span><span class="archive-title">Microsoft actualiza Copilot introduciendo GPT-4 Turbo</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Noviembre 2023</h3><span>10 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2023/11/23-11-28-Una%20a%C3%B1o%20m%C3%A1s%20agradecer%20la%20oportunidad%20de%20participar%20en%20las%20jornadas%20del%20CCN-CERT.html"><span class="archive-date">28 Nov</span><span class="archive-title">Una año más agradecer la oportunidad de participar en las jornadas del CCN-CERT</span></a></li>
+								<li><a class="archive-link" href="2023/11/23-11-22-Claude%202.1%20(200K)%20vs%20GPT-4-Turbo%20(128K)%20.html"><span class="archive-date">22 Nov</span><span class="archive-title">Claude 2.1 (200K) vs GPT-4-Turbo (128K)</span></a></li>
+								<li><a class="archive-link" href="2023/11/23-11-22-C%C3%B3mo%20proteger%20tu%20identidad%20y%20acceso.html"><span class="archive-date">22 Nov</span><span class="archive-title">Cómo proteger tu identidad y acceso</span></a></li>
+								<li><a class="archive-link" href="2023/11/23-11-22-Una%20edici%C3%B3n%20m%C3%A1s%20Microsoft%20estar%C3%A1%20en%20las%20Jornadas%20del%20CCN-CERT.html"><span class="archive-date">22 Nov</span><span class="archive-title">Una edición más Microsoft estará en las Jornadas del CCN-CERT</span></a></li>
+								<li><a class="archive-link" href="2023/11/23-11-17-Azure%20en%20la%20lista%20Top500%20de%20superordenadores.html"><span class="archive-date">17 Nov</span><span class="archive-title">Azure en la lista Top500 de superordenadores</span></a></li>
+								<li><a class="archive-link" href="2023/11/23-11-16-Evento%20Bamberg%20Health.html"><span class="archive-date">16 Nov</span><span class="archive-title">Evento Bamberg Health</span></a></li>
+								<li><a class="archive-link" href="2023/11/23-11-14-Evento%20APD.html"><span class="archive-date">14 Nov</span><span class="archive-title">Evento APD</span></a></li>
+								<li><a class="archive-link" href="2023/11/23-11-14-Think%20Tank%20WAIQuers.html"><span class="archive-date">14 Nov</span><span class="archive-title">Think Tank WAIQuers</span></a></li>
+								<li><a class="archive-link" href="2023/11/23-11-13-Cu%C3%A1nto%20%E2%80%9Calucinan%E2%80%9D%20los%20diferentes%20modelos%20de%20IA.html"><span class="archive-date">13 Nov</span><span class="archive-title">Cuánto “alucinan” los diferentes modelos de IA</span></a></li>
+								<li><a class="archive-link" href="2023/11/23-11-02-Quieres%20conocer%20todo%20lo%20que%20Copilot%20puede%20hacer%20por%20ti.html"><span class="archive-date">02 Nov</span><span class="archive-title">Quieres conocer todo lo que Copilot puede hacer por ti</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Octubre 2023</h3><span>7 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2023/10/23-10-31-Estos%20tres%20conceptos%20describen%20como%20usar%20M365%20Copilot.html"><span class="archive-date">31 Oct</span><span class="archive-title">Estos tres conceptos describen como usar M365 Copilot</span></a></li>
+								<li><a class="archive-link" href="2023/10/23-10-31-NIS2%20consenso%20internacional.html"><span class="archive-date">31 Oct</span><span class="archive-title">NIS2 consenso internacional</span></a></li>
+								<li><a class="archive-link" href="2023/10/23-10-14-Ayer%20sal%C3%AD%20en%20el%20Telediario%20de%20la%20TVE1.html"><span class="archive-date">14 Oct</span><span class="archive-title">Ayer salí en el Telediario de la TVE1</span></a></li>
+								<li><a class="archive-link" href="2023/10/23-10-12-Cuando%20empiezo%20un%20libro%20y%20tengo%20que%20empezar%20a.html"><span class="archive-date">12 Oct</span><span class="archive-title">Cuando empiezo un libro y tengo que empezar a</span></a></li>
+								<li><a class="archive-link" href="2023/10/23-10-10-Microsoft%20anuncia%20la%20intenci%C3%B3n%20de%20construir%20una%20segunda%20regi%C3%B3n%20Cloud%20en%20Espa%C3%B1a.html"><span class="archive-date">10 Oct</span><span class="archive-title">Microsoft anuncia la intención de construir una segunda región Cloud en España</span></a></li>
+								<li><a class="archive-link" href="2023/10/23-10-08-Otro%20dos%20ejemplos%20de%20las%20capacidades%20de%20Microsoft%20Bing.html"><span class="archive-date">08 Oct</span><span class="archive-title">Otro dos ejemplos de las capacidades de Microsoft Bing</span></a></li>
+								<li><a class="archive-link" href="2023/10/23-10-06-La%20IA%20de%20Microsoft%20%23Bing%20y%20sus%20posibilidades%E2%80%A6.html"><span class="archive-date">06 Oct</span><span class="archive-title">La IA de Microsoft #Bing y sus posibilidades…</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Septiembre 2023</h3><span>7 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2023/09/23-09-29-Os%20comparto%20la%20entrevista%20que%20me%20han%20hecho%20en%20Red%20Seguridad.html"><span class="archive-date">29 Sep</span><span class="archive-title">Os comparto la entrevista que me han hecho en Red Seguridad</span></a></li>
+								<li><a class="archive-link" href="2023/09/23-09-29-Si%20quieres%20conocer%20m%C3%A1s%20sobre%20la%20propuesta%20de%20Seguridad%20de%20Microsoft.html"><span class="archive-date">29 Sep</span><span class="archive-title">Si quieres conocer más sobre la propuesta de Seguridad de Microsoft</span></a></li>
+								<li><a class="archive-link" href="2023/09/23-09-28-Ayer%20fue%20una%20jornada%20de%20IA%20intensa..html"><span class="archive-date">28 Sep</span><span class="archive-title">Ayer fue una jornada de IA intensa.</span></a></li>
+								<li><a class="archive-link" href="2023/09/23-09-21-Parece%20que%20hoy%20hay%20anuncios%20importantes%20%F0%9F%98%89.html"><span class="archive-date">21 Sep</span><span class="archive-title">Parece que hoy hay anuncios importantes 😉</span></a></li>
+								<li><a class="archive-link" href="2023/09/23-09-20-Por%20quinto%20a%C3%B1o%20consecutivo,%20Microsoft%20365%20Defender%20supera%20las%20evaluaciones%20de%20ATT%26CK%20de%20MITRE%20Engenuity.html"><span class="archive-date">20 Sep</span><span class="archive-title">Por quinto año consecutivo, Microsoft 365 Defender supera las evaluaciones de ATT&amp;CK de MITRE Engenuity</span></a></li>
+								<li><a class="archive-link" href="2023/09/23-09-18-El%20d%C3%ADa%2027%20de%20septiembre%20estar%C3%A9%20con%20Esade%20Alumni.html"><span class="archive-date">18 Sep</span><span class="archive-title">El día 27 de septiembre estaré con Esade Alumni</span></a></li>
+								<li><a class="archive-link" href="2023/09/23-09-08-Microsoft%20anuncia%20su%20nuevo%20Compromiso%20con%20los%20derechos%20de%20propiedad%20intelectual%20y%20la%20IA.html"><span class="archive-date">08 Sep</span><span class="archive-title">Microsoft anuncia su nuevo Compromiso con los derechos de propiedad intelectual y la IA</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Julio 2023</h3><span>4 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2023/07/23-07-08-S%C3%BAper%20orgulloso,%20y%20a%C3%BAn%20no%20ha%20empezado%20el%20bachillerato.html"><span class="archive-date">08 Jul</span><span class="archive-title">Súper orgulloso, y aún no ha empezado el bachillerato</span></a></li>
+								<li><a class="archive-link" href="2023/07/23-07-06-Microsoft%20introduce%20en%20cat%C3%A1logo%20CPSTIC%20Microsoft%20Defender%20for%20Office.html"><span class="archive-date">06 Jul</span><span class="archive-title">Microsoft introduce en catálogo CPSTIC Microsoft Defender for Office</span></a></li>
+								<li><a class="archive-link" href="2023/07/23-07-06-Principios,%20pr%C3%A1cticas%20y%20herramientas%20para%20una%20IA%20Responsable.html"><span class="archive-date">06 Jul</span><span class="archive-title">Principios, prácticas y herramientas para una IA Responsable</span></a></li>
+								<li><a class="archive-link" href="2023/07/23-07-05-Evento%20Microsoft%20AI%20Summit.html"><span class="archive-date">05 Jul</span><span class="archive-title">Evento Microsoft AI Summit</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Junio 2023</h3><span>2 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2023/06/23-06-19-Anuncios%20de%20Azure%20Quantum.html"><span class="archive-date">19 Jun</span><span class="archive-title">Anuncios de Azure Quantum</span></a></li>
+								<li><a class="archive-link" href="2023/06/23-06-12-Microsoft%20ya%20tiene%20en%20fase%20de%20pruebas%20su%20herramienta%20de%20filtrado%20de%20contenidos%20de%20IA.html"><span class="archive-date">12 Jun</span><span class="archive-title">Microsoft ya tiene en fase de pruebas su herramienta de filtrado de contenidos de IA</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Mayo 2023</h3><span>3 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2023/05/23-05-25-Microsoft%20y%20Grupo%20Pescanova%20renuevan%20su%20alianza.html"><span class="archive-date">25 May</span><span class="archive-title">Microsoft y Grupo Pescanova renuevan su alianza</span></a></li>
+								<li><a class="archive-link" href="2023/05/23-05-23-Llevamos%20meses%20hablando%20de%20Azure%20OpenAI,%20pero%20poco%20de%20Metaverso.html"><span class="archive-date">23 May</span><span class="archive-title">Llevamos meses hablando de Azure OpenAI, pero poco de Metaverso</span></a></li>
+								<li><a class="archive-link" href="2023/05/23-05-19-Evento%20del%20GRUP%20MEDIAPRO.html"><span class="archive-date">19 May</span><span class="archive-title">Evento del GRUP MEDIAPRO</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Abril 2023</h3><span>2 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2023/04/23-04-23-Hoy%20es%20un%20gran%20d%C3%ADa%20en%20Catalu%C3%B1a,%20Sant%20Jordi..html"><span class="archive-date">23 Abr</span><span class="archive-title">Hoy es un gran día en Cataluña, Sant Jordi.</span></a></li>
+								<li><a class="archive-link" href="2023/04/23-04-21-Ferrovial%20despliega%20la%20IA.html"><span class="archive-date">21 Abr</span><span class="archive-title">Ferrovial despliega la IA</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Marzo 2023</h3><span>9 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2023/03/23-03-28-Microsoft%20Security%20Copilot%20es%20el%20primer%20producto%20de%20ciberseguridad%20potenciado%20por%20IA.html"><span class="archive-date">28 Mar</span><span class="archive-title">Microsoft Security Copilot es el primer producto de ciberseguridad potenciado por IA</span></a></li>
+								<li><a class="archive-link" href="2023/03/23-03-23-Purview%20and%20CDMC%20Certification.html"><span class="archive-date">23 Mar</span><span class="archive-title">Purview and CDMC Certification</span></a></li>
+								<li><a class="archive-link" href="2023/03/23-03-22-Evento%20InforSalud.html"><span class="archive-date">22 Mar</span><span class="archive-title">Evento InforSalud</span></a></li>
+								<li><a class="archive-link" href="2023/03/23-03-21-AXON%20Tech%20Summit.html"><span class="archive-date">21 Mar</span><span class="archive-title">AXON Tech Summit</span></a></li>
+								<li><a class="archive-link" href="2023/03/23-03-20-AXON%20Tech%20Summit.html"><span class="archive-date">20 Mar</span><span class="archive-title">AXON Tech Summit</span></a></li>
+								<li><a class="archive-link" href="2023/03/23-03-15-I%20would%20like%20to%20thanks%20to%20AEPD%20and%20FIIAPP.html"><span class="archive-date">15 Mar</span><span class="archive-title">I would like to thanks to AEPD and FIIAPP</span></a></li>
+								<li><a class="archive-link" href="2023/03/23-03-14-Espero%20explicarlo%20bien,%20hoy%20se%20anuncia%20todo%20esto.html"><span class="archive-date">14 Mar</span><span class="archive-title">Espero explicarlo bien, hoy se anuncia todo esto</span></a></li>
+								<li><a class="archive-link" href="2023/03/23-03-09-Today,%20we%20are%20thrilled%20to%20announce%20Azure%20OpenAI%20ChatGPT%20availability.html"><span class="archive-date">09 Mar</span><span class="archive-title">Today, we are thrilled to announce Azure OpenAI ChatGPT availability</span></a></li>
+								<li><a class="archive-link" href="2023/03/23-03-02-Hoy%20hemos%20estado%20en%20el%20Microsoft%20SecurityTechDay.html"><span class="archive-date">02 Mar</span><span class="archive-title">Hoy hemos estado en el Microsoft SecurityTechDay</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Febrero 2023</h3><span>9 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2023/02/23-02-28-El%20seu%20pati%20i%20galer%C3%ADa%20g%C3%B2tica%20i%20el%20sal%C3%B3%20Sant%20Jordi.html"><span class="archive-date">28 Feb</span><span class="archive-title">El seu pati i galería gòtica i el saló Sant Jordi</span></a></li>
+								<li><a class="archive-link" href="2023/02/23-02-27-Otro%20paso%20m%C3%A1s,%20y%20no%20ser%C3%A1%20el%20%C3%BAltimo,%20en%20acredi.html"><span class="archive-date">27 Feb</span><span class="archive-title">Otro paso más, y no será el último, en acredi</span></a></li>
+								<li><a class="archive-link" href="2023/02/23-02-23-Daremos%20muchos%20detalles,%20no%20te%20lo%20puedes%20perder.html"><span class="archive-date">23 Feb</span><span class="archive-title">Daremos muchos detalles, no te lo puedes perder</span></a></li>
+								<li><a class="archive-link" href="2023/02/23-02-21-%C3%9Anete%20a%20la%20competici%C3%B3n%20y%20viaja%20a%20Punta%20Cana.%20.html"><span class="archive-date">21 Feb</span><span class="archive-title">Únete a la competición y viaja a Punta Cana.</span></a></li>
+								<li><a class="archive-link" href="2023/02/23-02-20-El%20Gobierno%20de%20Espa%C3%B1a%20y%20Microsoft%20repatr%C3%ADan%20datos%20de%20educaci%C3%B3n.html"><span class="archive-date">20 Feb</span><span class="archive-title">El Gobierno de España y Microsoft repatrían datos de educación</span></a></li>
+								<li><a class="archive-link" href="2023/02/23-02-13-Microsoft%20introduce%20en%20cat%C3%A1logo%20CPSTIC%20Microsoft%20Sentinel.html"><span class="archive-date">13 Feb</span><span class="archive-title">Microsoft introduce en catálogo CPSTIC Microsoft Sentinel</span></a></li>
+								<li><a class="archive-link" href="2023/02/23-02-10-Bing%20en%20Catal%C3%A0.html"><span class="archive-date">10 Feb</span><span class="archive-title">Bing en Català</span></a></li>
+								<li><a class="archive-link" href="2023/02/23-02-10-Ha%20sido%20la%20primera%20pregunta%20que%20le%20he%20hecho%20a.html"><span class="archive-date">10 Feb</span><span class="archive-title">Ha sido la primera pregunta que le he hecho a</span></a></li>
+								<li><a class="archive-link" href="2023/02/23-02-08-%E2%80%9CASK%20ME%20ANYTHING%E2%80%9D.html"><span class="archive-date">08 Feb</span><span class="archive-title">“ASK ME ANYTHING”</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Enero 2023</h3><span>6 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2023/01/23-01-31-Es%20un%20primer%20paso,%20sin%20duda%20en%20la%20buena%20direcci%C3%B3n.html"><span class="archive-date">31 Ene</span><span class="archive-title">Es un primer paso, sin duda en la buena dirección</span></a></li>
+								<li><a class="archive-link" href="2023/01/23-01-31-%E2%80%9CGoogle%20is%20done%E2%80%9D%20.html"><span class="archive-date">31 Ene</span><span class="archive-title">“Google is done”</span></a></li>
+								<li><a class="archive-link" href="2023/01/23-01-29%20-%20Creartificialidad.html"><span class="archive-date">29 Ene</span><span class="archive-title">Creartificialidad</span></a></li>
+								<li><a class="archive-link" href="2023/01/23-01-28-BuzzFeed%20empieza%20a%20usar%20ChatGPT.html"><span class="archive-date">28 Ene</span><span class="archive-title">BuzzFeed empieza a usar ChatGPT</span></a></li>
+								<li><a class="archive-link" href="2023/01/23-01-17-Cada%20vez%20cuesta%20m%C3%A1s%20enga%C3%B1ar%20a%20ChatGPT.html"><span class="archive-date">17 Ene</span><span class="archive-title">Cada vez cuesta más engañar a ChatGPT</span></a></li>
+								<li><a class="archive-link" href="2023/01/23-01-17-Microsoft%20Azure%20OpenAI%20incorpora%20ChatGPT.html"><span class="archive-date">17 Ene</span><span class="archive-title">Microsoft Azure OpenAI incorpora ChatGPT</span></a></li>
+							</ul>
+						</section>
+					</div>
+				</details>
+				<details class="archive-year">
+					<summary class="archive-year-summary"><span class="archive-year-label">2022</span><span class="archive-year-count">14 entradas</span></summary>
+					<div class="archive-year-grid">
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Diciembre 2022</h3><span>3 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2022/12/22-12-15-Microsoft%20mete%20en%20catalogo%20CPSTIC%20Microsoft%20Defender%20for%20Endpoint.html"><span class="archive-date">15 Dic</span><span class="archive-title">Microsoft mete en catalogo CPSTIC Microsoft Defender for Endpoint</span></a></li>
+								<li><a class="archive-link" href="2022/12/22-12-13-Hoy%20pensando%20en%20posibles%20usos%20de%20ChatGPT%20....html"><span class="archive-date">13 Dic</span><span class="archive-title">Hoy pensando en posibles usos de ChatGPT ...</span></a></li>
+								<li><a class="archive-link" href="2022/12/22-12-02-Mesh%20for%20Teams%20es%20calificado%20por%20la%20revista%20TIME%20como%20el%20mejor%20invento%20de%202022.html"><span class="archive-date">02 Dic</span><span class="archive-title">Mesh for Teams es calificado por la revista TIME como el mejor invento de 2022</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Noviembre 2022</h3><span>1 entrada</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2022/11/22-11-07-A%20punto%20de%20comenzar%20el%20V%20Congreso%20Internacional%20de%20IA.html"><span class="archive-date">07 Nov</span><span class="archive-title">A punto de comenzar el V Congreso Internacional de IA</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Octubre 2022</h3><span>2 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2022/10/22-10-12-No%20mucha%20gente%20conoce%20la%20experiencia%20que%20Microsoft%20en%20soluciones%20EDA.html"><span class="archive-date">12 Oct</span><span class="archive-title">No mucha gente conoce la experiencia que Microsoft en soluciones EDA</span></a></li>
+								<li><a class="archive-link" href="2022/10/22-10-10-Ya%20son%20100%20los%20servicios%20de%20Microsoft%20certificados%20bajo%20ENS.html"><span class="archive-date">10 Oct</span><span class="archive-title">Ya son 100 los servicios de Microsoft certificados bajo ENS</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Septiembre 2022</h3><span>1 entrada</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2022/09/22-09-22-Ya%20est%C3%A1%20disponible%20la%20nueva%20versi%C3%B3n%20del%20Service%20Trust%20Portal.html"><span class="archive-date">22 Sep</span><span class="archive-title">Ya está disponible la nueva versión del Service Trust Portal</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Julio 2022</h3><span>3 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2022/07/22-07-19-Presentaci%C3%B3n%20de%20Microsoft%20Cloud%20for%20Sovereignty.html"><span class="archive-date">19 Jul</span><span class="archive-title">Presentación de Microsoft Cloud for Sovereignty</span></a></li>
+								<li><a class="archive-link" href="2022/07/22-07-15-Un%20gran%20d%C3%ADa,%20profundizando%20en%20casos%20de%20uso%20de%20IA.html"><span class="archive-date">15 Jul</span><span class="archive-title">Un gran día, profundizando en casos de uso de IA</span></a></li>
+								<li><a class="archive-link" href="2022/07/22-07-14-Empezamos%20la%20presentaci%C3%B3n%20de%20la%20Gu%C3%ADaIndesIA.html"><span class="archive-date">14 Jul</span><span class="archive-title">Empezamos la presentación de la GuíaIndesIA</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Junio 2022</h3><span>1 entrada</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2022/06/22-06-19%20DALL-E%20y%20los%20ejercicios%20de%20red%20teaming.html"><span class="archive-date">19 Jun</span><span class="archive-title">DALL-E y los ejercicios de red teaming</span></a></li>
+							</ul>
+						</section>
+						<section class="archive-month">
+							<div class="archive-month-head"><h3>Mayo 2022</h3><span>3 entradas</span></div>
+							<ul class="archive-list">
+								<li><a class="archive-link" href="2022/05/22-05-25-La%20gesti%C3%B3n%20de%20riesgos%20juega%20un%20papel%20fundamental%20en%20la%20postura%20de%20seguridad.html"><span class="archive-date">25 May</span><span class="archive-title">La gestión de riesgos juega un papel fundamental en la postura de seguridad</span></a></li>
+								<li><a class="archive-link" href="2022/05/22-05-20-Jornada%20de%20visitas%20de%20nuestro%20Presidente%20y%20Vice%20Chairman%20Brad%20Smith.html"><span class="archive-date">20 May</span><span class="archive-title">Jornada de visitas de nuestro Presidente y Vice Chairman Brad Smith</span></a></li>
+								<li><a class="archive-link" href="2022/05/22-05-07-CCN-CERT%20publica%20informe%20protecci%C3%B3n%20cargas%20de%20trabajo%20cloud.html"><span class="archive-date">07 May</span><span class="archive-title">CCN-CERT publica informe protección cargas de trabajo cloud</span></a></li>
+							</ul>
+						</section>
+					</div>
+				</details>
+			</section>
 		</div>
 	</main>
 
@@ -346,7 +879,7 @@
 		const themeToggle = document.getElementById('themeToggle');
 		const html = document.documentElement;
 
-		// Check for saved theme preference or default to 'light'
+		// Usa el tema guardado o el claro por defecto
 		const currentTheme = localStorage.getItem('theme') || 'light';
 		html.setAttribute('data-theme', currentTheme);
 		updateThemeButton(currentTheme);

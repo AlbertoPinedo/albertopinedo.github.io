@@ -1,0 +1,38 @@
+{
+  "22-10-10-Ya son 100 los servicios de Microsoft certificados bajo ENS.html": {
+    "es": { "title": "", "b1": "", "b2": "" },
+    "ca": {
+      "title": "Ja són 100 els serveis de Microsoft certificats sota l'ENS",
+      "b1": "Ja són 100 els serveis de Microsoft certificats al nivell alt de l'Esquema Nacional de Seguretat, cobrint les necessitats de digitalització de les organitzacions d'una manera segura.",
+      "b2": "Els certificats del CCN-CERT Centro Criptológico Nacional validen la robustesa de les solucions de Microsoft per posar-les al servei dels clients amb els màxims estàndards de confiança i seguretat. Coneix-ne més: <a href=\"https://lnkd.in/ds4q88dr\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/ds4q88dr</a> #MicrosoftEspaña #ReimaginaEspaña #MsftAdvocate #Seguridad"
+    },
+    "gl": {
+      "title": "Xa son 100 os servizos de Microsoft certificados baixo o ENS",
+      "b1": "Xa son 100 os servizos de Microsoft certificados no nivel alto do Esquema Nacional de Seguridade, cubrindo as necesidades de dixitalización das organizacións dun modo seguro.",
+      "b2": "Os certificados do CCN-CERT Centro Criptolóxico Nacional validan a robustez das solucións de Microsoft para poñelas ao servizo dos clientes cos máximos estándares de confianza e seguridade. Coñece máis: <a href=\"https://lnkd.in/ds4q88dr\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/ds4q88dr</a> #MicrosoftEspaña #ReimaginaEspaña #MsftAdvocate #Seguridad"
+    },
+    "eu": {
+      "title": "Jada 100 dira ENS-pean ziurtatutako Microsoft zerbitzuak",
+      "b1": "Jada 100 dira Segurtasun Eskema Nazionalaren maila altuan ziurtatutako Microsoft zerbitzuak, erakundeen digitalizazio-beharrak modu seguruan estaliz.",
+      "b2": "CCN-CERT Centro Criptológico Nacional-en ziurtagiriek Microsoft-en irtenbideen sendotasuna baliozkotzen dute bezeroen zerbitzura jartzeko konfiantza eta segurtasun estandar gorenekin. Ezagutu gehiago: <a href=\"https://lnkd.in/ds4q88dr\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/ds4q88dr</a> #MicrosoftEspaña #ReimaginaEspaña #MsftAdvocate #Seguridad"
+    }
+  },
+  "22-10-12-No mucha gente conoce la experiencia que Microsoft en soluciones EDA.html": {
+    "es": { "title": "", "b1": "", "b3": "" },
+    "ca": {
+      "title": "No molta gent coneix l'experiència que Microsoft té en solucions EDA",
+      "b1": "No molta gent coneix l'experiència que Microsoft té en solucions EDA (Electronic Design Automation) al núvol. Des de solucions de #HPC (High Performance Computing) per al disseny i simulació de xips (LSI), optimització de processos mitjançant automatització escalable al núvol, millores en la captura de dades amb solucions de #IA i disseny i millora de la cadena de subministrament per al seguiment de components i la gestió logística.",
+      "b3": "Ens avalen anys d'experiència amb clients com AMD, TSMC, Cadence, Mentor Graphics o Synopsys Inc i milers d'entorns de disseny (FabLess) optimitzats al núvol de Microsoft, solucions que podrien accelerar i reduir els costos per al #PERTE de Microxips i Semiconductors llançat pel Ministry of Economy, Trade and Business."
+    },
+    "gl": {
+      "title": "Non moita xente coñece a experiencia que Microsoft ten en solucións EDA",
+      "b1": "Non moita xente coñece a experiencia que Microsoft ten en solucións EDA (Electronic Design Automation) na nube. Desde solucións de #HPC (High Performance Computing) para o deseño e simulación de chips (LSI), optimización de procesos mediante automatización escalable na nube, melloras na captura de datos con solucións de #IA e deseño e mellora da cadea de subministración para o seguimento de compoñentes e a xestión loxística.",
+      "b3": "Avalannos anos de experiencia con clientes como AMD, TSMC, Cadence, Mentor Graphics ou Synopsys Inc e miles de contornos de deseño (FabLess) optimizados na nube de Microsoft, solucións que poderían acelerar e reducir os custos para o #PERTE de Microchips e Semicondutores lanzado polo Ministry of Economy, Trade and Business."
+    },
+    "eu": {
+      "title": "Jende askok ez du ezagutzen Microsoft-ek EDA irtenbideetan duen esperientzia",
+      "b1": "Jende askok ez du ezagutzen Microsoft-ek hodeian EDA (Electronic Design Automation) irtenbideetan duen esperientzia. #HPC (High Performance Computing) irtenbideetatik txipak (LSI) diseinatzeko eta simulatzeko, prozesuen optimizazioa hodeian automatizazio eskalagarriaren bidez, datuak biltzeko hobekuntzak #IA irtenbideekin eta hornidura-katearen diseinua eta hobekuntza osagaien jarraipenerako eta kudeaketa logistikorako.",
+      "b3": "AMD, TSMC, Cadence, Mentor Graphics edo Synopsys Inc bezalako bezeroekin urteetako esperientziak eta Microsoft-en hodeian optimizatutako milaka diseinu-ingurunek (FabLess) babesten gaituzte, Ministry of Economy, Trade and Business-ek abian jarritako Mikrotxip eta Erdieroaleen #PERTE-rako kostuak azkartu eta murriztu litzaketen irtenbideak."
+    }
+  }
+}

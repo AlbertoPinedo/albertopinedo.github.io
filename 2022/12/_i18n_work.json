@@ -1,0 +1,47 @@
+{
+  "22-12-02-Mesh for Teams es calificado por la revista TIME como el mejor invento de 2022.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Mesh for Teams és qualificat per la revista TIME com el millor invent de 2022",
+      "b1": "Mesh for Teams és qualificat per la revista TIME com un dels millors invents de 2022."
+    },
+    "gl": {
+      "title": "Mesh for Teams é cualificado pola revista TIME como o mellor invento de 2022",
+      "b1": "Mesh for Teams é cualificado pola revista TIME como un dos mellores inventos de 2022."
+    },
+    "eu": {
+      "title": "Mesh for Teams TIME aldizkariak 2022ko asmakizun onenatzat jotzen du",
+      "b1": "Mesh for Teams TIME aldizkariak 2022ko asmakizun onenetako batetzat jotzen du."
+    }
+  },
+  "22-12-13-Hoy pensando en posibles usos de ChatGPT ....html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Avui pensant en possibles usos de ChatGPT ...",
+      "b1": "Avui pensant en possibles usos de ChatGPT he arribat a la conclusió que habitualment el que més em costa és descriure-li al Dall-E el que vull, però en això ChatGPT és força bo (per no dir increïble). A la primera imatge es pot veure el resultat d'un prompt a Dall-E amb el que jo vull, a la segona imatge un prompt a ChatGPT i el resultat que em dona i a la tercera imatge el resultat del prompt que li he demanat a ChatGPT generat per Dall-E."
+    },
+    "gl": {
+      "title": "Hoxe pensando en posibles usos de ChatGPT ...",
+      "b1": "Hoxe pensando en posibles usos de ChatGPT cheguei á conclusión de que habitualmente o que máis me custa é describirlle a Dall-E o que quero, pero niso ChatGPT é bastante bo (por non dicir incrible). Na primeira imaxe pódese ver o resultado dun prompt a Dall-E co que eu quero, na segunda imaxe un prompt a ChatGPT e o resultado que me dá e na terceira imaxe o resultado do prompt que lle pedín a ChatGPT xerado por Dall-E."
+    },
+    "eu": {
+      "title": "Gaur ChatGPT-ren erabilera posibleetan pentsatzen ...",
+      "b1": "Gaur ChatGPT-ren erabilera posibleetan pentsatzen ondorio honetara iritsi naiz: normalean gehien kostatzen zaidana Dall-E-ri nahi dudana deskribatzea da, baina horretan ChatGPT nahiko ona da (izugarria ez esateagatik). Lehen irudian Dall-E-ri nahi dudanarekin egindako prompt baten emaitza ikus daiteke, bigarren irudian ChatGPT-ri egindako prompt bat eta ematen didan emaitza eta hirugarren irudian ChatGPT-ri eskatu diodan prompt-aren emaitza Dall-E-k sortuta."
+    }
+  },
+  "22-12-15-Microsoft mete en catalogo CPSTIC Microsoft Defender for Endpoint.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Microsoft inclou al catàleg CPSTIC Microsoft Defender for Endpoint",
+      "b1": "Microsoft té el plaer d'anunciar la certificació de <strong>Microsoft Defender for Endpoint</strong> <a href=\"https://lnkd.in/dEckkePh\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/dEckkePh</a> com a producte qualificat i que compleix els requisits de seguretat exigits per al maneig d'informació sensible a l'ENS, en la categoria ALTA. L'avaluació l'ha realitzada Brightsight (Madrid Lab) i serà inclòs a la propera actualització del catàleg de seguretat STIC-105 del CCN-CERT Centro Criptológico Nacional."
+    },
+    "gl": {
+      "title": "Microsoft mete no catálogo CPSTIC Microsoft Defender for Endpoint",
+      "b1": "Microsoft ten o pracer de anunciar a certificación de <strong>Microsoft Defender for Endpoint</strong> <a href=\"https://lnkd.in/dEckkePh\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/dEckkePh</a> como produto cualificado e que cumpre os requisitos de seguridade esixidos para o manexo de información sensible no ENS, na categoría ALTA. A avaliación foi realizada por Brightsight (Madrid Lab) e será incluído na próxima actualización do catálogo de seguridade STIC-105 do CCN-CERT Centro Criptolóxico Nacional."
+    },
+    "eu": {
+      "title": "Microsoft-ek CPSTIC katalogoan sartzen du Microsoft Defender for Endpoint",
+      "b1": "Microsoft-ek <strong>Microsoft Defender for Endpoint</strong> <a href=\"https://lnkd.in/dEckkePh\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/dEckkePh</a> ziurtagiria iragartzeko plazera du, ENS-en informazio sentikorra kudeatzeko eskatzen diren segurtasun-eskakizunak betetzen dituen produktu kualifikatu gisa, ALTA kategorian. Ebaluazioa Brightsight-ek (Madrid Lab) egin du eta CCN-CERT Centro Criptológico Nacional-en STIC-105 segurtasun-katalogoaren hurrengo eguneraketan sartuko da."
+    }
+  }
+}

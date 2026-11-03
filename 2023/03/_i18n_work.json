@@ -1,0 +1,98 @@
+{
+  "23-03-02-Hoy hemos estado en el Microsoft SecurityTechDay.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Avui hem estat al Microsoft SecurityTechDay",
+      "b1": "Avui hem estat al Microsoft #SecurityTechDay organitzat per Ironhack Spain i MyPublicInbox parlant de #ciberseguretat. Un plaer sempre estar envoltat de gent tan maca."
+    },
+    "gl": {
+      "title": "Hoxe estivemos no Microsoft SecurityTechDay",
+      "b1": "Hoxe estivemos no Microsoft #SecurityTechDay organizado por Ironhack Spain e MyPublicInbox falando de #ciberseguridade. Un pracer sempre estar rodeado de xente tan agradable."
+    },
+    "eu": {
+      "title": "Gaur Microsoft SecurityTechDay-n egon gara",
+      "b1": "Gaur Ironhack Spain eta MyPublicInbox-ek antolatutako Microsoft #SecurityTechDay-n egon gara #zibersegurtasunaz hizketan. Plazera beti hain jende atseginez inguratuta egotea."
+    }
+  },
+  "23-03-14-Espero explicarlo bien, hoy se anuncia todo esto.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Espero explicar-ho bé, avui s'anuncia tot això",
+      "b1": "Espero explicar-ho bé, avui s'anuncia tot això, (no perdeu el temps amb cants de sirena):"
+    },
+    "gl": {
+      "title": "Espero explicalo ben, hoxe anúnciase todo isto",
+      "b1": "Espero explicalo ben, hoxe anúnciase todo isto, (non perdades o tempo con cantos de serea):"
+    },
+    "eu": {
+      "title": "Espero dut ondo azaltzea, gaur hau guztia iragartzen da",
+      "b1": "Espero dut ondo azaltzea, gaur hau guztia iragartzen da, (ez galdu denbora sirena-kantuekin):"
+    }
+  },
+  "23-03-20-AXON Tech Summit.html": {
+    "es": { "title": "", "b1": "", "b2": "" },
+    "ca": {
+      "title": "AXON Tech Summit",
+      "b1": "Setmana plena d'activitat, demà dimarts seré amb Axon al #Axontechsummit participant a la taula rodona Axon Evidence - Eficàcia de Dades i Seguretat al Districte Telefónica.",
+      "b2": "Més detalls a -&gt; <a href=\"https://lnkd.in/e29u8cwt\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/e29u8cwt</a>"
+    },
+    "gl": {
+      "title": "AXON Tech Summit",
+      "b1": "Semana chea de actividade, mañá martes estarei con Axon no #Axontechsummit participando na mesa redonda Axon Evidence - Eficacia de Datos e Seguridade no Distrito Telefónica.",
+      "b2": "Máis detalles en -&gt; <a href=\"https://lnkd.in/e29u8cwt\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/e29u8cwt</a>"
+    },
+    "eu": {
+      "title": "AXON Tech Summit",
+      "b1": "Jarduera betez astea, bihar asteartea Axon-ekin egongo naiz #Axontechsummit-en, Telefónica Barrutiko Axon Evidence - Datuen Eraginkortasuna eta Segurtasuna mahai-inguruan parte hartzen.",
+      "b2": "Xehetasun gehiago hemen -&gt; <a href=\"https://lnkd.in/e29u8cwt\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/e29u8cwt</a>"
+    }
+  },
+  "23-03-21-AXON Tech Summit.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "AXON Tech Summit",
+      "b1": "Des de Microsoft volem donar les gràcies a Axon Spain per convidar-nos a aquest magnífic esdeveniment i a Telefónica per facilitar la trobada i el partnership."
+    },
+    "gl": {
+      "title": "AXON Tech Summit",
+      "b1": "Desde Microsoft queremos dar as grazas a Axon Spain por convidarnos a este magnífico evento e a Telefónica por facilitar o encontro e o partnership."
+    },
+    "eu": {
+      "title": "AXON Tech Summit",
+      "b1": "Microsoft-etik Axon Spain-i eskerrak eman nahi dizkiogu ekitaldi bikain honetara gonbidatzeagatik eta Telefónica-ri topaketa eta partnership-a erraztu izanagatik."
+    }
+  },
+  "23-03-22-Evento InforSalud.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Esdeveniment InforSalud",
+      "b1": "Avui he participat a l'esdeveniment d'#Inforsalud representant Microsoft i organitzat per la Sociedad Española Informática de la Salud"
+    },
+    "gl": {
+      "title": "Evento InforSalud",
+      "b1": "Hoxe participei no evento de #Inforsalud representando a Microsoft e organizado pola Sociedad Española Informática de la Salud"
+    },
+    "eu": {
+      "title": "InforSalud ekitaldia",
+      "b1": "Gaur #Inforsalud ekitaldian parte hartu dut Microsoft ordezkatuz eta Sociedad Española Informática de la Salud-ek antolatua"
+    }
+  },
+  "23-03-28-Microsoft Security Copilot es el primer producto de ciberseguridad potenciado por IA.html": {
+    "es": { "title": "", "b1": "", "b3": "" },
+    "ca": {
+      "title": "Microsoft Security Copilot és el primer producte de ciberseguretat potenciat per IA",
+      "b1": "Microsoft Security #Copilot és el primer producte de seguretat que permet detectar patrons, reforçar les defenses i respondre als incidents amb més rapidesa gràcies a la IA generativa. Security Copilot combina el model de llenguatge generatiu d'OpenAI amb un model d'IA específic de seguretat desenvolupat per Microsoft.",
+      "b3": "Aquest model específic de seguretat incorpora un conjunt de capacitats que li permeten sintetitzar dades, obtenir informació de vulnerabilitats, reforçar les defenses dels teus actius, donar millor resposta als incidents i guardar tota aquesta informació per col·laborar amb els teus companys a través d'un Pin Board o emmagatzemar els Prompts al teu Prompt Book per reutilitzar-los. Tot això alimentat per la intel·ligència global de seguretat de Microsoft, amb més de 65 bilions de senyals diaris."
+    },
+    "gl": {
+      "title": "Microsoft Security Copilot é o primeiro produto de ciberseguridade potenciado por IA",
+      "b1": "Microsoft Security #Copilot é o primeiro produto de seguridade que permite detectar patróns, reforzar as defensas e responder aos incidentes con maior rapidez grazas á IA xenerativa. Security Copilot combina o modelo de linguaxe xenerativa de OpenAI cun modelo de IA específico de seguridade desenvolvido por Microsoft.",
+      "b3": "Este modelo específico de seguridade incorpora un conxunto de capacidades que lle permiten sintetizar datos, obter información de vulnerabilidades, reforzar as defensas dos teus activos, dar mellor resposta aos incidentes e gardar toda esa información para colaborar cos teus compañeiros a través dun Pin Board ou almacenar os Prompts no teu Prompt Book para reutilizalos. Todo isto alimentado pola intelixencia global de seguridade de Microsoft, con máis de 65 billóns de sinais diarios."
+    },
+    "eu": {
+      "title": "Microsoft Security Copilot IAk bultzatutako lehen zibersegurtasun-produktua da",
+      "b1": "Microsoft Security #Copilot patroiak detektatzeko, defentsak indartzeko eta intzidenteei azkarrago erantzuteko aukera ematen duen lehen segurtasun-produktua da IA sortzaileari esker. Security Copilot-ek OpenAI-ren hizkuntza sortzaileko eredua Microsoft-ek garatutako segurtasun-IA eredu espezifiko batekin konbinatzen du.",
+      "b3": "Segurtasun-eredu espezifiko honek datuak sintetizatzeko, ahultasunei buruzko informazioa lortzeko, zure aktiboen defentsak indartzeko, intzidenteei erantzun hobea emateko eta informazio hori guztia gordetzeko gaitasun multzo bat txertatzen du, zure lankideekin Pin Board baten bidez kolaboratzeko edo Prompt-ak zure Prompt Book-ean gordetzeko berrerabiltzeko. Hori guztia Microsoft-en segurtasun-adimen globalak elikatua, eguneroko 65 bilioi seinale baino gehiagorekin."
+    }
+  }
+}

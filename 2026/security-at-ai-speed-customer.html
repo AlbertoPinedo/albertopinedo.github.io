@@ -522,7 +522,7 @@ function TabBase() {
 
 function App() {
   const [tab, setTab] = React.useState('defensa');
-  const imgUrl = "media/security-ai-speed-gladiator-v2.png";
+  const imgUrl = "06/media/security-ai-speed-gladiator-v2.png";
 
   const tabs = [
     { id: 'defensa', icon: '🛡️', label: 'Defenderse con IA', border: 'border-cyan-400' },
@@ -534,6 +534,8 @@ function App() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-10">
       <ThemeToggle/>
+
+      <p className="mb-6 no-print"><a href="../index.html" className="text-cyan-300 hover:text-cyan-200 font-medium">← Volver al inicio</a></p>
 
       {/* HERO */}
       <header className="card overflow-hidden mb-10">

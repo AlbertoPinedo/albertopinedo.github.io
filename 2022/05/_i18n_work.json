@@ -1,0 +1,62 @@
+{
+  "22-05-07-CCN-CERT publica informe protección cargas de trabajo cloud.html": {
+    "es": { "title": "", "b1": "", "b3": "", "b4": "" },
+    "ca": {
+      "title": "El CCN-CERT publica un informe sobre protecció de càrregues de treball cloud",
+      "b1": "Recentment el CCN-CERT Centro Criptológico Nacional va fer públic aquest informe que tracta les consideracions de protecció de les dades amb tecnologies Microsoft a l'entorn de les administracions públiques.",
+      "b3": "Els organismes públics necessiten assegurar un nivell de protecció adequat per a les seves dades i càrregues de treball al núvol. Els proveïdors de solucions al núvol (CSP) ofereixen la possibilitat que els seus clients utilitzin el núvol públic i, tot i que se sap que hi ha dades que difícilment abandonaran els centres de dades del client, hi ha altres dades que amb les salvaguardes adequades poden comptar amb els beneficis d'usar el núvol públic i solucions d'hibridació que permeten continuar aprofitant la potència dels serveis d'#Azure.",
+      "b4": "De fet, tenen cada vegada més present la protecció i la sobirania de les dades mitjançant un aïllament adequat amb independència del tractament (repòs, trànsit i en ús). En definitiva, el propòsit és que els serveis al núvol suportin arquitectures que equilibrin el compromís entre seguretat, compliment de la legislació, protecció de les dades, sobirania de les dades, funcionalitat, control, innovació, oferint a l'usuari flexibilitat d'elecció. #microsoft #seguridad #ciberseguridad #proteccióndedatos"
+    },
+    "gl": {
+      "title": "O CCN-CERT publica informe protección cargas de traballo cloud",
+      "b1": "Recentemente o CCN-CERT Centro Criptolóxico Nacional fixo público este informe que trata as consideracións de protección do dato con tecnoloxías Microsoft no contorno das administracións públicas.",
+      "b3": "Os organismos públicos necesitan asegurar un nivel de protección adecuado para os seus datos e cargas de traballo na nube. Os provedores de solucións na nube (CSP) brindan a posibilidade de que os seus clientes utilicen a nube pública e aínda que se é consciente de que existen datos que dificilmente abandonarán os centros de datos de cliente, existen outros datos que coas salvagardas adecuadas poden contar cos beneficios de usar a nube pública e solucións de hibridación que permiten seguir aproveitando a potencia dos servizos de #Azure.",
+      "b4": "De feito, teñen cada vez máis presente a protección e a soberanía do dato mediante un illamento adecuado con independencia do tratamento (repouso, tránsito e en uso). En definitiva, o propósito é que os servizos na nube soporten arquitecturas que equilibren o compromiso entre seguridade, cumprimento da lexislación, protección do dato, soberanía do dato, funcionalidade, control, innovación, ofrecendo ao usuario flexibilidade de elección. #microsoft #seguridad #ciberseguridad #proteccióndedatos"
+    },
+    "eu": {
+      "title": "CCN-CERT-ek cloud lan-kargen babesari buruzko txostena argitaratzen du",
+      "b1": "Duela gutxi CCN-CERT Centro Criptológico Nacional-ek txosten hau argitaratu zuen, administrazio publikoen ingurunean Microsoft teknologiekin datuen babesari buruzko gogoetak jorratzen dituena.",
+      "b3": "Erakunde publikoek babes-maila egokia bermatu behar dute beren datu eta lan-kargentzat hodeian. Hodeiko irtenbideen hornitzaileek (CSP) beren bezeroei hodei publikoa erabiltzeko aukera ematen diete eta, jakina den arren bezeroaren datu-zentroak nekez utziko dituzten datuak daudela, badira beste datu batzuk babes egokiekin hodei publikoa erabiltzearen onurak izan ditzaketenak eta #Azure zerbitzuen potentzia aprobetxatzen jarraitzeko aukera ematen duten hibridazio-irtenbideak.",
+      "b4": "Izan ere, gero eta presenteago dute datuen babesa eta subiranotasuna isolamendu egoki baten bidez, tratamenduaren independentziaz (atseden, igarobide eta erabileran). Azken finean, helburua da hodeiko zerbitzuek arkitekturak onartzea, segurtasuna, legediaren betetzea, datuen babesa, datuen subiranotasuna, funtzionaltasuna, kontrola eta berrikuntzaren arteko konpromisoa orekatuz, erabiltzaileari aukeratzeko malgutasuna eskainiz. #microsoft #seguridad #ciberseguridad #proteccióndedatos"
+    }
+  },
+  "22-05-20-Jornada de visitas de nuestro Presidente y Vice Chairman Brad Smith.html": {
+    "es": { "title": "", "b1": "" },
+    "ca": {
+      "title": "Jornada de visites del nostre President i Vice Chairman Brad Smith",
+      "b1": "Jornada de visites del nostre President i Vice Chair de Microsoft Brad Smith"
+    },
+    "gl": {
+      "title": "Xornada de visitas do noso Presidente e Vice Chairman Brad Smith",
+      "b1": "Xornada de visitas do noso Presidente e Vice Chair de Microsoft Brad Smith"
+    },
+    "eu": {
+      "title": "Gure Presidente eta Vice Chairman Brad Smith-en bisita-jardunaldia",
+      "b1": "Gure Presidente eta Microsoft-eko Vice Chair Brad Smith-en bisita-jardunaldia"
+    }
+  },
+  "22-05-25-La gestión de riesgos juega un papel fundamental en la postura de seguridad.html": {
+    "es": { "title": "", "b1": "", "b2": "", "b3": "", "b4": "" },
+    "ca": {
+      "title": "La gestió de riscos juga un paper fonamental en la postura de seguretat",
+      "b1": "La gestió de riscos juga un paper fonamental a l'hora d'ajudar les organitzacions a millorar la seva postura de seguretat.",
+      "b2": "Si prenem com a exemple els incidents que s'originen des de dins d'una organització, no només tenen un cost elevat per a les organitzacions, sinó que la seva contenció requereix molt de temps.",
+      "b3": "Sovint, i donats els recursos limitats, hem vist que moltes organitzacions solen donar prioritat a la inversió en controls de seguretat per abordar els riscos més crítics. D'aquesta manera, el ROI es maximitza protegint eficaçment els actius de les organitzacions, així com les seves operacions comercials.",
+      "b4": "La gestió de riscos és una activitat contínua, però estan les organitzacions al corrent de les evolucions en el panorama digital i de les noves amenaces?"
+    },
+    "gl": {
+      "title": "A xestión de riscos xoga un papel fundamental na postura de seguridade",
+      "b1": "A xestión de riscos xoga un papel fundamental á hora de axudar ás organizacións a mellorar a súa postura de seguridade.",
+      "b2": "Se tomamos como exemplo os incidentes que se orixinan desde dentro dunha organización, non só teñen un elevado custo para as organizacións, senón que a súa contención require moito tempo.",
+      "b3": "A miúdo e dados os limitados recursos, vimos que moitas organizacións adoitan dar prioridade ao investimento en controis de seguridade para abordar os riscos máis críticos. Deste modo, o ROI maximízase ao protexer eficazmente os activos das organizacións, así como as súas operacións comerciais.",
+      "b4": "A xestión de riscos é unha actividade continua, pero están as organizacións ao tanto das evolucións no panorama dixital e das novas ameazas?"
+    },
+    "eu": {
+      "title": "Arriskuen kudeaketak funtsezko papera jokatzen du segurtasun-jarreran",
+      "b1": "Arriskuen kudeaketak funtsezko papera jokatzen du erakundeei beren segurtasun-jarrera hobetzen laguntzeko orduan.",
+      "b2": "Erakunde baten barrutik sortzen diren gertakariak adibide gisa hartzen baditugu, erakundeentzat kostu handia izateaz gain, haien geldiarazpenak denbora asko behar du.",
+      "b3": "Maiz, eta baliabide mugatuak direla eta, ikusi dugu erakunde askok lehentasuna ematen diotela segurtasun-kontroletan inbertitzeari arrisku kritikoenei aurre egiteko. Horrela, ROIa maximizatzen da erakundeen aktiboak eta haien merkataritza-eragiketak modu eraginkorrean babestuz.",
+      "b4": "Arriskuen kudeaketa jarduera jarraitua da, baina erakundeak jakitun dira ingurune digitalaren bilakaeraz eta mehatxu berriez?"
+    }
+  }
+}
