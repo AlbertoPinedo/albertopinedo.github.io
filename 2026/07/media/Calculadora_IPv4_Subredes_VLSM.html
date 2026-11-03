@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#123354">
-<title>Laboratorio IPv4 — Máscaras y subredes VLSM</title>
+<title data-i18n="title">Laboratorio IPv4 — Máscaras y subredes VLSM</title>
 <script>
 (() => {
   const param = new URLSearchParams(window.location.search).get("scoutTheme");
@@ -124,8 +124,134 @@ html[data-theme="dark"] {
 <script>
 (()=>{'use strict';
 const $=id=>document.getElementById(id);
+let currentLang='es';
+const languages={es:0,ca:1,gl:2,eu:3};
+const locales={es:'es-ES',ca:'ca-ES',gl:'gl-ES',eu:'eu-ES'};
+const ES_BASE={};
+document.querySelectorAll('[data-i18n]').forEach(el=>{ES_BASE[el.dataset.i18n]=el.innerHTML;});
+document.querySelectorAll('[data-i18n-aria]').forEach(el=>{ES_BASE[el.dataset.i18nAria]=el.getAttribute('aria-label');});
+const I18N={
+title:['Laboratori IPv4 — Màscares i subxarxes VLSM','Laboratorio IPv4 — Máscaras e subredes VLSM','IPv4 laborategia — Maskarak eta VLSM azpisareak'],
+navigation:['Navegació','Navegación','Nabigazioa'],
+language:['Idioma','Idioma','Hizkuntza'],
+back:['← Tornar a l’índex','← Volver ao índice','← Aurkibidera itzuli'],
+eyebrow:['Laboratori de xarxes · IPv4','Laboratorio de redes · IPv4','Sareen laborategia · IPv4'],
+heading:['Màscares i subxarxes,<br>pas a pas','Máscaras e subredes,<br>paso a paso','Maskarak eta azpisareak,<br>urratsez urrats'],
+subtitle:['Aprèn què significa /27, calcula la xarxa i el broadcast i dissenya les VLAN de la teva empresa. Tot funciona sense connexió a Internet.','Aprende que significa /27, calcula a rede e o broadcast e deseña as VLAN da túa empresa. Todo funciona sen conexión a Internet.','Ikasi zer den /27, kalkulatu sarea eta broadcast-a eta diseinatu zure enpresaren VLANak. Dena Interneteko konexiorik gabe dabil.'],
+intro:['<strong>La idea:</strong> una IP té <strong>32 bits</strong>. El prefix indica quants són de <strong>xarxa</strong>; la resta serveixen per a les <strong>adreces dels dispositius</strong>. En una subxarxa habitual es reserven dues adreces: xarxa i broadcast. <strong>Hosts utilitzables = 2<sup>32 − prefix</sup> − 2</strong>.','<strong>A idea:</strong> unha IP ten <strong>32 bits</strong>. O prefixo indica cantos son de <strong>rede</strong>; os restantes serven para os <strong>enderezos dos dispositivos</strong>. Nunha subrede habitual resérvanse dous enderezos: rede e broadcast. <strong>Hosts utilizables = 2<sup>32 − prefixo</sup> − 2</strong>.','<strong>Ideia:</strong> IP batek <strong>32 bit</strong> ditu. Aurrizkiak <strong>sareko</strong> zenbat diren adierazten du; gainerakoak <strong>gailuen helbideetarako</strong> dira. Ohiko azpisare batean bi helbide gordetzen dira: sarea eta broadcast-a. <strong>Host erabilgarriak = 2<sup>32 − aurrizkia</sup> − 2</strong>.'],
+calculator:['Seleccionar calculadora','Seleccionar calculadora','Hautatu kalkulagailua'],
+basicTab:['1 · Entendre la màscara','1 · Entender a máscara','1 · Maskara ulertu'],
+planTab:['2 · Dissenyar les subxarxes','2 · Deseñar as subredes','2 · Azpisareak diseinatu'],
+tryIP:['Prova una IP i canvia el prefix','Proba unha IP e cambia o prefixo','Probatu IP bat eta aldatu aurrizkia'],
+ipv4:['Adreça IPv4','Enderezo IPv4','IPv4 helbidea'],
+example:['Exemple: 192.168.10.13','Exemplo: 192.168.10.13','Adibidea: 192.168.10.13'],
+subnetPrefix:['Prefix de subxarxa','Prefixo de subrede','Azpisarearen aurrizkia'],
+largeNetworks:['/16 · xarxes grans','/16 · redes grandes','/16 · sare handiak'],
+smallNetworks:['/30 · xarxes petites','/30 · redes pequenas','/30 · sare txikiak'],
+try27:['Provar /27','Probar /27','Probatu /27'],
+try28:['Provar /28','Probar /28','Probatu /28'],
+try29:['Provar /29','Probar /29','Probatu /29'],
+binaryHeading:['Així es veu la màscara en binari','Así se ve a máscara en binario','Honela ikusten da maskara bitarrean'],
+maskBits:['Els 32 bits de la màscara','Os 32 bits da máscara','Maskararen 32 bitak'],
+networkBit:['1 = bit de xarxa','1 = bit de rede','1 = sare-bita'],
+hostBit:['0 = bit de host','0 = bit de host','0 = host-bita'],
+results:['Resultats','Resultados','Emaitzak'],
+decimalMask:['Màscara decimal','Máscara decimal','Maskara hamartarra'],
+networkAddress:['Adreça de xarxa','Enderezo de rede','Sare-helbidea'],
+firstHost:['Primer host','Primeiro host','Lehen hosta'],
+lastHost:['Últim host','Último host','Azken hosta'],
+usableHosts:['Hosts utilitzables','Hosts utilizables','Host erabilgarriak'],
+whyMask:['Per què es forma així la màscara?','Por que se forma así a máscara?','Zergatik osatzen da horrela maskara?'],
+octetValues:['En l’últim octet, els bits activats tenen aquests valors:','No último octeto, os bits activados teñen estes valores:','Azken zortzikotean, aktibatutako bitek balio hauek dituzte:'],
+binaryExample:['Exemple: /27 té 27 uns a la màscara i queden cinc zeros. A l’últim octet hi ha <strong>11100000</strong>: 128 + 64 + 32 = <strong>224</strong>. Així obtenim <strong>255.255.255.224</strong>.','Exemplo: /27 ten 27 uns na máscara e quedan cinco ceros. No último octeto hai <strong>11100000</strong>: 128 + 64 + 32 = <strong>224</strong>. Así obtemos <strong>255.255.255.224</strong>.','Adibidea: /27 maskarak 27 bateko eta bost zero ditu. Azken zortzikotean <strong>11100000</strong> dago: 128 + 64 + 32 = <strong>224</strong>. Horrela, <strong>255.255.255.224</strong> lortzen dugu.'],
+design:['Dissenya les subxarxes d’una empresa','Deseña as subredes dunha empresa','Diseinatu enpresa baten azpisareak'],
+designHelp:['L’exemple comença amb les cinc VLAN del teu projecte, però pots modificar totes les quantitats, afegir grups i provar altres màscares.','O exemplo comeza coas cinco VLAN do teu proxecto, pero podes modificar todas as cantidades, engadir grupos e probar outras máscaras.','Adibidea zure proiektuko bost VLANekin hasten da, baina kopuru guztiak aldatu, taldeak gehitu eta beste maskara batzuk proba ditzakezu.'],
+baseNetwork:['Xarxa principal','Rede principal','Sare nagusia'],
+basePrefix:['Prefix de xarxa principal','Prefixo de rede principal','Sare nagusiaren aurrizkia'],
+block22:['/22 · 1024 adreces','/22 · 1024 enderezos','/22 · 1024 helbide'],
+block23:['/23 · 512 adreces','/23 · 512 enderezos','/23 · 512 helbide'],
+block24:['/24 · 256 adreces','/24 · 256 enderezos','/24 · 256 helbide'],
+block25:['/25 · 128 adreces','/25 · 128 enderezos','/25 · 128 helbide'],
+block26:['/26 · 64 adreces','/26 · 64 enderezos','/26 · 64 helbide'],
+countHelp:['Compta <strong>interfícies que necessiten IP</strong>, no només persones. Afegeix 1 per a la passarel·la si cal, i decideix quantes IP lliures vols garantir.','Conta <strong>interfaces que necesitan IP</strong>, non só persoas. Engade 1 para a pasarela se é necesaria, e decide cantas IP libres queres garantir.','Zenbatu <strong>IPa behar duten interfazeak</strong>, ez soilik pertsonak. Gehitu 1 atebiderako, beharrezkoa bada, eta erabaki zenbat IP libre bermatu nahi dituzun.'],
+fixed:['Conservar les màscares del projecte','Conservar as máscaras do proxecto','Mantendu proiektuko maskarak'],
+auto:['Calcular màscares mínimes (VLSM)','Calcular máscaras mínimas (VLSM)','Kalkulatu gutxieneko maskarak (VLSM)'],
+group:['Grup','Grupo','Taldea'],
+interfaces:['Interfícies IP','Interfaces IP','IP interfazeak'],
+reserve:['Reserva d’IP','Reserva de IP','IP erreserba'],
+prefix:['Prefix','Prefixo','Aurrizkia'],
+add:['+ Afegir departament','+ Engadir departamento','+ Gehitu saila'],
+reset:['Restablir empresa','Restablecer empresa','Berrezarri enpresa'],
+allocation:['Resultat de la distribució','Resultado da distribución','Banaketaren emaitza'],
+allocationAria:['Distribució d’adreces del bloc IPv4','Distribución de enderezos do bloque IPv4','IPv4 blokearen helbide-banaketa'],
+networkPrefix:['Xarxa / prefix','Rede / prefixo','Sarea / aurrizkia'],
+mask:['Màscara','Máscara','Maskara'],
+usefulHosts:['Hosts útils','Hosts útiles','Host erabilgarriak'],
+freeIPs:['IP lliures','IP libres','IP libreak'],
+copy:['Copiar taula','Copiar táboa','Kopiatu taula'],
+download:['Descarregar CSV','Descargar CSV','Deskargatu CSV'],
+reasons:['Explicació del càlcul per a cada departament','Explicación do cálculo para cada departamento','Sail bakoitzaren kalkuluaren azalpena'],
+important:['<strong>Important!</strong> Una IP lliure és espai de reserva, <strong>no un dispositiu comprat</strong>. Un portàtil pot tenir IP per Wi-Fi i IP per Ethernet. La passarel·la utilitza una adreça per VLAN; un dock USB-C no sempre necessita una IP pròpia. El càlcul és d’adreçament, no configura per si sol el tallafoc ni les VLAN.','<strong>Importante!</strong> Unha IP libre é espazo de reserva, <strong>non un dispositivo comprado</strong>. Un portátil pode ter IP por Wi-Fi e IP por Ethernet. A pasarela utiliza un enderezo por VLAN; un dock USB-C non sempre necesita unha IP propia. O cálculo é de direccionamento, non configura por si só a devasa nin as VLAN.','<strong>Garrantzitsua!</strong> IP libre bat erreserbarako espazioa da, <strong>ez erositako gailu bat</strong>. Ordenagailu eramangarri batek Wi-Fi bidezko IPa eta Ethernet bidezko IPa izan ditzake. Atebideak helbide bat erabiltzen du VLAN bakoitzeko; USB-C dock batek ez du beti IP propioa behar. Kalkulua helbideratzeari dagokio; ez ditu berez suebakia edo VLANak konfiguratzen.'],
+footer:['Laboratori educatiu sense connexió a Internet. Dissenyat per a IPv4 convencional amb subxarxes /30 a /16. Per a enllaços /31 i hosts /32 s’utilitzen altres regles. El resultat s’ha de contrastar amb l’inventari real i les necessitats d’expansió.','Laboratorio educativo sen conexión a Internet. Deseñado para IPv4 convencional con subredes /30 a /16. Para ligazóns /31 e hosts /32 utilízanse outras regras. O resultado debe contrastarse co inventario real e as necesidades de expansión.','Interneteko konexiorik gabeko hezkuntza-laborategia. IPv4 arrunterako diseinatua, /30 eta /16 arteko azpisareekin. /31 loturetarako eta /32 hostetarako beste arau batzuk erabiltzen dira. Emaitza benetako inbentarioarekin eta hazkunde-beharrekin alderatu behar da.']
+};
+const MESSAGES={
+network:['red','xarxa','rede','sarea'],
+binaryMask:['Máscara binaria: ','Màscara binària: ','Máscara binaria: ','Maskara bitarra: '],
+formula:['32 − {p} = <strong>{bits} bits para hosts</strong><br>2<sup>{bits}</sup> = {size} direcciones totales<br>{size} − 2 = <strong>{hosts} hosts utilizables</strong>','32 − {p} = <strong>{bits} bits per a hosts</strong><br>2<sup>{bits}</sup> = {size} adreces totals<br>{size} − 2 = <strong>{hosts} hosts utilitzables</strong>','32 − {p} = <strong>{bits} bits para hosts</strong><br>2<sup>{bits}</sup> = {size} enderezos totais<br>{size} − 2 = <strong>{hosts} hosts utilizables</strong>','32 − {p} = <strong>{bits} bit hostetarako</strong><br>2<sup>{bits}</sup> = {size} helbide guztira<br>{size} − 2 = <strong>{hosts} host erabilgarri</strong>'],
+invalidIP:['La dirección IPv4 debe tener cuatro números entre 0 y 255, separados por puntos (por ejemplo, 192.168.10.13).','L’adreça IPv4 ha de tenir quatre nombres entre 0 i 255, separats per punts (per exemple, 192.168.10.13).','O enderezo IPv4 debe ter catro números entre 0 e 255, separados por puntos (por exemplo, 192.168.10.13).','IPv4 helbideak 0 eta 255 arteko lau zenbaki izan behar ditu, puntuz bereizita (adibidez, 192.168.10.13).'],
+correctIP:['Corrige la dirección para calcular los rangos.','Corregeix l’adreça per calcular els rangs.','Corrixe o enderezo para calcular os rangos.','Zuzendu helbidea tarteak kalkulatzeko.'],
+explanation:['Con la máscara <strong>/{p}</strong>, la dirección {ip} pertenece a la red <strong>{network}/{p}</strong>. El bloque contiene direcciones desde {network} hasta {broadcast}. {status} La dirección de red identifica el conjunto y la de broadcast permite dirigirse a todo ese segmento.','Amb la màscara <strong>/{p}</strong>, l’adreça {ip} pertany a la xarxa <strong>{network}/{p}</strong>. El bloc conté adreces des de {network} fins a {broadcast}. {status} L’adreça de xarxa identifica el conjunt i la de broadcast permet adreçar-se a tot el segment.','Coa máscara <strong>/{p}</strong>, o enderezo {ip} pertence á rede <strong>{network}/{p}</strong>. O bloque contén enderezos desde {network} ata {broadcast}. {status} O enderezo de rede identifica o conxunto e o de broadcast permite dirixirse a todo ese segmento.','<strong>/{p}</strong> maskararekin, {ip} helbidea <strong>{network}/{p}</strong> sarekoa da. Blokeak {network} eta {broadcast} arteko helbideak ditu. {status} Sare-helbideak multzoa identifikatzen du, eta broadcast helbideak segmentu osoari zuzentzeko aukera ematen du.'],
+reservedIP:['<strong>La IP introducida es una dirección reservada (red o broadcast).</strong>','<strong>La IP introduïda és una adreça reservada (xarxa o broadcast).</strong>','<strong>A IP introducida é un enderezo reservado (rede ou broadcast).</strong>','<strong>Sartutako IPa helbide erreserbatua da (sarea edo broadcast-a).</strong>'],
+usableIP:['La IP introducida es una dirección utilizable para un dispositivo.','La IP introduïda és una adreça utilitzable per a un dispositiu.','A IP introducida é un enderezo utilizable para un dispositivo.','Sartutako IPa gailu baterako helbide erabilgarria da.'],
+offices:['Oficinas','Oficines','Oficinas','Bulegoak'],
+maintenance:['Mantenimiento','Manteniment','Mantemento','Mantentze-lanak'],
+management:['Gerencia','Gerència','Xerencia','Zuzendaritza'],
+backups:['Copias','Còpies','Copias','Kopiak'],
+administration:['Gestión','Gestió','Xestión','Kudeaketa'],
+newGroup:['Nuevo grupo','Grup nou','Novo grupo','Talde berria'],
+groupName:['Nombre del grupo {n}','Nom del grup {n}','Nome do grupo {n}','{n}. taldearen izena'],
+fieldFor:['{field} de {name}','{field} de {name}','{field} de {name}','{name}: {field}'],
+remove:['Eliminar {name}','Eliminar {name}','Eliminar {name}','Ezabatu {name}'],
+invalidBase:['Dirección principal incorrecta: introduce una IPv4 válida.','Adreça principal incorrecta: introdueix una IPv4 vàlida.','Enderezo principal incorrecto: introduce unha IPv4 válida.','Helbide nagusia okerra da: sartu baliozko IPv4 bat.'],
+aligned:['La dirección base se ha alineado al principio del bloque /{p}: {ip}.','L’adreça base s’ha alineat al principi del bloc /{p}: {ip}.','O enderezo base aliñouse ao principio do bloque /{p}: {ip}.','Oinarrizko helbidea /{p} blokearen hasierara lerrokatu da: {ip}.'],
+duplicateVLAN:['Hay números de VLAN repetidos. Deben ser únicos.','Hi ha números de VLAN repetits. Han de ser únics.','Hai números de VLAN repetidos. Deben ser únicos.','VLAN zenbakiak errepikatuta daude. Bakarrak izan behar dute.'],
+missingName:['Grupo {n}: falta el nombre.','Grup {n}: falta el nom.','Grupo {n}: falta o nome.','{n}. taldea: izena falta da.'],
+invalidNumbers:['{name}: revisa los números introducidos.','{name}: revisa els nombres introduïts.','{name}: revisa os números introducidos.','{name}: berrikusi sartutako zenbakiak.'],
+smallBase:['{name}: el bloque base es demasiado pequeño.','{name}: el bloc base és massa petit.','{name}: o bloque base é demasiado pequeno.','{name}: oinarrizko blokea txikiegia da.'],
+insufficient:['{name}: /{p} no tiene suficientes direcciones. Necesitas {needed}; /{min} sería el prefijo mínimo posible dentro del bloque.','{name}: /{p} no té prou adreces. En necessites {needed}; /{min} seria el prefix mínim possible dins del bloc.','{name}: /{p} non ten enderezos suficientes. Necesitas {needed}; /{min} sería o prefixo mínimo posible dentro do bloque.','{name}: /{p} aurrizkiak ez du nahikoa helbide. {needed} behar dituzu; /{min} izango litzateke blokearen barruko gutxieneko aurrizki posiblea.'],
+doesNotFit:['{name}: no cabe en {ip}/{p}. Amplía la red principal o reduce reservas.','{name}: no cap a {ip}/{p}. Amplia la xarxa principal o redueix les reserves.','{name}: non cabe en {ip}/{p}. Amplía a rede principal ou reduce as reservas.','{name}: ez da {ip}/{p} sarean sartzen. Handitu sare nagusia edo murriztu erreserbak.'],
+summary:['<span>Red: {ip}/{p}</span><span>{size} IP totales</span><span>{assigned} IP asignadas a subredes</span><span>{used} IP previstas en uso</span><span>{free} IP sin asignar</span>','<span>Xarxa: {ip}/{p}</span><span>{size} IP totals</span><span>{assigned} IP assignades a subxarxes</span><span>{used} IP previstes en ús</span><span>{free} IP sense assignar</span>','<span>Rede: {ip}/{p}</span><span>{size} IP totais</span><span>{assigned} IP asignadas a subredes</span><span>{used} IP previstas en uso</span><span>{free} IP sen asignar</span>','<span>Sarea: {ip}/{p}</span><span>{size} IP guztira</span><span>{assigned} IP azpisareei esleituta</span><span>{used} IP erabiltzea aurreikusita</span><span>{free} IP esleitu gabe</span>'],
+gap:['Hueco','Buit','Oco','Hutsunea'],
+noResults:['Todavía no hay resultados válidos.','Encara no hi ha resultats vàlids.','Aínda non hai resultados válidos.','Oraindik ez dago baliozko emaitzarik.'],
+smaller:['Una /{p} solo ofrece {hosts} hosts útiles.','Una /{p} només ofereix {hosts} hosts útils.','Unha /{p} só ofrece {hosts} hosts útiles.','/{p} azpisareak {hosts} host erabilgarri baino ez ditu.'],
+smallest:['Ya se utiliza la subred convencional más pequeña, /30.','Ja s’utilitza la subxarxa convencional més petita, /30.','Xa se utiliza a subrede convencional máis pequena, /30.','Dagoeneko ohiko azpisarerik txikiena erabiltzen da, /30.'],
+minimal:['Se está usando la máscara mínima necesaria.','S’està utilitzant la màscara mínima necessària.','Estase usando a máscara mínima necesaria.','Behar den gutxieneko maskara erabiltzen ari da.'],
+kept:['Se mantiene /{p} para disponer de más espacio que el mínimo /{min}.','Es manté /{p} per disposar de més espai que el mínim /{min}.','Mantense /{p} para dispoñer de máis espazo que o mínimo /{min}.','/{p} mantentzen da, gutxieneko /{min} baino espazio gehiago izateko.'],
+reason:['{devices} IP de interfaces + {gw} gateway + {reserve} reservadas = <b>{needed} direcciones necesarias</b>.<br>/{p} tiene <b>{usable} hosts utilizables</b>. {smaller} {why}<br>Quedan <b>{free}</b> IP sin asignar a dispositivos (incluida la reserva prevista).','{devices} IP d’interfícies + {gw} passarel·la + {reserve} reservades = <b>{needed} adreces necessàries</b>.<br>/{p} té <b>{usable} hosts utilitzables</b>. {smaller} {why}<br>Queden <b>{free}</b> IP sense assignar a dispositius (inclosa la reserva prevista).','{devices} IP de interfaces + {gw} pasarela + {reserve} reservadas = <b>{needed} enderezos necesarios</b>.<br>/{p} ten <b>{usable} hosts utilizables</b>. {smaller} {why}<br>Quedan <b>{free}</b> IP sen asignar a dispositivos (incluída a reserva prevista).','{devices} interfazeen IP + {gw} atebide + {reserve} erreserbatuta = <b>{needed} helbide behar dira</b>.<br>/{p} azpisareak <b>{usable} host erabilgarri</b> ditu. {smaller} {why}<br><b>{free}</b> IP geratzen dira gailuei esleitu gabe (aurreikusitako erreserba barne).'],
+subnet:['Subred','Subxarxa','Subrede','Azpisarea'],
+copied:['Tabla copiada.','Taula copiada.','Táboa copiada.','Taula kopiatuta.'],
+copyFailed:['No se pudo copiar desde este navegador. Usa el CSV.','No s’ha pogut copiar des d’aquest navegador. Utilitza el CSV.','Non se puido copiar desde este navegador. Usa o CSV.','Ezin izan da nabigatzaile honetatik kopiatu. Erabili CSV fitxategia.'],
+nothingToExport:['No hay resultados que exportar.','No hi ha resultats per exportar.','Non hai resultados que exportar.','Ez dago esportatzeko emaitzarik.'],
+downloaded:['CSV descargado.','CSV descarregat.','CSV descargado.','CSV deskargatuta.']
+};
+function t(key,values={}){
+const index=languages[currentLang],text=MESSAGES[key]?MESSAGES[key][index]:index===0?ES_BASE[key]:I18N[key]?.[index-1];
+if(typeof text!=='string')throw new Error('Missing translation: '+currentLang+'/'+key);
+return text.replace(/\{(\w+)\}/g,(_,name)=>{if(!Object.hasOwn(values,name))throw new Error('Missing translation value: '+key+'/'+name);return String(values[name]);});
+}
+function groupName(g){return g.nameKey?t(g.nameKey):g.name;}
+function setLang(lang){
+if(!Object.hasOwn(languages,lang))throw new Error('Unsupported language: '+lang);
+currentLang=lang;document.documentElement.lang=lang;
+document.querySelectorAll('[data-i18n]').forEach(el=>{el.innerHTML=t(el.dataset.i18n);});
+document.querySelectorAll('[data-i18n-aria]').forEach(el=>{el.setAttribute('aria-label',t(el.dataset.i18nAria));});
+document.querySelectorAll('#langbar button').forEach(button=>{const active=button.dataset.lang===lang;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});
+drawBasic();renderInputs();drawPlan();
+if($('export-state').dataset.message)$('export-state').textContent=t($('export-state').dataset.message);
+}
+document.querySelectorAll('#langbar button').forEach(button=>button.addEventListener('click',()=>setLang(button.dataset.lang)));
 const IP_COUNT=2**32;
-const numericFormat=n=>Number(n).toLocaleString('es-ES');
+const numericFormat=n=>Number(n).toLocaleString(locales[currentLang]);
 function htmlEscape(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function parseIPv4(s){const parts=String(s).trim().split('.');if(parts.length!==4||parts.some(p=>!/^(0|[1-9][0-9]{0,2})$/.test(p)||Number(p)>255))return null;return parts.reduce((acc,p)=>acc*256+Number(p),0);}
 function toIP(n){return [16777216,65536,256,1].map(v=>Math.floor(n/v)%256).join('.');}
@@ -137,65 +263,67 @@ function minPrefix(need,minAllowed){for(let p=30;p>=minAllowed;p--){if(useable(p
 function byIdSet(id,value){$(id).textContent=value;}
 function selectTab(tab){for(const t of ['basic','plan']){$('pane-'+t).classList.toggle('active',tab===t);$('tab-'+t).classList.toggle('active',tab===t);$('tab-'+t).setAttribute('aria-selected',String(tab===t));}if(tab==='plan')drawPlan();}
 $('tab-basic').addEventListener('click',()=>selectTab('basic'));$('tab-plan').addEventListener('click',()=>selectTab('plan'));
-function drawBasic(){const p=Number($('ip-prefix').value),ip=parseIPv4($('ip-address').value);byIdSet('prefix-output','/'+p);let raw='';for(let i=0;i<32;i++)raw+=`<span class="bit ${i<p?'net':'host'}" title="Bit ${i+1}: ${i<p?'red':'host'}">${i<p?'1':'0'}</span>`;$('mask-bits').innerHTML=raw;
+function drawBasic(){const p=Number($('ip-prefix').value),ip=parseIPv4($('ip-address').value);byIdSet('prefix-output','/'+p);let raw='';for(let i=0;i<32;i++)raw+=`<span class="bit ${i<p?'net':'host'}" title="Bit ${i+1}: ${i<p?t('network'):'host'}">${i<p?'1':'0'}</span>`;$('mask-bits').innerHTML=raw;
 const bytes=[...Array(4)].map((_,i)=>[...Array(8)].map((_,j)=>(i*8+j)<p?'1':'0').join(''));
-$('mask-binary').innerHTML='<div>Máscara binaria: '+bytes.join(' . ')+'</div>';
+$('mask-binary').innerHTML='<div>'+t('binaryMask')+bytes.join(' . ')+'</div>';
 byIdSet('out-mask',netmask(p));byIdSet('out-hosts',numericFormat(useable(p)));const hostbits=32-p,sz=blockSize(p);
-$('out-formula').innerHTML=`32 − ${p} = <strong>${hostbits} bits para hosts</strong><br>2<sup>${hostbits}</sup> = ${numericFormat(sz)} direcciones totales<br>${numericFormat(sz)} − 2 = <strong>${numericFormat(useable(p))} hosts utilizables</strong>`;
-if(ip===null){$('basic-error').classList.remove('hidden');$('basic-error').textContent='La dirección IPv4 debe tener cuatro números entre 0 y 255, separados por puntos (por ejemplo, 192.168.10.13).';['out-network','out-broadcast','out-first','out-last'].forEach(k=>byIdSet(k,'—'));$('out-explanation').textContent='Corrige la dirección para calcular los rangos.';return;}
-$('basic-error').classList.add('hidden');const n=netAt(ip,p),b=n+sz-1;byIdSet('out-network',toIP(n));byIdSet('out-broadcast',toIP(b));byIdSet('out-first',toIP(n+1));byIdSet('out-last',toIP(b-1));$('out-explanation').innerHTML=`Con la máscara <strong>/${p}</strong>, la dirección ${toIP(ip)} pertenece a la red <strong>${toIP(n)}/${p}</strong>. El bloque contiene direcciones desde ${toIP(n)} hasta ${toIP(b)}. ${ip===n||ip===b?'<strong>La IP introducida es una dirección reservada (red o broadcast).</strong>':'La IP introducida es una dirección utilizable para un dispositivo.'} La dirección de red identifica el conjunto y la de broadcast permite dirigirse a todo ese segmento.`;}
+$('out-formula').innerHTML=t('formula',{p,bits:hostbits,size:numericFormat(sz),hosts:numericFormat(useable(p))});
+if(ip===null){$('basic-error').classList.remove('hidden');$('basic-error').textContent=t('invalidIP');['out-network','out-broadcast','out-first','out-last'].forEach(k=>byIdSet(k,'—'));$('out-explanation').textContent=t('correctIP');return;}
+$('basic-error').classList.add('hidden');const n=netAt(ip,p),b=n+sz-1;byIdSet('out-network',toIP(n));byIdSet('out-broadcast',toIP(b));byIdSet('out-first',toIP(n+1));byIdSet('out-last',toIP(b-1));$('out-explanation').innerHTML=t('explanation',{p,ip:toIP(ip),network:toIP(n),broadcast:toIP(b),status:t(ip===n||ip===b?'reservedIP':'usableIP')});}
 $('ip-address').addEventListener('input',drawBasic);$('ip-prefix').addEventListener('input',drawBasic);document.querySelectorAll('[data-example]').forEach(b=>b.addEventListener('click',()=>{const p=Number(b.dataset.example);$('ip-prefix').value=p;$('ip-address').value=p===27?'192.168.10.13':p===28?'192.168.10.50':'192.168.10.34';drawBasic();}));
 const defaults=[
-{name:'Oficinas',vlan:10,devices:12,gw:1,reserve:2,prefix:27},
-{name:'Mantenimiento',vlan:20,devices:4,gw:1,reserve:0,prefix:29},
-{name:'Gerencia',vlan:30,devices:2,gw:1,reserve:0,prefix:29},
-{name:'Copias',vlan:40,devices:1,gw:1,reserve:5,prefix:28},
-{name:'Gestión',vlan:50,devices:2,gw:1,reserve:0,prefix:29}
+{name:'Oficinas',nameKey:'offices',vlan:10,devices:12,gw:1,reserve:2,prefix:27},
+{name:'Mantenimiento',nameKey:'maintenance',vlan:20,devices:4,gw:1,reserve:0,prefix:29},
+{name:'Gerencia',nameKey:'management',vlan:30,devices:2,gw:1,reserve:0,prefix:29},
+{name:'Copias',nameKey:'backups',vlan:40,devices:1,gw:1,reserve:5,prefix:28},
+{name:'Gestión',nameKey:'administration',vlan:50,devices:2,gw:1,reserve:0,prefix:29}
 ];
 let groups=defaults.map(g=>({...g})),allocationMode='fixed',lastResults=[];
 const palette=['#286ca8','#cf8b3e','#238f75','#8b6ab1','#a76167','#597aa5','#60944e','#ba7ca2'];
-function renderInputs(){$('group-rows').innerHTML=groups.map((g,i)=>`<tr data-index="${i}"><td><input class="name-input" type="text" data-field="name" aria-label="Nombre del grupo ${i+1}" value="${htmlEscape(g.name)}"></td><td><input type="number" min="1" max="4094" data-field="vlan" aria-label="VLAN de ${htmlEscape(g.name)}" value="${g.vlan}"></td><td><input type="number" min="0" max="65534" data-field="devices" aria-label="Interfaces IP de ${htmlEscape(g.name)}" value="${g.devices}"></td><td><select data-field="gw" aria-label="Gateway de ${htmlEscape(g.name)}"><option value="1" ${g.gw===1?'selected':''}>1</option><option value="0" ${g.gw===0?'selected':''}>0</option></select></td><td><input type="number" min="0" max="65534" data-field="reserve" aria-label="Reserva de ${htmlEscape(g.name)}" value="${g.reserve}"></td><td>${allocationMode==='fixed'?`<select data-field="prefix" aria-label="Prefijo de ${htmlEscape(g.name)}">${Array.from({length:15},(_,j)=>16+j).map(p=>`<option value="${p}" ${g.prefix===p?'selected':''}>/${p}</option>`).join('')}</select>`:'<span class="badge">Auto</span>'}</td><td><button class="btn" type="button" data-remove="${i}" aria-label="Eliminar ${htmlEscape(g.name)}">×</button></td></tr>`).join('');}
+function renderInputs(){$('group-rows').innerHTML=groups.map((g,i)=>{const name=groupName(g),label=field=>htmlEscape(t('fieldFor',{field,name}));return `<tr data-index="${i}"><td><input class="name-input" type="text" data-field="name" aria-label="${t('groupName',{n:i+1})}" value="${htmlEscape(name)}"></td><td><input type="number" min="1" max="4094" data-field="vlan" aria-label="${label('VLAN')}" value="${g.vlan}"></td><td><input type="number" min="0" max="65534" data-field="devices" aria-label="${label(t('interfaces'))}" value="${g.devices}"></td><td><select data-field="gw" aria-label="${label('Gateway')}"><option value="1" ${g.gw===1?'selected':''}>1</option><option value="0" ${g.gw===0?'selected':''}>0</option></select></td><td><input type="number" min="0" max="65534" data-field="reserve" aria-label="${label(t('reserve'))}" value="${g.reserve}"></td><td>${allocationMode==='fixed'?`<select data-field="prefix" aria-label="${label(t('prefix'))}">${Array.from({length:15},(_,j)=>16+j).map(p=>`<option value="${p}" ${g.prefix===p?'selected':''}>/${p}</option>`).join('')}</select>`:'<span class="badge">Auto</span>'}</td><td><button class="btn" type="button" data-remove="${i}" aria-label="${htmlEscape(t('remove',{name}))}">×</button></td></tr>`;}).join('');}
 function switchMode(mode){allocationMode=mode;$('btn-fixed').classList.toggle('on',mode==='fixed');$('btn-min').classList.toggle('on',mode==='auto');renderInputs();drawPlan();}
 $('btn-fixed').addEventListener('click',()=>switchMode('fixed'));$('btn-min').addEventListener('click',()=>switchMode('auto'));
-$('group-rows').addEventListener('input',e=>{const tr=e.target.closest('tr[data-index]');if(!tr)return;const i=Number(tr.dataset.index),key=e.target.dataset.field;if(!key||!groups[i])return;if(key==='name'){groups[i][key]=e.target.value;}else{groups[i][key]=e.target.value===''?NaN:Number(e.target.value);}drawPlan();});
+$('group-rows').addEventListener('input',e=>{const tr=e.target.closest('tr[data-index]');if(!tr)return;const i=Number(tr.dataset.index),key=e.target.dataset.field;if(!key||!groups[i])return;if(key==='name'){groups[i][key]=e.target.value;delete groups[i].nameKey;}else{groups[i][key]=e.target.value===''?NaN:Number(e.target.value);}drawPlan();});
 $('group-rows').addEventListener('change',e=>{const tr=e.target.closest('tr[data-index]');if(!tr)return;const i=Number(tr.dataset.index),key=e.target.dataset.field;if(!key||!groups[i])return;if(key!=='name')groups[i][key]=e.target.value===''?NaN:Number(e.target.value);drawPlan();});
 $('group-rows').addEventListener('click',e=>{const b=e.target.closest('[data-remove]');if(!b)return;groups.splice(Number(b.dataset.remove),1);renderInputs();drawPlan();});
-$('btn-add').addEventListener('click',()=>{groups.push({name:'Nuevo grupo',vlan:groups.length?Math.max(...groups.map(g=>g.vlan||0))+10:10,devices:1,gw:1,reserve:0,prefix:29});renderInputs();drawPlan();});
+$('btn-add').addEventListener('click',()=>{groups.push({name:'Nuevo grupo',nameKey:'newGroup',vlan:groups.length?Math.max(...groups.map(g=>g.vlan||0))+10:10,devices:1,gw:1,reserve:0,prefix:29});renderInputs();drawPlan();});
 $('btn-reset').addEventListener('click',()=>{groups=defaults.map(g=>({...g}));$('base-network').value='192.168.10.0';$('base-prefix').value='24';switchMode('fixed');});
 $('base-network').addEventListener('input',drawPlan);$('base-prefix').addEventListener('change',drawPlan);
 function drawPlan(){lastResults=[];const ip=parseIPv4($('base-network').value),basePrefix=Number($('base-prefix').value),alert=$('plan-alert');let errs=[];
 const empty=()=>{$('summary-kpis').innerHTML='';$('allocation-graphic').innerHTML='';$('allocation-legend').innerHTML='';$('result-rows').innerHTML='';$('reasons').innerHTML='';};
-if(ip===null){alert.classList.remove('hidden');alert.textContent='Dirección principal incorrecta: introduce una IPv4 válida.';empty();return;}
+if(ip===null){alert.classList.remove('hidden');alert.textContent=t('invalidBase');empty();return;}
 const base=netAt(ip,basePrefix),baseSize=blockSize(basePrefix),upper=base+baseSize-1;let cursor=base,assigned=0,actuallyUsed=0,segments=[];
-if(ip!==base)errs.push(`La dirección base se ha alineado al principio del bloque /${basePrefix}: ${toIP(base)}.`);
-const validVLANs=groups.map(g=>g.vlan);if(new Set(validVLANs).size!==validVLANs.length)errs.push('Hay números de VLAN repetidos. Deben ser únicos.');
+if(ip!==base)errs.push(t('aligned',{p:basePrefix,ip:toIP(base)}));
+const validVLANs=groups.map(g=>g.vlan);if(new Set(validVLANs).size!==validVLANs.length)errs.push(t('duplicateVLAN'));
 let ordered=groups.map((g,index)=>({g,index}));
 if(allocationMode==='auto'){ordered.sort((a,b)=>{const needA=a.g.devices+a.g.gw+a.g.reserve,needB=b.g.devices+b.g.gw+b.g.reserve;return needB-needA||a.index-b.index;});}
 for(const {g,index} of ordered){
-if(!g.name.trim()){errs.push(`Grupo ${index+1}: falta el nombre.`);continue;}
-const vlds=[g.vlan,g.devices,g.gw,g.reserve];if(vlds.some(n=>!Number.isSafeInteger(n))||g.vlan<1||g.vlan>4094||g.devices<0||g.gw<0||g.gw>1||g.reserve<0){errs.push(`${g.name}: revisa los números introducidos.`);continue;}
+const name=groupName(g);
+if(!name.trim()){errs.push(t('missingName',{n:index+1}));continue;}
+const vlds=[g.vlan,g.devices,g.gw,g.reserve];if(vlds.some(n=>!Number.isSafeInteger(n))||g.vlan<1||g.vlan>4094||g.devices<0||g.gw<0||g.gw>1||g.reserve<0){errs.push(t('invalidNumbers',{name}));continue;}
 const needed=g.devices+g.gw+g.reserve,active=g.devices+g.gw;
 const minimal=minPrefix(needed,basePrefix),p=allocationMode==='fixed'?g.prefix:minimal;
-if(minimal===null){errs.push(`${g.name}: el bloque base es demasiado pequeño.`);continue;}
-if(!Number.isInteger(p)||p<basePrefix||p>30||useable(p)<needed){errs.push(`${g.name}: /${p} no tiene suficientes direcciones. Necesitas ${needed}; /${minimal} sería el prefijo mínimo posible dentro del bloque.`);continue;}
+if(minimal===null){errs.push(t('smallBase',{name}));continue;}
+if(!Number.isInteger(p)||p<basePrefix||p>30||useable(p)<needed){errs.push(t('insufficient',{name,p,needed,min:minimal}));continue;}
 const size=blockSize(p),start=Math.ceil(cursor/size)*size,last=start+size-1;
-if(last>upper){errs.push(`${g.name}: no cabe en ${toIP(base)}/${basePrefix}. Amplía la red principal o reduce reservas.`);continue;}
+if(last>upper){errs.push(t('doesNotFit',{name,ip:toIP(base),p:basePrefix}));continue;}
 if(start>cursor)segments.push({start:cursor,last:start-1,skip:true});
 segments.push({start,last,index,group:g});
 lastResults.push({g,index,p,start,last,usable:useable(p),needed,active,free:useable(p)-active,minimal});
 assigned+=size;actuallyUsed+=active;cursor=last+1;
 }
 if(errs.length){alert.classList.remove('hidden');alert.innerHTML=errs.map(htmlEscape).join('<br>');}else alert.classList.add('hidden');
-$('summary-kpis').innerHTML=`<span>Red: ${toIP(base)}/${basePrefix}</span><span>${numericFormat(baseSize)} IP totales</span><span>${numericFormat(assigned)} IP asignadas a subredes</span><span>${numericFormat(actuallyUsed)} IP previstas en uso</span><span>${numericFormat(baseSize-assigned)} IP sin asignar</span>`;
-$('allocation-graphic').innerHTML=segments.map(s=>{const left=((s.start-base)/baseSize)*100,width=((s.last-s.start+1)/baseSize)*100,color=s.skip?'#b0bdca':palette[s.index%palette.length],label=s.skip?'Hueco':s.group.name;return `<div class="baritem" style="left:${left}%;width:${width}%;background:${color}" title="${htmlEscape(label)} · ${toIP(s.start)} - ${toIP(s.last)}">${width>8?htmlEscape(label):''}</div>`;}).join('');
-$('allocation-legend').innerHTML=lastResults.map(r=>`<span><span class="swatch" style="background:${palette[r.index%palette.length]}"></span>${htmlEscape(r.g.name)} /${r.p}</span>`).join('');
-$('result-rows').innerHTML=lastResults.length?lastResults.map(r=>`<tr><td><strong>${htmlEscape(r.g.name)}</strong><br><span class="help">VLAN ${r.g.vlan}</span></td><td><strong>${toIP(r.start)}/${r.p}</strong></td><td>${netmask(r.p)}</td><td>${r.usable}</td><td>${toIP(r.start+1)}</td><td>${toIP(r.last-1)}</td><td>${toIP(r.last)}</td><td>${r.free}</td></tr>`).join(''):'<tr><td colspan="8">Todavía no hay resultados válidos.</td></tr>';
-$('reasons').innerHTML=lastResults.map(r=>{const smaller=r.minimal<30?`Una /${r.minimal+1} solo ofrece ${useable(r.minimal+1)} hosts útiles.`:'Ya se utiliza la subred convencional más pequeña, /30.';const why=r.p===r.minimal?'Se está usando la máscara mínima necesaria.':`Se mantiene /${r.p} para disponer de más espacio que el mínimo /${r.minimal}.`;return `<div class="reason"><strong>${htmlEscape(r.g.name)} — ${toIP(r.start)}/${r.p}</strong><br><span class="small">${r.g.devices} IP de interfaces + ${r.g.gw} gateway + ${r.g.reserve} reservadas = <b>${r.needed} direcciones necesarias</b>.<br>/${r.p} tiene <b>${r.usable} hosts utilizables</b>. ${smaller} ${why}<br>Quedan <b>${r.free}</b> IP sin asignar a dispositivos (incluida la reserva prevista).</span></div>`;}).join('');
+$('summary-kpis').innerHTML=t('summary',{ip:toIP(base),p:basePrefix,size:numericFormat(baseSize),assigned:numericFormat(assigned),used:numericFormat(actuallyUsed),free:numericFormat(baseSize-assigned)});
+$('allocation-graphic').innerHTML=segments.map(s=>{const left=((s.start-base)/baseSize)*100,width=((s.last-s.start+1)/baseSize)*100,color=s.skip?'#b0bdca':palette[s.index%palette.length],label=s.skip?t('gap'):groupName(s.group);return `<div class="baritem" style="left:${left}%;width:${width}%;background:${color}" title="${htmlEscape(label)} · ${toIP(s.start)} - ${toIP(s.last)}">${width>8?htmlEscape(label):''}</div>`;}).join('');
+$('allocation-legend').innerHTML=lastResults.map(r=>`<span><span class="swatch" style="background:${palette[r.index%palette.length]}"></span>${htmlEscape(groupName(r.g))} /${r.p}</span>`).join('');
+$('result-rows').innerHTML=lastResults.length?lastResults.map(r=>`<tr><td><strong>${htmlEscape(groupName(r.g))}</strong><br><span class="help">VLAN ${r.g.vlan}</span></td><td><strong>${toIP(r.start)}/${r.p}</strong></td><td>${netmask(r.p)}</td><td>${r.usable}</td><td>${toIP(r.start+1)}</td><td>${toIP(r.last-1)}</td><td>${toIP(r.last)}</td><td>${r.free}</td></tr>`).join(''):`<tr><td colspan="8">${t('noResults')}</td></tr>`;
+$('reasons').innerHTML=lastResults.map(r=>{const smaller=r.minimal<30?t('smaller',{p:r.minimal+1,hosts:useable(r.minimal+1)}):t('smallest');const why=r.p===r.minimal?t('minimal'):t('kept',{p:r.p,min:r.minimal});return `<div class="reason"><strong>${htmlEscape(groupName(r.g))} — ${toIP(r.start)}/${r.p}</strong><br><span class="small">${t('reason',{devices:r.g.devices,gw:r.g.gw,reserve:r.g.reserve,needed:r.needed,p:r.p,usable:r.usable,smaller,why,free:r.free})}</span></div>`;}).join('');
 }
-function tableData(){return [['Grupo','VLAN','Subred','Máscara','Hosts útiles','Primer host','Último host','Broadcast','IP libres'],...lastResults.map(r=>[r.g.name,r.g.vlan,toIP(r.start)+'/'+r.p,netmask(r.p),r.usable,toIP(r.start+1),toIP(r.last-1),toIP(r.last),r.free])];}
-$('copy-table').addEventListener('click',async()=>{const txt=tableData().map(a=>a.join('\t')).join('\n');try{await navigator.clipboard.writeText(txt);$('export-state').textContent='Tabla copiada.';}catch(e){$('export-state').textContent='No se pudo copiar desde este navegador. Usa el CSV.';}});
-$('export-csv').addEventListener('click',()=>{if(!lastResults.length){$('export-state').textContent='No hay resultados que exportar.';return;}const csv='\uFEFF'+tableData().map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='subredes_empresa.csv';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);$('export-state').textContent='CSV descargado.';});
-drawBasic();renderInputs();drawPlan();
+function tableData(){return [[t('group'),'VLAN',t('subnet'),t('mask'),t('usefulHosts'),t('firstHost'),t('lastHost'),'Broadcast',t('freeIPs')],...lastResults.map(r=>[groupName(r.g),r.g.vlan,toIP(r.start)+'/'+r.p,netmask(r.p),r.usable,toIP(r.start+1),toIP(r.last-1),toIP(r.last),r.free])];}
+function exportStatus(key){$('export-state').dataset.message=key;$('export-state').textContent=t(key);}
+$('copy-table').addEventListener('click',async()=>{const txt=tableData().map(a=>a.join('\t')).join('\n');try{await navigator.clipboard.writeText(txt);exportStatus('copied');}catch(e){exportStatus('copyFailed');}});
+$('export-csv').addEventListener('click',()=>{if(!lastResults.length){exportStatus('nothingToExport');return;}const csv='\uFEFF'+tableData().map(row=>row.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='subredes_empresa.csv';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);exportStatus('downloaded');});
+setLang('es');
 })();
 </script>
 </body>
